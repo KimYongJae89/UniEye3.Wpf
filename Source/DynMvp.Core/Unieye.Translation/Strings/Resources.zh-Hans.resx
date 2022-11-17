@@ -1,0 +1,2190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCENT" xml:space="preserve">
+    <value>强调</value>
+  </data>
+  <data name="ACCEPT" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="ADD" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="COMMON" xml:space="preserve">
+    <value>共同</value>
+  </data>
+  <data name="DESCRIPTION" xml:space="preserve">
+    <value>描写</value>
+  </data>
+  <data name="GRAB" xml:space="preserve">
+    <value>摄影</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="INSPECT" xml:space="preserve">
+    <value>检测</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="LIST" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="MODEL" xml:space="preserve">
+    <value>型号</value>
+  </data>
+  <data name="MODELWINDOW_ERROR" xml:space="preserve">
+    <value>名称必填</value>
+  </data>
+  <data name="MODIFIED" xml:space="preserve">
+    <value>更改日</value>
+  </data>
+  <data name="MODIFIED_DATE" xml:space="preserve">
+    <value>更改日</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="PARAM" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="REGISTERED" xml:space="preserve">
+    <value>注册日</value>
+  </data>
+  <data name="REGISTERED_DATE" xml:space="preserve">
+    <value>注册日</value>
+  </data>
+  <data name="REGISTRATION_DATE" xml:space="preserve">
+    <value>注册日</value>
+  </data>
+  <data name="REMOVE" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="REPORT" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="SELECT" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="SELECT_MODEL" xml:space="preserve">
+    <value>型号选择</value>
+  </data>
+  <data name="MODEL_SEARCH" xml:space="preserve">
+    <value>型号搜索</value>
+  </data>
+  <data name="MODEL_INFO" xml:space="preserve">
+    <value>型号信息</value>
+  </data>
+  <data name="SETTING" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="THEME" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="DEVELOPER" xml:space="preserve">
+    <value>开发员</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>总计</value>
+  </data>
+  <data name="EACH" xml:space="preserve">
+    <value>个别</value>
+  </data>
+  <data name="SEARCH" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="CLEAR" xml:space="preserve">
+    <value>初始化</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="COATING" xml:space="preserve">
+    <value>涂层</value>
+  </data>
+  <data name="SLITTER" xml:space="preserve">
+    <value>纵切机</value>
+  </data>
+  <data name="CHART" xml:space="preserve">
+    <value>图表</value>
+  </data>
+  <data name="IMAGE" xml:space="preserve">
+    <value>图像</value>
+  </data>
+  <data name="SPEC" xml:space="preserve">
+    <value>性能.</value>
+  </data>
+  <data name="EXCEL_EXPORT" xml:space="preserve">
+    <value>保存为Excel格式</value>
+  </data>
+  <data name="CUSTOM_SETTINGS" xml:space="preserve">
+    <value>自订设定</value>
+  </data>
+  <data name="COUNT_BY_SIZE" xml:space="preserve">
+    <value>每个尺寸的数量</value>
+  </data>
+  <data name="AXISHANDLER" xml:space="preserve">
+    <value>轴控制</value>
+  </data>
+  <data name="RESOLUTION" xml:space="preserve">
+    <value>分辨率</value>
+  </data>
+  <data name="AXIS_INDEX" xml:space="preserve">
+    <value>轴号</value>
+  </data>
+  <data name="MOVE_VELOCITY" xml:space="preserve">
+    <value>移动速度</value>
+  </data>
+  <data name="GRAB_VELOCITY" xml:space="preserve">
+    <value>摄像速度</value>
+  </data>
+  <data name="MIN_Y" xml:space="preserve">
+    <value>Y 最小值</value>
+  </data>
+  <data name="MAX_Y" xml:space="preserve">
+    <value>Y 最大值</value>
+  </data>
+  <data name="IMAGE_RESIZE_RATIO" xml:space="preserve">
+    <value>图像尺寸调整比例</value>
+  </data>
+  <data name="CAMERA" xml:space="preserve">
+    <value>相机</value>
+  </data>
+  <data name="TRIGGER_PORT" xml:space="preserve">
+    <value>触发端口</value>
+  </data>
+  <data name="SCAN_DIRECTION" xml:space="preserve">
+    <value>扫描方向</value>
+  </data>
+  <data name="START" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="END" xml:space="preserve">
+    <value>结束</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="MACHINE" xml:space="preserve">
+    <value>设备</value>
+  </data>
+  <data name="GLASS" xml:space="preserve">
+    <value>玻璃面</value>
+  </data>
+  <data name="DEFECT_LIST" xml:space="preserve">
+    <value>缺陷列表</value>
+  </data>
+  <data name="COUNT_BY_SECTION" xml:space="preserve">
+    <value>每个部分的数量</value>
+  </data>
+  <data name="PARAMETER" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="CALIBRATION" xml:space="preserve">
+    <value>校准</value>
+  </data>
+  <data name="DOORLOCK" xml:space="preserve">
+    <value>锁门</value>
+  </data>
+  <data name="LIGHT" xml:space="preserve">
+    <value>照明</value>
+  </data>
+  <data name="LOT_NO" xml:space="preserve">
+    <value>批号</value>
+  </data>
+  <data name="UNLOCKDOOR" xml:space="preserve">
+    <value>解锁门</value>
+  </data>
+  <data name="SUMMARY" xml:space="preserve">
+    <value>概要</value>
+  </data>
+  <data name="COATING_DEVICE" xml:space="preserve">
+    <value>涂层设备</value>
+  </data>
+  <data name="COATING_NO" xml:space="preserve">
+    <value>涂层号</value>
+  </data>
+  <data name="LOAD" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="SECTION_LIST" xml:space="preserve">
+    <value>分组列表</value>
+  </data>
+  <data name="SIZE_LIST" xml:space="preserve">
+    <value>尺寸表</value>
+  </data>
+  <data name="SLITTER_DEVICE" xml:space="preserve">
+    <value>纵切机</value>
+  </data>
+  <data name="SLITTER_LANE" xml:space="preserve">
+    <value>纵切路</value>
+  </data>
+  <data name="SLITTER_NO" xml:space="preserve">
+    <value>纵切机号</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="ALGORITHM" xml:space="preserve">
+    <value>算法</value>
+  </data>
+  <data name="DEVICE" xml:space="preserve">
+    <value>装置</value>
+  </data>
+  <data name="ETC" xml:space="preserve">
+    <value>其他设置</value>
+  </data>
+  <data name="INIT" xml:space="preserve">
+    <value>初始化</value>
+  </data>
+  <data name="STARTUP" xml:space="preserve">
+    <value>驱动中</value>
+  </data>
+  <data name="UI" xml:space="preserve">
+    <value>用户界面</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="TOWER_LAMP" xml:space="preserve">
+    <value>塔灯</value>
+  </data>
+  <data name="COPY" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="MODIFY" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="TEACH" xml:space="preserve">
+    <value>训练</value>
+  </data>
+  <data name="EXPORT" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="STOP" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="CUSTOM_SETTING" xml:space="preserve">
+    <value>自订设定</value>
+  </data>
+  <data name="LAYOUT" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="SWITCH_USER" xml:space="preserve">
+    <value>切换用户</value>
+  </data>
+  <data name="SWITCH_SCREEN" xml:space="preserve">
+    <value>切换界面</value>
+  </data>
+  <data name="LAYERPARAM" xml:space="preserve">
+    <value>图层参数</value>
+  </data>
+  <data name="SENSOR" xml:space="preserve">
+    <value>传感器</value>
+  </data>
+  <data name="WIDTH" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="HOLD" xml:space="preserve">
+    <value>暂停</value>
+  </data>
+  <data name="EDIT" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="LOAD_DATABASE" xml:space="preserve">
+    <value>导入数据库</value>
+  </data>
+  <data name="SAVE_THE_CONFIGURATION_FILE" xml:space="preserve">
+    <value>设置文件保存</value>
+  </data>
+  <data name="AREA_MM2" xml:space="preserve">
+    <value>面积[㎟]</value>
+  </data>
+  <data name="COMMUNICATION" xml:space="preserve">
+    <value>通讯</value>
+  </data>
+  <data name="COUNT" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="DATABASE" xml:space="preserve">
+    <value>数据库</value>
+  </data>
+  <data name="PATTERN_LENGTH_INSPECT" xml:space="preserve">
+    <value>图案长度检测</value>
+  </data>
+  <data name="DEFECT_MAP" xml:space="preserve">
+    <value>缺陷图</value>
+  </data>
+  <data name="DEFECT_SIZE" xml:space="preserve">
+    <value>缺陷尺寸</value>
+  </data>
+  <data name="DEFECT_TYPE" xml:space="preserve">
+    <value>缺陷类型</value>
+  </data>
+  <data name="ENABLE_AUTO_LOT_NO" xml:space="preserve">
+    <value>自动批号激活</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>结束日</value>
+  </data>
+  <data name="FORMAT" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="HEIGHT_MM" xml:space="preserve">
+    <value>高度[㎜]</value>
+  </data>
+  <data name="HOURLY_NUMBER_OF_DEFECTS" xml:space="preserve">
+    <value>每时间的缺陷数量</value>
+  </data>
+  <data name="INFORMATION" xml:space="preserve">
+    <value>资讯</value>
+  </data>
+  <data name="IP_ADDRESS" xml:space="preserve">
+    <value>IP 地址</value>
+  </data>
+  <data name="LENGTH_M" xml:space="preserve">
+    <value>长度[m]</value>
+  </data>
+  <data name="MODULE" xml:space="preserve">
+    <value>模块</value>
+  </data>
+  <data name="PORT" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="POSITION_MM" xml:space="preserve">
+    <value>位置[㎜]</value>
+  </data>
+  <data name="POSX_MM" xml:space="preserve">
+    <value>X 坐标[㎜]</value>
+  </data>
+  <data name="POSY_M" xml:space="preserve">
+    <value>Y 坐标[m]</value>
+  </data>
+  <data name="RESULT" xml:space="preserve">
+    <value>结果</value>
+  </data>
+  <data name="SAVE_RESULT" xml:space="preserve">
+    <value>结果保存</value>
+  </data>
+  <data name="SCAN" xml:space="preserve">
+    <value>扫描</value>
+  </data>
+  <data name="SEARCH_OPTION" xml:space="preserve">
+    <value>搜索选项</value>
+  </data>
+  <data name="SHOW_ALL_RESULT" xml:space="preserve">
+    <value>所有的结果查看</value>
+  </data>
+  <data name="SHOW_DETAIL_VIEW" xml:space="preserve">
+    <value>详细结果窗查看</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>开始日</value>
+  </data>
+  <data name="THUMBNAIL" xml:space="preserve">
+    <value>缩略图</value>
+  </data>
+  <data name="TIME" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="WIDTH_MM" xml:space="preserve">
+    <value>宽度[㎜]</value>
+  </data>
+  <data name="PATH" xml:space="preserve">
+    <value>路径</value>
+  </data>
+  <data name="APPLY" xml:space="preserve">
+    <value>适用</value>
+  </data>
+  <data name="CATEGORY_LIST" xml:space="preserve">
+    <value>类别列表</value>
+  </data>
+  <data name="COLOR" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="DEFECT_CATEGORY" xml:space="preserve">
+    <value>缺陷类别</value>
+  </data>
+  <data name="DEFECT_SKIP" xml:space="preserve">
+    <value>跳过缺陷</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DISTANCE" xml:space="preserve">
+    <value>距离</value>
+  </data>
+  <data name="EDGE_MM" xml:space="preserve">
+    <value>边缘[㎜]</value>
+  </data>
+  <data name="FIGURE" xml:space="preserve">
+    <value>图形</value>
+  </data>
+  <data name="HEIGHT_UM" xml:space="preserve">
+    <value>高度[㎛]</value>
+  </data>
+  <data name="LOWER" xml:space="preserve">
+    <value>以下</value>
+  </data>
+  <data name="TO_DOWN" xml:space="preserve">
+    <value>向下</value>
+  </data>
+  <data name="TO_UP" xml:space="preserve">
+    <value>向上</value>
+  </data>
+  <data name="UPPER" xml:space="preserve">
+    <value>以上</value>
+  </data>
+  <data name="WARNING_LEVEL" xml:space="preserve">
+    <value>警告等级</value>
+  </data>
+  <data name="WIDTH_UM" xml:space="preserve">
+    <value>宽度[㎛]</value>
+  </data>
+  <data name="CONNECT" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="REFRESH" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="DISCONNECT" xml:space="preserve">
+    <value>解除连接</value>
+  </data>
+  <data name="REFERENCE" xml:space="preserve">
+    <value>参考</value>
+  </data>
+  <data name="BACKGROUND" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="BASE_ANGLE" xml:space="preserve">
+    <value>基本角度</value>
+  </data>
+  <data name="ROTATE_ANGLE" xml:space="preserve">
+    <value>旋转角度</value>
+  </data>
+  <data name="BRIGHTNESS" xml:space="preserve">
+    <value>亮度值</value>
+  </data>
+  <data name="CAMERA_NO" xml:space="preserve">
+    <value>相机号</value>
+  </data>
+  <data name="SORT" xml:space="preserve">
+    <value>排列</value>
+  </data>
+  <data name="DEFECTLIST" xml:space="preserve">
+    <value>缺陷列表</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>载入中</value>
+  </data>
+  <data name="AVG_GV" xml:space="preserve">
+    <value>平均亮度</value>
+  </data>
+  <data name="MAX_GV" xml:space="preserve">
+    <value>最大亮度</value>
+  </data>
+  <data name="MIN_GV" xml:space="preserve">
+    <value>最小亮度</value>
+  </data>
+  <data name="CATEGORY_TYPE_EDIT" xml:space="preserve">
+    <value>缺陷类型更改</value>
+  </data>
+  <data name="RAW" xml:space="preserve">
+    <value>加工前</value>
+  </data>
+  <data name="PROCESSING" xml:space="preserve">
+    <value>加工后</value>
+  </data>
+  <data name="EXCUTING" xml:space="preserve">
+    <value>执行中</value>
+  </data>
+  <data name="COMPLETE" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="FINISH" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="CALIBRATION_LIGHT" xml:space="preserve">
+    <value>照明校准</value>
+  </data>
+  <data name="LIGHT_CALIBRATION_PROCESS" xml:space="preserve">
+    <value>照明校准过程</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="EXCUTE_COMMAND" xml:space="preserve">
+    <value>执行命令</value>
+  </data>
+  <data name="AVG_GV(0~255)" xml:space="preserve">
+    <value>平均亮度(0~255)</value>
+  </data>
+  <data name="MAX_GV(0~255)" xml:space="preserve">
+    <value>最大亮度(0~255)</value>
+  </data>
+  <data name="MIN_GV(0~255)" xml:space="preserve">
+    <value>最小亮度(0~255)</value>
+  </data>
+  <data name="NEXT_LOT_NO" xml:space="preserve">
+    <value>下一次批号</value>
+  </data>
+  <data name="SPEED" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="MAXGV" xml:space="preserve">
+    <value>最大亮度</value>
+  </data>
+  <data name="UI_UPDATE_DELAY_MS" xml:space="preserve">
+    <value>界面更新时间[㎳]</value>
+  </data>
+  <data name="CURRENT_SPEED" xml:space="preserve">
+    <value>当前速度</value>
+  </data>
+  <data name="PASS" xml:space="preserve">
+    <value>良品</value>
+  </data>
+  <data name="NG" xml:space="preserve">
+    <value>缺陷</value>
+  </data>
+  <data name="SKIP" xml:space="preserve">
+    <value>跳过</value>
+  </data>
+  <data name="VISION" xml:space="preserve">
+    <value>检测</value>
+  </data>
+  <data name="WIDTH_LOWER" xml:space="preserve">
+    <value>宽度(以下)</value>
+  </data>
+  <data name="HEIGHT_LOWER" xml:space="preserve">
+    <value>高度(以下)</value>
+  </data>
+  <data name="DEFECT_INFO" xml:space="preserve">
+    <value>缺陷信息</value>
+  </data>
+  <data name="ENCODER" xml:space="preserve">
+    <value>编码器</value>
+  </data>
+  <data name="INSPECTION" xml:space="preserve">
+    <value>检测</value>
+  </data>
+  <data name="UNABLE_CONNECT_ENCODER" xml:space="preserve">
+    <value>无法连接编码器</value>
+  </data>
+  <data name="COLUMNS" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="ROWS" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="CONTROL" xml:space="preserve">
+    <value>图表</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="EDIT_CATEGORY_TYPE" xml:space="preserve">
+    <value>类别类型编辑</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="ENCODER_CONNECTION_ERROR" xml:space="preserve">
+    <value>编码器连接出现错误</value>
+  </data>
+  <data name="THICKNESS" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="THICKNESS_TARGET" xml:space="preserve">
+    <value>目标厚度</value>
+  </data>
+  <data name="PET_PARAM_NAME" xml:space="preserve">
+    <value>PET参数名称</value>
+  </data>
+  <data name="SCAN_NAME" xml:space="preserve">
+    <value>扫描名称</value>
+  </data>
+  <data name="SHEET_PARAM_NAME" xml:space="preserve">
+    <value>薄片参数名称</value>
+  </data>
+  <data name="MODEL_PARAMETER" xml:space="preserve">
+    <value>型号参数</value>
+  </data>
+  <data name="MAX_GV_UPPER" xml:space="preserve">
+    <value>最大亮度(以上)</value>
+  </data>
+  <data name="EDGE_LOWER" xml:space="preserve">
+    <value>边缘(以下)</value>
+  </data>
+  <data name="EDGE_UPPER" xml:space="preserve">
+    <value>边缘(以上)</value>
+  </data>
+  <data name="AREA_UPPER" xml:space="preserve">
+    <value>面积(以上)</value>
+  </data>
+  <data name="AREA_LOWER" xml:space="preserve">
+    <value>面积(以下)</value>
+  </data>
+  <data name="MINGVMIN" xml:space="preserve">
+    <value>最小亮度下限</value>
+  </data>
+  <data name="MINGVMAX" xml:space="preserve">
+    <value>最小亮度上限</value>
+  </data>
+  <data name="MAXGVMIN" xml:space="preserve">
+    <value>最大亮度下限</value>
+  </data>
+  <data name="MAXGVMAX" xml:space="preserve">
+    <value>最大亮度上限</value>
+  </data>
+  <data name="WIDTH_UPPER" xml:space="preserve">
+    <value>宽度(以上)</value>
+  </data>
+  <data name="HEIGHTMAX" xml:space="preserve">
+    <value>高度上限</value>
+  </data>
+  <data name="HEIGHTMIN" xml:space="preserve">
+    <value>高度下限</value>
+  </data>
+  <data name="COLUMN" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="ROW" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="SPAN" xml:space="preserve">
+    <value>拉长</value>
+  </data>
+  <data name="TRIANGLE" xml:space="preserve">
+    <value>三角形</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>毫无</value>
+  </data>
+  <data name="SQUARE" xml:space="preserve">
+    <value>四角形</value>
+  </data>
+  <data name="CIRCLE" xml:space="preserve">
+    <value>圆形</value>
+  </data>
+  <data name="CROSS" xml:space="preserve">
+    <value>十字形</value>
+  </data>
+  <data name="DIAMOND" xml:space="preserve">
+    <value>菱形</value>
+  </data>
+  <data name="DUST" xml:space="preserve">
+    <value>异物</value>
+  </data>
+  <data name="HOLE" xml:space="preserve">
+    <value>针孔</value>
+  </data>
+  <data name="SIZE_UM" xml:space="preserve">
+    <value>尺寸[㎛]</value>
+  </data>
+  <data name="OTHERS" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="DEFECT_INFORMATION" xml:space="preserve">
+    <value>缺陷信息</value>
+  </data>
+  <data name="ASCENDING" xml:space="preserve">
+    <value>升序</value>
+  </data>
+  <data name="DESCENDING" xml:space="preserve">
+    <value>降序</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>英文</value>
+  </data>
+  <data name="KOREAN" xml:space="preserve">
+    <value>韩文</value>
+  </data>
+  <data name="CHINESE_SIMPLED" xml:space="preserve">
+    <value>中文（简体）</value>
+  </data>
+  <data name="OPEN" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="NO_RESULTS_FOUND" xml:space="preserve">
+    <value>没有搜索结果</value>
+  </data>
+  <data name="DEFECT_NO" xml:space="preserve">
+    <value>缺陷号</value>
+  </data>
+  <data name="SCAN_NO" xml:space="preserve">
+    <value>扫描号</value>
+  </data>
+  <data name="START_TIME" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="END_TIME" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="SPECIFICITY_1" xml:space="preserve">
+    <value>特性 1</value>
+  </data>
+  <data name="SPECIFICITY_2" xml:space="preserve">
+    <value>特性 2</value>
+  </data>
+  <data name="PLC_TYPE" xml:space="preserve">
+    <value>PLC 种类</value>
+  </data>
+  <data name="PREV" xml:space="preserve">
+    <value>上一个</value>
+  </data>
+  <data name="NEXT" xml:space="preserve">
+    <value>下一个</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="FAILED_TO_OPEN_MODEL" xml:space="preserve">
+    <value>型号打开失败</value>
+  </data>
+  <data name="NOTIFICATION" xml:space="preserve">
+    <value>告示</value>
+  </data>
+  <data name="HOURLY_NUMBER_OF_RESULTS" xml:space="preserve">
+    <value>每时间的缺陷频度数</value>
+  </data>
+  <data name="HOUR" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="UNIT" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>价值</value>
+  </data>
+  <data name="YIELD" xml:space="preserve">
+    <value>收率</value>
+  </data>
+  <data name="MAX_GV_LOWER" xml:space="preserve">
+    <value>最大亮度(以下)</value>
+  </data>
+  <data name="MIN_GV_LOWER" xml:space="preserve">
+    <value>最小亮度(以下)</value>
+  </data>
+  <data name="MIN_GV_UPPER" xml:space="preserve">
+    <value>最小亮度(以上)</value>
+  </data>
+  <data name="AVG_GV_LOWER" xml:space="preserve">
+    <value>平均亮度(以下)</value>
+  </data>
+  <data name="AVG_GV_UPPER" xml:space="preserve">
+    <value>平均亮度(以上)</value>
+  </data>
+  <data name="HEIGHT_UPPER" xml:space="preserve">
+    <value>高度(以上)</value>
+  </data>
+  <data name="DEFECT_OCCURRED_MESSAGE" xml:space="preserve">
+    <value>出现缺陷</value>
+  </data>
+  <data name="START_DELAY_DISTANCE" xml:space="preserve">
+    <value>起动延迟距离</value>
+  </data>
+  <data name="SHOW_ALARM_WINDOW" xml:space="preserve">
+    <value>显示警报窗</value>
+  </data>
+  <data name="USER_SETTING" xml:space="preserve">
+    <value>用户设置</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="NO1_SENSOR" xml:space="preserve">
+    <value>1. 传感器</value>
+  </data>
+  <data name="DATA_GATHERING_COUNT_PER_SEC" xml:space="preserve">
+    <value>每秒的收集数据个数</value>
+  </data>
+  <data name="DATA_COUNT_FOR_ZERO_SETTING" xml:space="preserve">
+    <value>零点设置数据个数</value>
+  </data>
+  <data name="NO2_CEDMS_GRAPH" xml:space="preserve">
+    <value>2. CEDMS 图标</value>
+  </data>
+  <data name="USE_LINE_STOP" xml:space="preserve">
+    <value>停线使用</value>
+  </data>
+  <data name="LINE_STOP_LOWER_MM" xml:space="preserve">
+    <value>停线下限[㎜]</value>
+  </data>
+  <data name="LINE_STOP_UPPER_MM" xml:space="preserve">
+    <value>停线上限[㎜]</value>
+  </data>
+  <data name="FIND_DEGREE" xml:space="preserve">
+    <value>搜索角度</value>
+  </data>
+  <data name="DEGREE" xml:space="preserve">
+    <value>角度</value>
+  </data>
+  <data name="FIND_EXPOSURE" xml:space="preserve">
+    <value>搜索露出</value>
+  </data>
+  <data name="MODEL_NAME" xml:space="preserve">
+    <value>型号名称</value>
+  </data>
+  <data name="HOMMING" xml:space="preserve">
+    <value>恢复原点</value>
+  </data>
+  <data name="LINE_NO" xml:space="preserve">
+    <value>线号</value>
+  </data>
+  <data name="PRODUCT_NAME" xml:space="preserve">
+    <value>产品名称</value>
+  </data>
+  <data name="EXPOSURE" xml:space="preserve">
+    <value>露出</value>
+  </data>
+  <data name="SIZE_CHECK" xml:space="preserve">
+    <value>尺寸检查</value>
+  </data>
+  <data name="MIN" xml:space="preserve">
+    <value>最小</value>
+  </data>
+  <data name="MEAN" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="MAX" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="MERGE" xml:space="preserve">
+    <value>合并</value>
+  </data>
+  <data name="MIN_SIZE" xml:space="preserve">
+    <value>最小大小</value>
+  </data>
+  <data name="MAX_SIZE" xml:space="preserve">
+    <value>最大大小</value>
+  </data>
+  <data name="MIN_AREA" xml:space="preserve">
+    <value>最小领域</value>
+  </data>
+  <data name="MAX_AREA" xml:space="preserve">
+    <value>最大领域</value>
+  </data>
+  <data name="SOLTANDPAPPER" xml:space="preserve">
+    <value>Solt And Papper</value>
+  </data>
+  <data name="WHITEEXTENSION" xml:space="preserve">
+    <value>白色延长线</value>
+  </data>
+  <data name="UPDWNZRATIOTH" xml:space="preserve">
+    <value>UpdwNZratioTh</value>
+  </data>
+  <data name="MASK_SIZE" xml:space="preserve">
+    <value>遮罩大小</value>
+  </data>
+  <data name="MASK" xml:space="preserve">
+    <value>遮罩</value>
+  </data>
+  <data name="UPPER_BLOB" xml:space="preserve">
+    <value>二进制大对象(以上)</value>
+  </data>
+  <data name="LOWER_BLOB" xml:space="preserve">
+    <value>二进制大对象(以下)</value>
+  </data>
+  <data name="INPUT" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="OUTPUT" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="AIR" xml:space="preserve">
+    <value>空压</value>
+  </data>
+  <data name="ORIGIN" xml:space="preserve">
+    <value>原点</value>
+  </data>
+  <data name="EMERGENCY" xml:space="preserve">
+    <value>紧急情况</value>
+  </data>
+  <data name="RESET" xml:space="preserve">
+    <value>初始化</value>
+  </data>
+  <data name="RED" xml:space="preserve">
+    <value>红色</value>
+  </data>
+  <data name="YELLOW" xml:space="preserve">
+    <value>黄色</value>
+  </data>
+  <data name="GREEN" xml:space="preserve">
+    <value>绿色</value>
+  </data>
+  <data name="BUZZER" xml:space="preserve">
+    <value>蜂鸣器</value>
+  </data>
+  <data name="RED_LAMP" xml:space="preserve">
+    <value>红灯</value>
+  </data>
+  <data name="YELLOW_LAMP" xml:space="preserve">
+    <value>黄灯</value>
+  </data>
+  <data name="GREEN_LAMP" xml:space="preserve">
+    <value>绿灯</value>
+  </data>
+  <data name="RESULT_PATH" xml:space="preserve">
+    <value>结果路径</value>
+  </data>
+  <data name="MOTION" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="MOTION_SETTING" xml:space="preserve">
+    <value>动作设置</value>
+  </data>
+  <data name="MICROSCOPE" xml:space="preserve">
+    <value>显微镜</value>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>输入输出</value>
+  </data>
+  <data name="MANUAL_GRAB" xml:space="preserve">
+    <value>手动抓取</value>
+  </data>
+  <data name="MANUAL" xml:space="preserve">
+    <value>手动</value>
+  </data>
+  <data name="MANUAL_SIZE_CHECK" xml:space="preserve">
+    <value>手动检查</value>
+  </data>
+  <data name="MOVE_ORIGIN" xml:space="preserve">
+    <value>移至原点</value>
+  </data>
+  <data name="AXIS" xml:space="preserve">
+    <value>轴</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="INDEX" xml:space="preserve">
+    <value>号</value>
+  </data>
+  <data name="POSY_MM" xml:space="preserve">
+    <value>Y 坐标[㎜]</value>
+  </data>
+  <data name="PROCESS" xml:space="preserve">
+    <value>进行</value>
+  </data>
+  <data name="MICRO" xml:space="preserve">
+    <value>显微镜</value>
+  </data>
+  <data name="OPERATION" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="POSITION_X" xml:space="preserve">
+    <value>Position X</value>
+  </data>
+  <data name="POSITION_Y" xml:space="preserve">
+    <value>Position Y</value>
+  </data>
+  <data name="FISHEYE" xml:space="preserve">
+    <value>鱼眼缺陷</value>
+  </data>
+  <data name="FISHEYE_LIST" xml:space="preserve">
+    <value>鱼眼缺陷列表</value>
+  </data>
+  <data name="LINE" xml:space="preserve">
+    <value>线</value>
+  </data>
+  <data name="SHEET_NUMBER" xml:space="preserve">
+    <value>薄片数量</value>
+  </data>
+  <data name="INFO" xml:space="preserve">
+    <value>资讯</value>
+  </data>
+  <data name="LOT_LIST" xml:space="preserve">
+    <value>Lot列表</value>
+  </data>
+  <data name="FISHEYE_IMAGE" xml:space="preserve">
+    <value>鱼眼缺陷图像</value>
+  </data>
+  <data name="SHEET_INDEX" xml:space="preserve">
+    <value>薄片号</value>
+  </data>
+  <data name="SHAPE" xml:space="preserve">
+    <value>形态</value>
+  </data>
+  <data name="FISHEYE_TYPE" xml:space="preserve">
+    <value>鱼眼缺陷类型</value>
+  </data>
+  <data name="GRABBER" xml:space="preserve">
+    <value>抓取器</value>
+  </data>
+  <data name="DAQ" xml:space="preserve">
+    <value>DAQ</value>
+  </data>
+  <data name="POSITION" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="NO." xml:space="preserve">
+    <value>号</value>
+  </data>
+  <data name="DEBUGGING" xml:space="preserve">
+    <value>排错</value>
+  </data>
+  <data name="DUMP" xml:space="preserve">
+    <value>转储</value>
+  </data>
+  <data name="LABELMARKER" xml:space="preserve">
+    <value>标签标记</value>
+  </data>
+  <data name="DELAY" xml:space="preserve">
+    <value>延迟</value>
+  </data>
+  <data name="SHEET_SETTING" xml:space="preserve">
+    <value>薄片设置</value>
+  </data>
+  <data name="FILM_WIDTH_MM" xml:space="preserve">
+    <value>薄膜宽度[㎜]</value>
+  </data>
+  <data name="FILM_HEIGHT_MM" xml:space="preserve">
+    <value>薄膜高度[㎜]</value>
+  </data>
+  <data name="PATTERN_MARGIN_X" xml:space="preserve">
+    <value>X轴图案空白</value>
+  </data>
+  <data name="PATTERN_MARGIN_Y" xml:space="preserve">
+    <value>Y轴图案空白</value>
+  </data>
+  <data name="EDGE" xml:space="preserve">
+    <value>边缘</value>
+  </data>
+  <data name="CUSTOMER" xml:space="preserve">
+    <value>客户</value>
+  </data>
+  <data name="USER_INPUT" xml:space="preserve">
+    <value>用户设置</value>
+  </data>
+  <data name="ITEM" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="EXIT_PROGRAM" xml:space="preserve">
+    <value>退出程序</value>
+  </data>
+  <data name="EXIT_PROGRAM_MESSAGE" xml:space="preserve">
+    <value>您确定要退出程序吗？</value>
+  </data>
+  <data name="FILM_WIDTH" xml:space="preserve">
+    <value>薄膜宽度</value>
+  </data>
+  <data name="FILM_HEIGHT" xml:space="preserve">
+    <value>薄膜高度</value>
+  </data>
+  <data name="LIGHT_SETTING" xml:space="preserve">
+    <value>照明设置</value>
+  </data>
+  <data name="AUTO_LIGHT_CALIBRATION" xml:space="preserve">
+    <value>自动照明调整</value>
+  </data>
+  <data name="LIGHT_VALUE" xml:space="preserve">
+    <value>照明值</value>
+  </data>
+  <data name="IMAGE_BASE_LINE" xml:space="preserve">
+    <value>图像基准亮度</value>
+  </data>
+  <data name="IM_NAME" xml:space="preserve">
+    <value>检测组件名称</value>
+  </data>
+  <data name="SEARCH_LIST" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="LOAD_MODEL" xml:space="preserve">
+    <value>导入型号</value>
+  </data>
+  <data name="EXPORT_SEARCH_LIST" xml:space="preserve">
+    <value>导出搜索结果</value>
+  </data>
+  <data name="AQUIRE" xml:space="preserve">
+    <value>获得</value>
+  </data>
+  <data name="IOPORT" xml:space="preserve">
+    <value>输入输出</value>
+  </data>
+  <data name="IOPORT_SETTING" xml:space="preserve">
+    <value>输入输出设置</value>
+  </data>
+  <data name="SHOW_OTHERS_DEFECT" xml:space="preserve">
+    <value>显示未分类缺陷</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="PROPERTY" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="LAYOUT_SETTING" xml:space="preserve">
+    <value>布局设置</value>
+  </data>
+  <data name="INPORT" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="LABEL_RUN" xml:space="preserve">
+    <value>打标机运行</value>
+  </data>
+  <data name="LABEL_ERROR" xml:space="preserve">
+    <value>标签错误</value>
+  </data>
+  <data name="LABEL_EMPTY" xml:space="preserve">
+    <value>标签为空</value>
+  </data>
+  <data name="OUTPORT" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="TOWER_LAMP_RED" xml:space="preserve">
+    <value>塔灯 红色</value>
+  </data>
+  <data name="TOWER_LAMP_YELLOW" xml:space="preserve">
+    <value>塔灯 黄色</value>
+  </data>
+  <data name="TOWER_LAMP_GREEN" xml:space="preserve">
+    <value>塔灯 绿色</value>
+  </data>
+  <data name="TOWER_LAMP_BUZZER" xml:space="preserve">
+    <value>塔灯 蜂鸣器</value>
+  </data>
+  <data name="LABEL_PUBLISH" xml:space="preserve">
+    <value>标签发行</value>
+  </data>
+  <data name="LABEL_RESET" xml:space="preserve">
+    <value>打标机初始化</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>测验</value>
+  </data>
+  <data name="INPUT_PORT" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="PORT_NUM" xml:space="preserve">
+    <value>端口号</value>
+  </data>
+  <data name="PORT_NAME" xml:space="preserve">
+    <value>端口名</value>
+  </data>
+  <data name="PORT_STATUS" xml:space="preserve">
+    <value>端口状态</value>
+  </data>
+  <data name="OUTPUT_PORT" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="IOPORT_STATUS" xml:space="preserve">
+    <value>输入输出状态</value>
+  </data>
+  <data name="USER_LOGIN" xml:space="preserve">
+    <value>用户注册</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="INTERVAL_SETTING" xml:space="preserve">
+    <value>区间设置</value>
+  </data>
+  <data name="DAY" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="1_DAY" xml:space="preserve">
+    <value>1 日</value>
+  </data>
+  <data name="1_WEEK" xml:space="preserve">
+    <value>1 周</value>
+  </data>
+  <data name="1_MONTH" xml:space="preserve">
+    <value>1 月</value>
+  </data>
+  <data name="PRODUCTION_DATE" xml:space="preserve">
+    <value>生产日期</value>
+  </data>
+  <data name="INSPECTION_DATE" xml:space="preserve">
+    <value>检测日期</value>
+  </data>
+  <data name="BUILD" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="PRODUCT" xml:space="preserve">
+    <value>产品</value>
+  </data>
+  <data name="MODEL_LIST" xml:space="preserve">
+    <value>型号列表</value>
+  </data>
+  <data name="RADIUS" xml:space="preserve">
+    <value>半径</value>
+  </data>
+  <data name="REVIEW" xml:space="preserve">
+    <value>检讨</value>
+  </data>
+  <data name="POSX_UM" xml:space="preserve">
+    <value>X 坐标[㎛]</value>
+  </data>
+  <data name="POSY_UM" xml:space="preserve">
+    <value>Y 坐标[㎛]</value>
+  </data>
+  <data name="CANVAS" xml:space="preserve">
+    <value>画布</value>
+  </data>
+  <data name="DEFECT_IMAGE" xml:space="preserve">
+    <value>缺陷图像</value>
+  </data>
+  <data name="SERIAL_NO" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="REPORT_LIST" xml:space="preserve">
+    <value>报告列表</value>
+  </data>
+  <data name="NEW_MODEL" xml:space="preserve">
+    <value>创建型号</value>
+  </data>
+  <data name="COPY_MODEL" xml:space="preserve">
+    <value>型号复制</value>
+  </data>
+  <data name="EDIT_MODEL" xml:space="preserve">
+    <value>型号编辑</value>
+  </data>
+  <data name="MESSAGE" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="MODEL_DELETE_WARNING_MESSAGE" xml:space="preserve">
+    <value>您确定要删除此型号吗？</value>
+  </data>
+  <data name="ALIVE" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="MOVE" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="READY" xml:space="preserve">
+    <value>准备</value>
+  </data>
+  <data name="PLC_ADDRESS" xml:space="preserve">
+    <value>PLC 地址</value>
+  </data>
+  <data name="VIRTUAL" xml:space="preserve">
+    <value>虚拟</value>
+  </data>
+  <data name="SCANEND" xml:space="preserve">
+    <value>扫描结束</value>
+  </data>
+  <data name="RESULTNG" xml:space="preserve">
+    <value>结果 NG</value>
+  </data>
+  <data name="RESULTOK" xml:space="preserve">
+    <value>结果 OK</value>
+  </data>
+  <data name="RECIPECHANGEDONE" xml:space="preserve">
+    <value>配方更改完成</value>
+  </data>
+  <data name="GOOD" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="SHEET_JUDGE" xml:space="preserve">
+    <value>薄片判定</value>
+  </data>
+  <data name="FILM_INFORMATION" xml:space="preserve">
+    <value>薄膜信息</value>
+  </data>
+  <data name="FILM" xml:space="preserve">
+    <value>薄膜</value>
+  </data>
+  <data name="DEFECT_JUDGE" xml:space="preserve">
+    <value>缺陷判定</value>
+  </data>
+  <data name="LOG" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="INSPECT_OPTION" xml:space="preserve">
+    <value>检测选项</value>
+  </data>
+  <data name="STATISTICS" xml:space="preserve">
+    <value>统计</value>
+  </data>
+  <data name="JUDGE" xml:space="preserve">
+    <value>判定</value>
+  </data>
+  <data name="SHEET_INFO" xml:space="preserve">
+    <value>薄片信息</value>
+  </data>
+  <data name="EMG" xml:space="preserve">
+    <value>紧急情况</value>
+  </data>
+  <data name="SUDDENSTOP" xml:space="preserve">
+    <value>紧急停止</value>
+  </data>
+  <data name="WAIT" xml:space="preserve">
+    <value>等待</value>
+  </data>
+  <data name="WAITING" xml:space="preserve">
+    <value>等待中</value>
+  </data>
+  <data name="INSPECTING" xml:space="preserve">
+    <value>正在检测中</value>
+  </data>
+  <data name="IDLE" xml:space="preserve">
+    <value>等待</value>
+  </data>
+  <data name="FILMTYPE" xml:space="preserve">
+    <value>薄膜类型</value>
+  </data>
+  <data name="PREVIEW" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="MINBALLGROUPMAJORAXISSIZE" xml:space="preserve">
+    <value>Ball Group长轴最小大小</value>
+  </data>
+  <data name="MINBLANKAREASIZE" xml:space="preserve">
+    <value>空白领域最小大小</value>
+  </data>
+  <data name="INSPECT_DONE" xml:space="preserve">
+    <value>检测结束</value>
+  </data>
+  <data name="MINDUSTSIZE" xml:space="preserve">
+    <value>最小异物大小</value>
+  </data>
+  <data name="MASK_INSP" xml:space="preserve">
+    <value>遮罩检测</value>
+  </data>
+  <data name="AUTO_INSP" xml:space="preserve">
+    <value>自动检测</value>
+  </data>
+  <data name="SAVE_DATA" xml:space="preserve">
+    <value>保存数据</value>
+  </data>
+  <data name="SAVE_IMAGE" xml:space="preserve">
+    <value>保存图像</value>
+  </data>
+  <data name="MINAREASIZE" xml:space="preserve">
+    <value>最小检出大小</value>
+  </data>
+  <data name="MINMAJORAXISLENGTH" xml:space="preserve">
+    <value>最小长轴长度</value>
+  </data>
+  <data name="MINXAXISLENGTH" xml:space="preserve">
+    <value>检出最小宽度</value>
+  </data>
+  <data name="MINYAXISLENGTH" xml:space="preserve">
+    <value>检出最小高度</value>
+  </data>
+  <data name="DURATION" xml:space="preserve">
+    <value>期间</value>
+  </data>
+  <data name="NUM_DEFECT" xml:space="preserve">
+    <value>缺陷数量</value>
+  </data>
+  <data name="NUM_BALL_DEFECT" xml:space="preserve">
+    <value>球缺陷数量</value>
+  </data>
+  <data name="NUM_DUST_DEFECT" xml:space="preserve">
+    <value>异物缺陷数量</value>
+  </data>
+  <data name="SHEET" xml:space="preserve">
+    <value>薄片</value>
+  </data>
+  <data name="JUDGEMENT" xml:space="preserve">
+    <value>判定</value>
+  </data>
+  <data name="AREA_UM2" xml:space="preserve">
+    <value>面积[u㎡]</value>
+  </data>
+  <data name="DEFECT_POS" xml:space="preserve">
+    <value>缺陷位置</value>
+  </data>
+  <data name="DUST_INSP" xml:space="preserve">
+    <value>异物检测</value>
+  </data>
+  <data name="GRAYVALUE" xml:space="preserve">
+    <value>灰值</value>
+  </data>
+  <data name="CONTRASTVALUE" xml:space="preserve">
+    <value>对比值</value>
+  </data>
+  <data name="PARTICLEAREA" xml:space="preserve">
+    <value>要删除的噪声的最大大小[u㎡]</value>
+  </data>
+  <data name="TABLEGRAYVALUE" xml:space="preserve">
+    <value>多孔板亮度</value>
+  </data>
+  <data name="AUTO_EJECT" xml:space="preserve">
+    <value>自动排除</value>
+  </data>
+  <data name="COLINDEX" xml:space="preserve">
+    <value>列号</value>
+  </data>
+  <data name="ROWINDEX" xml:space="preserve">
+    <value>行号</value>
+  </data>
+  <data name="COL" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="MINMINORAXISLENGTH" xml:space="preserve">
+    <value>最小短轴长度</value>
+  </data>
+  <data name="SIGMAVALUE" xml:space="preserve">
+    <value>检测对象与周边亮度差异(绝对值越大灵敏度越上升)</value>
+  </data>
+  <data name="MAJORLENGTHRATIO" xml:space="preserve">
+    <value>长短轴比</value>
+  </data>
+  <data name="SHEETXOFFSETMM" xml:space="preserve">
+    <value>薄片偏移 X[㎜]</value>
+  </data>
+  <data name="SHEETYOFFSETMM" xml:space="preserve">
+    <value>薄片偏移 Y[㎜]</value>
+  </data>
+  <data name="SHEETXLENGTHUM" xml:space="preserve">
+    <value>薄片长度 X[㎛]</value>
+  </data>
+  <data name="SHEETYLENGTHUM" xml:space="preserve">
+    <value>薄片长度 Y[㎛]</value>
+  </data>
+  <data name="SHEETXLENGTHMM" xml:space="preserve">
+    <value>薄片长度 X[㎜]</value>
+  </data>
+  <data name="SHEETYLENGTHMM" xml:space="preserve">
+    <value>薄片长度 Y[㎜]</value>
+  </data>
+  <data name="SHOWSHEETREGION" xml:space="preserve">
+    <value>显示薄片区域</value>
+  </data>
+  <data name="SHEETWIDTH" xml:space="preserve">
+    <value>薄片宽度[㎜]</value>
+  </data>
+  <data name="SHEETHEIGHT" xml:space="preserve">
+    <value>薄片长度[㎜]</value>
+  </data>
+  <data name="SHEETTHICKNESS" xml:space="preserve">
+    <value>薄片厚度[㎛]</value>
+  </data>
+  <data name="SCANSTARTX" xml:space="preserve">
+    <value>开始扫描 X[mm]</value>
+  </data>
+  <data name="SCANSTARTY" xml:space="preserve">
+    <value>开始扫描 Y[mm]</value>
+  </data>
+  <data name="SCANENDY" xml:space="preserve">
+    <value>扫描结束 Y[mm]</value>
+  </data>
+  <data name="SCANPITCH" xml:space="preserve">
+    <value>扫描节距[mm]</value>
+  </data>
+  <data name="SCANWIDTH" xml:space="preserve">
+    <value>扫描宽度[mm]</value>
+  </data>
+  <data name="SCANCOUNT" xml:space="preserve">
+    <value>扫描个数[EA]</value>
+  </data>
+  <data name="USEOMIT" xml:space="preserve">
+    <value>使用OMIT照明</value>
+  </data>
+  <data name="SHEETXOFFSETUM" xml:space="preserve">
+    <value>薄片偏移 X[㎛]</value>
+  </data>
+  <data name="SHEETYOFFSETUM" xml:space="preserve">
+    <value>薄片偏移 Y[㎛]</value>
+  </data>
+  <data name="LENGTH_UM" xml:space="preserve">
+    <value>长度[㎛]</value>
+  </data>
+  <data name="HIGHSIGMA" xml:space="preserve">
+    <value>检测对象与周边亮度差异(明亮领域)</value>
+  </data>
+  <data name="LOWSIGMA" xml:space="preserve">
+    <value>检测对象与周边亮度差异(阴暗领域)</value>
+  </data>
+  <data name="DUST_GV" xml:space="preserve">
+    <value>异物[GV]</value>
+  </data>
+  <data name="HOLE_GV" xml:space="preserve">
+    <value>针孔[GV]</value>
+  </data>
+  <data name="PATTERN_MARGIN_X_MM" xml:space="preserve">
+    <value>X轴图案空白[㎜]</value>
+  </data>
+  <data name="PATTERN_MARGIN_Y_MM" xml:space="preserve">
+    <value>Y轴图案空白[㎜]</value>
+  </data>
+  <data name="LABEL_READY" xml:space="preserve">
+    <value>打标机准备</value>
+  </data>
+  <data name="TOP_LIGHT_VALUE" xml:space="preserve">
+    <value>上部照明值</value>
+  </data>
+  <data name="BOTTOM_LIGHT_VALUE" xml:space="preserve">
+    <value>下部照明值</value>
+  </data>
+  <data name="IMAGEPERCOLUMN" xml:space="preserve">
+    <value>每行图像个数</value>
+  </data>
+  <data name="DEFECT_OCCURED" xml:space="preserve">
+    <value>出现缺陷</value>
+  </data>
+  <data name="DEFECT_RESET" xml:space="preserve">
+    <value>缺陷重新设置</value>
+  </data>
+  <data name="ALARM" xml:space="preserve">
+    <value>报警</value>
+  </data>
+  <data name="BUZZER_OFF" xml:space="preserve">
+    <value>蜂鸣器关闭</value>
+  </data>
+  <data name="CODE" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="ALARM_CODE" xml:space="preserve">
+    <value>报警码</value>
+  </data>
+  <data name="ALARM_LEVEL" xml:space="preserve">
+    <value>报警级别</value>
+  </data>
+  <data name="ALARM_MESSAGE" xml:space="preserve">
+    <value>报警信息</value>
+  </data>
+  <data name="PROCESS_LENGTH_M" xml:space="preserve">
+    <value>长度[m]</value>
+  </data>
+  <data name="PATTERN_SIZE" xml:space="preserve">
+    <value>图案大小</value>
+  </data>
+  <data name="PATTERN_SIZE_MM" xml:space="preserve">
+    <value>图案大小[㎜]</value>
+  </data>
+  <data name="PATTERN_WIDTH" xml:space="preserve">
+    <value>图案宽度</value>
+  </data>
+  <data name="PATTERN_HEIGHT" xml:space="preserve">
+    <value>图案长度</value>
+  </data>
+  <data name="PATTERN_WIDTH_MM" xml:space="preserve">
+    <value>图案宽度[㎜]</value>
+  </data>
+  <data name="PATTERN_HEIGHT_MM" xml:space="preserve">
+    <value>图案长度[㎜]</value>
+  </data>
+  <data name="DETECT_PARAMETER" xml:space="preserve">
+    <value>检出参数</value>
+  </data>
+  <data name="PATTERN_SETTING" xml:space="preserve">
+    <value>图案设置</value>
+  </data>
+  <data name="DARK_DEFECT_GV" xml:space="preserve">
+    <value>阴暗缺陷[GV]</value>
+  </data>
+  <data name="LIGHT_DEFECT_GV" xml:space="preserve">
+    <value>明亮缺陷[GV]</value>
+  </data>
+  <data name="THRESHOLD_DARK" xml:space="preserve">
+    <value>阴暗边界值</value>
+  </data>
+  <data name="THRESHOLD_LIGHT" xml:space="preserve">
+    <value>明亮边界值</value>
+  </data>
+  <data name="THRESHOLD_SIZE" xml:space="preserve">
+    <value>尺寸边界值</value>
+  </data>
+  <data name="THRESHOLD_SIZE_UM" xml:space="preserve">
+    <value>尺寸边界值 [㎛]</value>
+  </data>
+  <data name="DEFECT_DARK" xml:space="preserve">
+    <value>阴暗缺陷</value>
+  </data>
+  <data name="DEFECT_LIGHT" xml:space="preserve">
+    <value>明亮缺陷</value>
+  </data>
+  <data name="DEFECT_SIZE_UM" xml:space="preserve">
+    <value>缺陷尺寸[㎛]</value>
+  </data>
+  <data name="RUNNING" xml:space="preserve">
+    <value>正在操作中</value>
+  </data>
+  <data name="HEARTBEAT" xml:space="preserve">
+    <value>动作信号</value>
+  </data>
+  <data name="SIGNAL_DURATION" xml:space="preserve">
+    <value>信号持续</value>
+  </data>
+  <data name="SIGNAL_DURATION_TIME" xml:space="preserve">
+    <value>信号持续时间</value>
+  </data>
+  <data name="SAVE_WARNING_MESSAGE" xml:space="preserve">
+    <value>您要保存此型号吗？</value>
+  </data>
+  <data name="MODEL_OVERLAP_MESSAGE" xml:space="preserve">
+    <value>此型号已注册</value>
+  </data>
+  <data name="MODELNAME_WARNING_MESSAGE" xml:space="preserve">
+    <value>不能用作为文件名的符号为 [ /, :, *, ?, &lt;, &gt;, @ ], 替换为 [_]。</value>
+  </data>
+  <data name="DETECT_LENGTH_RANGE_M" xml:space="preserve">
+    <value>检出长度范围[m]</value>
+  </data>
+  <data name="MINGVLOWER" xml:space="preserve">
+    <value>最小亮度(以下)</value>
+  </data>
+  <data name="MINGVUPPER" xml:space="preserve">
+    <value>最小亮度(以上)</value>
+  </data>
+  <data name="MAXGVUPPER" xml:space="preserve">
+    <value>最大亮度(以上)</value>
+  </data>
+  <data name="MAXGVLOWER" xml:space="preserve">
+    <value>最大亮度(以下)</value>
+  </data>
+  <data name="WIDTHLOWER" xml:space="preserve">
+    <value>宽度(以下)</value>
+  </data>
+  <data name="WIDTHUPPER" xml:space="preserve">
+    <value>宽度(以上)</value>
+  </data>
+  <data name="HEIGHTLOWER" xml:space="preserve">
+    <value>高度(以下)</value>
+  </data>
+  <data name="HEIGHTUPPER" xml:space="preserve">
+    <value>高度(以上)</value>
+  </data>
+  <data name="MODEL_NOT_OPEN_MESSAGE" xml:space="preserve">
+    <value>型号未打开</value>
+  </data>
+  <data name="PREVIOUS_VALUE" xml:space="preserve">
+    <value>前值</value>
+  </data>
+  <data name="CURRENT_VALUE" xml:space="preserve">
+    <value>现值</value>
+  </data>
+  <data name="UI_UPDATE_TIME" xml:space="preserve">
+    <value>界面更新时间</value>
+  </data>
+  <data name="INSPECT_SEQUENCE" xml:space="preserve">
+    <value>检测顺序</value>
+  </data>
+  <data name="INSPECT_SEQUENCE_SETTING" xml:space="preserve">
+    <value>检测顺序设置</value>
+  </data>
+  <data name="SEQUENCE_SETTING" xml:space="preserve">
+    <value>顺序设置</value>
+  </data>
+  <data name="USER_NAME" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="USER_INFO" xml:space="preserve">
+    <value>用户信息</value>
+  </data>
+  <data name="USERNAME_MISSING_MESSAGE" xml:space="preserve">
+    <value>账户名必填</value>
+  </data>
+  <data name="PASSWORD_MISSING_MESSAGE" xml:space="preserve">
+    <value>密码必填</value>
+  </data>
+  <data name="PASSWORD_NOT_SUTABLE_MESSAGE" xml:space="preserve">
+    <value>密码必须最少 包括6 个字符。密码必须包含数字，字母，特殊字符。</value>
+  </data>
+  <data name="USERNAME_EXIST_MESSAGE" xml:space="preserve">
+    <value>账户名已存在</value>
+  </data>
+  <data name="USER_DELETE_WARNING_MESSAGE" xml:space="preserve">
+    <value>您要确定删除这个账户吗？</value>
+  </data>
+  <data name="USERINFO_WARNING_MESSAGE" xml:space="preserve">
+    <value>您输入的用户信息不正确</value>
+  </data>
+  <data name="USERAUTHO_WARNING_MESSAGE" xml:space="preserve">
+    <value>您的账户没有权限</value>
+  </data>
+  <data name="AUTHORIZATION" xml:space="preserve">
+    <value>授权</value>
+  </data>
+  <data name="BATCH_WARNING_MESSAGE" xml:space="preserve">
+    <value>您确定要按此顺序全部适用吗？</value>
+  </data>
+  <data name="BATCH_SETTING" xml:space="preserve">
+    <value>全部适用</value>
+  </data>
+  <data name="RESET_WARNING_MESSAGE" xml:space="preserve">
+    <value>您确定要初始化此设置吗？</value>
+  </data>
+  <data name="RESET_SETTING" xml:space="preserve">
+    <value>初始化设置</value>
+  </data>
+  <data name="GENERAL_SETTING" xml:space="preserve">
+    <value>常规设置</value>
+  </data>
+  <data name="FRAME_INDEX" xml:space="preserve">
+    <value>框架号</value>
+  </data>
+  <data name="SIZECHART" xml:space="preserve">
+    <value>尺寸图标</value>
+  </data>
+  <data name="WIDTHCHART" xml:space="preserve">
+    <value>宽度图表</value>
+  </data>
+  <data name="LENGTHCHART" xml:space="preserve">
+    <value>长度表</value>
+  </data>
+  <data name="ENABLE" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="DISABLE" xml:space="preserve">
+    <value>停用</value>
+  </data>
+  <data name="FRAME" xml:space="preserve">
+    <value>框架</value>
+  </data>
+  <data name="FRAME_POSITION" xml:space="preserve">
+    <value>框架位置</value>
+  </data>
+  <data name="FUNCTION" xml:space="preserve">
+    <value>函数</value>
+  </data>
+  <data name="NODE_TYPE" xml:space="preserve">
+    <value>节点类型</value>
+  </data>
+  <data name="INPUT_TYPE" xml:space="preserve">
+    <value>输入类型</value>
+  </data>
+  <data name="OUTPUT_TYPE" xml:space="preserve">
+    <value>输出类型</value>
+  </data>
+  <data name="NODE_TYPE_SETTING" xml:space="preserve">
+    <value>设置节点类型</value>
+  </data>
+  <data name="DETAIL_TEACH" xml:space="preserve">
+    <value>细节训练</value>
+  </data>
+  <data name="THRESHOLD" xml:space="preserve">
+    <value>边界值</value>
+  </data>
+  <data name="MAX_DEFECT_COUNT" xml:space="preserve">
+    <value>最大缺陷数量</value>
+  </data>
+  <data name="DEFECT_PRIORITY" xml:space="preserve">
+    <value>缺陷优先级</value>
+  </data>
+  <data name="TARGET_INTENSITY" xml:space="preserve">
+    <value>目标亮度</value>
+  </data>
+  <data name="CALIBRATE_FRAME_CNT" xml:space="preserve">
+    <value>校准框架数量</value>
+  </data>
+  <data name="OUT_TARGET_INTENSITY" xml:space="preserve">
+    <value>外头目标亮度</value>
+  </data>
+  <data name="GPU_PROCESSING" xml:space="preserve">
+    <value>Gpu计算</value>
+  </data>
+  <data name="FRAME_MARGIN_L" xml:space="preserve">
+    <value>左侧框架空白</value>
+  </data>
+  <data name="FRAME_MARGIN_T" xml:space="preserve">
+    <value>上部框架空白</value>
+  </data>
+  <data name="FRAME_MARGIN_R" xml:space="preserve">
+    <value>右侧框架空白</value>
+  </data>
+  <data name="FRAME_MARGIN_B" xml:space="preserve">
+    <value>下部框架空白</value>
+  </data>
+  <data name="THRESHOLD_COLOR" xml:space="preserve">
+    <value>颜色边界值</value>
+  </data>
+  <data name="PATTERN" xml:space="preserve">
+    <value>图案</value>
+  </data>
+  <data name="DEFECT_IMAGE_INFLATE" xml:space="preserve">
+    <value>缺陷图像领域</value>
+  </data>
+  <data name="LOG_LEVEL" xml:space="preserve">
+    <value>日志级别</value>
+  </data>
+  <data name="LOG_TYPE" xml:space="preserve">
+    <value>日志类型</value>
+  </data>
+  <data name="INSPECT_LAYOUT" xml:space="preserve">
+    <value>检测布局</value>
+  </data>
+  <data name="REPORT_LAYOUT" xml:space="preserve">
+    <value>报告布局</value>
+  </data>
+  <data name="LEFT" xml:space="preserve">
+    <value>左边</value>
+  </data>
+  <data name="RIGHT" xml:space="preserve">
+    <value>右边</value>
+  </data>
+  <data name="MOVE_LEFT" xml:space="preserve">
+    <value>移至左边</value>
+  </data>
+  <data name="MOVE_RIGHT" xml:space="preserve">
+    <value>移至右边</value>
+  </data>
+  <data name="ALARM_OCCURRED" xml:space="preserve">
+    <value>报警发生</value>
+  </data>
+  <data name="LINE_SPEED_WARNING" xml:space="preserve">
+    <value>生产线速度</value>
+  </data>
+  <data name="LINE_SPEED" xml:space="preserve">
+    <value>生产线速度警告</value>
+  </data>
+  <data name="NO_IMAGE_MESSAGE" xml:space="preserve">
+    <value>没有图像</value>
+  </data>
+  <data name="FAIL" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="LINE_DEFECT_HEIGHT_MM" xml:space="preserve">
+    <value>线缺陷长度[㎜]</value>
+  </data>
+  <data name="DEFECT_COUNT" xml:space="preserve">
+    <value>缺陷数量</value>
+  </data>
+  <data name="DEFECT" xml:space="preserve">
+    <value>缺陷</value>
+  </data>
+  <data name="LENGTH" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="GRAB_IMAGE_MESSAGE" xml:space="preserve">
+    <value>请抓取新图片</value>
+  </data>
+  <data name="SIGNAL_DURATION_TIME_MS" xml:space="preserve">
+    <value>信号持续时间[㎳]</value>
+  </data>
+  <data name="DISTANCE_M" xml:space="preserve">
+    <value>距离[m]</value>
+  </data>
+  <data name="DELAY_MS" xml:space="preserve">
+    <value>延迟[㎳]</value>
+  </data>
+  <data name="DEFECT_ALARM" xml:space="preserve">
+    <value>缺陷报警</value>
+  </data>
+  <data name="BASE_SETTING" xml:space="preserve">
+    <value>常规设置</value>
+  </data>
+  <data name="BASE_SETTING_MESSAGE" xml:space="preserve">
+    <value>Do you really wanna load base setting?</value>
+  </data>
+  <data name="PLC_SETTING" xml:space="preserve">
+    <value>PLC 设置</value>
+  </data>
+  <data name="PLC_ADDRESS_SETTING" xml:space="preserve">
+    <value>PLC 地址设置</value>
+  </data>
+  <data name="ADDRESS_SETTING" xml:space="preserve">
+    <value>地址设置</value>
+  </data>
+  <data name="TIME_OUT" xml:space="preserve">
+    <value>Time Out</value>
+  </data>
+  <data name="TIME_OUT_MS" xml:space="preserve">
+    <value>Time Out[㎳]</value>
+  </data>
+  <data name="SIZE" xml:space="preserve">
+    <value>尺寸</value>
+  </data>
+  <data name="USE" xml:space="preserve">
+    <value>使用</value>
+  </data>
+  <data name="CPU_TYPE" xml:space="preserve">
+    <value>Cpu 种类</value>
+  </data>
+  <data name="PLC_PATH" xml:space="preserve">
+    <value>Plc 路径</value>
+  </data>
+  <data name="TAG" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="OFFSET" xml:space="preserve">
+    <value>偏移</value>
+  </data>
+  <data name="OTHER_DEFECT_CATEGORY" xml:space="preserve">
+    <value>Other Defect Category</value>
+  </data>
+  <data name="MIN_SPEED" xml:space="preserve">
+    <value>最小速度</value>
+  </data>
+  <data name="MAX_SPEED" xml:space="preserve">
+    <value>最大速度</value>
+  </data>
+  <data name="CAMERA_TDI_LIGHT" xml:space="preserve">
+    <value>相机TDI照明</value>
+  </data>
+  <data name="LIGHT_SETTING_WARNING" xml:space="preserve">
+    <value>照明设置警告</value>
+  </data>
+  <data name="PROFILE_CHART" xml:space="preserve">
+    <value>Profile图表</value>
+  </data>
+  <data name="TREND_CHART" xml:space="preserve">
+    <value>Trend图表</value>
+  </data>
+  <data name="AVG" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="LAVG" xml:space="preserve">
+    <value>左边平均</value>
+  </data>
+  <data name="RAVG" xml:space="preserve">
+    <value>右边平均</value>
+  </data>
+  <data name="DEV" xml:space="preserve">
+    <value>Dev</value>
+  </data>
+  <data name="CALIBRATE_THREAD_CNT" xml:space="preserve">
+    <value>Calibrate Thread Count</value>
+  </data>
+  <data name="COLOR_AVERAGE_COUNT" xml:space="preserve">
+    <value>颜色平均数量</value>
+  </data>
+  <data name="DEFECTMAPCONTROL" xml:space="preserve">
+    <value>缺陷图</value>
+  </data>
+  <data name="DEFECTSUMMARYCONTROL" xml:space="preserve">
+    <value>缺陷摘要</value>
+  </data>
+  <data name="DEFECTCOUNTCONTROL" xml:space="preserve">
+    <value>缺陷数量</value>
+  </data>
+  <data name="FRAMEIMAGECONTROL" xml:space="preserve">
+    <value>框架图像</value>
+  </data>
+  <data name="THUMBNAILLISTCONTROL" xml:space="preserve">
+    <value>缩略图</value>
+  </data>
+  <data name="PATTERNSIZECONTROL" xml:space="preserve">
+    <value>图案大小</value>
+  </data>
+  <data name="IOPORTSTATUSCONTROL" xml:space="preserve">
+    <value>输入输出状态</value>
+  </data>
+  <data name="SIZECHARTCONTROL" xml:space="preserve">
+    <value>尺寸图标</value>
+  </data>
+  <data name="LOGCONTROL" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="PROFILECHARTCONTROL" xml:space="preserve">
+    <value>Profile图表</value>
+  </data>
+  <data name="TRENDCHARTCONTROL" xml:space="preserve">
+    <value>Trend图表</value>
+  </data>
+  <data name="DEFECTMAPFRAMECONTROL" xml:space="preserve">
+    <value>缺陷图框架</value>
+  </data>
+  <data name="DEFECTTHUMBNAILLISTCONTROL" xml:space="preserve">
+    <value>缺陷缩略图</value>
+  </data>
+  <data name="DEFECTDETAILHORIZENTALCONTROL" xml:space="preserve">
+    <value>水平细节缺陷信息</value>
+  </data>
+  <data name="DEFECTDETAILVERTICALCONTROL" xml:space="preserve">
+    <value>垂直细节缺陷信息</value>
+  </data>
+  <data name="LINE_DEFECT_OCCURRED_MESSAGE" xml:space="preserve">
+    <value>出现线缺陷</value>
+  </data>
+  <data name="USE_AUTO_START" xml:space="preserve">
+    <value>使用自动开始</value>
+  </data>
+  <data name="USE_AUTO_STOP" xml:space="preserve">
+    <value>使用自动停止</value>
+  </data>
+  <data name="INTERFACE" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="STATISTICS_LAYOUT" xml:space="preserve">
+    <value>统计布局</value>
+  </data>
+  <data name="STATISTICSLOTDEFECTCONTROL" xml:space="preserve">
+    <value>Lot vs 缺陷</value>
+  </data>
+  <data name="THICKNESS_UM" xml:space="preserve">
+    <value>厚度[㎛]</value>
+  </data>
+  <data name="COMPRESS" xml:space="preserve">
+    <value>压缩</value>
+  </data>
+  <data name="DELETE_FOLDER" xml:space="preserve">
+    <value>删除文件夹</value>
+  </data>
+  <data name="INSPECT_TIME" xml:space="preserve">
+    <value>检测时间</value>
+  </data>
+  <data name="MODEL_CATEGORY_SETTING" xml:space="preserve">
+    <value>型号类别设置</value>
+  </data>
+  <data name="MODEL_CATEGORY" xml:space="preserve">
+    <value>型号类别</value>
+  </data>
+  <data name="RESET_CATEGORY" xml:space="preserve">
+    <value>类别初始化</value>
+  </data>
+  <data name="IM_DEFECT_ALARM" xml:space="preserve">
+    <value>检测组件缺陷报警</value>
+  </data>
+  <data name="CUSTOM_DEFECT_ALARM" xml:space="preserve">
+    <value>自订缺陷报警</value>
+  </data>
+  <data name="AUTO_LOT_NO" xml:space="preserve">
+    <value>自动批号</value>
+  </data>
+  <data name="DEVICE_CODE" xml:space="preserve">
+    <value>装置代码</value>
+  </data>
+  <data name="WORKPLACE_CODE" xml:space="preserve">
+    <value>Workplace 代码</value>
+  </data>
+  <data name="GLOSS" xml:space="preserve">
+    <value>光泽度</value>
+  </data>
+  <data name="THICKNESSPROFILECHARTCONTROL" xml:space="preserve">
+    <value>厚度Profile图表</value>
+  </data>
+  <data name="THICKNESSTRENDCHARTCONTROL" xml:space="preserve">
+    <value>厚度Trend图表</value>
+  </data>
+  <data name="GLOSSPROFILECHARTCONTROL" xml:space="preserve">
+    <value>光泽度Profile图表</value>
+  </data>
+  <data name="GLOSSTRENDCHARTCONTROL" xml:space="preserve">
+    <value>光泽度Trend图表</value>
+  </data>
+  <data name="USE_AUTO_LIGHT" xml:space="preserve">
+    <value>使用自动照明</value>
+  </data>
+  <data name="LIGHT_CALIBRATION_FAIL" xml:space="preserve">
+    <value>照明校准失败</value>
+  </data>
+  <data name="SKIP_FIRST_IMAGE" xml:space="preserve">
+    <value>第一个图像跳过</value>
+  </data>
+  <data name="LIGHT_FITTING_TYPE" xml:space="preserve">
+    <value>照明配件类型</value>
+  </data>
+</root>

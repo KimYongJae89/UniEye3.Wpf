@@ -1,0 +1,44 @@
+﻿<layoutModel:CustomizeControl x:Class="UniScanC.Controls.Views.ThumbnailListControlView"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:extension="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                              xmlns:baseBehaviors="clr-namespace:Unieye.WPF.Base.Behaviors;assembly=Unieye.WPF.Base"
+                              xmlns:layoutModel="clr-namespace:Unieye.WPF.Base.Layout.Models;assembly=Unieye.WPF.Base"
+                              mc:Ignorable="d"
+                              d:DesignHeight="450"
+                              d:DesignWidth="800">
+    <Grid>
+        <DataGrid ItemsSource="{Binding DefectModels}"
+                  SelectedItem="{Binding SelectedModel, UpdateSourceTrigger=PropertyChanged}"
+                  baseBehaviors:DataGridBehavior.Autoscroll="True"
+                  BorderBrush="{DynamicResource BlackBrush}"
+                  BorderThickness="1"
+                  SelectionUnit="FullRow"
+                  Margin="0"
+                  AutoGenerateColumns="false"
+                  CanUserAddRows="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  VirtualizingStackPanel.IsVirtualizing="True"
+                  VirtualizingStackPanel.VirtualizationMode="Recycling"
+                  EnableColumnVirtualization="True"
+                  EnableRowVirtualization="True"
+                  ScrollViewer.CanContentScroll="True"
+                  VerticalScrollBarVisibility="Visible"
+                  IsReadOnly="True"
+                  ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{extension:Translation Thumbnail}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImageSource}"
+                                   Margin="{StaticResource XXSmallMargin}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</layoutModel:CustomizeControl>

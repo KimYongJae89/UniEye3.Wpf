@@ -1,0 +1,144 @@
+﻿<mahapps:MetroWindow x:Class="Unieye.WPF.Base.Views.LoginWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                     xmlns:trans="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                     xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls"
+                     xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters"
+                     mc:Ignorable="d"
+                     WindowStartupLocation="CenterScreen"
+                     SizeToContent="Height"
+                     ShowTitleBar="False"
+                     ResizeMode="NoResize"
+                     Dialog:DialogParticipation.Register="{Binding}"
+                     BorderBrush="{DynamicResource BlackBrush}"
+                     BorderThickness="1"
+                     Width="400">
+    <mahapps:MetroWindow.InputBindings>
+        <KeyBinding Command="{Binding KeyPressCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                    Key="Return" />
+    </mahapps:MetroWindow.InputBindings>
+    <Window.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <BitmapImage x:Key="BlankLogo"
+                     UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/BlankLogo.png" />
+        <BitmapImage x:Key="AccountImage"
+                     UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/Account.png" />
+        <BitmapImage x:Key="PasswordImage"
+                     UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/Password.png" />
+        <Style x:Key="TitleStyle"
+               TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="50" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background"
+                    Value="{DynamicResource WhiteBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource BlackColorBrush}" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="{StaticResource SmallMediumMargin}">
+        <StackPanel>
+            <Border Width="236"
+                    BorderBrush="{DynamicResource AccentColorBrush}"
+                    Background="{DynamicResource AccentColorBrush}"
+                    Margin="{StaticResource SmallMediumVerticalMargin}"
+                    Height="90">
+                <Rectangle Fill="{DynamicResource WhiteBrush}"
+                           Width="auto">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush ImageSource="{StaticResource BlankLogo}"
+                                    Stretch="Uniform" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Border>
+            <GroupBox Margin="{StaticResource XSmallTopMargin}"
+                      BorderBrush="{DynamicResource BlackBrush}">
+                <GroupBox.Header>
+                    <TextBlock Text="{trans:Translation USER_LOGIN}"
+                               HorizontalAlignment="Center"
+                               FontSize="{DynamicResource LargeFontSize}"
+                               FontWeight="Bold" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <controls:ImageTextBox Text="{Binding DataContext.UserAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                           Height="45"
+                                           FontSize="{DynamicResource MediumLargeFontSize}"
+                                           FontWeight="Bold"
+                                           CornerRadius="20"
+                                           Background="{StaticResource GrayBrush8}"
+                                           ImageSource="{StaticResource AccountImage}"
+                                           ImageBackground="{StaticResource GrayBrush2}"
+                                           ImageMargin="{StaticResource XSmallMargin}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                    <controls:ImagePasswordBox Text="{Binding DataContext.UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                               Height="45"
+                                               FontSize="{DynamicResource MediumLargeFontSize}"
+                                               FontWeight="Bold"
+                                               CornerRadius="20"
+                                               Background="{StaticResource GrayBrush8}"
+                                               ImageSource="{StaticResource PasswordImage}"
+                                               ImageBackground="{StaticResource GrayBrush2}"
+                                               PasswordChar="*"
+                                               ImageMargin="{StaticResource XSmallMargin}"
+                                               Margin="{StaticResource XXSmallMargin}" />
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="{StaticResource XSmallTopMargin}">
+                <controls:GlyphButton Text="{trans:Translation Login}"
+                                      Glyph="&#xE73E;"
+                                      FontSize="{DynamicResource MediumFontSize}"
+                                      Width="100"
+                                      Command="{Binding LoginButtonClick}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                      BorderBrush="{DynamicResource BlackColorBrush}"
+                                      BorderThickness="1"
+                                      Margin="{StaticResource XSmallLeftMargin}"
+                                      Visibility="{Binding CanChangeOption, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}" />
+                <controls:GlyphButton Text="{trans:Translation SETTING}"
+                                      Glyph="&#xE713;"
+                                      FontSize="{DynamicResource MediumFontSize}"
+                                      Width="100"
+                                      Command="{Binding OptionsButtonClick}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                      BorderBrush="{DynamicResource BlackColorBrush}"
+                                      BorderThickness="1"
+                                      Margin="{StaticResource XSmallLeftMargin}"
+                                      Visibility="{Binding CanChangeOption, Converter={StaticResource VisibilityConverter}}" />
+                <controls:GlyphButton Text="{trans:Translation Cancel}"
+                                      Glyph="&#xE711;"
+                                      FontSize="{DynamicResource MediumFontSize}"
+                                      Width="100"
+                                      Command="{Binding CancelButtonClick}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                      BorderBrush="{DynamicResource BlackColorBrush}"
+                                      BorderThickness="1"
+                                      Margin="{StaticResource XSmallLeftMargin}" />
+                <controls:GlyphButton Text="{trans:Translation USER}"
+                                      Glyph="&#xE716;"
+                                      FontSize="{DynamicResource MediumFontSize}"
+                                      Width="100"
+                                      Command="{Binding UserManagerButtonClick}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                      BorderBrush="{DynamicResource BlackColorBrush}"
+                                      BorderThickness="1"
+                                      Margin="{StaticResource XSmallLeftMargin}"
+                                      Visibility="{Binding CanChangeOption, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</mahapps:MetroWindow>

@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters"
+                    xmlns:seletors="clr-namespace:Unieye.WPF.Base.Selectors">
+    <baseConverters:EnumTypeValuesConverter x:Key="EnumTypeValuesConverter" />
+    <baseConverters:BooleanTypeValuesConverter x:Key="BooleanTypeValuesConverter" />
+    <DataTemplate x:Key="EnumDataTemplate">
+        <ComboBox ItemsSource="{Binding Item2, Mode=OneTime, Converter={StaticResource EnumTypeValuesConverter}}"
+                  SelectedItem="{Binding Item2, UpdateSourceTrigger=PropertyChanged}" />
+    </DataTemplate>
+    <DataTemplate x:Key="BooleanDataTemplate">
+        <ComboBox ItemsSource="{Binding Item2, Mode=OneTime, Converter={StaticResource BooleanTypeValuesConverter}}"
+                  SelectedItem="{Binding Item2, UpdateSourceTrigger=PropertyChanged}" />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultDataTemplate">
+        <TextBox Text="{Binding Item2, UpdateSourceTrigger=PropertyChanged}" />
+    </DataTemplate>
+    <seletors:TypeDataTemplateSelector x:Key="TypeDataTemplateSelector"
+                                       EnumDataTemplate="{StaticResource EnumDataTemplate}"
+                                       BooleanDataTemplate="{StaticResource BooleanDataTemplate}"
+                                       DefaultDataTemplate="{StaticResource DefaultDataTemplate}" />
+</ResourceDictionary>

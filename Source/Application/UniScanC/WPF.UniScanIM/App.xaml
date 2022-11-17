@@ -1,0 +1,32 @@
+﻿<Application x:Class="WPF.UniScanIM.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF.UniScanIM">
+    <Application.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="UnieyeImage" UriSource="pack://application:,,,/DynMvp;component/Resources/Unieye.png"/>
+            <BitmapImage x:Key="BlankLogo" UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/BlankLogo.png"/>
+            <BitmapImage x:Key="StartImage" UriSource="pack://application:,,,/WPF.UniscanCM;component/Resources/Play.png"/>
+            <BitmapImage x:Key="StopImage" UriSource="pack://application:,,,/WPF.UniscanCM;component/Resources/Stop.png"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Resources/MahappsResources.xaml" />
+                <!-- Custom -->
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Brushes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Resources/Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/FontSizes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Thickness.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Label.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/CommandBar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/DataGrid.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/TreeView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Image.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/Page.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Styles/MahappsControls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

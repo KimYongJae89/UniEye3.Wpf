@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="Unieye.WPF.Base.Views.SettingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:usercontrols="clr-namespace:Unieye.WPF.Base.Controls"
+             xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters"
+             xmlns:vm="clr-namespace:Unieye.WPF.Base.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Dialog:DialogParticipation.Register="{Binding}"
+             Name="parentWindow">
+    <UserControl.DataContext>
+        <vm:SettingViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <baseConverters:ToStringConverter x:Key="ToStringConverter" />
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallVerticalMargin}" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+        </Style>
+        <ObjectDataProvider x:Key="DumpType"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="vm:MiniDumpType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource GrayBrush10}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="8,8,8,0">
+            <usercontrols:GlyphButton Text="{extensions:Translation Save}"
+                                      Width="180"
+                                      Glyph="&#xE74E;"
+                                      FontSize="{StaticResource LargeFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Command="{Binding SaveCommand}"
+                                      CommandParameter="{Binding CustomSettingControl, ElementName=parentWindow}" />
+        </StackPanel>
+        <Border Grid.Column="0"
+                Grid.Row="1"
+                Background="{DynamicResource WhiteBrush}"
+                BorderBrush="{DynamicResource BlackBrush}"
+                BorderThickness="1"
+                Width="300"
+                DockPanel.Dock="Left"
+                Margin="{StaticResource XSmallMargin}">
+            <StackPanel Margin="{StaticResource XSmallMargin}">
+                <usercontrols:TitleTextBlock Text="{extensions:Translation Language}" />
+                <UniformGrid Columns="2">
+                    <TextBlock Text="{extensions:Translation Language}"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BaseTextBlockStyle}" />
+                    <ComboBox Name="LanguageComboBox"
+                              ItemsSource="{Binding TranslationHelper.CultureInfos}"
+                              SelectedValue="{Binding TranslationHelper.CurrentCultureInfo, Mode=OneWay}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding LanguageChangedCommand}"
+                                                       CommandParameter="{Binding SelectedValue, ElementName=LanguageComboBox}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource BodyTextStyle}"
+                                           Padding="{StaticResource XXSmallMargin}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </UniformGrid>
+                <usercontrols:TitleTextBlock Text="{extensions:Translation Theme}"
+                                             Margin="{StaticResource SmallTopMargin}" />
+                <UniformGrid Columns="2">
+                    <TextBlock Text="{extensions:Translation Theme}"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BaseTextBlockStyle}"
+                               Foreground="{DynamicResource BlackBrush}" />
+                    <ComboBox ItemsSource="{Binding AppThemes}"
+                              SelectedValue="{Binding AppTheme}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource BodyTextStyle}"
+                                           Padding="{StaticResource XXSmallMargin}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="{extensions:Translation Accent}"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource BaseTextBlockStyle}"
+                               Foreground="{DynamicResource BlackBrush}" />
+                    <ComboBox ItemsSource="{Binding Accents}"
+                              SelectedValue="{Binding Accent}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource BodyTextStyle}"
+                                           Padding="{StaticResource XXSmallMargin}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </UniformGrid>
+                <usercontrols:TitleTextBlock Text="{extensions:Translation Custom_Setting}"
+                                             Margin="{StaticResource SmallTopMargin}" />
+                <UniformGrid Columns="2">
+                    <TextBlock Text="{extensions:Translation Inspect_Layout}"
+                               Style="{StaticResource BaseTextBlockStyle}" />
+                    <Button Content="{extensions:Translation Setting}"
+                            FontSize="{StaticResource MediumFontSize}"
+                            Margin="{StaticResource XXSmallVerticalMargin}"
+                            BorderBrush="{DynamicResource GrayBrush1}"
+                            Command="{Binding InspectLayoutSettingCommand}" />
+                    <TextBlock Text="{extensions:Translation Report_Layout}"
+                               Style="{StaticResource BaseTextBlockStyle}" />
+                    <Button Content="{extensions:Translation Setting}"
+                            FontSize="{StaticResource MediumFontSize}"
+                            Margin="{StaticResource XXSmallVerticalMargin}"
+                            BorderBrush="{DynamicResource GrayBrush1}"
+                            Command="{Binding ReportLayoutSettingCommand}" />
+                    <TextBlock Text="{extensions:Translation Statistics_Layout}"
+                               Style="{StaticResource BaseTextBlockStyle}" />
+                    <Button Content="{extensions:Translation Setting}"
+                            FontSize="{StaticResource MediumFontSize}"
+                            Margin="{StaticResource XXSmallVerticalMargin}"
+                            BorderBrush="{DynamicResource GrayBrush1}"
+                            Command="{Binding StatisticsLayoutSettingCommand}" />
+                </UniformGrid>
+                <usercontrols:TitleTextBlock Text="{extensions:Translation User_Setting}"
+                                             Margin="{StaticResource SmallTopMargin}" />
+                <UniformGrid Columns="2">
+                    <TextBlock Text="{extensions:Translation User}"
+                               Style="{StaticResource BaseTextBlockStyle}" />
+                    <Button Content="{extensions:Translation LogIn}"
+                            FontSize="{StaticResource MediumFontSize}"
+                            Margin="{StaticResource XXSmallVerticalMargin}"
+                            BorderBrush="{DynamicResource GrayBrush1}"
+                            Command="{Binding LogInCommand}" />
+                </UniformGrid>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Background="{DynamicResource GrayBrush10}">
+            <ContentPresenter Content="{Binding CustomSettingControl, ElementName=parentWindow}"
+                              Margin="0,8,8,8" />
+        </Grid>
+    </Grid>
+</UserControl>

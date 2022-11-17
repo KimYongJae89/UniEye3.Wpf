@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="WPF.ThicknessMeasure.Pages.Views.ModelPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:usercontrols="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:vm="clr-namespace:WPF.ThicknessMeasure.Pages.ViewModels"
+             mc:Ignorable="d"
+             Dialog:DialogParticipation.Register="{Binding}">
+    <UserControl.DataContext>
+        <vm:ModelPageViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <converters:BooleanIsNullConverter x:Key="BooleanIsNullConverter" />
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource GrayBrush10}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2"
+              Margin="{StaticResource XSmallMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <usercontrols:GlyphButton Text="{extensions:Translation Select}"
+                                          Width="180"
+                                          Glyph="&#xE73E;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding SelectedItem, ElementName=ModelList, Converter={StaticResource BooleanIsNullConverter}, ConverterParameter=True}"
+                                          Command="{Binding SelectCommand}" />
+                <usercontrols:GlyphButton Text="{extensions:Translation Add}"
+                                          Width="180"
+                                          Glyph="&#xE82E;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Command="{Binding AddCommand}" />
+                <usercontrols:GlyphButton Text="{extensions:Translation Remove}"
+                                          Width="180"
+                                          Glyph="&#xE75C;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding SelectedItem, ElementName=ModelList, Converter={StaticResource BooleanIsNullConverter}, ConverterParameter=True}"
+                                          Command="{Binding RemoveCommand}" />
+                <usercontrols:GlyphButton Text="{extensions:Translation Edit}"
+                                          Width="180"
+                                          Glyph="&#xE70F;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding SelectedItem, ElementName=ModelList, Converter={StaticResource BooleanIsNullConverter}, ConverterParameter=True}"
+                                          Command="{Binding EditCommand}" />
+                <usercontrols:GlyphButton Text="{extensions:Translation Copy}"
+                                          Width="180"
+                                          Glyph="&#xF413;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding SelectedItem, ElementName=ModelList, Converter={StaticResource BooleanIsNullConverter}, ConverterParameter=True}"
+                                          Command="{Binding CopyCommand}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="{extensions:Translation Model_Search}"
+                           FontSize="{StaticResource LargeFontSize}"
+                           VerticalAlignment="Center"
+                           Margin="{StaticResource SmallLeftMargin}" />
+                <TextBox Style="{StaticResource BodyTextBoxStyle}"
+                         Width="180"
+                         Text="{Binding SearchText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="{StaticResource LargeFontSize}"
+                         controls:TextBoxHelper.Watermark="Filter"
+                         controls:TextBoxHelper.ClearTextButton="True"
+                         Margin="{StaticResource SmallLeftMargin}" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0"
+              Grid.Row="1"
+              Margin="8,0,8,8">
+            <DataGrid x:Name="ModelList"
+                      Grid.Row="1"
+                      Margin="0"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      IsReadOnly="True"
+                      ColumnWidth="*"
+                      AutoGenerateColumns="True"
+                      BorderBrush="{DynamicResource BlackBrush}"
+                      ItemsSource="{Binding Source, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedIndex="{Binding SelectedIndex, Mode=OneWayToSource}">
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}"
+                           BasedOn="{StaticResource {x:Type DataGridCell}}">
+                        <EventSetter Event="MouseDoubleClick"
+                                     Handler="ModelList_MouseDoubleClick" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform Y="25" />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                             From="0"
+                                                             To="1"
+                                                             Duration="0:0:.3" />
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                                                             To="0"
+                                                             Duration="0:0:.3" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Margin="0,0,8,8">
+            <Border Background="{DynamicResource WhiteBrush}"
+                    BorderBrush="{DynamicResource BlackBrush}"
+                    BorderThickness="1"
+                    Width="300">
+                <StackPanel Margin="{StaticResource XXSmallMargin}"
+                            DataContext="{Binding SelectedModelDescription}">
+                    <TextBlock Text="{extensions:Translation Model_Info}"
+                               FontWeight="Bold"
+                               FontSize="{StaticResource LargeFontSize}"
+                               Style="{StaticResource SubTitleStyle}" />
+                    <Grid Margin="{StaticResource XXSmallTopMargin}">
+                        <StackPanel Margin="{StaticResource XXSmallMargin}">
+                            <usercontrols:TitleTextBlock Text="{extensions:Translation Name}" />
+                            <TextBlock Text="{Binding Name}"
+                                       Padding="{StaticResource XSmallLeftMargin}"
+                                       Margin="{StaticResource XXSmallTopMargin}"
+                                       Style="{StaticResource BaseTextBlockStyle}" />
+                            <usercontrols:TitleTextBlock Text="{extensions:Translation Registered_Date}"
+                                                         Margin="{StaticResource SmallTopMargin}" />
+                            <TextBlock Text="{Binding CreatedDate, StringFormat=yyyy-MM-dd / HH:mm:ss}"
+                                       Padding="{StaticResource XSmallLeftMargin}"
+                                       Margin="{StaticResource XSmallTopMargin}"
+                                       Style="{StaticResource BaseTextBlockStyle}" />
+                            <usercontrols:TitleTextBlock Text="{extensions:Translation Modified_Date}"
+                                                         Margin="{StaticResource SmallTopMargin}" />
+                            <TextBlock Text="{Binding ModifiedDate, StringFormat=yyyy-MM-dd / HH:mm:ss}"
+                                       Padding="{StaticResource XSmallLeftMargin}"
+                                       Margin="{StaticResource XXSmallTopMargin}"
+                                       Style="{StaticResource BaseTextBlockStyle}" />
+                            <usercontrols:TitleTextBlock Text="{extensions:Translation Description}"
+                                                         Margin="{StaticResource SmallTopMargin}" />
+                            <TextBox Text="{Binding Description}"
+                                     AcceptsReturn="True"
+                                     Padding="{StaticResource XSmallMargin}"
+                                     Margin="{StaticResource XXSmallTopMargin}"
+                                     HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Stretch"
+                                     Style="{StaticResource CaptionTextBoxStyle}"
+                                     Background="{DynamicResource WhiteBrush}"
+                                     TextWrapping="Wrap"
+                                     Height="200" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

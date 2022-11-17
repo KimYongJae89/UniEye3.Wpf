@@ -1,0 +1,129 @@
+﻿<simpleChildWindow:ChildWindow x:Class="Unieye.WPF.Base.Views.TowerLampSettingWindow"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                               xmlns:local="clr-namespace:Unieye.WPF.Base.Views"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:vm="clr-namespace:Unieye.WPF.Base.ViewModels"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls"
+                               mc:Ignorable="d"
+                               ChildWindowWidth="800"
+                               ChildWindowHeight="450"
+                               Title="Tower Lamp"
+                               TitleFontSize="{StaticResource MediumFontSize}">
+    <simpleChildWindow:ChildWindow.DataContext>
+        <vm:TowerLampSettingViewModel/>
+    </simpleChildWindow:ChildWindow.DataContext>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentColorBrush}"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DataGrid Margin="{StaticResource XXSmallMargin}"
+                      CanUserAddRows="False"  CanUserDeleteRows="False"
+                      CanUserSortColumns="False"
+                      ItemsSource="{Binding TowerLampStateList}"
+                      SelectedItem="{Binding SelectedTowerLamp}"
+                      ColumnWidth="*"
+                      AutoGenerateColumns="false">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Type}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="STATE"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="RED"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding RedLamp.Value}"
+                                        Command="{Binding DataContext.TowerLampStateCommand, RelativeSource={RelativeSource AncestorType=simpleChildWindow:ChildWindow}}"
+                                        CommandParameter="{Binding RedLamp}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="YELLOW"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding YellowLamp.Value}"
+                                        Command="{Binding DataContext.TowerLampStateCommand, RelativeSource={RelativeSource AncestorType=simpleChildWindow:ChildWindow}}"
+                                        CommandParameter="{Binding YellowLamp}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="GREEN"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding GreenLamp.Value}"
+                                        Command="{Binding DataContext.TowerLampStateCommand, RelativeSource={RelativeSource AncestorType=simpleChildWindow:ChildWindow}}"
+                                        CommandParameter="{Binding GreenLamp}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="BUZZER"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Buzzer.Value}"
+                                        Command="{Binding DataContext.TowerLampStateCommand, RelativeSource={RelativeSource AncestorType=simpleChildWindow:ChildWindow}}"
+                                        CommandParameter="{Binding Buzzer}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    Height="50"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="{StaticResource XXSmallMargin}">
+            <controls:GlyphButton Text="{extensions:Translation Save}"
+                                  Glyph="&#xE792;" 
+                                  FontSize="{StaticResource MediumLargeFontSize}"
+                                  Command="{Binding SaveCommand}"/>
+            <controls:GlyphButton Text="{extensions:Translation Close}"
+                                  Glyph="&#xEF2C;" 
+                                  FontSize="{StaticResource MediumLargeFontSize}"
+                                  Command="{Binding CloseCommand}"
+                                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=simpleChildWindow:ChildWindow}}"/>
+        </StackPanel>
+    </Grid>
+</simpleChildWindow:ChildWindow>

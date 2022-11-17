@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{146F582A-9D90-4EBB-8D2A-52C34D1A6FAA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynMvp.Vision</RootNamespace>
+    <AssemblyName>DynMvp.Vision</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COGNEX82, EMGU20</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Ver2|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug_Ver2\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COGNEX84, EMGU30</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cognex.VisionPro, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Barcode, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Blob, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Caliper, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.Caliper.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.CompositeColorMatch, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.CompositeColorMatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Core, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ID, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.ID.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageFile, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.ImageFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageProcessing, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.ImageProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.OCRMax, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.OCRMax.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.PMAlign, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Cognex.VisionPro.PMAlign.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Matrox.MatroxImagingLibrary, Version=10.20.424.1, Culture=neutral, PublicKeyToken=5a83d419d44a9d98, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Matrox.MatroxImagingLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Open_eVision_NetApi_1_2, Version=1.2.2.8146, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Open_eVision_NetApi_1_2.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Vision\Cuda\CudaMethods.cs" />
+    <Compile Include="Vision\Cuda\CudaImage.cs" />
+    <Compile Include="Vision\Cuda\CudaImageProcessing.cs" />
+    <Compile Include="Vision\Cuda\ImageBuilder.cs" />
+    <Compile Include="Vision\Fringe3D.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vision\AlgorithmFactory.cs" />
+    <Compile Include="Vision\ArcEq.cs" />
+    <Compile Include="Vision\Fringe3DMultiFreq.cs" />
+    <Compile Include="Vision\GridSubtractor.cs" />
+    <Compile Include="Vision\BlobSubtractor.cs" />
+    <Compile Include="Vision\ColorChecker.cs" />
+    <Compile Include="Vision\ColorCheckerResult.cs" />
+    <Compile Include="Vision\DepthChecker.cs" />
+    <Compile Include="Vision\AlgoImage.cs" />
+    <Compile Include="Vision\Algorithm.cs" />
+    <Compile Include="Vision\AlgorithmPool.cs" />
+    <Compile Include="Vision\AlgorithmResult.cs" />
+    <Compile Include="Vision\BarcodeReader.cs" />
+    <Compile Include="Vision\Base.cs" />
+    <Compile Include="Vision\Blob.cs" />
+    <Compile Include="Vision\BlobChecker.cs" />
+    <Compile Include="Vision\BoltChecker.cs" />
+    <Compile Include="Vision\Calibration.cs" />
+    <Compile Include="Vision\CalibrationChecker.cs" />
+    <Compile Include="Vision\CharReader.cs" />
+    <Compile Include="Vision\CircleChecker.cs" />
+    <Compile Include="Vision\CircleDetector.cs" />
+    <Compile Include="Vision\CircleEq.cs" />
+    <Compile Include="Vision\Cognex\CognexColorMatchChecker.cs" />
+    <Compile Include="Vision\ColorMatchChecker.cs" />
+    <Compile Include="Vision\CornerChecker.cs" />
+    <Compile Include="Vision\Cognex\CognexBarcodeReader.cs" />
+    <Compile Include="Vision\Cognex\CognexCharReader.cs" />
+    <Compile Include="Vision\Cognex\CognexHelper.cs" />
+    <Compile Include="Vision\Cognex\CognexImageProcessing.cs" />
+    <Compile Include="Vision\Cognex\CognexEdgeDetector.cs" />
+    <Compile Include="Vision\Cognex\CognexLineDetector.cs" />
+    <Compile Include="Vision\DaqValueChecker.cs" />
+    <Compile Include="Vision\DataProcessing.cs" />
+    <Compile Include="Vision\EdgeChecker.cs" />
+    <Compile Include="Vision\EdgeDetector.cs" />
+    <Compile Include="Vision\Euresys\EuresysHelper.cs" />
+    <Compile Include="Vision\CirclePositionDetector.cs" />
+    <Compile Include="Vision\Filter.cs" />
+    <Compile Include="Vision\GridParam.cs" />
+    <Compile Include="Vision\ImageProcessingPool.cs" />
+    <Compile Include="Vision\LineChecker.cs" />
+    <Compile Include="Vision\LineDetector.cs" />
+    <Compile Include="Vision\LineEq.cs" />
+    <Compile Include="Vision\LUDecomposition.cs" />
+    <Compile Include="Vision\Matrix.cs" />
+    <Compile Include="Vision\Matrox\ImageBuilder.cs" />
+    <Compile Include="Vision\Matrox\MatroxHelper.cs" />
+    <Compile Include="Vision\Matrox\Mil3dMeasure.cs" />
+    <Compile Include="Vision\Matrox\MilBarcodeReader.cs" />
+    <Compile Include="Vision\Matrox\MilCalibration.cs" />
+    <Compile Include="Vision\Matrox\MilCharReader.cs" />
+    <Compile Include="Vision\Matrox\MilCircleDetector.cs" />
+    <Compile Include="Vision\Matrox\MilLineDetector.cs" />
+    <Compile Include="Vision\Matrox\MilPointCloud.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvColorMatchChecker.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvBarcodeReader.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvCharReader.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvEdgeDetector.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvLineDetector.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvCalibration.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvCircleDetector.cs" />
+    <Compile Include="Vision\Planbss\ActMsr.cs" />
+    <Compile Include="Vision\Planbss\HelpDraw.cs" />
+    <Compile Include="Vision\Planbss\HelpMath.cs" />
+    <Compile Include="Vision\Planbss\IpLibrary.cs" />
+    <Compile Include="Vision\Planbss\Msr.cs" />
+    <Compile Include="Vision\Planbss\VisionDef.cs" />
+    <Compile Include="Vision\PolyFit.cs" />
+    <Compile Include="Vision\RectChecker.cs" />
+    <Compile Include="Vision\ResultValue.cs" />
+    <Compile Include="Vision\SIMD\SIMDHelper.cs" />
+    <Compile Include="Vision\SimpleEdgeDetector.cs" />
+    <Compile Include="Vision\StereoVision.cs" />
+    <Compile Include="Vision\UI\FilterParamControl.cs" />
+    <Compile Include="Vision\UI\FontView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vision\UI\FontView.Designer.cs">
+      <DependentUpon>FontView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vision\WidthChecker.cs" />
+    <Compile Include="Vision\Histogram.cs" />
+    <Compile Include="Vision\UI\HistogramView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vision\UI\HistogramView.Designer.cs">
+      <DependentUpon>HistogramView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vision\ImageProcessing.cs" />
+    <Compile Include="Vision\BinaryCounter.cs" />
+    <Compile Include="Vision\BrightnessChecker.cs" />
+    <Compile Include="Vision\Cognex\CognexImage.cs" />
+    <Compile Include="Vision\Cognex\CognexPattern.cs" />
+    <Compile Include="Vision\Cognex\CognexImageBuilder.cs" />
+    <Compile Include="Vision\DebugHelper.cs" />
+    <Compile Include="Vision\Euresys\OpenEVisionImage.cs" />
+    <Compile Include="Vision\Euresys\OpenEVisionImageProcessing.cs" />
+    <Compile Include="Vision\Euresys\OpenEVisionPattern.cs" />
+    <Compile Include="Vision\Euresys\ImageBuilder.cs" />
+    <Compile Include="Vision\ImageBuilder.cs" />
+    <Compile Include="Vision\ImageProcessingFactory.cs" />
+    <Compile Include="Vision\LicenseManager.cs" />
+    <Compile Include="Vision\Matrox\MilEdgeDetector.cs" />
+    <Compile Include="Vision\Matrox\MilImage.cs" />
+    <Compile Include="Vision\Matrox\MilImageProcessing.cs" />
+    <Compile Include="Vision\Matrox\MilPattern.cs" />
+    <Compile Include="Vision\ObjectFinder.cs" />
+    <Compile Include="Vision\OpenCv\ImageBuilder.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvImageProcessing.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvImage.cs" />
+    <Compile Include="Vision\OpenCv\OpenCvPattern.cs" />
+    <Compile Include="Vision\Pattern.cs" />
+    <Compile Include="Vision\PatternMatching.cs" />
+    <Compile Include="Vision\PatternMatchingResult.cs" />
+    <Compile Include="Vision\UI\ProjectionGraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vision\UI\ProjectionGraphControl.Designer.cs">
+      <DependentUpon>ProjectionGraphControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vision\UI\ProjectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vision\UI\ProjectionView.Designer.cs">
+      <DependentUpon>ProjectionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vision\Region.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Vision\UI\FontView.resx">
+      <DependentUpon>FontView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vision\UI\HistogramView.resx">
+      <DependentUpon>HistogramView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vision\UI\ProjectionGraphControl.resx">
+      <DependentUpon>ProjectionGraphControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vision\UI\ProjectionView.resx">
+      <DependentUpon>ProjectionView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

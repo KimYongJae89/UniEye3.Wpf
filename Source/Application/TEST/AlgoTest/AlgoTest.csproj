@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E077C39B-9DC3-4443-9CC4-F9A81DCF7E78}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AlgoTest</RootNamespace>
+    <AssemblyName>AlgoTest</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88F6F6BE-0858-41E6-9CE2-3704AEFC12A7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6BCC6601-4E70-4066-889C-CDA17497878A}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146F582A-9D90-4EBB-8D2A-52C34D1A6FAA}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp\DynMvp.csproj">
+      <Project>{532B9DD5-C3DC-4F76-8CF4-233C867FC2D3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\UniEye.Base\UniEye.Base.csproj">
+      <Project>{0bd31b0d-4675-460f-bf03-82afafdd1d1f}</Project>
+      <Name>UniEye.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.WPF.Base\Unieye.WPF.Base.csproj">
+      <Project>{252484f7-a94b-4d52-aa89-7bd627de5d10}</Project>
+      <Name>Unieye.WPF.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UniscanC\UniScanC\UniScanC.csproj">
+      <Project>{60941526-f279-4c38-89aa-05d51e95b5c6}</Project>
+      <Name>UniScanC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UniScanC\WPF.UniScanIM\WPF.UniScanIM.csproj">
+      <Project>{c80bd54a-41bf-4de1-affb-162252ca8770}</Project>
+      <Name>WPF.UniScanIM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

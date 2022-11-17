@@ -1,0 +1,42 @@
+﻿<mahapps:MetroWindow x:Class="Unieye.WPF.Base.Controls.PopupWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                     mc:Ignorable="d"
+                     StateChanged="ParentWindow_StateChanged"
+                     Deactivated="ParentWindow_Deactivated"
+                     WindowStartupLocation="CenterScreen"
+                     IsCloseButtonEnabled="{Binding IsDialogMode, ElementName=parentWindow}"
+                     ShowCloseButton="{Binding IsDialogMode, ElementName=parentWindow}"
+                     ShowMaxRestoreButton="{Binding IsDialogMode, ElementName=parentWindow}"
+                     ShowMinButton="True"
+                     ResizeMode="CanMinimize"
+                     Topmost="False"
+                     ShowTitleBar="False"
+                     BorderBrush="{DynamicResource BlackBrush}"
+                     BorderThickness="1"
+                     Name="parentWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation {Binding Title, ElementName=parentWindow}}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <ContentPresenter Margin="{StaticResource XXSmallMargin}"
+                              Content="{Binding CustomControl, ElementName=parentWindow}" />
+        </Grid>
+    </Grid>
+</mahapps:MetroWindow>

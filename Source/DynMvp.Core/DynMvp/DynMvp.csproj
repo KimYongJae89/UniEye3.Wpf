@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{532B9DD5-C3DC-4F76-8CF4-233C867FC2D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynMvp</RootNamespace>
+    <AssemblyName>DynMvp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV.World">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="hasp_net_windows">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\hasp_net_windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.Misc.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinStatusBar.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barcode\BarcodePrinter.cs" />
+    <Compile Include="Barcode\BarcodeRenderer.cs" />
+    <Compile Include="Barcode\BarcodeSettings.cs" />
+    <Compile Include="Barcode\Code128Content.cs" />
+    <Compile Include="Barcode\Code128Rendering.cs" />
+    <Compile Include="Barcode\Code39Rendering.cs" />
+    <Compile Include="Barcode\DataMatrixRendering.cs" />
+    <Compile Include="Barcode\QRCodeRendering.cs" />
+    <Compile Include="Base\ColorValue.cs" />
+    <Compile Include="Base\BaseConfig.cs" />
+    <Compile Include="Base\ErrorCode.cs" />
+    <Compile Include="Base\EtcHelper.cs" />
+    <Compile Include="Base\ImageBuffer.cs" />
+    <Compile Include="Base\ImageMapper.cs" />
+    <Compile Include="Base\ImageOperation.cs" />
+    <Compile Include="Base\IniFile.cs" />
+    <Compile Include="Base\ObjectPool.cs" />
+    <Compile Include="Base\ThreadManager.cs" />
+    <Compile Include="Base\TimerHelper.cs" />
+    <Compile Include="Base\Transform3d.cs" />
+    <Compile Include="Base\DrawingHelper.cs" />
+    <Compile Include="Base\ErrorManager.cs" />
+    <Compile Include="Base\Exception.cs" />
+    <Compile Include="Base\FileHelper.cs" />
+    <Compile Include="Base\HaspHelper.cs" />
+    <Compile Include="Base\ImageD.cs" />
+    <Compile Include="Base\ImageHelper.cs" />
+    <Compile Include="Base\LicenseManager.cs" />
+    <Compile Include="Base\LockFile.cs" />
+    <Compile Include="Base\LogHelper.cs" />
+    <Compile Include="Base\MathHelper.cs" />
+    <Compile Include="Base\NetworkDrive.cs" />
+    <Compile Include="Base\Point3d.cs" />
+    <Compile Include="Base\RegistryHelper.cs" />
+    <Compile Include="Base\StringHelper.cs" />
+    <Compile Include="Base\StringTable.cs" />
+    <Compile Include="Base\StringManager.cs" />
+    <Compile Include="Base\TimeOutHandler.cs" />
+    <Compile Include="Base\ValueTable.cs" />
+    <Compile Include="Base\XmlHelper.cs" />
+    <Compile Include="Base\CommandManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TSP\Genetic.cs" />
+    <Compile Include="TSP\Location.cs" />
+    <Compile Include="TSP\NearestInsert.cs" />
+    <Compile Include="TSP\RandomProvider.cs" />
+    <Compile Include="TSP\TSPAlgorithm.cs" />
+    <Compile Include="UI\3DViewerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\3DViewerPanel.Designer.cs">
+      <DependentUpon>3DViewerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AlarmMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AlarmMessageForm.Designer.cs">
+      <DependentUpon>AlarmMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CanvasPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CanvasPanel.Designer.cs">
+      <DependentUpon>CanvasPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ColorRangeSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ColorRangeSlider.Designer.cs">
+      <DependentUpon>ColorRangeSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CoordMapper.cs" />
+    <Compile Include="UI\CoordTransformer.cs" />
+    <Compile Include="UI\Figure.cs" />
+    <Compile Include="UI\FigurePropertyPool.cs" />
+    <Compile Include="UI\HtmlMessageBuilder.cs" />
+    <Compile Include="UI\Message.cs" />
+    <Compile Include="UI\FormMoveHelper.cs" />
+    <Compile Include="UI\InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RgbColorRangePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\RgbColorRangePicker.Designer.cs">
+      <DependentUpon>RgbColorRangePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RotatedRect.cs" />
+    <Compile Include="UI\SelectionContainer.cs" />
+    <Compile Include="UI\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SimpleProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SimpleProgressForm.Designer.cs">
+      <DependentUpon>SimpleProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TrackBallControlls.cs" />
+    <Compile Include="UI\Tracker.cs" />
+    <Compile Include="UI\UiHelper.cs" />
+    <Compile Include="UI\UpDownControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpDownControl.Designer.cs">
+      <DependentUpon>UpDownControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\3DViewerPanel.resx">
+      <DependentUpon>3DViewerPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AlarmMessageForm.resx">
+      <DependentUpon>AlarmMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CanvasPanel.resx">
+      <DependentUpon>CanvasPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ColorRangeSlider.resx">
+      <DependentUpon>ColorRangeSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RgbColorRangePicker.resx">
+      <DependentUpon>RgbColorRangePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SimpleProgressForm.resx">
+      <DependentUpon>SimpleProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpDownControl.resx">
+      <DependentUpon>UpDownControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Planb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UniversalEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUZZER_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom-in.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SplashPanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\unieye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Authentication\Authentication.Core\Authentication.Core.csproj">
+      <Project>{C1EAF217-931E-4B06-806A-97613C747572}</Project>
+      <Name>Authentication.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

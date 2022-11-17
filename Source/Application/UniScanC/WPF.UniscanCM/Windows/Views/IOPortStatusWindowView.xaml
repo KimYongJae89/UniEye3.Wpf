@@ -1,0 +1,222 @@
+﻿<simpleChildWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.IOPortStatusWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+                               xmlns:local="clr-namespace:WPF.UniScanCM.Windows.Views"
+                               mc:Ignorable="d"
+                               ShowTitleBar="False"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               ChildWindowWidth="1600"
+                               ChildWindowHeight="900">
+    <simpleChildWindow:ChildWindow.DataContext>
+        <vm:IOPortStatusWindowViewModel />
+    </simpleChildWindow:ChildWindow.DataContext>
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource SmallTopMargin}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation IOPORT_STATUS}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <UniformGrid Grid.Row="0"
+                         Columns="2">
+                <GroupBox Margin="{StaticResource XXSmallMargin}">
+                    <GroupBox.Header>
+                        <TextBlock Text="{extensions:Translation INPUT_PORT}"
+                                   FontSize="{StaticResource MediumLargeFontSize}"
+                                   Margin="{StaticResource XXSmallMargin}" />
+                    </GroupBox.Header>
+                    <DataGrid ItemsSource="{Binding IOInputPortCollection}"
+                              SelectedIndex="{Binding SelectedRowIndex}"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserSortColumns="False"
+                              SelectionUnit="FullRow"
+                              BorderBrush="{DynamicResource BlackBrush}"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{extensions:Translation PORT_NAME}"
+                                                Width="*"
+                                                IsReadOnly="True"
+                                                Binding="{Binding PortName}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="VerticalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="FontSize"
+                                                Value="{StaticResource MediumFontSize}" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="{extensions:Translation PORT_NUM}"
+                                                Width="*"
+                                                IsReadOnly="True"
+                                                Binding="{Binding PortNum}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="VerticalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="FontSize"
+                                                Value="{StaticResource MediumFontSize}" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{extensions:Translation PORT_STATUS}"
+                                                    Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <mahapps:ToggleSwitchButton IsChecked="{Binding PortStatus, Mode=TwoWay}"
+                                                                    IsEnabled="False"
+                                                                    FontSize="{StaticResource MediumLargeFontSize}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+                <GroupBox Margin="{StaticResource XXSmallMargin}">
+                    <GroupBox.Header>
+                        <TextBlock Text="{extensions:Translation OUTPUT_PORT}"
+                                   FontSize="{StaticResource MediumLargeFontSize}"
+                                   Margin="{StaticResource XXSmallMargin}" />
+                    </GroupBox.Header>
+                    <DataGrid ItemsSource="{Binding IOOutputPortCollection}"
+                              SelectedIndex="{Binding SelectedRowIndex}"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserSortColumns="False"
+                              SelectionUnit="FullRow"
+                              BorderBrush="{DynamicResource BlackBrush}"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{extensions:Translation PORT_NAME}"
+                                                Width="*"
+                                                IsReadOnly="True"
+                                                Binding="{Binding PortName}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="VerticalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="FontSize"
+                                                Value="{StaticResource MediumFontSize}" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="{extensions:Translation PORT_NUM}"
+                                                Width="*"
+                                                IsReadOnly="True"
+                                                Binding="{Binding PortNum}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="VerticalAlignment"
+                                                Value="Center" />
+                                        <Setter Property="FontSize"
+                                                Value="{StaticResource MediumFontSize}" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{extensions:Translation PORT_STATUS}"
+                                                    Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <mahapps:ToggleSwitchButton IsChecked="{Binding PortStatus, Mode=TwoWay}"
+                                                                    Command="{Binding DataContext.SwitchCheckChangedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortStatusWindowView}}}"
+                                                                    FontSize="{StaticResource MediumLargeFontSize}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+            </UniformGrid>
+            <UniformGrid Grid.Row="1"
+                         Columns="2">
+                <baseControls:GlyphButton Glyph="&#xE73E;"
+                                          Text="{extensions:Translation OK}"
+                                          Command="{Binding OkCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortStatusWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+                <baseControls:GlyphButton Glyph="&#xE711;"
+                                          Text="{extensions:Translation Cancel}"
+                                          Command="{Binding CancelCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortStatusWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

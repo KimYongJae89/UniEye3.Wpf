@@ -1,0 +1,84 @@
+﻿<TextBox x:Class="Unieye.WPF.Base.Controls.IpAddressControl"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:local="clr-namespace:Unieye.WPF.Base.Controls"
+         xmlns:XCmd="clr-namespace:Unieye.WPF.Base.Helpers.WPFXCommand"
+         mc:Ignorable="d"
+         x:Name="parentWindow"
+         d:DesignHeight="450"
+         d:DesignWidth="800"
+         AcceptsTab="True">
+    <TextBox.Template>
+        <ControlTemplate>
+            <Border BorderBrush="{Binding BorderBrush, ElementName=parentWindow}"
+                    BorderThickness="{Binding BorderThickness, ElementName=parentWindow}"
+                    Background="{Binding Background, ElementName=parentWindow}">
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock"
+                               BasedOn="{StaticResource TextBlockBaseStyle}">
+                            <Setter Property="FontSize"
+                                    Value="{Binding FontSize, ElementName=parentWindow}" />
+                            <Setter Property="VerticalAlignment"
+                                    Value="Bottom" />
+                            <Setter Property="Background"
+                                    Value="Transparent" />
+                            <Setter Property="FontWeight"
+                                    Value="Bold" />
+                            <Setter Property="Margin"
+                                    Value="{StaticResource XXSmallHorizontalMargin}" />
+                        </Style>
+                        <Style TargetType="TextBox"
+                               BasedOn="{StaticResource TextBoxBaseStyle}">
+                            <Setter Property="FontSize"
+                                    Value="{Binding FontSize, ElementName=parentWindow}" />
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Center" />
+                            <Setter Property="VerticalContentAlignment"
+                                    Value="Center" />
+                            <Setter Property="TextWrapping"
+                                    Value="NoWrap" />
+                            <Setter Property="BorderThickness"
+                                    Value="0" />
+                            <Setter Property="Background"
+                                    Value="Transparent" />
+                            <Setter Property="XCmd:PreviewKeyDown.Command"
+                                    Value="{Binding KeyDownCommand, ElementName=parentWindow}" />
+                            <Setter Property="XCmd:PreviewKeyDown.CommandParameter"
+                                    Value="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+                            <Setter Property="XCmd:PreviewKeyUp.Command"
+                                    Value="{Binding KeyUpCommand, ElementName=parentWindow}" />
+                            <Setter Property="XCmd:PreviewKeyUp.CommandParameter"
+                                    Value="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{Binding Ip1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=parentWindow}" />
+                    <TextBox Grid.Column="2"
+                             Text="{Binding Ip2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=parentWindow}" />
+                    <TextBox Grid.Column="4"
+                             Text="{Binding Ip3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=parentWindow}" />
+                    <TextBox Grid.Column="6"
+                             Text="{Binding Ip4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=parentWindow}" />
+                    <TextBlock Grid.Column="1"
+                               Text="." />
+                    <TextBlock Grid.Column="3"
+                               Text="." />
+                    <TextBlock Grid.Column="5"
+                               Text="." />
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </TextBox.Template>
+</TextBox>

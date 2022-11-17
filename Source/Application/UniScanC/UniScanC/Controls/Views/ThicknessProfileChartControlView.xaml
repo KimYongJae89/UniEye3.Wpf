@@ -1,0 +1,191 @@
+﻿<layoutModel:CustomizeControl x:Class="UniScanC.Controls.Views.ThicknessProfileChartControlView"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:ig="http://schemas.infragistics.com/xaml"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                              xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                              xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                              xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                              xmlns:layoutModel="clr-namespace:Unieye.WPF.Base.Layout.Models;assembly=Unieye.WPF.Base"
+                              xmlns:local="clr-namespace:UniScanC.Controls.Views"
+                              mc:Ignorable="d"
+                              d:DesignHeight="450"
+                              d:DesignWidth="800">
+    <UserControl.Resources>
+        <baseConverters:VisibilityConverter x:Key="VisibilityConverter" />
+        <baseConverters:ControlNameConverter x:Key="ControlNameConverter" />
+        <baseConverters:ToStringConverter x:Key="ToStringConverter" />
+        <sys:Double x:Key="StrokeThickness">1</sys:Double>
+        <sys:Double x:Key="NullStrokeThickness">0</sys:Double>
+        <sys:Double x:Key="SeriseThickness">2</sys:Double>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}" />
+    </UserControl.Resources>
+    <Border BorderBrush="{DynamicResource BlackBrush}"
+            BorderThickness="1"
+            Background="{DynamicResource WhiteBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Background="{DynamicResource AccentColorBrush}"
+                    BorderBrush="{DynamicResource BlackBrush}"
+                    BorderThickness="0.5">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="{extensions:Translation {Binding ChartSetting.LayerName, Converter={StaticResource ToStringConverter}}}"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                    <TextBlock Text="{extensions:Translation {Binding ChartSetting.TargetType, Converter={StaticResource ToStringConverter}}}"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                    <TextBlock Text="{extensions:Translation Profile_Chart}"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                </StackPanel>
+            </Border>
+            <Grid Grid.Row="1"
+                  Margin="{StaticResource XXSmallMargin}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <local:ThicknessChartDataControlView Grid.Row="0"
+                                                     DataContext="{Binding ScanData}"
+                                                     Margin="{StaticResource XXSmallMargin}" />
+                <controls:GlyphButton Grid.Column="2"
+                                      Glyph="&#xE9F5;"
+                                      TextMargin="0"
+                                      FontSize="{StaticResource MediumFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Command="{Binding SettingCommand}"
+                                      Margin="{StaticResource XXSmallMargin}" />
+                <ig:XamDataChart Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 IsHorizontalZoomEnabled="False"
+                                 IsVerticalZoomEnabled="False"
+                                 HorizontalZoombarVisibility="Collapsed"
+                                 VerticalZoombarVisibility="Collapsed"
+                                 Background="Transparent"
+                                 Padding="0,0,15,0"
+                                 PlotAreaBackground="{Binding LinearGradientBrush}">
+                    <ig:XamDataChart.Axes>
+                        <ig:NumericXAxis x:Name="XAxis"
+                                         MinimumValue="{Binding ChartSetting.StartPos}"
+                                         MaximumValue="{Binding ChartSetting.EndPos}"
+                                         Interval="{Binding ChartSetting.XInterval, Mode=OneWay}"
+                                         MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                         MajorStroke="{DynamicResource GrayBrush2}"
+                                         StrokeThickness="{StaticResource StrokeThickness}"
+                                         Stroke="{DynamicResource GrayBrush2}"
+                                         TickStrokeThickness="{StaticResource StrokeThickness}"
+                                         TickStroke="{DynamicResource GrayBrush2}"
+                                         MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                         MinorStroke="{DynamicResource GrayBrush2}"
+                                         Title="{extensions:Translation WIDTH_MM}"
+                                         Label="{}{0:F0}">
+                            <ig:NumericXAxis.TitleSettings>
+                                <ig:TitleSettings Foreground="{DynamicResource BlackBrush}" />
+                            </ig:NumericXAxis.TitleSettings>
+                            <ig:NumericXAxis.LabelSettings>
+                                <ig:AxisLabelSettings Location="InsideLeft"
+                                                      Foreground="{DynamicResource BlackBrush}"
+                                                      Margin="{StaticResource XSmallMargin}" />
+                            </ig:NumericXAxis.LabelSettings>
+                        </ig:NumericXAxis>
+                        <ig:NumericYAxis x:Name="YAxis"
+                                         MinimumValue="{Binding ChartSetting.MinValue}"
+                                         MaximumValue="{Binding ChartSetting.MaxValue}"
+                                         Interval="{Binding ChartSetting.YInterval, Mode=OneWay}"
+                                         MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                         MajorStroke="{DynamicResource GrayBrush2}"
+                                         StrokeThickness="{StaticResource StrokeThickness}"
+                                         Stroke="{DynamicResource GrayBrush2}"
+                                         TickStrokeThickness="{StaticResource StrokeThickness}"
+                                         TickStroke="{DynamicResource GrayBrush2}"
+                                         MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                         MinorStroke="{DynamicResource GrayBrush2}"
+                                         Title="{extensions:Translation THICKNESS_UM}"
+                                         Label="{}{0:F3}">
+                            <ig:NumericYAxis.TitleSettings>
+                                <ig:TitleSettings Foreground="{DynamicResource BlackBrush}"
+                                                  Angle="270" />
+                            </ig:NumericYAxis.TitleSettings>
+                            <ig:NumericYAxis.LabelSettings>
+                                <ig:AxisLabelSettings Foreground="{DynamicResource BlackBrush}"
+                                                      Margin="{StaticResource XSmallMargin}" />
+                            </ig:NumericYAxis.LabelSettings>
+                        </ig:NumericYAxis>
+                    </ig:XamDataChart.Axes>
+                    <ig:XamDataChart.Series>
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource IndigoBlue}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              Visibility="{Binding ChartSetting.TargetLine, Converter={StaticResource VisibilityConverter}}"
+                                              ItemsSource="{Binding BoundaryLine.Target}" />
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource LightYellow}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              Visibility="{Binding ChartSetting.WarningLine, Converter={StaticResource VisibilityConverter}}"
+                                              ItemsSource="{Binding BoundaryLine.UWarning}" />
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource LightYellow}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              Visibility="{Binding ChartSetting.WarningLine, Converter={StaticResource VisibilityConverter}}"
+                                              ItemsSource="{Binding BoundaryLine.LWarning}" />
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource LightRed}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              Visibility="{Binding ChartSetting.ErrorLine, Converter={StaticResource VisibilityConverter}}"
+                                              ItemsSource="{Binding BoundaryLine.UError}" />
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource LightRed}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              Visibility="{Binding ChartSetting.ErrorLine, Converter={StaticResource VisibilityConverter}}"
+                                              ItemsSource="{Binding BoundaryLine.LError}" />
+                        <ig:ScatterLineSeries XAxis="{Binding ElementName=XAxis}"
+                                              YAxis="{Binding ElementName=YAxis}"
+                                              XMemberPath="X"
+                                              YMemberPath="Y"
+                                              Brush="{DynamicResource AccentBaseColorBrush}"
+                                              MarkerType="None"
+                                              Thickness="{StaticResource SeriseThickness}"
+                                              ItemsSource="{Binding ThicknessData}" />
+                    </ig:XamDataChart.Series>
+                </ig:XamDataChart>
+            </Grid>
+        </Grid>
+    </Border>
+</layoutModel:CustomizeControl>

@@ -1,0 +1,355 @@
+﻿<childWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.AlgoTaskSettingWindowView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:childWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                         xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                         xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                         xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                         xmlns:converters="clr-namespace:UniScanC.Converters;assembly=UniScanC"
+                         mc:Ignorable="d"
+                         ShowTitleBar="False"
+                         Width="Auto"
+                         Height="Auto"
+                         BorderBrush="{DynamicResource BlackBrush}"
+                         BorderThickness="1"
+                         Name="parentControl"
+                         ChildWindowWidth="1600"
+                         ChildWindowHeight="900">
+    <childWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </childWindow:ChildWindow.OverlayBrush>
+    <childWindow:ChildWindow.Resources>
+        <converters:OutPutAlgoListConverter x:Key="OutPutAlgoListConverter" />
+        <baseConverters:BooleanIsValidConverter x:Key="BooleanIsValidConverter" />
+        <baseConverters:VisibilityConverter x:Key="VisibilityConverter" />
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XSmallTopMargin}" />
+            <Setter Property="Padding"
+                    Value="0" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource AccentColorBrush}" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style x:Key="GroupBoxText"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Stretch" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+    </childWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation INSPECT_SEQUENCE_SETTING}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <DockPanel Grid.Row="1">
+            <UniformGrid DockPanel.Dock="Bottom"
+                         Columns="2"
+                         Height="auto"
+                         Margin="8,0,8,8">
+                <baseControls:GlyphButton Text="{extensions:Translation OK}"
+                                          Glyph="&#xE73E;"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          Margin="{StaticResource XXSmallRightMargin}"
+                                          Command="{Binding OKCommand}"
+                                          CommandParameter="{Binding ElementName=parentControl}" />
+                <baseControls:GlyphButton Text="{extensions:Translation Cancel}"
+                                          Glyph="&#xE711;"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          Margin="{StaticResource XXSmallLeftMargin}"
+                                          Command="{Binding CancelCommand}"
+                                          CommandParameter="{Binding ElementName=parentControl}" />
+            </UniformGrid>
+            <Grid Margin="{StaticResource XXSmallMargin}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <UniformGrid Rows="2">
+                    <baseControls:GlyphButton Text="{extensions:Translation RESET}"
+                                              Glyph="&#xE895;"
+                                              BorderBrush="{DynamicResource BlackBrush}"
+                                              BorderThickness="1"
+                                              Margin="{StaticResource XXSmallMargin}"
+                                              Command="{Binding ResetSettingCommand}" />
+                    <baseControls:GlyphButton Text="{extensions:Translation BATCH_SETTING}"
+                                              Glyph="&#xE713;"
+                                              BorderBrush="{DynamicResource BlackBrush}"
+                                              BorderThickness="1"
+                                              IsEnabled="{Binding SelectedIM, Converter={StaticResource BooleanIsValidConverter}}"
+                                              Margin="{StaticResource XXSmallMargin}"
+                                              Command="{Binding BatchSettingCommand}" />
+                </UniformGrid>
+                <DataGrid Grid.Column="0"
+                          Grid.Row="1"
+                          BorderBrush="{DynamicResource BlackBrush}"
+                          CanUserSortColumns="False"
+                          RowHeight="35"
+                          ItemsSource="{Binding IMList}"
+                          SelectedItem="{Binding SelectedIM}"
+                          IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{extensions:Translation IM_NAME}"
+                                            Width="*"
+                                            Binding="{Binding Path=.}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <UniformGrid Grid.Column="1"
+                             Columns="1"
+                             IsEnabled="{Binding SelectedIM, Converter={StaticResource BooleanIsValidConverter}}">
+                    <ComboBox Name="AlgoComboBox"
+                              Margin="{StaticResource XXSmallMargin}"
+                              ItemsSource="{Binding SelectableAlgoList}"
+                              DisplayMemberPath="Name" />
+                    <UniformGrid Columns="4">
+                        <baseControls:GlyphButton Text="{extensions:Translation Add}"
+                                                  Glyph="&#xE948;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedItem, ElementName=AlgoComboBox, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding AddAlgoCommand}"
+                                                  CommandParameter="{Binding SelectedItem, ElementName=AlgoComboBox}" />
+                        <baseControls:GlyphButton Text="{extensions:Translation Delete}"
+                                                  Glyph="&#xE949;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedAlgo, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding DeleteAlgoCommand}" />
+                        <baseControls:GlyphButton Text="{extensions:Translation To_Up}"
+                                                  Glyph="&#xF0AD;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedAlgo, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding OrderUpCommand}" />
+                        <baseControls:GlyphButton Text="{extensions:Translation To_Down}"
+                                                  Glyph="&#xF0AE;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedAlgo, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding OrderDownCommand}" />
+                    </UniformGrid>
+                </UniformGrid>
+                <DataGrid Grid.Column="1"
+                          Grid.Row="1"
+                          BorderBrush="{DynamicResource BlackBrush}"
+                          BorderThickness="1"
+                          CanUserSortColumns="False"
+                          RowHeight="35"
+                          Margin="{StaticResource XXSmallMargin}"
+                          ItemsSource="{Binding AlgoList}"
+                          SelectedItem="{Binding SelectedAlgo}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{extensions:Translation ALGORITHM}"
+                                            Binding="{Binding AlgoParam.AlgorithmType.Name}"
+                                            IsReadOnly="True"
+                                            Width="*" />
+                        <DataGridTemplateColumn Header="{extensions:Translation Name}"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding AlgoParam.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <UniformGrid Grid.Column="2"
+                             Columns="1"
+                             Margin="0">
+                    <baseControls:GlyphToggleButton Text="{extensions:Translation Result}"
+                                                    Glyph="&#xE8FD;"
+                                                    BorderBrush="{DynamicResource BlackBrush}"
+                                                    BorderThickness="1"
+                                                    IsChecked="{Binding IsResultToggled}"
+                                                    IsEnabled="{Binding SelectedIM, Converter={StaticResource BooleanIsValidConverter}}"
+                                                    Margin="2,2,2,2" />
+                    <UniformGrid Columns="2"
+                                 IsEnabled="{Binding CanEditLink}">
+                        <baseControls:GlyphButton Text="{extensions:Translation Add}"
+                                                  Glyph="&#xE948;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedAlgo, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding AddLinkCommand}" />
+                        <baseControls:GlyphButton Text="{extensions:Translation Delete}"
+                                                  Glyph="&#xE949;"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  IsEnabled="{Binding SelectedLink, Converter={StaticResource BooleanIsValidConverter}}"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding DeleteLinkCommand}" />
+                    </UniformGrid>
+                </UniformGrid>
+                <DataGrid Grid.Column="2"
+                          Grid.Row="1"
+                          BorderBrush="{DynamicResource BlackBrush}"
+                          BorderThickness="1"
+                          CanUserSortColumns="False"
+                          RowHeight="35"
+                          Margin="{StaticResource XXSmallMargin}"
+                          Visibility="{Binding IsResultToggled, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}"
+                          ItemsSource="{Binding SelectedAlgo.AlgoLinkSList}"
+                          SelectedItem="{Binding SelectedLink}"
+                          IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{extensions:Translation INPUT}"
+                                            Binding="{Binding DstPortName}"
+                                            Width="*" />
+                        <DataGridTemplateColumn Header="{extensions:Translation ALGORITHM}"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding DataContext.OutputAlgoList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}}"
+                                              SelectedItem="{Binding SrcUnitName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{extensions:Translation OUTPUT}"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox SelectedItem="{Binding SrcPortName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        <ComboBox.ItemsSource>
+                                            <MultiBinding Converter="{StaticResource OutPutAlgoListConverter}">
+                                                <Binding />
+                                                <Binding Path="SrcUnitName" />
+                                                <Binding Path="DataContext.SelectedAlgo"
+                                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}" />
+                                                <Binding Path="DataContext.AlgoList"
+                                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}" />
+                                            </MultiBinding>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Column="2"
+                          Grid.Row="1"
+                          BorderBrush="{DynamicResource BlackBrush}"
+                          BorderThickness="1"
+                          CanUserSortColumns="False"
+                          RowHeight="35"
+                          Margin="{StaticResource XXSmallMargin}"
+                          Visibility="{Binding IsResultToggled, Converter={StaticResource VisibilityConverter}, ConverterParameter=false}"
+                          ItemsSource="{Binding ResultLinksList}"
+                          IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{extensions:Translation INPUT}"
+                                            Binding="{Binding DstPortName}"
+                                            Width="*" />
+                        <DataGridTemplateColumn Header="{extensions:Translation ALGORITHM}"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding DataContext.OutputAlgoList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}}"
+                                              SelectedItem="{Binding SrcUnitName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{extensions:Translation OUTPUT}"
+                                                Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox SelectedItem="{Binding SrcPortName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                        <ComboBox.ItemsSource>
+                                            <MultiBinding Converter="{StaticResource OutPutAlgoListConverter}">
+                                                <Binding />
+                                                <Binding Path="SrcUnitName" />
+                                                <Binding Path="DataContext.SelectedAlgo"
+                                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}" />
+                                                <Binding Path="DataContext.AlgoList"
+                                                         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type childWindow:ChildWindow}}" />
+                                            </MultiBinding>
+                                        </ComboBox.ItemsSource>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</childWindow:ChildWindow>

@@ -1,0 +1,203 @@
+﻿<simpleChildWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.IOPortSettingWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+                               xmlns:local="clr-namespace:WPF.UniScanCM.Windows.Views"
+                               mc:Ignorable="d"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               ChildWindowWidth="1600"
+                               ChildWindowHeight="900"
+                               ShowTitleBar="False">
+    <simpleChildWindow:ChildWindow.DataContext>
+        <vm:IOPortSettingWindowViewModel />
+    </simpleChildWindow:ChildWindow.DataContext>
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource SmallTopMargin}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation IOPORT_SETTING}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <UniformGrid Grid.Row="0"
+                         Columns="2">
+                <GroupBox Margin="{StaticResource XXSmallMargin}">
+                    <GroupBox.Header>
+                        <TextBlock Text="{extensions:Translation INPORT}" />
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <UniformGrid Columns="2">
+                            <TextBlock Text="{extensions:Translation Start}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DIStart}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation DEFECT_OCCURED}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DIDefectOccured}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation DEFECT_RESET}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DIDefectReset}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_RUN}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DILabelRun}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_ERROR}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DILabelError}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_EMPTY}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DILabelEmpty}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                        </UniformGrid>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Margin="{StaticResource XXSmallMargin}">
+                    <GroupBox.Header>
+                        <TextBlock Text="{extensions:Translation OUTPORT}" />
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <UniformGrid Columns="2">
+                            <TextBlock Text="{extensions:Translation HeartBeat}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOHeartSignal}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation Defect}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DODefectSignal}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation AIR}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOAirPressure}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation TOWER_LAMP_RED}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOTowerLampRed}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation TOWER_LAMP_YELLOW}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOTowerLampYellow}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation TOWER_LAMP_GREEN}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOTowerLampGreen}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation TOWER_LAMP_BUZZER}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOTowerLampBuzzer}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_READY}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOLabelReady}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_PUBLISH}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOLabelPublish}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                            <TextBlock Text="{extensions:Translation LABEL_RESET}" />
+                            <mahapps:NumericUpDown Value="{Binding SystemConfig.DOLabelReset}"
+                                                   Interval="1"
+                                                   Minimum="-1" />
+                        </UniformGrid>
+                    </StackPanel>
+                </GroupBox>
+            </UniformGrid>
+            <UniformGrid Grid.Row="1"
+                         Columns="3">
+                <baseControls:GlyphButton Glyph="&#xE781;"
+                                          Text="{extensions:Translation TEST}"
+                                          Command="{Binding TestCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortSettingWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+                <baseControls:GlyphButton Glyph="&#xE73E;"
+                                          Text="{extensions:Translation OK}"
+                                          Command="{Binding OkCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortSettingWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+                <baseControls:GlyphButton Glyph="&#xE711;"
+                                          Text="{extensions:Translation CANCEL}"
+                                          Command="{Binding CancelCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:IOPortSettingWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

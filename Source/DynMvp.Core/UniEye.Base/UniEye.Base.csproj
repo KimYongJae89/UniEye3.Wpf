@@ -1,0 +1,974 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BD31B0D-4675-460F-BF03-82AFAFDD1D1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniEye.Base</RootNamespace>
+    <AssemblyName>UniEye.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics4.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Undo.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Undo.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.Barcode.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.Barcode.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.UltraDataChart.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.UltraDataChart.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.UltraGauges.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.UltraGauges.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.UltraGeographicMap.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.UltraGeographicMap.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.Misc.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinCarousel.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinCarousel.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinDataSource.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinDataSource.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinDock.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinDock.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinEditors.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinGrid.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinRadialMenu.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinRadialMenu.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinStatusBar.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinTabControl.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinToolbars.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTree.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinTree.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\Observable.cs" />
+    <Compile Include="Inspect\LineScanInspectRunner.cs" />
+    <Compile Include="MachineInterface\AllenBreadley\AllenBreadleyMachineIf.cs" />
+    <Compile Include="MachineInterface\AllenBreadley\AllenBreadleyMachineIfItemInfo.cs" />
+    <Compile Include="MachineInterface\AllenBreadley\AllenBreadleyMachineIfSetting.cs" />
+    <Compile Include="MachineInterface\Etc\CommandHandler.cs" />
+    <Compile Include="MachineInterface\MachineIfDataAdapter.cs" />
+    <Compile Include="MachineInterface\MachineIfItemInfo.cs" />
+    <Compile Include="MachineInterface\MachineIfItemInfoList.cs" />
+    <Compile Include="MachineInterface\MachineIfItemInfoResponce.cs" />
+    <Compile Include="MachineInterface\MachineIfSetting.cs" />
+    <Compile Include="MachineInterface\Melsec\MelsecMachineIfItemInfo.cs" />
+    <Compile Include="MachineInterface\Melsec\MelsecMachineIfSetting.cs" />
+    <Compile Include="MachineInterface\RabbitMQ\RabbitMQMachineIf.cs" />
+    <Compile Include="MachineInterface\TcpIp\TcpIpMachineIfSetting.cs" />
+    <Compile Include="MachineInterface\TcpIp\TcpIpMachineIfItemInfo.cs" />
+    <Compile Include="MachineInterface\TcpIp\TcpIpMachineIf.cs" />
+    <Compile Include="UI\CameraCalibration\CalibrationConstant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CalibrationConstant.designer.cs">
+      <DependentUpon>CalibrationConstant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CalibrationGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CalibrationGrid.designer.cs">
+      <DependentUpon>CalibrationGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CalibrationRuler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CalibrationRuler.designer.cs">
+      <DependentUpon>CalibrationRuler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CameraCalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CameraCalibrationForm.designer.cs">
+      <DependentUpon>CameraCalibrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CameraCalibration\CameraCalibrationPanel.cs" />
+    <Compile Include="Vision\AlgorithmFactory.cs" />
+    <Compile Include="Vision\LightAutoTuner.cs" />
+    <Compile Include="Vision\TuneValueCalculator.cs" />
+    <Compile Include="Command\AddProbeCommand.cs" />
+    <Compile Include="Command\DeleteProbeCommand.cs" />
+    <Compile Include="Data\Model.cs" />
+    <Compile Include="Data\PathManager.cs" />
+    <Compile Include="Data\SystemState.cs" />
+    <Compile Include="Device\DeviceManager.cs" />
+    <Compile Include="Config\UiConfig.cs" />
+    <Compile Include="Inspect\InspectEventHandler.cs" />
+    <Compile Include="Inspect\StepModelInspectRunnerExtener.cs" />
+    <Compile Include="MachineInterface\Etc\XgtMachineIf.cs" />
+    <Compile Include="MachineInterface\Melsec\MelsecMachineIf.cs" />
+    <Compile Include="UI\LightAutoTune\LightAutoTuneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LightAutoTune\LightAutoTuneForm.Designer.cs">
+      <DependentUpon>LightAutoTuneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LightAutoTune\LightAutoTunePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\LightAutoTune\LightAutoTunePanel.Designer.cs">
+      <DependentUpon>LightAutoTunePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Interface.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Config\UI\ConfigDevicePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\UI\ConfigDevicePanel.Designer.cs">
+      <DependentUpon>ConfigDevicePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\UI\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\UI\ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inspect\SingleTriggerInspectRunner.cs" />
+    <Compile Include="Inspect\InspectRunnerExtender.cs" />
+    <Compile Include="MachineInterface\Etc\SignalIoMachineIf.cs" />
+    <Compile Include="MachineInterface\MachineIf.cs" />
+    <Compile Include="Inspect\DirectTriggerInspectRunner.cs" />
+    <Compile Include="Inspect\InspectRunner.cs" />
+    <Compile Include="Inspect\StepTriggerInspectRunner.cs" />
+    <Compile Include="Config\OperationConfig.cs" />
+    <Compile Include="Config\PathConfig.cs" />
+    <Compile Include="Config\TimeConfig.cs" />
+    <Compile Include="SystemManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Main2018\FovNavigatorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\FovNavigatorPanel.Designer.cs">
+      <DependentUpon>FovNavigatorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\InspectPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\InspectPage.Designer.cs">
+      <DependentUpon>InspectPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\RightPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\RightPanel.Designer.cs">
+      <DependentUpon>RightPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\ModellerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\ModellerPage.Designer.cs">
+      <DependentUpon>ModellerPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\SchemaTeachPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\LogPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\LogPage.Designer.cs">
+      <DependentUpon>LogPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\MainRightPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\MainRightPanel.Designer.cs">
+      <DependentUpon>MainRightPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProbeInfoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProbeInfoPanel.Designer.cs">
+      <DependentUpon>ProbeInfoPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SamsungElec\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SamsungElec\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SamsungElec\ModelPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SamsungElec\ModelPage.Designer.cs">
+      <DependentUpon>ModelPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SamsungElec\RightPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SamsungElec\RightPanel.Designer.cs">
+      <DependentUpon>RightPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TargetInfoPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\TargetInfoPanel.Designer.cs">
+      <DependentUpon>TargetInfoPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DefectReportPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DefectReportPanel.Designer.cs">
+      <DependentUpon>DefectReportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ModellerToolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ModellerToolbar.Designer.cs">
+      <DependentUpon>ModellerToolbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InspectStepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InspectStepForm.Designer.cs">
+      <DependentUpon>InspectStepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ModelPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ModelPage.Designer.cs">
+      <DependentUpon>ModelPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LightParamSingleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LightParamSingleForm.designer.cs">
+      <DependentUpon>LightParamSingleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ObjectCreator.cs" />
+    <Compile Include="UI\OverlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OverlayForm.Designer.cs">
+      <DependentUpon>OverlayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParamControl\ComputeParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ParamControl\ComputeParamControl.Designer.cs">
+      <DependentUpon>ComputeParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParamControl\TensionCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ParamControl\TensionCheckerParamControl.Designer.cs">
+      <DependentUpon>TensionCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportResultPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportResultPanel.Designer.cs">
+      <DependentUpon>ReportResultPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShampooBarcodeFigurePropertyPool.cs" />
+    <Compile Include="UiManager.cs" />
+    <Compile Include="UI\CameraCalibrationFormOld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CameraCalibrationFormOld.Designer.cs">
+      <DependentUpon>CameraCalibrationFormOld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DaqPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DaqPropertyForm.Designer.cs">
+      <DependentUpon>DaqPropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InspectionPanel\SingleStepInspectionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\InspectionPanel\SingleStepInspectionPanel.Designer.cs">
+      <DependentUpon>SingleStepInspectionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DefectReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DefectReviewForm.Designer.cs">
+      <DependentUpon>DefectReviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LightParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LightParamForm.Designer.cs">
+      <DependentUpon>LightParamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LightParamSimpleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LightParamSimpleForm.Designer.cs">
+      <DependentUpon>LightParamSimpleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ModelForm.Designer.cs">
+      <DependentUpon>ModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ModellerPageExtender.cs" />
+    <Compile Include="UI\ParamControl\DaqParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ParamControl\DaqParamControl.Designer.cs">
+      <DependentUpon>DaqParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParamControl\MarkerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ParamControl\MarkerParamControl.designer.cs">
+      <DependentUpon>MarkerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ReportPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ReportPage.Designer.cs">
+      <DependentUpon>ReportPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RobotCalibrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RobotCalibrationForm.Designer.cs">
+      <DependentUpon>RobotCalibrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\InspectPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\InspectPage.Designer.cs">
+      <DependentUpon>InspectPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\LivePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\LivePage.Designer.cs">
+      <DependentUpon>LivePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ModellerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ModellerPage.Designer.cs">
+      <DependentUpon>ModellerPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\ModelTileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\ModelTileControl.Designer.cs">
+      <DependentUpon>ModelTileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main\SettingPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main\SettingPage.Designer.cs">
+      <DependentUpon>SettingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TargetParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\TargetParamControl.Designer.cs">
+      <DependentUpon>TargetParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParamControl\VisionParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ParamControl\VisionParamControl.designer.cs">
+      <DependentUpon>VisionParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\FiducialPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\FiducialPanel.Designer.cs">
+      <DependentUpon>FiducialPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\LightPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\LightPanel.Designer.cs">
+      <DependentUpon>LightPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\ModellerToolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\ModellerToolbar.Designer.cs">
+      <DependentUpon>ModellerToolbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\ModelTreePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\ModelTreePanel.Designer.cs">
+      <DependentUpon>ModelTreePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\ResultPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\ResultPanel.Designer.cs">
+      <DependentUpon>ResultPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Main2018\ParamPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Main2018\ParamPanel.Designer.cs">
+      <DependentUpon>ParamPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ApplicationHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\UI\ConfigDevicePanel.resx">
+      <DependentUpon>ConfigDevicePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\UI\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CameraCalibration\CalibrationConstant.resx">
+      <DependentUpon>CalibrationConstant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CameraCalibration\CalibrationGrid.resx">
+      <DependentUpon>CalibrationGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CameraCalibration\CalibrationRuler.resx">
+      <DependentUpon>CalibrationRuler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CameraCalibration\CameraCalibrationForm.resx">
+      <DependentUpon>CameraCalibrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LightAutoTune\LightAutoTuneForm.resx">
+      <DependentUpon>LightAutoTuneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LightAutoTune\LightAutoTunePanel.resx">
+      <DependentUpon>LightAutoTunePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CameraCalibrationFormOld.resx">
+      <DependentUpon>CameraCalibrationFormOld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DaqPropertyForm.resx">
+      <DependentUpon>DaqPropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\FovNavigatorPanel.resx">
+      <DependentUpon>FovNavigatorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\FiducialPanel.resx">
+      <DependentUpon>FiducialPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\InspectPage.resx">
+      <DependentUpon>InspectPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\LightPanel.resx">
+      <DependentUpon>LightPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\MainForm.ja.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\ResultPanel.resx">
+      <DependentUpon>ResultPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\RightPanel.resx">
+      <DependentUpon>RightPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\ModellerPage.resx">
+      <DependentUpon>ModellerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\LogPage.resx">
+      <DependentUpon>LogPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\MainRightPanel.resx">
+      <DependentUpon>MainRightPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\MainForm.ja.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ModellerToolbar.resx">
+      <DependentUpon>ModellerToolbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProbeInfoPanel.resx">
+      <DependentUpon>ProbeInfoPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SamsungElec\MainForm.ja.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SamsungElec\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SamsungElec\ModelPage.resx">
+      <DependentUpon>ModelPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SamsungElec\RightPanel.resx">
+      <DependentUpon>RightPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TargetInfoPanel.resx">
+      <DependentUpon>TargetInfoPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\InspectPage.resx">
+      <DependentUpon>InspectPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\InspectionPanel\SingleStepInspectionPanel.resx">
+      <DependentUpon>SingleStepInspectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\InspectStepForm.resx">
+      <DependentUpon>InspectStepForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LightParamForm.resx">
+      <DependentUpon>LightParamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LightParamSimpleForm.resx">
+      <DependentUpon>LightParamSimpleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LightParamSingleForm.resx">
+      <DependentUpon>LightParamSingleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\LivePage.resx">
+      <DependentUpon>LivePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModelForm.resx">
+      <DependentUpon>ModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ModellerPage.resx">
+      <DependentUpon>ModellerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ModelPage.resx">
+      <DependentUpon>ModelPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ModelTileControl.resx">
+      <DependentUpon>ModelTileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DefectReviewForm.resx">
+      <DependentUpon>DefectReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OverlayForm.resx">
+      <DependentUpon>OverlayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParamControl\ComputeParamControl.resx">
+      <DependentUpon>ComputeParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParamControl\DaqParamControl.resx">
+      <DependentUpon>DaqParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParamControl\MarkerParamControl.resx">
+      <DependentUpon>MarkerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DefectReportPanel.resx">
+      <DependentUpon>DefectReportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParamControl\TensionCheckerParamControl.resx">
+      <DependentUpon>TensionCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\ReportPage.resx">
+      <DependentUpon>ReportPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportResultPanel.resx">
+      <DependentUpon>ReportResultPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RobotCalibrationForm.resx">
+      <DependentUpon>RobotCalibrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main\SettingPage.resx">
+      <DependentUpon>SettingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TargetParamControl.resx">
+      <DependentUpon>TargetParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParamControl\VisionParamControl.resx">
+      <DependentUpon>VisionParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\ModellerToolbar.resx">
+      <DependentUpon>ModellerToolbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\ModelTreePanel.resx">
+      <DependentUpon>ModelTreePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Main2018\ParamPanel.resx">
+      <DependentUpon>ParamPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Authentication\Authentication.Core\Authentication.Core.csproj">
+      <Project>{C1EAF217-931E-4B06-806A-97613C747572}</Project>
+      <Name>Authentication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Component\DynMvp.Component.csproj">
+      <Project>{714ffbf3-2d97-4e73-a50f-6345b2e6948a}</Project>
+      <Name>DynMvp.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88f6f6be-0858-41e6-9ce2-3704aefc12a7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unieye.Translation\UniEye.Translation.csproj">
+      <Project>{75f4fe09-4f80-49b5-b8cb-c7e3e761aaa3}</Project>
+      <Name>UniEye.Translation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inspection_gray_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inspection_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multi_shot_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_gray_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_white_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_gray_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture_folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\single_shot_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schema_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ungroup_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\format_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process_shot_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gun_sight_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_grid_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no_entry_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_fiducial_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_fit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_in_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_out_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\config_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fine_move_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube3d_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start 90x116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop 90x116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Teach integrated_White.png" />
+    <None Include="Resources\Teach integrated.png" />
+    <None Include="Resources\Stop integrated_White.png" />
+    <None Include="Resources\Stop integrated.png" />
+    <None Include="Resources\Start integrated_White.png" />
+    <None Include="Resources\Start integrated.png" />
+    <None Include="Resources\Auto integrated.png" />
+    <None Include="Resources\Auto integrated_White.png" />
+    <None Include="Resources\CopyModel integrated.png" />
+    <None Include="Resources\CopyModel integrated_White.png" />
+    <None Include="Resources\DeleteModel integrated.png" />
+    <None Include="Resources\DeleteModel integrated_White.png" />
+    <None Include="Resources\Circle_Plus.png" />
+    <Content Include="Resources\Document_model_black_36.png" />
+    <Content Include="Resources\Document_model_gray_36.png" />
+    <None Include="Resources\Edit integrated.png" />
+    <None Include="Resources\Edit integrated_White.png" />
+    <None Include="Resources\EditModel integrated.png" />
+    <None Include="Resources\EditModel integrated_White.png" />
+    <None Include="Resources\Exit integrated.png" />
+    <None Include="Resources\Exit integrated_White.png" />
+    <Content Include="Resources\Folder %28Adorner in front%29 Edit64.png" />
+    <Content Include="Resources\Folder %28Adorner in Front%2964.png" />
+    <Content Include="Resources\Folder %28Adorner Inside%2964.png" />
+    <Content Include="Resources\gear_black_36.png" />
+    <Content Include="Resources\gear_gray_36.png" />
+    <None Include="Resources\Inspect integrated.png" />
+    <None Include="Resources\Inspect integrated_White.png" />
+    <None Include="Resources\Inspect2 integrated.png" />
+    <None Include="Resources\Inspect2 integrated_White.png" />
+    <None Include="Resources\Lamp integrated.png" />
+    <None Include="Resources\Lamp integrated_White.png" />
+    <Content Include="Resources\measurement_black_36.png" />
+    <Content Include="Resources\measurement_gray_36.png" />
+    <None Include="Resources\Model integrated.png" />
+    <None Include="Resources\Model integrated_White.png" />
+    <None Include="Resources\Monitoring integrated.png" />
+    <None Include="Resources\Monitoring integrated_White.png" />
+    <None Include="Resources\NewModel integrated.png" />
+    <None Include="Resources\NewModel integrated_White.png" />
+    <None Include="Resources\Report integrated.png" />
+    <None Include="Resources\Report integrated_White.png" />
+    <None Include="Resources\Select integrated.png" />
+    <None Include="Resources\Select integrated_White.png" />
+    <None Include="Resources\Setting integrated.png" />
+    <None Include="Resources\Setting integrated_White.png" />
+    <None Include="Resources\Setting2 integrated.png" />
+    <None Include="Resources\Setting2 integrated_White.png" />
+    <None Include="Resources\Stop_White.png" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\Start_White.png" />
+    <None Include="Resources\Start.png" />
+    <None Include="Resources\Setting.png" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\shape.png" />
+    <None Include="Resources\cursor.png" />
+    <None Include="Resources\compare.png" />
+    <None Include="Resources\binary.png" />
+    <None Include="Resources\Image_32.png" />
+    <None Include="Resources\color.png" />
+    <None Include="Resources\edge.png" />
+    <None Include="Resources\Chart.png" />
+    <None Include="Resources\Home.png" />
+    <None Include="Resources\home_sel.png" />
+    <None Include="Resources\chart_sel.png" />
+    <None Include="Resources\live_gray_36.png" />
+    <None Include="Resources\live_white_36.png" />
+    <None Include="Resources\Copy64.png" />
+    <None Include="Resources\Auto.png" />
+    <None Include="Resources\Auto_White.png" />
+    <Content Include="Resources\Initialize.png" />
+    <Content Include="Resources\Manipulator_32.png" />
+    <Content Include="Resources\Mouse_32.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\user2.png" />
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client">
+      <Version>5.1.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

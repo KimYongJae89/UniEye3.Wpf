@@ -1,0 +1,65 @@
+﻿<childWindow:ChildWindow x:Class="Unieye.WPF.Base.Controls.MessageWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:local="clr-namespace:Unieye.WPF.Base.Controls"
+                         xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:childWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                         xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls"
+                         mc:Ignorable="d"
+                         ShowTitleBar="False"
+                         CloseByEscape="True"
+                         ChildWindowWidth="800"
+                         ChildWindowHeight="450"
+                         BorderBrush="{DynamicResource BlackBrush}"
+                         BorderThickness="1"
+                         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                         Name="parentWindow">
+    <childWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8" Color="{DynamicResource WhiteColor}" />
+    </childWindow:ChildWindow.OverlayBrush>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="{StaticResource SmallMargin}">
+            <TextBlock Text="{Binding MessageTitle, UpdateSourceTrigger=PropertyChanged, ElementName=parentWindow}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold"/>
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource SmallTopMargin}"/>
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Text="{Binding Message}"
+                       FontSize="{StaticResource MediumLargeFontSize}"
+                       Margin="{StaticResource SmallTopMargin}"/>
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XSmallMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="{Binding CancelGridLength}"/>
+            </Grid.ColumnDefinitions>
+            <baseControls:GlyphButton Grid.Column="0" 
+                                      Glyph="&#xE73E;"
+                                      Text="{Binding YesButtonCaption}"
+                                      Margin="{StaticResource XXSmallRightMargin}"
+                                      FontSize="{StaticResource MediumFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Foreground="{DynamicResource BlackBrush}"
+                                      Command="{Binding YesButtonClick}"/>
+            <baseControls:GlyphButton Grid.Column="1"
+                                      Glyph="&#xE711;"
+                                      Text="{Binding NoButtonCaption}"
+                                      Margin="{StaticResource XXSmallLeftMargin}"
+                                      FontSize="{StaticResource MediumFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Foreground="{DynamicResource BlackBrush}"
+                                      Command="{Binding NoButtonClick}"/>
+        </Grid>
+    </Grid>
+</childWindow:ChildWindow>

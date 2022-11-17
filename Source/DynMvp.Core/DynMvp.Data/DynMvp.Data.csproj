@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88F6F6BE-0858-41E6-9CE2-3704AEFC12A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynMvp.Data</RootNamespace>
+    <AssemblyName>DynMvp.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.ActUtlTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\AxInterop.ActUtlTypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Win.Misc.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinGrid.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinTabControl.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinToolbars.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Win.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AlignDataExporter.cs" />
+    <Compile Include="Data\DatabaseManager\IDbManager.cs" />
+    <Compile Include="Data\DatabaseManager\PostgreDbManager.cs" />
+    <Compile Include="Data\DataConfig.cs" />
+    <Compile Include="Data\DirectoryDataRemover.cs" />
+    <Compile Include="Data\Forms\GridSubtractorParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\GridSubtractorParamControl.designer.cs">
+      <DependentUpon>GridSubtractorParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\BlobSubtractorParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\BlobSubtractorParamControl.designer.cs">
+      <DependentUpon>BlobSubtractorParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\EdgeCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\EdgeCheckerParamControl.designer.cs">
+      <DependentUpon>EdgeCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Library\Forms\AddLibraryCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Library\Forms\AddLibraryCategoryForm.Designer.cs">
+      <DependentUpon>AddLibraryCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Library\Forms\TemplateLibForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Library\Forms\TemplateLibForm.Designer.cs">
+      <DependentUpon>TemplateLibForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Library\LibraryManager.cs" />
+    <Compile Include="Data\Library\TemplateWizard\TemplateWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Library\TemplateWizard\TemplateWizardForm.Designer.cs">
+      <DependentUpon>TemplateWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Library\TemplateBuilder.cs" />
+    <Compile Include="Data\Library\TemplatePool.cs" />
+    <Compile Include="Data\Library\Template.cs" />
+    <Compile Include="Data\Library\TemplateGroup.cs" />
+    <Compile Include="Data\ProbeList.cs" />
+    <Compile Include="Data\TeachState.cs" />
+    <Compile Include="Data\TemplateTarget.cs" />
+    <Compile Include="Data\UI\CameraPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TeachPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TeachPanel.Designer.cs">
+      <DependentUpon>TeachPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InspectData\ProbeResultList.cs" />
+    <Compile Include="InspectData\VisionProbeResult.cs" />
+    <Compile Include="Inspect\InspectEventListener.cs" />
+    <Compile Include="Inspect\InspectConfig.cs" />
+    <Compile Include="Inspect\InspectParam.cs" />
+    <Compile Include="Data\ComputeProbe.cs" />
+    <Compile Include="Data\CopyBuffer.cs" />
+    <Compile Include="Data\DaqProbe.cs" />
+    <Compile Include="Data\DataFilter.cs" />
+    <Compile Include="Data\DataRemover.cs" />
+    <Compile Include="Data\FiducialSet.cs" />
+    <Compile Include="Data\FilterForm\BinarizationFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\BinarizationFilterParamControl.designer.cs">
+      <DependentUpon>BinarizationFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FilterForm\EdgeExtractionFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\EdgeExtractionFilterParamControl.designer.cs">
+      <DependentUpon>EdgeExtractionFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FilterForm\MaskFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\MaskFilterParamControl.Designer.cs">
+      <DependentUpon>MaskFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FilterForm\MorphologyFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\MorphologyFilterParamControl.designer.cs">
+      <DependentUpon>MorphologyFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FilterForm\NoParamFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\NoParamFilterParamControl.designer.cs">
+      <DependentUpon>NoParamFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FilterForm\SubtractionFilterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\FilterForm\SubtractionFilterParamControl.designer.cs">
+      <DependentUpon>SubtractionFilterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\BarcodeReaderParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\BarcodeReaderParamControl.designer.cs">
+      <DependentUpon>BarcodeReaderParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\BinaryCounterParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\BinaryCounterParamControl.designer.cs">
+      <DependentUpon>BinaryCounterParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\BlobCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\BlobCheckerParamControl.Designer.cs">
+      <DependentUpon>BlobCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\BrightnessCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\BrightnessCheckerParamControl.designer.cs">
+      <DependentUpon>BrightnessCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\ChangeFiducialCommand.cs" />
+    <Compile Include="Data\Forms\CharReaderParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\CharReaderParamControl.Designer.cs">
+      <DependentUpon>CharReaderParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\ChangeParameterCommand.cs" />
+    <Compile Include="Data\Forms\ColorCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\ColorCheckerParamControl.Designer.cs">
+      <DependentUpon>ColorCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\DepthCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\DepthCheckerParamControl.designer.cs">
+      <DependentUpon>DepthCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\CircleCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\CircleCheckerParamControl.Designer.cs">
+      <DependentUpon>CircleCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\ColorMatchCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\ColorMatchCheckerParamControl.Designer.cs">
+      <DependentUpon>ColorMatchCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\CornerCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\CornerCheckerParamControl.designer.cs">
+      <DependentUpon>CornerCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\GridParamPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\GridParamPanel.Designer.cs">
+      <DependentUpon>GridParamPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\MilCharReaderParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\MilCharReaderParamControl.designer.cs">
+      <DependentUpon>MilCharReaderParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ModelManager.cs" />
+    <Compile Include="Data\TensionSerialProbe.cs" />
+    <Compile Include="Data\UI\AlignDataInterfaceInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\AlignDataInterfaceInfoForm.Designer.cs">
+      <DependentUpon>AlignDataInterfaceInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\MelsecConnectionInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\MelsecConnectionInfoForm.Designer.cs">
+      <DependentUpon>MelsecConnectionInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\PatternMatchingParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\PatternMatchingParamControl.designer.cs">
+      <DependentUpon>PatternMatchingParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\ProbeContainable.cs" />
+    <Compile Include="Data\Forms\RectCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\RectCheckerParamControl.Designer.cs">
+      <DependentUpon>RectCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Forms\WidthCheckerParamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\Forms\WidthCheckerParamControl.designer.cs">
+      <DependentUpon>WidthCheckerParamControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InspectStep.cs" />
+    <Compile Include="Data\MarkerProbe.cs" />
+    <Compile Include="Data\StepModelReader.cs" />
+    <Compile Include="Data\StepModelWriter.cs" />
+    <Compile Include="Data\SelectionHandler.cs" />
+    <Compile Include="Data\UI\SchemaEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\SchemaEditor.designer.cs">
+      <DependentUpon>SchemaEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TryInspectionResultView2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TryInspectionResultView2.Designer.cs">
+      <DependentUpon>TryInspectionResultView2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InspectData\DbInspResultArchiver.cs" />
+    <Compile Include="InspectData\InspResultArchiver.cs" />
+    <Compile Include="InspectData\ProbeResult.cs" />
+    <Compile Include="InspectData\TextInspResultArchiver.cs" />
+    <Compile Include="InspectData\TextDailyReport.cs" />
+    <Compile Include="Data\UI\InspectionResultGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\InspectionResultGridView.Designer.cs">
+      <DependentUpon>InspectionResultGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\ReportFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\ReportFormatForm.Designer.cs">
+      <DependentUpon>ReportFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\OutputFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\OutputFormatForm.Designer.cs">
+      <DependentUpon>OutputFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\SelectResultValueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\SelectResultValueForm.Designer.cs">
+      <DependentUpon>SelectResultValueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TeachHandler.cs" />
+    <Compile Include="Data\UI\ImageBufferListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\ImageBufferListForm.Designer.cs">
+      <DependentUpon>ImageBufferListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\InspectionResultVisualizer.cs" />
+    <Compile Include="Data\UI\ModelTreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\ModelTreeControl.Designer.cs">
+      <DependentUpon>ModelTreeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\ObjectTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\UI\ObjectTree.Designer.cs">
+      <DependentUpon>ObjectTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TargetGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TargetGridView.Designer.cs">
+      <DependentUpon>TargetGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TargetView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TargetView.Designer.cs">
+      <DependentUpon>TargetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\FigurePropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\FigurePropertyForm.Designer.cs">
+      <DependentUpon>FigurePropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TeachBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TeachBox.Designer.cs">
+      <DependentUpon>TeachBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\TryInspectionResultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\TryInspectionResultView.Designer.cs">
+      <DependentUpon>TryInspectionResultView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataExporter.cs" />
+    <Compile Include="Data\UI\DrawBox.cs" />
+    <Compile Include="InspectData\InspectionDatabase.cs" />
+    <Compile Include="InspectData\ProductResult.cs" />
+    <Compile Include="Data\IoProbe.cs" />
+    <Compile Include="Data\Model.cs" />
+    <Compile Include="Data\ModelDescription.cs" />
+    <Compile Include="Data\PositionAligner.cs" />
+    <Compile Include="Data\Probe.cs" />
+    <Compile Include="Data\ProbeFactory.cs" />
+    <Compile Include="Data\Production.cs" />
+    <Compile Include="Data\Schema.cs" />
+    <Compile Include="Data\SerialProbe.cs" />
+    <Compile Include="Data\Target.cs" />
+    <Compile Include="Data\UI\MaskEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\UI\MaskEditor.Designer.cs">
+      <DependentUpon>MaskEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UI\SchemaViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\UI\SchemaViewer.Designer.cs">
+      <DependentUpon>SchemaViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VisionProbe.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\FilterForm\BinarizationFilterParamControl.resx">
+      <DependentUpon>BinarizationFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FilterForm\EdgeExtractionFilterParamControl.resx">
+      <DependentUpon>EdgeExtractionFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FilterForm\MaskFilterParamControl.resx">
+      <DependentUpon>MaskFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FilterForm\MorphologyFilterParamControl.resx">
+      <DependentUpon>MorphologyFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FilterForm\NoParamFilterParamControl.resx">
+      <DependentUpon>NoParamFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FilterForm\SubtractionFilterParamControl.resx">
+      <DependentUpon>SubtractionFilterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\BarcodeReaderParamControl.resx">
+      <DependentUpon>BarcodeReaderParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\BinaryCounterParamControl.resx">
+      <DependentUpon>BinaryCounterParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\BlobCheckerParamControl.resx">
+      <DependentUpon>BlobCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\GridSubtractorParamControl.resx">
+      <DependentUpon>GridSubtractorParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\BlobSubtractorParamControl.resx">
+      <DependentUpon>BlobSubtractorParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\BrightnessCheckerParamControl.resx">
+      <DependentUpon>BrightnessCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\CharReaderParamControl.resx">
+      <DependentUpon>CharReaderParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\ColorCheckerParamControl.resx">
+      <DependentUpon>ColorCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\DepthCheckerParamControl.resx">
+      <DependentUpon>DepthCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\CircleCheckerParamControl.resx">
+      <DependentUpon>CircleCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\ColorMatchCheckerParamControl.resx">
+      <DependentUpon>ColorMatchCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\CornerCheckerParamControl.resx">
+      <DependentUpon>CornerCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\GridParamPanel.resx">
+      <DependentUpon>GridParamPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\MilCharReaderParamControl.resx">
+      <DependentUpon>MilCharReaderParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\EdgeCheckerParamControl.resx">
+      <DependentUpon>EdgeCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Library\Forms\AddLibraryCategoryForm.resx">
+      <DependentUpon>AddLibraryCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Library\Forms\TemplateLibForm.resx">
+      <DependentUpon>TemplateLibForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Library\TemplateWizard\TemplateWizardForm.resx">
+      <DependentUpon>TemplateWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\AlignDataInterfaceInfoForm.resx">
+      <DependentUpon>AlignDataInterfaceInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\MelsecConnectionInfoForm.resx">
+      <DependentUpon>MelsecConnectionInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\PatternMatchingParamControl.resx">
+      <DependentUpon>PatternMatchingParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\RectCheckerParamControl.resx">
+      <DependentUpon>RectCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Forms\WidthCheckerParamControl.resx">
+      <DependentUpon>WidthCheckerParamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\DrawBox.resx">
+      <DependentUpon>DrawBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\ImageBufferListForm.resx">
+      <DependentUpon>ImageBufferListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\InspectionResultGridView.resx">
+      <DependentUpon>InspectionResultGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\SchemaEditor.resx">
+      <DependentUpon>SchemaEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\ModelTreeControl.resx">
+      <DependentUpon>ModelTreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\ReportFormatForm.resx">
+      <DependentUpon>ReportFormatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\OutputFormatForm.resx">
+      <DependentUpon>OutputFormatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\SelectResultValueForm.resx">
+      <DependentUpon>SelectResultValueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\TargetGridView.resx">
+      <DependentUpon>TargetGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\FigurePropertyForm.resx">
+      <DependentUpon>FigurePropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\TeachPanel.resx">
+      <DependentUpon>TeachPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\TeachBox.resx">
+      <DependentUpon>TeachBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\TryInspectionResultView2.resx">
+      <DependentUpon>TryInspectionResultView2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\TryInspectionResultView.resx">
+      <DependentUpon>TryInspectionResultView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\MaskEditor.resx">
+      <DependentUpon>MaskEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\UI\SchemaViewer.resx">
+      <DependentUpon>SchemaViewer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Circle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\auto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rename.ico" />
+    <None Include="Resources\Folder.ICO" />
+    <None Include="Resources\FolderOpen.ICO" />
+    <None Include="Resources\copy_path.ico" />
+    <None Include="Resources\copy.png" />
+    <Content Include="Resources\FOV32.png" />
+    <Content Include="Resources\FOV64.png" />
+    <Content Include="Resources\FreeLine.png" />
+    <Content Include="Resources\LibraryPart.png" />
+    <None Include="Resources\new_folder.ico" />
+    <None Include="Resources\new_folder32.png" />
+    <Content Include="Resources\PAD32.png" />
+    <Content Include="Resources\PAD64.png" />
+    <None Include="Resources\paste.png" />
+    <Content Include="Resources\PATH32.png" />
+    <Content Include="Resources\PATH64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Library\UserControl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql">
+      <Version>5.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

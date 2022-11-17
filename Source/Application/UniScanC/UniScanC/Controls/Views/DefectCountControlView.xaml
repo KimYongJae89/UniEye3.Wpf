@@ -1,0 +1,86 @@
+﻿<layoutModel:CustomizeControl x:Class="UniScanC.Controls.Views.DefectCountControlView"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                              xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                              xmlns:layoutModel="clr-namespace:Unieye.WPF.Base.Layout.Models;assembly=Unieye.WPF.Base"
+                              xmlns:local="clr-namespace:UniScanC.Controls.Views"
+                              mc:Ignorable="d"
+                              d:DesignHeight="450"
+                              d:DesignWidth="800">
+    <UserControl.Resources>
+        <baseConverters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    </UserControl.Resources>
+    <Border BorderBrush="{DynamicResource BlackBrush}"
+            BorderThickness="1"
+            Background="{DynamicResource WhiteBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Background="{DynamicResource AccentColorBrush}"
+                    BorderBrush="{DynamicResource BlackBrush}"
+                    BorderThickness="0.5">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="{extensions:Translation Defect_Count}"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                    <TextBlock Text=":"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                    <TextBlock Text="{Binding TotalDefectCount}"
+                               TextAlignment="Center"
+                               FontSize="{StaticResource MediumLargeFontSize}"
+                               Margin="{StaticResource XXSmallMargin}" />
+                </StackPanel>
+            </Border>
+            <ScrollViewer Grid.Row="1"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding DefectCountModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button BorderBrush="{DynamicResource BlackBrush}"
+                                    BorderThickness="1"
+                                    Margin="8,8,0,0"
+                                    Padding="0"
+                                    Command="{Binding DataContext.CategorySelectCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:DefectCountControlView}}}"
+                                    CommandParameter="{Binding}">
+                                <Grid Margin="{StaticResource XSmallMargin}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <local:GeometryTextBlockControlView Grid.Column="0"
+                                                                    GeometryType="{Binding DefectCategory.DefectFigure}"
+                                                                    FontSize="{StaticResource SmallMediumFontSize}"
+                                                                    Foreground="{Binding DefectCategory.DefectColor, Converter={StaticResource ColorToBrushConverter}}"
+                                                                    Margin="{StaticResource XSmallHorizontalMargin}"
+                                                                    VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding DefectCategory.Name}"
+                                               Margin="{StaticResource XSmallHorizontalMargin}" />
+                                    <TextBlock Grid.Column="2"
+                                               Text="{Binding Count}"
+                                               Margin="{StaticResource XSmallHorizontalMargin}" />
+                                </Grid>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</layoutModel:CustomizeControl>

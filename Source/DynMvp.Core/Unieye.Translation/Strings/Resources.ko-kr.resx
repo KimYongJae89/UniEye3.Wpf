@@ -1,0 +1,2190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCENT" xml:space="preserve">
+    <value>강조</value>
+  </data>
+  <data name="ACCEPT" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="ADD" xml:space="preserve">
+    <value>추가</value>
+  </data>
+  <data name="CANCEL" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="COMMON" xml:space="preserve">
+    <value>공통</value>
+  </data>
+  <data name="DESCRIPTION" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="GRAB" xml:space="preserve">
+    <value>촬영</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>원점</value>
+  </data>
+  <data name="INSPECT" xml:space="preserve">
+    <value>검사</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>언어</value>
+  </data>
+  <data name="LIST" xml:space="preserve">
+    <value>목록</value>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>메뉴</value>
+  </data>
+  <data name="MODEL" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="MODELWINDOW_ERROR" xml:space="preserve">
+    <value>이름은 비어 있을 수 없습니다.</value>
+  </data>
+  <data name="MODIFIED" xml:space="preserve">
+    <value>수정일</value>
+  </data>
+  <data name="MODIFIED_DATE" xml:space="preserve">
+    <value>수정일</value>
+  </data>
+  <data name="NAME" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="PARAM" xml:space="preserve">
+    <value>파라미터</value>
+  </data>
+  <data name="REGISTERED" xml:space="preserve">
+    <value>등록일</value>
+  </data>
+  <data name="REGISTERED_DATE" xml:space="preserve">
+    <value>등록일</value>
+  </data>
+  <data name="REGISTRATION_DATE" xml:space="preserve">
+    <value>등록일</value>
+  </data>
+  <data name="REMOVE" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="REPORT" xml:space="preserve">
+    <value>레포트</value>
+  </data>
+  <data name="SELECT" xml:space="preserve">
+    <value>선택</value>
+  </data>
+  <data name="SELECT_MODEL" xml:space="preserve">
+    <value>모델 선택</value>
+  </data>
+  <data name="MODEL_SEARCH" xml:space="preserve">
+    <value>모델 검색</value>
+  </data>
+  <data name="MODEL_INFO" xml:space="preserve">
+    <value>모델 정보</value>
+  </data>
+  <data name="SETTING" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="THEME" xml:space="preserve">
+    <value>테마</value>
+  </data>
+  <data name="DEVELOPER" xml:space="preserve">
+    <value>개발자</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>총합</value>
+  </data>
+  <data name="EACH" xml:space="preserve">
+    <value>개별</value>
+  </data>
+  <data name="SEARCH" xml:space="preserve">
+    <value>검색</value>
+  </data>
+  <data name="CLEAR" xml:space="preserve">
+    <value>초기화</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>날짜</value>
+  </data>
+  <data name="COATING" xml:space="preserve">
+    <value>코팅</value>
+  </data>
+  <data name="SLITTER" xml:space="preserve">
+    <value>슬리터</value>
+  </data>
+  <data name="CHART" xml:space="preserve">
+    <value>차트</value>
+  </data>
+  <data name="IMAGE" xml:space="preserve">
+    <value>이미지</value>
+  </data>
+  <data name="SPEC" xml:space="preserve">
+    <value>스펙</value>
+  </data>
+  <data name="EXCEL_EXPORT" xml:space="preserve">
+    <value>엑셀 저장</value>
+  </data>
+  <data name="CUSTOM_SETTINGS" xml:space="preserve">
+    <value>커스텀 설정</value>
+  </data>
+  <data name="COUNT_BY_SIZE" xml:space="preserve">
+    <value>사이즈 별 수량</value>
+  </data>
+  <data name="AXISHANDLER" xml:space="preserve">
+    <value>축 제어</value>
+  </data>
+  <data name="RESOLUTION" xml:space="preserve">
+    <value>분해능</value>
+  </data>
+  <data name="AXIS_INDEX" xml:space="preserve">
+    <value>축 번호</value>
+  </data>
+  <data name="MOVE_VELOCITY" xml:space="preserve">
+    <value>이동 속도</value>
+  </data>
+  <data name="GRAB_VELOCITY" xml:space="preserve">
+    <value>촬상 속도</value>
+  </data>
+  <data name="MIN_Y" xml:space="preserve">
+    <value>Y 최소값</value>
+  </data>
+  <data name="MAX_Y" xml:space="preserve">
+    <value>Y 최대값</value>
+  </data>
+  <data name="IMAGE_RESIZE_RATIO" xml:space="preserve">
+    <value>이미지 크기조정 비율</value>
+  </data>
+  <data name="CAMERA" xml:space="preserve">
+    <value>카메라</value>
+  </data>
+  <data name="TRIGGER_PORT" xml:space="preserve">
+    <value>트리거 포트</value>
+  </data>
+  <data name="SCAN_DIRECTION" xml:space="preserve">
+    <value>스캔 방향</value>
+  </data>
+  <data name="START" xml:space="preserve">
+    <value>시작</value>
+  </data>
+  <data name="END" xml:space="preserve">
+    <value>종료</value>
+  </data>
+  <data name="SAVE" xml:space="preserve">
+    <value>저장</value>
+  </data>
+  <data name="MACHINE" xml:space="preserve">
+    <value>장비</value>
+  </data>
+  <data name="GLASS" xml:space="preserve">
+    <value>유리면</value>
+  </data>
+  <data name="DEFECT_LIST" xml:space="preserve">
+    <value>불량 목록</value>
+  </data>
+  <data name="COUNT_BY_SECTION" xml:space="preserve">
+    <value>섹션 별 수량</value>
+  </data>
+  <data name="PARAMETER" xml:space="preserve">
+    <value>파라미터</value>
+  </data>
+  <data name="CALIBRATION" xml:space="preserve">
+    <value>보정</value>
+  </data>
+  <data name="DOORLOCK" xml:space="preserve">
+    <value>도어 잠금</value>
+  </data>
+  <data name="LIGHT" xml:space="preserve">
+    <value>조명</value>
+  </data>
+  <data name="LOT_NO" xml:space="preserve">
+    <value>로트 번호</value>
+  </data>
+  <data name="UNLOCKDOOR" xml:space="preserve">
+    <value>잠금 해제</value>
+  </data>
+  <data name="SUMMARY" xml:space="preserve">
+    <value>개요</value>
+  </data>
+  <data name="COATING_DEVICE" xml:space="preserve">
+    <value>코팅 설비</value>
+  </data>
+  <data name="COATING_NO" xml:space="preserve">
+    <value>코팅 번호</value>
+  </data>
+  <data name="LOAD" xml:space="preserve">
+    <value>불러오기</value>
+  </data>
+  <data name="SECTION_LIST" xml:space="preserve">
+    <value>섹션 목록</value>
+  </data>
+  <data name="SIZE_LIST" xml:space="preserve">
+    <value>사이즈 목록</value>
+  </data>
+  <data name="SLITTER_DEVICE" xml:space="preserve">
+    <value>슬리터 설비</value>
+  </data>
+  <data name="SLITTER_LANE" xml:space="preserve">
+    <value>슬리터 레인</value>
+  </data>
+  <data name="SLITTER_NO" xml:space="preserve">
+    <value>슬리터 번호</value>
+  </data>
+  <data name="WARNING" xml:space="preserve">
+    <value>경고</value>
+  </data>
+  <data name="ALGORITHM" xml:space="preserve">
+    <value>알고리즘</value>
+  </data>
+  <data name="DEVICE" xml:space="preserve">
+    <value>장치</value>
+  </data>
+  <data name="ETC" xml:space="preserve">
+    <value>기타 설정</value>
+  </data>
+  <data name="INIT" xml:space="preserve">
+    <value>초기화</value>
+  </data>
+  <data name="STARTUP" xml:space="preserve">
+    <value>구동중</value>
+  </data>
+  <data name="UI" xml:space="preserve">
+    <value>사용자 인터페이스</value>
+  </data>
+  <data name="CLOSE" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="TOWER_LAMP" xml:space="preserve">
+    <value>경광봉</value>
+  </data>
+  <data name="COPY" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="MODIFY" xml:space="preserve">
+    <value>수정</value>
+  </data>
+  <data name="TEACH" xml:space="preserve">
+    <value>티칭</value>
+  </data>
+  <data name="EXPORT" xml:space="preserve">
+    <value>내보내기</value>
+  </data>
+  <data name="STOP" xml:space="preserve">
+    <value>정지</value>
+  </data>
+  <data name="CUSTOM_SETTING" xml:space="preserve">
+    <value>커스텀 설정</value>
+  </data>
+  <data name="LAYOUT" xml:space="preserve">
+    <value>레이아웃</value>
+  </data>
+  <data name="SWITCH_USER" xml:space="preserve">
+    <value>사용자 전환</value>
+  </data>
+  <data name="SWITCH_SCREEN" xml:space="preserve">
+    <value>화면 전환</value>
+  </data>
+  <data name="LAYERPARAM" xml:space="preserve">
+    <value>레이어 파라미터</value>
+  </data>
+  <data name="SENSOR" xml:space="preserve">
+    <value>센서</value>
+  </data>
+  <data name="WIDTH" xml:space="preserve">
+    <value>너비</value>
+  </data>
+  <data name="HOLD" xml:space="preserve">
+    <value>홀드</value>
+  </data>
+  <data name="EDIT" xml:space="preserve">
+    <value>편집</value>
+  </data>
+  <data name="LOAD_DATABASE" xml:space="preserve">
+    <value>데이터베이스 불러오기</value>
+  </data>
+  <data name="SAVE_THE_CONFIGURATION_FILE" xml:space="preserve">
+    <value>설정 파일 저장</value>
+  </data>
+  <data name="AREA_MM2" xml:space="preserve">
+    <value>면적[㎟]</value>
+  </data>
+  <data name="COMMUNICATION" xml:space="preserve">
+    <value>통신</value>
+  </data>
+  <data name="COUNT" xml:space="preserve">
+    <value>수량</value>
+  </data>
+  <data name="DATABASE" xml:space="preserve">
+    <value>데이터베이스</value>
+  </data>
+  <data name="PATTERN_LENGTH_INSPECT" xml:space="preserve">
+    <value>패턴 길이 검사</value>
+  </data>
+  <data name="DEFECT_MAP" xml:space="preserve">
+    <value>불량 맵</value>
+  </data>
+  <data name="DEFECT_SIZE" xml:space="preserve">
+    <value>불량 크기</value>
+  </data>
+  <data name="DEFECT_TYPE" xml:space="preserve">
+    <value>불량 유형</value>
+  </data>
+  <data name="ENABLE_AUTO_LOT_NO" xml:space="preserve">
+    <value>자동 로트 넘버 활성화</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>종료 날짜</value>
+  </data>
+  <data name="FORMAT" xml:space="preserve">
+    <value>형식</value>
+  </data>
+  <data name="HEIGHT_MM" xml:space="preserve">
+    <value>높이[㎜]</value>
+  </data>
+  <data name="HOURLY_NUMBER_OF_DEFECTS" xml:space="preserve">
+    <value>시간별 불량 개수</value>
+  </data>
+  <data name="INFORMATION" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="IP_ADDRESS" xml:space="preserve">
+    <value>IP 주소</value>
+  </data>
+  <data name="LENGTH_M" xml:space="preserve">
+    <value>길이[m]</value>
+  </data>
+  <data name="MODULE" xml:space="preserve">
+    <value>모듈</value>
+  </data>
+  <data name="PORT" xml:space="preserve">
+    <value>포트</value>
+  </data>
+  <data name="POSITION_MM" xml:space="preserve">
+    <value>위치[㎜]</value>
+  </data>
+  <data name="POSX_MM" xml:space="preserve">
+    <value>X 좌표[㎜]</value>
+  </data>
+  <data name="POSY_M" xml:space="preserve">
+    <value>Y 좌표[m]</value>
+  </data>
+  <data name="RESULT" xml:space="preserve">
+    <value>결과</value>
+  </data>
+  <data name="SAVE_RESULT" xml:space="preserve">
+    <value>결과 저장</value>
+  </data>
+  <data name="SCAN" xml:space="preserve">
+    <value>스캔</value>
+  </data>
+  <data name="SEARCH_OPTION" xml:space="preserve">
+    <value>검색 옵션</value>
+  </data>
+  <data name="SHOW_ALL_RESULT" xml:space="preserve">
+    <value>모든 결과 보기</value>
+  </data>
+  <data name="SHOW_DETAIL_VIEW" xml:space="preserve">
+    <value>상세 결과 창 보기</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>시작 날짜</value>
+  </data>
+  <data name="THUMBNAIL" xml:space="preserve">
+    <value>미리 보기</value>
+  </data>
+  <data name="TIME" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="TYPE" xml:space="preserve">
+    <value>유형</value>
+  </data>
+  <data name="WIDTH_MM" xml:space="preserve">
+    <value>폭[㎜]</value>
+  </data>
+  <data name="PATH" xml:space="preserve">
+    <value>경로</value>
+  </data>
+  <data name="APPLY" xml:space="preserve">
+    <value>적용</value>
+  </data>
+  <data name="CATEGORY_LIST" xml:space="preserve">
+    <value>분류 항목</value>
+  </data>
+  <data name="COLOR" xml:space="preserve">
+    <value>색상</value>
+  </data>
+  <data name="DEFECT_CATEGORY" xml:space="preserve">
+    <value>불량 분류</value>
+  </data>
+  <data name="DEFECT_SKIP" xml:space="preserve">
+    <value>불량 스킵</value>
+  </data>
+  <data name="DELETE" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="DISTANCE" xml:space="preserve">
+    <value>거리</value>
+  </data>
+  <data name="EDGE_MM" xml:space="preserve">
+    <value>경계[㎜]</value>
+  </data>
+  <data name="FIGURE" xml:space="preserve">
+    <value>도형</value>
+  </data>
+  <data name="HEIGHT_UM" xml:space="preserve">
+    <value>높이[㎛]</value>
+  </data>
+  <data name="LOWER" xml:space="preserve">
+    <value>이하</value>
+  </data>
+  <data name="TO_DOWN" xml:space="preserve">
+    <value>아래로</value>
+  </data>
+  <data name="TO_UP" xml:space="preserve">
+    <value>위로</value>
+  </data>
+  <data name="UPPER" xml:space="preserve">
+    <value>이상</value>
+  </data>
+  <data name="WARNING_LEVEL" xml:space="preserve">
+    <value>경고 수준</value>
+  </data>
+  <data name="WIDTH_UM" xml:space="preserve">
+    <value>폭[㎛]</value>
+  </data>
+  <data name="CONNECT" xml:space="preserve">
+    <value>연결</value>
+  </data>
+  <data name="REFRESH" xml:space="preserve">
+    <value>새로고침</value>
+  </data>
+  <data name="DISCONNECT" xml:space="preserve">
+    <value>연결해제</value>
+  </data>
+  <data name="REFERENCE" xml:space="preserve">
+    <value>참조</value>
+  </data>
+  <data name="BACKGROUND" xml:space="preserve">
+    <value>배경</value>
+  </data>
+  <data name="BASE_ANGLE" xml:space="preserve">
+    <value>기본각도</value>
+  </data>
+  <data name="ROTATE_ANGLE" xml:space="preserve">
+    <value>회전각도</value>
+  </data>
+  <data name="BRIGHTNESS" xml:space="preserve">
+    <value>밝기 값</value>
+  </data>
+  <data name="CAMERA_NO" xml:space="preserve">
+    <value>카메라 번호</value>
+  </data>
+  <data name="SORT" xml:space="preserve">
+    <value>정렬</value>
+  </data>
+  <data name="DEFECTLIST" xml:space="preserve">
+    <value>불량 목록</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>불러오는 중</value>
+  </data>
+  <data name="AVG_GV" xml:space="preserve">
+    <value>평균 밝기</value>
+  </data>
+  <data name="MAX_GV" xml:space="preserve">
+    <value>최대 밝기</value>
+  </data>
+  <data name="MIN_GV" xml:space="preserve">
+    <value>최소 밝기</value>
+  </data>
+  <data name="CATEGORY_TYPE_EDIT" xml:space="preserve">
+    <value>불량 유형 수정</value>
+  </data>
+  <data name="RAW" xml:space="preserve">
+    <value>가공전</value>
+  </data>
+  <data name="PROCESSING" xml:space="preserve">
+    <value>가공후</value>
+  </data>
+  <data name="EXCUTING" xml:space="preserve">
+    <value>실행중</value>
+  </data>
+  <data name="COMPLETE" xml:space="preserve">
+    <value>완료</value>
+  </data>
+  <data name="FINISH" xml:space="preserve">
+    <value>완료</value>
+  </data>
+  <data name="CALIBRATION_LIGHT" xml:space="preserve">
+    <value>조명 보정</value>
+  </data>
+  <data name="LIGHT_CALIBRATION_PROCESS" xml:space="preserve">
+    <value>조명 보정 과정</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="EXCUTE_COMMAND" xml:space="preserve">
+    <value>명령 실행</value>
+  </data>
+  <data name="AVG_GV(0~255)" xml:space="preserve">
+    <value>평균 밝기(0~255)</value>
+  </data>
+  <data name="MAX_GV(0~255)" xml:space="preserve">
+    <value>최대 밝기(0~255)</value>
+  </data>
+  <data name="MIN_GV(0~255)" xml:space="preserve">
+    <value>최소 밝기(0~255)</value>
+  </data>
+  <data name="NEXT_LOT_NO" xml:space="preserve">
+    <value>다음 로트 번호</value>
+  </data>
+  <data name="SPEED" xml:space="preserve">
+    <value>속도</value>
+  </data>
+  <data name="MAXGV" xml:space="preserve">
+    <value>최대밝기</value>
+  </data>
+  <data name="UI_UPDATE_DELAY_MS" xml:space="preserve">
+    <value>UI 갱신 딜레이[㎳]</value>
+  </data>
+  <data name="CURRENT_SPEED" xml:space="preserve">
+    <value>현재 속도</value>
+  </data>
+  <data name="PASS" xml:space="preserve">
+    <value>양품</value>
+  </data>
+  <data name="NG" xml:space="preserve">
+    <value>불량</value>
+  </data>
+  <data name="SKIP" xml:space="preserve">
+    <value>스킵</value>
+  </data>
+  <data name="VISION" xml:space="preserve">
+    <value>비전</value>
+  </data>
+  <data name="WIDTH_LOWER" xml:space="preserve">
+    <value>폭(이하)</value>
+  </data>
+  <data name="HEIGHT_LOWER" xml:space="preserve">
+    <value>높이(이하)</value>
+  </data>
+  <data name="DEFECT_INFO" xml:space="preserve">
+    <value>불량 정보</value>
+  </data>
+  <data name="ENCODER" xml:space="preserve">
+    <value>엔코더</value>
+  </data>
+  <data name="INSPECTION" xml:space="preserve">
+    <value>검사</value>
+  </data>
+  <data name="UNABLE_CONNECT_ENCODER" xml:space="preserve">
+    <value>엔코더에 연결 할 수 없습니다</value>
+  </data>
+  <data name="COLUMNS" xml:space="preserve">
+    <value>열</value>
+  </data>
+  <data name="ROWS" xml:space="preserve">
+    <value>행</value>
+  </data>
+  <data name="CONTROL" xml:space="preserve">
+    <value>컨트롤</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="EDIT_CATEGORY_TYPE" xml:space="preserve">
+    <value>범주 유형 편집</value>
+  </data>
+  <data name="ADDRESS" xml:space="preserve">
+    <value>주소</value>
+  </data>
+  <data name="ENCODER_CONNECTION_ERROR" xml:space="preserve">
+    <value>엔코더 연결 오류</value>
+  </data>
+  <data name="THICKNESS" xml:space="preserve">
+    <value>두께</value>
+  </data>
+  <data name="THICKNESS_TARGET" xml:space="preserve">
+    <value>두께 목표</value>
+  </data>
+  <data name="PET_PARAM_NAME" xml:space="preserve">
+    <value>PET 파라미터 이름</value>
+  </data>
+  <data name="SCAN_NAME" xml:space="preserve">
+    <value>스캔 이름</value>
+  </data>
+  <data name="SHEET_PARAM_NAME" xml:space="preserve">
+    <value>시트 파라미터 이름</value>
+  </data>
+  <data name="MODEL_PARAMETER" xml:space="preserve">
+    <value>모델 파라미터</value>
+  </data>
+  <data name="MAX_GV_UPPER" xml:space="preserve">
+    <value>최대밝기(이상)</value>
+  </data>
+  <data name="EDGE_LOWER" xml:space="preserve">
+    <value>경계(이하)</value>
+  </data>
+  <data name="EDGE_UPPER" xml:space="preserve">
+    <value>경계(이상)</value>
+  </data>
+  <data name="AREA_UPPER" xml:space="preserve">
+    <value>면적(이상)</value>
+  </data>
+  <data name="AREA_LOWER" xml:space="preserve">
+    <value>면적(이하)</value>
+  </data>
+  <data name="MINGVMIN" xml:space="preserve">
+    <value>최소밝기하한</value>
+  </data>
+  <data name="MINGVMAX" xml:space="preserve">
+    <value>최소밝기상한</value>
+  </data>
+  <data name="MAXGVMIN" xml:space="preserve">
+    <value>최대밝기하한</value>
+  </data>
+  <data name="MAXGVMAX" xml:space="preserve">
+    <value>최대밝기상한</value>
+  </data>
+  <data name="WIDTH_UPPER" xml:space="preserve">
+    <value>폭(이상)</value>
+  </data>
+  <data name="HEIGHTMAX" xml:space="preserve">
+    <value>높이상한</value>
+  </data>
+  <data name="HEIGHTMIN" xml:space="preserve">
+    <value>높이하한</value>
+  </data>
+  <data name="COLUMN" xml:space="preserve">
+    <value>열</value>
+  </data>
+  <data name="ROW" xml:space="preserve">
+    <value>행</value>
+  </data>
+  <data name="SPAN" xml:space="preserve">
+    <value>늘이기</value>
+  </data>
+  <data name="TRIANGLE" xml:space="preserve">
+    <value>삼각형</value>
+  </data>
+  <data name="NONE" xml:space="preserve">
+    <value>없음</value>
+  </data>
+  <data name="SQUARE" xml:space="preserve">
+    <value>사각형</value>
+  </data>
+  <data name="CIRCLE" xml:space="preserve">
+    <value>원</value>
+  </data>
+  <data name="CROSS" xml:space="preserve">
+    <value>대각선</value>
+  </data>
+  <data name="DIAMOND" xml:space="preserve">
+    <value>마름모</value>
+  </data>
+  <data name="DUST" xml:space="preserve">
+    <value>이물</value>
+  </data>
+  <data name="HOLE" xml:space="preserve">
+    <value>핀홀</value>
+  </data>
+  <data name="SIZE_UM" xml:space="preserve">
+    <value>크기[㎛]</value>
+  </data>
+  <data name="OTHERS" xml:space="preserve">
+    <value>기타</value>
+  </data>
+  <data name="DEFECT_INFORMATION" xml:space="preserve">
+    <value>불량 정보</value>
+  </data>
+  <data name="ASCENDING" xml:space="preserve">
+    <value>오름차순</value>
+  </data>
+  <data name="DESCENDING" xml:space="preserve">
+    <value>내림차순</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>영문</value>
+  </data>
+  <data name="KOREAN" xml:space="preserve">
+    <value>한글</value>
+  </data>
+  <data name="CHINESE_SIMPLED" xml:space="preserve">
+    <value>중문(간체)</value>
+  </data>
+  <data name="OPEN" xml:space="preserve">
+    <value>열기</value>
+  </data>
+  <data name="NO_RESULTS_FOUND" xml:space="preserve">
+    <value>검색 결과가 없습니다.</value>
+  </data>
+  <data name="DEFECT_NO" xml:space="preserve">
+    <value>불량 번호</value>
+  </data>
+  <data name="SCAN_NO" xml:space="preserve">
+    <value>스캔 번호</value>
+  </data>
+  <data name="START_TIME" xml:space="preserve">
+    <value>시작 시간</value>
+  </data>
+  <data name="END_TIME" xml:space="preserve">
+    <value>종료 시간</value>
+  </data>
+  <data name="SPECIFICITY_1" xml:space="preserve">
+    <value>특성 1</value>
+  </data>
+  <data name="SPECIFICITY_2" xml:space="preserve">
+    <value>특성 2</value>
+  </data>
+  <data name="PLC_TYPE" xml:space="preserve">
+    <value>PLC 종류</value>
+  </data>
+  <data name="PREV" xml:space="preserve">
+    <value>이전</value>
+  </data>
+  <data name="NEXT" xml:space="preserve">
+    <value>다음</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="FAILED_TO_OPEN_MODEL" xml:space="preserve">
+    <value>모델 열기 실패</value>
+  </data>
+  <data name="NOTIFICATION" xml:space="preserve">
+    <value>알림</value>
+  </data>
+  <data name="HOURLY_NUMBER_OF_RESULTS" xml:space="preserve">
+    <value>시간별 불량 빈도수</value>
+  </data>
+  <data name="HOUR" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="UNIT" xml:space="preserve">
+    <value>단위</value>
+  </data>
+  <data name="VALUE" xml:space="preserve">
+    <value>값</value>
+  </data>
+  <data name="YIELD" xml:space="preserve">
+    <value>수율</value>
+  </data>
+  <data name="MAX_GV_LOWER" xml:space="preserve">
+    <value>최대밝기(이하)</value>
+  </data>
+  <data name="MIN_GV_LOWER" xml:space="preserve">
+    <value>최소밝기(이하)</value>
+  </data>
+  <data name="MIN_GV_UPPER" xml:space="preserve">
+    <value>최소밝기(이상)</value>
+  </data>
+  <data name="AVG_GV_LOWER" xml:space="preserve">
+    <value>평균밝기(이하)</value>
+  </data>
+  <data name="AVG_GV_UPPER" xml:space="preserve">
+    <value>평균밝기(이상)</value>
+  </data>
+  <data name="HEIGHT_UPPER" xml:space="preserve">
+    <value>높이(이상)</value>
+  </data>
+  <data name="DEFECT_OCCURRED_MESSAGE" xml:space="preserve">
+    <value>불량이 발생했습니다</value>
+  </data>
+  <data name="START_DELAY_DISTANCE" xml:space="preserve">
+    <value>시작 지연 거리</value>
+  </data>
+  <data name="SHOW_ALARM_WINDOW" xml:space="preserve">
+    <value>알람 창 표시</value>
+  </data>
+  <data name="USER_SETTING" xml:space="preserve">
+    <value>사용자 설정</value>
+  </data>
+  <data name="USER" xml:space="preserve">
+    <value>사용자</value>
+  </data>
+  <data name="NO1_SENSOR" xml:space="preserve">
+    <value>1. 센서</value>
+  </data>
+  <data name="DATA_GATHERING_COUNT_PER_SEC" xml:space="preserve">
+    <value>초당 데이터 수집 개수</value>
+  </data>
+  <data name="DATA_COUNT_FOR_ZERO_SETTING" xml:space="preserve">
+    <value>영점 설정 데이터 개수</value>
+  </data>
+  <data name="NO2_CEDMS_GRAPH" xml:space="preserve">
+    <value>2. CEDMS 그래프</value>
+  </data>
+  <data name="USE_LINE_STOP" xml:space="preserve">
+    <value>라인 스탑 사용</value>
+  </data>
+  <data name="LINE_STOP_LOWER_MM" xml:space="preserve">
+    <value>라인 스탑 하한[㎜]</value>
+  </data>
+  <data name="LINE_STOP_UPPER_MM" xml:space="preserve">
+    <value>라인 스탑 상한[㎜]</value>
+  </data>
+  <data name="FIND_DEGREE" xml:space="preserve">
+    <value>각도 탐색</value>
+  </data>
+  <data name="DEGREE" xml:space="preserve">
+    <value>각도</value>
+  </data>
+  <data name="FIND_EXPOSURE" xml:space="preserve">
+    <value>노출 탐색</value>
+  </data>
+  <data name="MODEL_NAME" xml:space="preserve">
+    <value>모델 이름</value>
+  </data>
+  <data name="HOMMING" xml:space="preserve">
+    <value>원점 복귀</value>
+  </data>
+  <data name="LINE_NO" xml:space="preserve">
+    <value>라인 번호</value>
+  </data>
+  <data name="PRODUCT_NAME" xml:space="preserve">
+    <value>제품명</value>
+  </data>
+  <data name="EXPOSURE" xml:space="preserve">
+    <value>노출</value>
+  </data>
+  <data name="SIZE_CHECK" xml:space="preserve">
+    <value>크기 확인</value>
+  </data>
+  <data name="MIN" xml:space="preserve">
+    <value>최소</value>
+  </data>
+  <data name="MEAN" xml:space="preserve">
+    <value>평균</value>
+  </data>
+  <data name="MAX" xml:space="preserve">
+    <value>최대</value>
+  </data>
+  <data name="MERGE" xml:space="preserve">
+    <value>병합</value>
+  </data>
+  <data name="MIN_SIZE" xml:space="preserve">
+    <value>최소 크기</value>
+  </data>
+  <data name="MAX_SIZE" xml:space="preserve">
+    <value>최대 크기</value>
+  </data>
+  <data name="MIN_AREA" xml:space="preserve">
+    <value>최소 영역</value>
+  </data>
+  <data name="MAX_AREA" xml:space="preserve">
+    <value>최대 영역</value>
+  </data>
+  <data name="SOLTANDPAPPER" xml:space="preserve">
+    <value>Solt And Papper</value>
+  </data>
+  <data name="WHITEEXTENSION" xml:space="preserve">
+    <value>밝은 영역 확장</value>
+  </data>
+  <data name="UPDWNZRATIOTH" xml:space="preserve">
+    <value>UpdwNZratioTh</value>
+  </data>
+  <data name="MASK_SIZE" xml:space="preserve">
+    <value>마스크 크기</value>
+  </data>
+  <data name="MASK" xml:space="preserve">
+    <value>마스크</value>
+  </data>
+  <data name="UPPER_BLOB" xml:space="preserve">
+    <value>블랍(이상)</value>
+  </data>
+  <data name="LOWER_BLOB" xml:space="preserve">
+    <value>블랍(이하)</value>
+  </data>
+  <data name="INPUT" xml:space="preserve">
+    <value>입력</value>
+  </data>
+  <data name="OUTPUT" xml:space="preserve">
+    <value>출력</value>
+  </data>
+  <data name="AIR" xml:space="preserve">
+    <value>공압</value>
+  </data>
+  <data name="ORIGIN" xml:space="preserve">
+    <value>원점</value>
+  </data>
+  <data name="EMERGENCY" xml:space="preserve">
+    <value>비상</value>
+  </data>
+  <data name="RESET" xml:space="preserve">
+    <value>초기화</value>
+  </data>
+  <data name="RED" xml:space="preserve">
+    <value>빨강</value>
+  </data>
+  <data name="YELLOW" xml:space="preserve">
+    <value>노랑</value>
+  </data>
+  <data name="GREEN" xml:space="preserve">
+    <value>초록</value>
+  </data>
+  <data name="BUZZER" xml:space="preserve">
+    <value>부저</value>
+  </data>
+  <data name="RED_LAMP" xml:space="preserve">
+    <value>빨강 램프</value>
+  </data>
+  <data name="YELLOW_LAMP" xml:space="preserve">
+    <value>노랑 램프</value>
+  </data>
+  <data name="GREEN_LAMP" xml:space="preserve">
+    <value>초록 램프</value>
+  </data>
+  <data name="RESULT_PATH" xml:space="preserve">
+    <value>결과 경로</value>
+  </data>
+  <data name="MOTION" xml:space="preserve">
+    <value>모션</value>
+  </data>
+  <data name="MOTION_SETTING" xml:space="preserve">
+    <value>모션 설정</value>
+  </data>
+  <data name="MICROSCOPE" xml:space="preserve">
+    <value>현미경</value>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>입출력</value>
+  </data>
+  <data name="MANUAL_GRAB" xml:space="preserve">
+    <value>수동 촬영</value>
+  </data>
+  <data name="MANUAL" xml:space="preserve">
+    <value>수동</value>
+  </data>
+  <data name="MANUAL_SIZE_CHECK" xml:space="preserve">
+    <value>수동 확인</value>
+  </data>
+  <data name="MOVE_ORIGIN" xml:space="preserve">
+    <value>원점 이동</value>
+  </data>
+  <data name="AXIS" xml:space="preserve">
+    <value>축</value>
+  </data>
+  <data name="CONFIRM" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="INDEX" xml:space="preserve">
+    <value>번호</value>
+  </data>
+  <data name="POSY_MM" xml:space="preserve">
+    <value>Y 좌표[㎜]</value>
+  </data>
+  <data name="PROCESS" xml:space="preserve">
+    <value>진행</value>
+  </data>
+  <data name="MICRO" xml:space="preserve">
+    <value>현미경</value>
+  </data>
+  <data name="OPERATION" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="POSITION_X" xml:space="preserve">
+    <value>X 위치</value>
+  </data>
+  <data name="POSITION_Y" xml:space="preserve">
+    <value>Y 위치</value>
+  </data>
+  <data name="FISHEYE" xml:space="preserve">
+    <value>어안불량</value>
+  </data>
+  <data name="FISHEYE_LIST" xml:space="preserve">
+    <value>어안불량 목록</value>
+  </data>
+  <data name="LINE" xml:space="preserve">
+    <value>라인</value>
+  </data>
+  <data name="SHEET_NUMBER" xml:space="preserve">
+    <value>시트 개수</value>
+  </data>
+  <data name="INFO" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="LOT_LIST" xml:space="preserve">
+    <value>로트 목록</value>
+  </data>
+  <data name="FISHEYE_IMAGE" xml:space="preserve">
+    <value>어안불량 이미지</value>
+  </data>
+  <data name="SHEET_INDEX" xml:space="preserve">
+    <value>시트 번호</value>
+  </data>
+  <data name="SHAPE" xml:space="preserve">
+    <value>모양</value>
+  </data>
+  <data name="FISHEYE_TYPE" xml:space="preserve">
+    <value>어안불량 종류</value>
+  </data>
+  <data name="GRABBER" xml:space="preserve">
+    <value>그래버</value>
+  </data>
+  <data name="DAQ" xml:space="preserve">
+    <value>DAQ</value>
+  </data>
+  <data name="POSITION" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="NO." xml:space="preserve">
+    <value>번호</value>
+  </data>
+  <data name="DEBUGGING" xml:space="preserve">
+    <value>디버깅</value>
+  </data>
+  <data name="DUMP" xml:space="preserve">
+    <value>덤프</value>
+  </data>
+  <data name="LABELMARKER" xml:space="preserve">
+    <value>라벨 마커</value>
+  </data>
+  <data name="DELAY" xml:space="preserve">
+    <value>딜레이</value>
+  </data>
+  <data name="SHEET_SETTING" xml:space="preserve">
+    <value>시트 설정</value>
+  </data>
+  <data name="FILM_WIDTH_MM" xml:space="preserve">
+    <value>필름 너비[㎜]</value>
+  </data>
+  <data name="FILM_HEIGHT_MM" xml:space="preserve">
+    <value>필름 높이[㎜]</value>
+  </data>
+  <data name="PATTERN_MARGIN_X" xml:space="preserve">
+    <value>X축 패턴 여백</value>
+  </data>
+  <data name="PATTERN_MARGIN_Y" xml:space="preserve">
+    <value>Y축 패턴 여백</value>
+  </data>
+  <data name="EDGE" xml:space="preserve">
+    <value>경계</value>
+  </data>
+  <data name="CUSTOMER" xml:space="preserve">
+    <value>고객</value>
+  </data>
+  <data name="USER_INPUT" xml:space="preserve">
+    <value>사용자 설정</value>
+  </data>
+  <data name="ITEM" xml:space="preserve">
+    <value>아이템</value>
+  </data>
+  <data name="EXIT_PROGRAM" xml:space="preserve">
+    <value>프로그램 종료</value>
+  </data>
+  <data name="EXIT_PROGRAM_MESSAGE" xml:space="preserve">
+    <value>프로그램을 종료하시겠습니까?</value>
+  </data>
+  <data name="FILM_WIDTH" xml:space="preserve">
+    <value>필름 너비</value>
+  </data>
+  <data name="FILM_HEIGHT" xml:space="preserve">
+    <value>필름 높이</value>
+  </data>
+  <data name="LIGHT_SETTING" xml:space="preserve">
+    <value>조명 설정</value>
+  </data>
+  <data name="AUTO_LIGHT_CALIBRATION" xml:space="preserve">
+    <value>자동 조명 조절</value>
+  </data>
+  <data name="LIGHT_VALUE" xml:space="preserve">
+    <value>조명 값</value>
+  </data>
+  <data name="IMAGE_BASE_LINE" xml:space="preserve">
+    <value>이미지 기준 밝기</value>
+  </data>
+  <data name="IM_NAME" xml:space="preserve">
+    <value>검사 모듈 이름</value>
+  </data>
+  <data name="SEARCH_LIST" xml:space="preserve">
+    <value>리스트 검색</value>
+  </data>
+  <data name="LOAD_MODEL" xml:space="preserve">
+    <value>모델 불러오기</value>
+  </data>
+  <data name="EXPORT_SEARCH_LIST" xml:space="preserve">
+    <value>검색 결과 내보내기</value>
+  </data>
+  <data name="AQUIRE" xml:space="preserve">
+    <value>획득</value>
+  </data>
+  <data name="IOPORT" xml:space="preserve">
+    <value>입출력</value>
+  </data>
+  <data name="IOPORT_SETTING" xml:space="preserve">
+    <value>입출력 설정</value>
+  </data>
+  <data name="SHOW_OTHERS_DEFECT" xml:space="preserve">
+    <value>미분류 불량 표시</value>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+  </data>
+  <data name="PROPERTY" xml:space="preserve">
+    <value>속성</value>
+  </data>
+  <data name="LAYOUT_SETTING" xml:space="preserve">
+    <value>레이아웃 설정</value>
+  </data>
+  <data name="INPORT" xml:space="preserve">
+    <value>입력</value>
+  </data>
+  <data name="LABEL_RUN" xml:space="preserve">
+    <value>라벨러 동작</value>
+  </data>
+  <data name="LABEL_ERROR" xml:space="preserve">
+    <value>라벨러 에러</value>
+  </data>
+  <data name="LABEL_EMPTY" xml:space="preserve">
+    <value>라벨러 없음</value>
+  </data>
+  <data name="OUTPORT" xml:space="preserve">
+    <value>출력</value>
+  </data>
+  <data name="TOWER_LAMP_RED" xml:space="preserve">
+    <value>경광봉 빨강</value>
+  </data>
+  <data name="TOWER_LAMP_YELLOW" xml:space="preserve">
+    <value>경광봉 노랑</value>
+  </data>
+  <data name="TOWER_LAMP_GREEN" xml:space="preserve">
+    <value>경광봉 초록</value>
+  </data>
+  <data name="TOWER_LAMP_BUZZER" xml:space="preserve">
+    <value>경광봉 부저</value>
+  </data>
+  <data name="LABEL_PUBLISH" xml:space="preserve">
+    <value>라벨러 발행</value>
+  </data>
+  <data name="LABEL_RESET" xml:space="preserve">
+    <value>라벨러 초기화</value>
+  </data>
+  <data name="TEST" xml:space="preserve">
+    <value>테스트</value>
+  </data>
+  <data name="INPUT_PORT" xml:space="preserve">
+    <value>입력</value>
+  </data>
+  <data name="PORT_NUM" xml:space="preserve">
+    <value>포트 번호</value>
+  </data>
+  <data name="PORT_NAME" xml:space="preserve">
+    <value>포트 이름</value>
+  </data>
+  <data name="PORT_STATUS" xml:space="preserve">
+    <value>포트 상태</value>
+  </data>
+  <data name="OUTPUT_PORT" xml:space="preserve">
+    <value>출력</value>
+  </data>
+  <data name="IOPORT_STATUS" xml:space="preserve">
+    <value>입출력 상태</value>
+  </data>
+  <data name="USER_LOGIN" xml:space="preserve">
+    <value>사용자 로그인</value>
+  </data>
+  <data name="LOGIN" xml:space="preserve">
+    <value>로그인</value>
+  </data>
+  <data name="INTERVAL_SETTING" xml:space="preserve">
+    <value>구간 설정</value>
+  </data>
+  <data name="DAY" xml:space="preserve">
+    <value>일자</value>
+  </data>
+  <data name="1_DAY" xml:space="preserve">
+    <value>하루</value>
+  </data>
+  <data name="1_WEEK" xml:space="preserve">
+    <value>한주</value>
+  </data>
+  <data name="1_MONTH" xml:space="preserve">
+    <value>한달</value>
+  </data>
+  <data name="PRODUCTION_DATE" xml:space="preserve">
+    <value>생산 날짜</value>
+  </data>
+  <data name="INSPECTION_DATE" xml:space="preserve">
+    <value>검사 날짜</value>
+  </data>
+  <data name="BUILD" xml:space="preserve">
+    <value>생성</value>
+  </data>
+  <data name="PRODUCT" xml:space="preserve">
+    <value>제품</value>
+  </data>
+  <data name="MODEL_LIST" xml:space="preserve">
+    <value>모델 목록</value>
+  </data>
+  <data name="RADIUS" xml:space="preserve">
+    <value>반지름</value>
+  </data>
+  <data name="REVIEW" xml:space="preserve">
+    <value>검토</value>
+  </data>
+  <data name="POSX_UM" xml:space="preserve">
+    <value>X 좌표[㎛]</value>
+  </data>
+  <data name="POSY_UM" xml:space="preserve">
+    <value>Y 좌표[㎛]</value>
+  </data>
+  <data name="CANVAS" xml:space="preserve">
+    <value>캔버스</value>
+  </data>
+  <data name="DEFECT_IMAGE" xml:space="preserve">
+    <value>불량 이미지</value>
+  </data>
+  <data name="SERIAL_NO" xml:space="preserve">
+    <value>시리얼 번호</value>
+  </data>
+  <data name="REPORT_LIST" xml:space="preserve">
+    <value>레포트 목록</value>
+  </data>
+  <data name="NEW_MODEL" xml:space="preserve">
+    <value>모델 생성</value>
+  </data>
+  <data name="COPY_MODEL" xml:space="preserve">
+    <value>모델 복사</value>
+  </data>
+  <data name="EDIT_MODEL" xml:space="preserve">
+    <value>모델 편집</value>
+  </data>
+  <data name="MESSAGE" xml:space="preserve">
+    <value>메세지</value>
+  </data>
+  <data name="MODEL_DELETE_WARNING_MESSAGE" xml:space="preserve">
+    <value>이 모델을 삭제 하시겠습니까?</value>
+  </data>
+  <data name="ALIVE" xml:space="preserve">
+    <value>활성</value>
+  </data>
+  <data name="MOVE" xml:space="preserve">
+    <value>이동</value>
+  </data>
+  <data name="READY" xml:space="preserve">
+    <value>준비</value>
+  </data>
+  <data name="PLC_ADDRESS" xml:space="preserve">
+    <value>PLC 주소</value>
+  </data>
+  <data name="VIRTUAL" xml:space="preserve">
+    <value>가상</value>
+  </data>
+  <data name="SCANEND" xml:space="preserve">
+    <value>스캔 종료</value>
+  </data>
+  <data name="RESULTNG" xml:space="preserve">
+    <value>결과 NG</value>
+  </data>
+  <data name="RESULTOK" xml:space="preserve">
+    <value>결과 OK</value>
+  </data>
+  <data name="RECIPECHANGEDONE" xml:space="preserve">
+    <value>레시피 교체 완료</value>
+  </data>
+  <data name="GOOD" xml:space="preserve">
+    <value>정상</value>
+  </data>
+  <data name="SHEET_JUDGE" xml:space="preserve">
+    <value>시트 판정</value>
+  </data>
+  <data name="FILM_INFORMATION" xml:space="preserve">
+    <value>필름 정보</value>
+  </data>
+  <data name="FILM" xml:space="preserve">
+    <value>필름</value>
+  </data>
+  <data name="DEFECT_JUDGE" xml:space="preserve">
+    <value>불량 판정</value>
+  </data>
+  <data name="LOG" xml:space="preserve">
+    <value>로그</value>
+  </data>
+  <data name="INSPECT_OPTION" xml:space="preserve">
+    <value>검사 옵션</value>
+  </data>
+  <data name="STATISTICS" xml:space="preserve">
+    <value>통계</value>
+  </data>
+  <data name="JUDGE" xml:space="preserve">
+    <value>판정</value>
+  </data>
+  <data name="SHEET_INFO" xml:space="preserve">
+    <value>시트 정보</value>
+  </data>
+  <data name="EMG" xml:space="preserve">
+    <value>비상</value>
+  </data>
+  <data name="SUDDENSTOP" xml:space="preserve">
+    <value>긴급정지</value>
+  </data>
+  <data name="WAIT" xml:space="preserve">
+    <value>대기</value>
+  </data>
+  <data name="WAITING" xml:space="preserve">
+    <value>대기중</value>
+  </data>
+  <data name="INSPECTING" xml:space="preserve">
+    <value>검사중</value>
+  </data>
+  <data name="IDLE" xml:space="preserve">
+    <value>대기</value>
+  </data>
+  <data name="FILMTYPE" xml:space="preserve">
+    <value>필름 타입</value>
+  </data>
+  <data name="PREVIEW" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="MINBALLGROUPMAJORAXISSIZE" xml:space="preserve">
+    <value>볼 그룹 장축 최소 크기</value>
+  </data>
+  <data name="MINBLANKAREASIZE" xml:space="preserve">
+    <value>공백 영역 최소 크기</value>
+  </data>
+  <data name="INSPECT_DONE" xml:space="preserve">
+    <value>검사 종료</value>
+  </data>
+  <data name="MINDUSTSIZE" xml:space="preserve">
+    <value>최소 이물 크기</value>
+  </data>
+  <data name="MASK_INSP" xml:space="preserve">
+    <value>마스크 검사</value>
+  </data>
+  <data name="AUTO_INSP" xml:space="preserve">
+    <value>자동 검사</value>
+  </data>
+  <data name="SAVE_DATA" xml:space="preserve">
+    <value>데이터 저장</value>
+  </data>
+  <data name="SAVE_IMAGE" xml:space="preserve">
+    <value>이미지 저장</value>
+  </data>
+  <data name="MINAREASIZE" xml:space="preserve">
+    <value>검출 최소 크기</value>
+  </data>
+  <data name="MINMAJORAXISLENGTH" xml:space="preserve">
+    <value>최소 장축 길이</value>
+  </data>
+  <data name="MINXAXISLENGTH" xml:space="preserve">
+    <value>검출 최소 폭</value>
+  </data>
+  <data name="MINYAXISLENGTH" xml:space="preserve">
+    <value>검출 최소 높이</value>
+  </data>
+  <data name="DURATION" xml:space="preserve">
+    <value>기간</value>
+  </data>
+  <data name="NUM_DEFECT" xml:space="preserve">
+    <value>결함 개수</value>
+  </data>
+  <data name="NUM_BALL_DEFECT" xml:space="preserve">
+    <value>볼 결함 개수</value>
+  </data>
+  <data name="NUM_DUST_DEFECT" xml:space="preserve">
+    <value>이물 결함 개수</value>
+  </data>
+  <data name="SHEET" xml:space="preserve">
+    <value>시트</value>
+  </data>
+  <data name="JUDGEMENT" xml:space="preserve">
+    <value>판정</value>
+  </data>
+  <data name="AREA_UM2" xml:space="preserve">
+    <value>면적[u㎡]</value>
+  </data>
+  <data name="DEFECT_POS" xml:space="preserve">
+    <value>불량 위치</value>
+  </data>
+  <data name="DUST_INSP" xml:space="preserve">
+    <value>이물 검사</value>
+  </data>
+  <data name="GRAYVALUE" xml:space="preserve">
+    <value>회색조</value>
+  </data>
+  <data name="CONTRASTVALUE" xml:space="preserve">
+    <value>밝기 차이 값</value>
+  </data>
+  <data name="PARTICLEAREA" xml:space="preserve">
+    <value>제거될 노이즈의 최대 크기[u㎡]</value>
+  </data>
+  <data name="TABLEGRAYVALUE" xml:space="preserve">
+    <value>다공판의 밝기</value>
+  </data>
+  <data name="AUTO_EJECT" xml:space="preserve">
+    <value>자동 배출</value>
+  </data>
+  <data name="COLINDEX" xml:space="preserve">
+    <value>열 번호</value>
+  </data>
+  <data name="ROWINDEX" xml:space="preserve">
+    <value>행 번호</value>
+  </data>
+  <data name="COL" xml:space="preserve">
+    <value>열</value>
+  </data>
+  <data name="MINMINORAXISLENGTH" xml:space="preserve">
+    <value>최소 단축 길이</value>
+  </data>
+  <data name="SIGMAVALUE" xml:space="preserve">
+    <value>검출 대상과 주변의 밝기 차이( 절대 값이 클면 감도 상승)</value>
+  </data>
+  <data name="MAJORLENGTHRATIO" xml:space="preserve">
+    <value>장단축 비율</value>
+  </data>
+  <data name="SHEETXOFFSETMM" xml:space="preserve">
+    <value>시트 오프셋 X[㎜]</value>
+  </data>
+  <data name="SHEETYOFFSETMM" xml:space="preserve">
+    <value>시트 오프셋 Y[㎜]</value>
+  </data>
+  <data name="SHEETXLENGTHUM" xml:space="preserve">
+    <value>시트 길이 X[㎛]</value>
+  </data>
+  <data name="SHEETYLENGTHUM" xml:space="preserve">
+    <value>시트 길이 Y[㎛]</value>
+  </data>
+  <data name="SHEETXLENGTHMM" xml:space="preserve">
+    <value>시트 길이 X[㎜]</value>
+  </data>
+  <data name="SHEETYLENGTHMM" xml:space="preserve">
+    <value>시트 길이 Y[㎜]</value>
+  </data>
+  <data name="SHOWSHEETREGION" xml:space="preserve">
+    <value>시트 영역 보기</value>
+  </data>
+  <data name="SHEETWIDTH" xml:space="preserve">
+    <value>시트 너비[㎜]</value>
+  </data>
+  <data name="SHEETHEIGHT" xml:space="preserve">
+    <value>시트 길이[㎜]</value>
+  </data>
+  <data name="SHEETTHICKNESS" xml:space="preserve">
+    <value>시트 두께[㎛]</value>
+  </data>
+  <data name="SCANSTARTX" xml:space="preserve">
+    <value>스캔 시작 X[mm]</value>
+  </data>
+  <data name="SCANSTARTY" xml:space="preserve">
+    <value>스캔 시작 Y[mm]</value>
+  </data>
+  <data name="SCANENDY" xml:space="preserve">
+    <value>스캔 종료 Y[mm]</value>
+  </data>
+  <data name="SCANPITCH" xml:space="preserve">
+    <value>스탠 피치[mm]</value>
+  </data>
+  <data name="SCANWIDTH" xml:space="preserve">
+    <value>스캔 폭[mm]</value>
+  </data>
+  <data name="SCANCOUNT" xml:space="preserve">
+    <value>스캔 개수[EA]</value>
+  </data>
+  <data name="USEOMIT" xml:space="preserve">
+    <value>OMIT 조명 사용</value>
+  </data>
+  <data name="SHEETXOFFSETUM" xml:space="preserve">
+    <value>시트 오프셋 X[㎛]</value>
+  </data>
+  <data name="SHEETYOFFSETUM" xml:space="preserve">
+    <value>시트 오프셋 Y[㎛]</value>
+  </data>
+  <data name="LENGTH_UM" xml:space="preserve">
+    <value>길이[㎛]</value>
+  </data>
+  <data name="HIGHSIGMA" xml:space="preserve">
+    <value>검출 대상과 주변의 밝기 차이(밝은 영역)</value>
+  </data>
+  <data name="LOWSIGMA" xml:space="preserve">
+    <value>검출 대상과 주변의 밝기 차이(어두운 영역)</value>
+  </data>
+  <data name="DUST_GV" xml:space="preserve">
+    <value>이물[GV]</value>
+  </data>
+  <data name="HOLE_GV" xml:space="preserve">
+    <value>핀홀[GV]</value>
+  </data>
+  <data name="PATTERN_MARGIN_X_MM" xml:space="preserve">
+    <value>X축 패턴 여백[㎜]</value>
+  </data>
+  <data name="PATTERN_MARGIN_Y_MM" xml:space="preserve">
+    <value>Y축 패턴 여백[㎜]</value>
+  </data>
+  <data name="LABEL_READY" xml:space="preserve">
+    <value>라벨러 준비</value>
+  </data>
+  <data name="TOP_LIGHT_VALUE" xml:space="preserve">
+    <value>상부 조명 값</value>
+  </data>
+  <data name="BOTTOM_LIGHT_VALUE" xml:space="preserve">
+    <value>하부 조명 값</value>
+  </data>
+  <data name="IMAGEPERCOLUMN" xml:space="preserve">
+    <value>줄당 이미지</value>
+  </data>
+  <data name="DEFECT_OCCURED" xml:space="preserve">
+    <value>불량 발생</value>
+  </data>
+  <data name="DEFECT_RESET" xml:space="preserve">
+    <value>불량 리셋</value>
+  </data>
+  <data name="ALARM" xml:space="preserve">
+    <value>알람</value>
+  </data>
+  <data name="BUZZER_OFF" xml:space="preserve">
+    <value>부저 끄기</value>
+  </data>
+  <data name="CODE" xml:space="preserve">
+    <value>코드</value>
+  </data>
+  <data name="ALARM_CODE" xml:space="preserve">
+    <value>알람 코드</value>
+  </data>
+  <data name="ALARM_LEVEL" xml:space="preserve">
+    <value>알람 수준</value>
+  </data>
+  <data name="ALARM_MESSAGE" xml:space="preserve">
+    <value>알람 메세지</value>
+  </data>
+  <data name="PROCESS_LENGTH_M" xml:space="preserve">
+    <value>진행 길이[m]</value>
+  </data>
+  <data name="PATTERN_SIZE" xml:space="preserve">
+    <value>패턴 크기</value>
+  </data>
+  <data name="PATTERN_SIZE_MM" xml:space="preserve">
+    <value>패턴 크기[㎜]</value>
+  </data>
+  <data name="PATTERN_WIDTH" xml:space="preserve">
+    <value>패턴 폭</value>
+  </data>
+  <data name="PATTERN_HEIGHT" xml:space="preserve">
+    <value>패턴 길이</value>
+  </data>
+  <data name="PATTERN_WIDTH_MM" xml:space="preserve">
+    <value>패턴 폭[㎜]</value>
+  </data>
+  <data name="PATTERN_HEIGHT_MM" xml:space="preserve">
+    <value>패턴 길이[㎜]</value>
+  </data>
+  <data name="DETECT_PARAMETER" xml:space="preserve">
+    <value>검출 파라미터</value>
+  </data>
+  <data name="PATTERN_SETTING" xml:space="preserve">
+    <value>패턴 설정</value>
+  </data>
+  <data name="DARK_DEFECT_GV" xml:space="preserve">
+    <value>어두운 불량[GV]</value>
+  </data>
+  <data name="LIGHT_DEFECT_GV" xml:space="preserve">
+    <value>밝은 불량[GV]</value>
+  </data>
+  <data name="THRESHOLD_DARK" xml:space="preserve">
+    <value>어두운 경계값</value>
+  </data>
+  <data name="THRESHOLD_LIGHT" xml:space="preserve">
+    <value>밝기 경계값</value>
+  </data>
+  <data name="THRESHOLD_SIZE" xml:space="preserve">
+    <value>크기 경계값</value>
+  </data>
+  <data name="THRESHOLD_SIZE_UM" xml:space="preserve">
+    <value>크기 경계값[㎛]</value>
+  </data>
+  <data name="DEFECT_DARK" xml:space="preserve">
+    <value>어두운 불량</value>
+  </data>
+  <data name="DEFECT_LIGHT" xml:space="preserve">
+    <value>밝은 불량</value>
+  </data>
+  <data name="DEFECT_SIZE_UM" xml:space="preserve">
+    <value>불량 크기[㎛]</value>
+  </data>
+  <data name="RUNNING" xml:space="preserve">
+    <value>동작 중</value>
+  </data>
+  <data name="HEARTBEAT" xml:space="preserve">
+    <value>동작 신호</value>
+  </data>
+  <data name="SIGNAL_DURATION" xml:space="preserve">
+    <value>신호 유지</value>
+  </data>
+  <data name="SIGNAL_DURATION_TIME" xml:space="preserve">
+    <value>신호 유지 시간</value>
+  </data>
+  <data name="SAVE_WARNING_MESSAGE" xml:space="preserve">
+    <value>이 모델을 저장 하시겠습니까?</value>
+  </data>
+  <data name="MODEL_OVERLAP_MESSAGE" xml:space="preserve">
+    <value>이미 등록된 모델입니다.</value>
+  </data>
+  <data name="MODELNAME_WARNING_MESSAGE" xml:space="preserve">
+    <value>파일명으로 사용할 수 없는 [ /, :, *, ?, &lt;, &gt;, @ ] 문자들을 [ _ ] 로 대체합니다.</value>
+  </data>
+  <data name="DETECT_LENGTH_RANGE_M" xml:space="preserve">
+    <value>검출 길이 범위[m]</value>
+  </data>
+  <data name="MINGVLOWER" xml:space="preserve">
+    <value>최소밝기(이하)</value>
+  </data>
+  <data name="MINGVUPPER" xml:space="preserve">
+    <value>최소밝기(이상)</value>
+  </data>
+  <data name="MAXGVUPPER" xml:space="preserve">
+    <value>최대밝기(이상)</value>
+  </data>
+  <data name="MAXGVLOWER" xml:space="preserve">
+    <value>최대밝기(이하)</value>
+  </data>
+  <data name="WIDTHLOWER" xml:space="preserve">
+    <value>폭(이하)</value>
+  </data>
+  <data name="WIDTHUPPER" xml:space="preserve">
+    <value>폭(이상)</value>
+  </data>
+  <data name="HEIGHTLOWER" xml:space="preserve">
+    <value>높이(이하)</value>
+  </data>
+  <data name="HEIGHTUPPER" xml:space="preserve">
+    <value>높이(이상)</value>
+  </data>
+  <data name="MODEL_NOT_OPEN_MESSAGE" xml:space="preserve">
+    <value>모델이 열리지 않았습니다.</value>
+  </data>
+  <data name="PREVIOUS_VALUE" xml:space="preserve">
+    <value>이전 값</value>
+  </data>
+  <data name="CURRENT_VALUE" xml:space="preserve">
+    <value>현재 값</value>
+  </data>
+  <data name="UI_UPDATE_TIME" xml:space="preserve">
+    <value>UI 갱신 시간</value>
+  </data>
+  <data name="INSPECT_SEQUENCE" xml:space="preserve">
+    <value>검사 시퀀스</value>
+  </data>
+  <data name="INSPECT_SEQUENCE_SETTING" xml:space="preserve">
+    <value>검사 시퀀스 설정</value>
+  </data>
+  <data name="SEQUENCE_SETTING" xml:space="preserve">
+    <value>시퀀스 설정</value>
+  </data>
+  <data name="USER_NAME" xml:space="preserve">
+    <value>사용자 이름</value>
+  </data>
+  <data name="PASSWORD" xml:space="preserve">
+    <value>비밀번호</value>
+  </data>
+  <data name="USER_INFO" xml:space="preserve">
+    <value>사용자 정보</value>
+  </data>
+  <data name="USERNAME_MISSING_MESSAGE" xml:space="preserve">
+    <value>이름은 비어 있을 수 없습니다.</value>
+  </data>
+  <data name="PASSWORD_MISSING_MESSAGE" xml:space="preserve">
+    <value>비밀번호는 비어 있을 수 없습니다.</value>
+  </data>
+  <data name="PASSWORD_NOT_SUTABLE_MESSAGE" xml:space="preserve">
+    <value>비밀번호는 숫자, 영문, 특수문자를 포함한 6자 이상이어야 합니다.</value>
+  </data>
+  <data name="USERNAME_EXIST_MESSAGE" xml:space="preserve">
+    <value>계정 이름이 이미 존재합니다</value>
+  </data>
+  <data name="USER_DELETE_WARNING_MESSAGE" xml:space="preserve">
+    <value>이 계정을 삭제 하시겠습니까?</value>
+  </data>
+  <data name="USERINFO_WARNING_MESSAGE" xml:space="preserve">
+    <value>사용자 정보가 올바르게 입력되지 않았습니다</value>
+  </data>
+  <data name="USERAUTHO_WARNING_MESSAGE" xml:space="preserve">
+    <value>해당 계정에 권한이 없습니다</value>
+  </data>
+  <data name="AUTHORIZATION" xml:space="preserve">
+    <value>권한 부여</value>
+  </data>
+  <data name="BATCH_WARNING_MESSAGE" xml:space="preserve">
+    <value>이 설정으로 일괄 적용 하시겠습니까?</value>
+  </data>
+  <data name="BATCH_SETTING" xml:space="preserve">
+    <value>일괄 적용</value>
+  </data>
+  <data name="RESET_WARNING_MESSAGE" xml:space="preserve">
+    <value>이 설정을 초기화 하시겠습니까?</value>
+  </data>
+  <data name="RESET_SETTING" xml:space="preserve">
+    <value>설정 초기화</value>
+  </data>
+  <data name="GENERAL_SETTING" xml:space="preserve">
+    <value>일반 설정</value>
+  </data>
+  <data name="FRAME_INDEX" xml:space="preserve">
+    <value>프레임 번호</value>
+  </data>
+  <data name="SIZECHART" xml:space="preserve">
+    <value>사이즈 차트</value>
+  </data>
+  <data name="WIDTHCHART" xml:space="preserve">
+    <value>너비 차트</value>
+  </data>
+  <data name="LENGTHCHART" xml:space="preserve">
+    <value>길이 차트</value>
+  </data>
+  <data name="ENABLE" xml:space="preserve">
+    <value>활성화</value>
+  </data>
+  <data name="DISABLE" xml:space="preserve">
+    <value>비활성화</value>
+  </data>
+  <data name="FRAME" xml:space="preserve">
+    <value>프레임</value>
+  </data>
+  <data name="FRAME_POSITION" xml:space="preserve">
+    <value>프레임 위치</value>
+  </data>
+  <data name="FUNCTION" xml:space="preserve">
+    <value>함수</value>
+  </data>
+  <data name="NODE_TYPE" xml:space="preserve">
+    <value>노드 종류</value>
+  </data>
+  <data name="INPUT_TYPE" xml:space="preserve">
+    <value>입력 종류</value>
+  </data>
+  <data name="OUTPUT_TYPE" xml:space="preserve">
+    <value>출력 종류</value>
+  </data>
+  <data name="NODE_TYPE_SETTING" xml:space="preserve">
+    <value>노드 종류 설정</value>
+  </data>
+  <data name="DETAIL_TEACH" xml:space="preserve">
+    <value>세부 티칭</value>
+  </data>
+  <data name="THRESHOLD" xml:space="preserve">
+    <value>경계값</value>
+  </data>
+  <data name="MAX_DEFECT_COUNT" xml:space="preserve">
+    <value>최대 불량 개수</value>
+  </data>
+  <data name="DEFECT_PRIORITY" xml:space="preserve">
+    <value>불량 우선순위</value>
+  </data>
+  <data name="TARGET_INTENSITY" xml:space="preserve">
+    <value>목표 밝기</value>
+  </data>
+  <data name="CALIBRATE_FRAME_CNT" xml:space="preserve">
+    <value>보정 프레임 개수</value>
+  </data>
+  <data name="OUT_TARGET_INTENSITY" xml:space="preserve">
+    <value>목표 외 밝기</value>
+  </data>
+  <data name="GPU_PROCESSING" xml:space="preserve">
+    <value>Gpu 연산</value>
+  </data>
+  <data name="FRAME_MARGIN_L" xml:space="preserve">
+    <value>왼쪽 프레임 여백</value>
+  </data>
+  <data name="FRAME_MARGIN_T" xml:space="preserve">
+    <value>위쪽 프레임 여백</value>
+  </data>
+  <data name="FRAME_MARGIN_R" xml:space="preserve">
+    <value>오른쪽 프레임 여백</value>
+  </data>
+  <data name="FRAME_MARGIN_B" xml:space="preserve">
+    <value>아래쪽 프레임 여백</value>
+  </data>
+  <data name="THRESHOLD_COLOR" xml:space="preserve">
+    <value>컬러 경계값</value>
+  </data>
+  <data name="PATTERN" xml:space="preserve">
+    <value>패턴</value>
+  </data>
+  <data name="DEFECT_IMAGE_INFLATE" xml:space="preserve">
+    <value>불량 이미지 영역</value>
+  </data>
+  <data name="LOG_LEVEL" xml:space="preserve">
+    <value>로그 수준</value>
+  </data>
+  <data name="LOG_TYPE" xml:space="preserve">
+    <value>로그 종류</value>
+  </data>
+  <data name="INSPECT_LAYOUT" xml:space="preserve">
+    <value>검사 레이아웃</value>
+  </data>
+  <data name="REPORT_LAYOUT" xml:space="preserve">
+    <value>레포트 레이아웃</value>
+  </data>
+  <data name="LEFT" xml:space="preserve">
+    <value>왼쪽</value>
+  </data>
+  <data name="RIGHT" xml:space="preserve">
+    <value>오른쪽</value>
+  </data>
+  <data name="MOVE_LEFT" xml:space="preserve">
+    <value>왼쪽으로 이동</value>
+  </data>
+  <data name="MOVE_RIGHT" xml:space="preserve">
+    <value>오른쪽으로 이동</value>
+  </data>
+  <data name="ALARM_OCCURRED" xml:space="preserve">
+    <value>알람 발생</value>
+  </data>
+  <data name="LINE_SPEED_WARNING" xml:space="preserve">
+    <value>라인 속도</value>
+  </data>
+  <data name="LINE_SPEED" xml:space="preserve">
+    <value>라인 속도 경고</value>
+  </data>
+  <data name="NO_IMAGE_MESSAGE" xml:space="preserve">
+    <value>이미지가 없습니다.</value>
+  </data>
+  <data name="FAIL" xml:space="preserve">
+    <value>실패</value>
+  </data>
+  <data name="LINE_DEFECT_HEIGHT_MM" xml:space="preserve">
+    <value>라인 불량 길이[㎜]</value>
+  </data>
+  <data name="DEFECT_COUNT" xml:space="preserve">
+    <value>불량 수량</value>
+  </data>
+  <data name="DEFECT" xml:space="preserve">
+    <value>불량</value>
+  </data>
+  <data name="LENGTH" xml:space="preserve">
+    <value>길이</value>
+  </data>
+  <data name="GRAB_IMAGE_MESSAGE" xml:space="preserve">
+    <value>새로운 이미지를 촬영해주세요</value>
+  </data>
+  <data name="SIGNAL_DURATION_TIME_MS" xml:space="preserve">
+    <value>신호 유지 시간[㎳]</value>
+  </data>
+  <data name="DISTANCE_M" xml:space="preserve">
+    <value>거리[m]</value>
+  </data>
+  <data name="DELAY_MS" xml:space="preserve">
+    <value>딜레이[㎳]</value>
+  </data>
+  <data name="DEFECT_ALARM" xml:space="preserve">
+    <value>불량 알람</value>
+  </data>
+  <data name="BASE_SETTING" xml:space="preserve">
+    <value>기본 설정</value>
+  </data>
+  <data name="BASE_SETTING_MESSAGE" xml:space="preserve">
+    <value>기본 설정을 불러오시겠습니까?</value>
+  </data>
+  <data name="PLC_SETTING" xml:space="preserve">
+    <value>PLC 설정</value>
+  </data>
+  <data name="PLC_ADDRESS_SETTING" xml:space="preserve">
+    <value>PLC 주소 설정</value>
+  </data>
+  <data name="ADDRESS_SETTING" xml:space="preserve">
+    <value>주소 설정</value>
+  </data>
+  <data name="TIME_OUT" xml:space="preserve">
+    <value>타임 아웃</value>
+  </data>
+  <data name="TIME_OUT_MS" xml:space="preserve">
+    <value>타임 아웃[㎳]</value>
+  </data>
+  <data name="SIZE" xml:space="preserve">
+    <value>크기</value>
+  </data>
+  <data name="USE" xml:space="preserve">
+    <value>사용</value>
+  </data>
+  <data name="CPU_TYPE" xml:space="preserve">
+    <value>Cpu 종류</value>
+  </data>
+  <data name="PLC_PATH" xml:space="preserve">
+    <value>Plc 경로</value>
+  </data>
+  <data name="TAG" xml:space="preserve">
+    <value>태그</value>
+  </data>
+  <data name="OFFSET" xml:space="preserve">
+    <value>오프셋</value>
+  </data>
+  <data name="OTHER_DEFECT_CATEGORY" xml:space="preserve">
+    <value>미분류 불량 카테고리</value>
+  </data>
+  <data name="MIN_SPEED" xml:space="preserve">
+    <value>최소 속도</value>
+  </data>
+  <data name="MAX_SPEED" xml:space="preserve">
+    <value>최대 속도</value>
+  </data>
+  <data name="CAMERA_TDI_LIGHT" xml:space="preserve">
+    <value>카메라 TDI 조명</value>
+  </data>
+  <data name="LIGHT_SETTING_WARNING" xml:space="preserve">
+    <value>조명 설정 경고</value>
+  </data>
+  <data name="PROFILE_CHART" xml:space="preserve">
+    <value>프로파일 차트</value>
+  </data>
+  <data name="TREND_CHART" xml:space="preserve">
+    <value>트랜드 차트</value>
+  </data>
+  <data name="AVG" xml:space="preserve">
+    <value>평균</value>
+  </data>
+  <data name="LAVG" xml:space="preserve">
+    <value>좌평</value>
+  </data>
+  <data name="RAVG" xml:space="preserve">
+    <value>우평</value>
+  </data>
+  <data name="DEV" xml:space="preserve">
+    <value>편차</value>
+  </data>
+  <data name="CALIBRATE_THREAD_CNT" xml:space="preserve">
+    <value>보정 스레드 개수</value>
+  </data>
+  <data name="COLOR_AVERAGE_COUNT" xml:space="preserve">
+    <value>컬러 평균 개수</value>
+  </data>
+  <data name="DEFECTMAPCONTROL" xml:space="preserve">
+    <value>불량 맵</value>
+  </data>
+  <data name="DEFECTSUMMARYCONTROL" xml:space="preserve">
+    <value>불량 요약</value>
+  </data>
+  <data name="DEFECTCOUNTCONTROL" xml:space="preserve">
+    <value>불량 수량</value>
+  </data>
+  <data name="FRAMEIMAGECONTROL" xml:space="preserve">
+    <value>프레임 이미지</value>
+  </data>
+  <data name="THUMBNAILLISTCONTROL" xml:space="preserve">
+    <value>미리 보기</value>
+  </data>
+  <data name="PATTERNSIZECONTROL" xml:space="preserve">
+    <value>패턴 크기</value>
+  </data>
+  <data name="IOPORTSTATUSCONTROL" xml:space="preserve">
+    <value>입출력 상태</value>
+  </data>
+  <data name="SIZECHARTCONTROL" xml:space="preserve">
+    <value>사이즈 차트</value>
+  </data>
+  <data name="LOGCONTROL" xml:space="preserve">
+    <value>로그</value>
+  </data>
+  <data name="PROFILECHARTCONTROL" xml:space="preserve">
+    <value>프로파일 차트</value>
+  </data>
+  <data name="TRENDCHARTCONTROL" xml:space="preserve">
+    <value>트랜드 차트</value>
+  </data>
+  <data name="DEFECTMAPFRAMECONTROL" xml:space="preserve">
+    <value>불량 맵 프레임</value>
+  </data>
+  <data name="DEFECTTHUMBNAILLISTCONTROL" xml:space="preserve">
+    <value>불량 미리보기</value>
+  </data>
+  <data name="DEFECTDETAILHORIZENTALCONTROL" xml:space="preserve">
+    <value>수평 불량 정보</value>
+  </data>
+  <data name="DEFECTDETAILVERTICALCONTROL" xml:space="preserve">
+    <value>수직 불량 정보</value>
+  </data>
+  <data name="LINE_DEFECT_OCCURRED_MESSAGE" xml:space="preserve">
+    <value>라인 불량이 발생했습니다</value>
+  </data>
+  <data name="USE_AUTO_START" xml:space="preserve">
+    <value>자동 시작 사용</value>
+  </data>
+  <data name="USE_AUTO_STOP" xml:space="preserve">
+    <value>자동 정지 사용</value>
+  </data>
+  <data name="INTERFACE" xml:space="preserve">
+    <value>연동</value>
+  </data>
+  <data name="STATISTICS_LAYOUT" xml:space="preserve">
+    <value>통계 레이아웃</value>
+  </data>
+  <data name="STATISTICSLOTDEFECTCONTROL" xml:space="preserve">
+    <value>Lot 대 불량</value>
+  </data>
+  <data name="THICKNESS_UM" xml:space="preserve">
+    <value>두께[㎛]</value>
+  </data>
+  <data name="COMPRESS" xml:space="preserve">
+    <value>압축</value>
+  </data>
+  <data name="DELETE_FOLDER" xml:space="preserve">
+    <value>폴더 삭제</value>
+  </data>
+  <data name="INSPECT_TIME" xml:space="preserve">
+    <value>검사 시간</value>
+  </data>
+  <data name="MODEL_CATEGORY_SETTING" xml:space="preserve">
+    <value>모델 카테고리 설정</value>
+  </data>
+  <data name="MODEL_CATEGORY" xml:space="preserve">
+    <value>모델 카테고리</value>
+  </data>
+  <data name="RESET_CATEGORY" xml:space="preserve">
+    <value>카테고리 초기화</value>
+  </data>
+  <data name="IM_DEFECT_ALARM" xml:space="preserve">
+    <value>검사 모듈 불량 알람</value>
+  </data>
+  <data name="CUSTOM_DEFECT_ALARM" xml:space="preserve">
+    <value>커스텀 불량 알람</value>
+  </data>
+  <data name="AUTO_LOT_NO" xml:space="preserve">
+    <value>자동 로트 번호</value>
+  </data>
+  <data name="DEVICE_CODE" xml:space="preserve">
+    <value>장치 코드</value>
+  </data>
+  <data name="WORKPLACE_CODE" xml:space="preserve">
+    <value>사업장 코드</value>
+  </data>
+  <data name="GLOSS" xml:space="preserve">
+    <value>광택도</value>
+  </data>
+  <data name="THICKNESSPROFILECHARTCONTROL" xml:space="preserve">
+    <value>두께 프로파일 차트</value>
+  </data>
+  <data name="THICKNESSTRENDCHARTCONTROL" xml:space="preserve">
+    <value>두께 트랜드 차트</value>
+  </data>
+  <data name="GLOSSPROFILECHARTCONTROL" xml:space="preserve">
+    <value>광택도 프로파일 차트</value>
+  </data>
+  <data name="GLOSSTRENDCHARTCONTROL" xml:space="preserve">
+    <value>광택도 트랜드 차트</value>
+  </data>
+  <data name="USE_AUTO_LIGHT" xml:space="preserve">
+    <value>자동 조명 사용</value>
+  </data>
+  <data name="LIGHT_CALIBRATION_FAIL" xml:space="preserve">
+    <value>조명 보정 실패</value>
+  </data>
+  <data name="SKIP_FIRST_IMAGE" xml:space="preserve">
+    <value>첫 이미지 스킵</value>
+  </data>
+  <data name="LIGHT_FITTING_TYPE" xml:space="preserve">
+    <value>조명 피팅 타입</value>
+  </data>
+</root>

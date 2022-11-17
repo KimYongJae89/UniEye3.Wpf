@@ -1,0 +1,73 @@
+﻿<mahapps:MetroWindow x:Class="Unieye.WPF.Base.Views.TowerLampOptionWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                     xmlns:local="clr-namespace:Unieye.WPF.Base.Views"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls"
+                     xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters"
+                     mc:Ignorable="d" 
+                     WindowStartupLocation="CenterScreen"
+                     Width="550"
+                     Height="150"
+                     WindowStyle="None"
+                     d:DesignHeight="150" d:DesignWidth="500">
+    <mahapps:MetroWindow.Resources>
+        <BitmapImage x:Key="LampOffImage" UriSource="pack://application:,,,/DynMvp.Devices;component/Resources/Lamp Off.png"/>
+        <BitmapImage x:Key="LampOnImage" UriSource="pack://application:,,,/DynMvp.Devices;component/Resources/Lamp On.png"/>
+        <BitmapImage x:Key="LampBlinkImage" UriSource="pack://application:,,,/DynMvp.Devices;component/Resources/Lamp Blink.png"/>
+        <converters:LampValueConverter x:Key="LampValueConverter"/>
+    </mahapps:MetroWindow.Resources>
+    <UniformGrid Columns="3" Margin="{StaticResource MediumMargin}">
+        <controls:ImageToggleButton Command="{Binding LampOffCommand, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    BorderBrush="White" BorderThickness="2" CornerRadius="10"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    ImageSource="{StaticResource LampOffImage}"
+                                    ImageBackground="Transparent"
+                                    FontSize="{StaticResource MediumLargeFontSize}"
+                                    FontWeight="Bold"
+                                    IsChecked="{Binding Lamp, Converter={StaticResource LampValueConverter}, ConverterParameter=Off, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    Content="OFF"
+                                    Margin="{StaticResource XXSmallHorizontalMargin}"
+                                    />
+        <controls:ImageToggleButton Command="{Binding LampOnCommand, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    BorderBrush="White" BorderThickness="2" CornerRadius="10"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    ImageSource="{StaticResource LampOnImage}"
+                                    ImageBackground="Transparent"
+                                    FontSize="{StaticResource MediumLargeFontSize}"
+                                    FontWeight="Bold"
+                                    IsChecked="{Binding Lamp, Converter={StaticResource LampValueConverter}, ConverterParameter=On, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    Content="ON"
+                                    Margin="{StaticResource XXSmallHorizontalMargin}"
+                                    />
+        <controls:ImageToggleButton Command="{Binding LampBlinkCommand, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    BorderBrush="White" BorderThickness="2" CornerRadius="10"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    ImageSource="{StaticResource LampBlinkImage}"
+                                    ImageBackground="Transparent"
+                                    FontSize="{StaticResource MediumLargeFontSize}"
+                                    FontWeight="Bold"
+                                    IsChecked="{Binding Lamp, Converter={StaticResource LampValueConverter}, ConverterParameter=Blink, RelativeSource={RelativeSource AncestorType=mahapps:MetroWindow}}"
+                                    Content="BLINK"
+                                    Margin="{StaticResource XXSmallHorizontalMargin}"
+                                    >
+            <controls:ImageToggleButton.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="ImageSource" Duration="0:0:1">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{StaticResource LampOffImage}"/>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{StaticResource LampBlinkImage}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </controls:ImageToggleButton.Triggers>
+        </controls:ImageToggleButton>
+    </UniformGrid>
+</mahapps:MetroWindow>

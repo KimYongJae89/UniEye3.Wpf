@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="CudaLock.h" />
+    <CudaCompile Include="CudaFunction.cpp" />
+    <CudaCompile Include="CudaImage.cpp" />
+    <CudaCompile Include="DeviceFunction.cpp" />
+    <CudaCompile Include="CCL\ccl_dpl.cpp">
+      <Filter>CCL</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CCL\ccl_hm.cpp">
+      <Filter>CCL</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CCL\ccl_le.cpp">
+      <Filter>CCL</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CCL\ccl_np.cpp">
+      <Filter>CCL</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CCL\CudaCCL.cpp">
+      <Filter>CCL</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Morphology\CudaMorphology.cpp">
+      <Filter>Morphology</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Morphology\DeviceMorphologyFunction.cpp">
+      <Filter>Morphology</Filter>
+    </CudaCompile>
+    <CudaCompile Include="NPP\NppProcessing.cpp">
+      <Filter>NPP</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Math\CudaMath.cpp">
+      <Filter>Math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Math\DeviceMathFunction.cpp">
+      <Filter>Math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Ransac\DeviceRansacFunction.cu">
+      <Filter>Ransac</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Ransac\CudaRansac.cpp">
+      <Filter>Ransac</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HostFunction.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CudaFunction.h" />
+    <ClInclude Include="CudaImage.h" />
+    <ClInclude Include="cutil_inline.h" />
+    <ClInclude Include="Defines.h" />
+    <ClInclude Include="DeviceFunction.h" />
+    <ClInclude Include="HostFunction.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="CCL\ccl_dpl.h">
+      <Filter>CCL</Filter>
+    </ClInclude>
+    <ClInclude Include="CCL\ccl_hm.h">
+      <Filter>CCL</Filter>
+    </ClInclude>
+    <ClInclude Include="CCL\ccl_le.h">
+      <Filter>CCL</Filter>
+    </ClInclude>
+    <ClInclude Include="CCL\ccl_np.h">
+      <Filter>CCL</Filter>
+    </ClInclude>
+    <ClInclude Include="CCL\CudaCCL.h">
+      <Filter>CCL</Filter>
+    </ClInclude>
+    <ClInclude Include="Morphology\CudaMorphology.h">
+      <Filter>Morphology</Filter>
+    </ClInclude>
+    <ClInclude Include="Morphology\DeviceMorphologyFunction.h">
+      <Filter>Morphology</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\Exceptions.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\Image.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\ImageAllocatorsNPP.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\ImagePacked.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\ImagesCPU.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\ImagesNPP.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\NppProcessing.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="NPP\Pixel.h">
+      <Filter>NPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\CudaMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\DeviceMathFunction.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Ransac\DeviceRansacFunction.cuh">
+      <Filter>Ransac</Filter>
+    </ClInclude>
+    <ClInclude Include="Ransac\CudaRansac.h">
+      <Filter>Ransac</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CCL\Makefile" />
+    <None Include="CCL\README" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Morphology">
+      <UniqueIdentifier>{bbc85db3-134e-4f15-92c4-3f4dc1cfc40d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CCL">
+      <UniqueIdentifier>{efa9d001-0cbc-43c2-8edb-65d6d8c0a891}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPP">
+      <UniqueIdentifier>{b088db87-639f-494f-890b-08e82caaf668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{4100d4e3-b57e-4c4e-af13-4f2c472ad297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ransac">
+      <UniqueIdentifier>{6ea12454-3fce-41ef-ada5-010f9101b928}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

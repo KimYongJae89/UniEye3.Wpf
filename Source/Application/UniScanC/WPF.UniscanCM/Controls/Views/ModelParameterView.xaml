@@ -1,0 +1,487 @@
+﻿<UserControl x:Class="WPF.UniScanCM.Controls.Views.ModelParameterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:enums="clr-namespace:UniScanC.Enums;assembly=UniScanC"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:WPF.UniScanCM.Controls.Views"
+             Dialog:DialogParticipation.Register="{Binding}"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <baseConverters:BooleanInvertConverter x:Key="BooleanInvertConverter" />
+        <baseConverters:VisibilityConverter x:Key="VisibilityConverter" />
+        <baseConverters:BooleanIsValidConverter x:Key="BooleanIsValidConverter" />
+        <ObjectDataProvider x:Key="EDefectPriority"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:EDefectPriority" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="ELightFittingType"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:ELightFittingType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="TextWrapping"
+                    Value="Wrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style x:Key="GroupBoxText"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Style.Triggers>
+                <Trigger Property="IsReadOnly"
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="#fedf6f" />
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource BlackBrush}" />
+                </Trigger>
+                <Trigger Property="IsReadOnly"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#f06060" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+            <Setter Property="Height"
+                    Value="35" />
+        </Style>
+        <Style TargetType="UniformGrid">
+            <Setter Property="Margin"
+                    Value="{StaticResource XSmallTopMargin}" />
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Columns"
+                    Value="2" />
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal"
+                        Margin="{StaticResource XXSmallMargin}">
+                <TextBlock Text="{extensions:Translation Module}"
+                           FontSize="{StaticResource LargeFontSize}"
+                           FontWeight="Bold"
+                           TextAlignment="Right"
+                           VerticalAlignment="Center" />
+                <ComboBox Style="{StaticResource ComboBoxBaseStyle}"
+                          Width="180"
+                          Margin="{StaticResource SmallLeftMargin}"
+                          DisplayMemberPath="ModuleTopic"
+                          ItemsSource="{Binding ModuleList}"
+                          SelectedItem="{Binding SelectedModule}" />
+                <baseControls:GlyphButton Text="{extensions:Translation BATCH_SETTING}"
+                                          Width="180"
+                                          Glyph="&#xE713;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding SelectedModule, Converter={StaticResource BooleanIsValidConverter}}"
+                                          Command="{Binding BatchSettingCommand}" />
+                <baseControls:GlyphButton Text="{extensions:Translation Save}"
+                                          Width="180"
+                                          Glyph="&#xE74E;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding OnGrab, Converter={StaticResource BooleanInvertConverter}}"
+                                          Command="{Binding SaveCommand}" />
+                <baseControls:GlyphButton Text="{extensions:Translation Inspect}"
+                                          Width="180"
+                                          Glyph="&#xF78B;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          IsEnabled="{Binding OnGrab, Converter={StaticResource BooleanInvertConverter}}"
+                                          Command="{Binding InspectCommand}" />
+                <baseControls:GlyphButton Text="{extensions:Translation Grab}"
+                                          Width="180"
+                                          Glyph="&#xE722;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Command="{Binding GrabCommand}" />
+                <!--<baseControls:GlyphToggleButton Text="{extensions:Translation DETAIL_TEACH}"
+                                                Width="180"
+                                                Glyph="&#xEECA;"
+                                                FontSize="{StaticResource LargeFontSize}"
+                                                BorderBrush="{DynamicResource BlackBrush}"
+                                                BorderThickness="1"
+                                                IsEnabled="{Binding OnGrab, Converter={StaticResource BooleanInvertConverter}}"
+                                                IsChecked="{Binding IsDetailTeachingShow}"
+                                                Visibility="{Binding IsDetailTeachingAuthorized, Converter={StaticResource VisibilityConverter}}" />-->
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0"
+              Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <GroupBox Padding="0"
+                      BorderBrush="{DynamicResource BlackBrush}">
+                <GroupBox.Header>
+                    <TextBlock Text="{extensions:Translation Parameter}"
+                               Style="{StaticResource GroupBoxText}" />
+                </GroupBox.Header>
+                <Grid Background="{DynamicResource WhiteBrush}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1"
+                          Visibility="{Binding IsDetailParamShow, Converter={StaticResource VisibilityConverter}}">
+                        <mahapps:MetroAnimatedTabControl ItemsSource="{Binding VisionModel.NodeParams}">
+                            <mahapps:MetroAnimatedTabControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"
+                                               ToolTip="{Binding AlgorithmType.Name}" />
+                                </DataTemplate>
+                            </mahapps:MetroAnimatedTabControl.ItemTemplate>
+                            <mahapps:MetroAnimatedTabControl.ContentTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="{DynamicResource BlackBrush}"
+                                            BorderThickness="1"
+                                            Margin="{StaticResource XSmallMargin}">
+                                        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                      VerticalScrollBarVisibility="Auto">
+                                            <ItemsControl ItemsSource="{Binding }">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <UniformGrid Columns="2">
+                                                            <TextBlock Text="{Binding a}" />
+                                                            <mahapps:NumericUpDown Value="{Binding b}" />
+                                                        </UniformGrid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </ScrollViewer>
+                                    </Border>
+                                </DataTemplate>
+                            </mahapps:MetroAnimatedTabControl.ContentTemplate>
+                        </mahapps:MetroAnimatedTabControl>
+                    </Grid>
+                    <Grid Grid.Row="1"
+                          Visibility="{Binding IsDetailParamShow, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}">
+                        <mahapps:MetroAnimatedTabControl>
+                            <TabItem Header="{extensions:Translation Light}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid Margin="0">
+                                                <TextBlock Text="{extensions:Translation USE_AUTO_LIGHT}" />
+                                                <mahapps:ToggleSwitchButton IsChecked="{Binding VisionModel.UseAutoLight}" />
+                                            </UniformGrid>
+                                            <StackPanel Margin="0"
+                                                        Visibility="{Binding VisionModel.UseAutoLight, Converter={StaticResource VisibilityConverter}, ConverterParameter=false}">
+                                                <UniformGrid>
+                                                    <TextBlock Text="{extensions:Translation Light_Fitting_Type}" />
+                                                    <ComboBox ItemsSource="{Binding Source={StaticResource ELightFittingType}}"
+                                                              SelectedItem="{Binding VisionModel.LightFittingType}" />
+                                                </UniformGrid>
+                                            </StackPanel>
+                                            <StackPanel Visibility="{Binding VisionModel.UseAutoLight, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}">
+                                                <UniformGrid>
+                                                    <TextBlock Text="{extensions:Translation Camera_TDI_Light}" />
+                                                    <mahapps:ToggleSwitchButton IsChecked="{Binding VisionModel.UseTDILight}" />
+                                                </UniformGrid>
+                                                <UniformGrid Visibility="{Binding VisionModel.UseTDILight, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}">
+                                                    <TextBlock Text="{extensions:Translation Top_Light_Value}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.TopLightValue}">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="ValueChanged">
+                                                                <i:InvokeCommandAction Command="{Binding LightValueChangedCommand}" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </mahapps:NumericUpDown>
+                                                </UniformGrid>
+                                                <UniformGrid Visibility="{Binding VisionModel.UseTDILight, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}">
+                                                    <TextBlock Text="{extensions:Translation Bottom_Light_Value}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.BottomLightValue}">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="ValueChanged">
+                                                                <i:InvokeCommandAction Command="{Binding LightValueChangedCommand}" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </mahapps:NumericUpDown>
+                                                </UniformGrid>
+                                                <UniformGrid Columns="4"
+                                                             Visibility="{Binding VisionModel.UseTDILight, Converter={StaticResource VisibilityConverter}}">
+                                                    <TextBlock Text="" />
+                                                    <TextBlock Text="{extensions:Translation Speed}" />
+                                                    <TextBlock Text="{extensions:Translation Top_Light_Value}" />
+                                                    <TextBlock Text="{extensions:Translation Bottom_Light_Value}" />
+                                                </UniformGrid>
+                                                <UniformGrid Columns="4"
+                                                             Visibility="{Binding VisionModel.UseTDILight, Converter={StaticResource VisibilityConverter}}">
+                                                    <TextBlock Text="{extensions:Translation Min_Speed}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MinSpeed}"
+                                                                           Margin="{StaticResource XXSmallRightMargin}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MinSpeedTopLightValue}"
+                                                                           Margin="{StaticResource XXSmallHorizontalMargin}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MinSpeedBottomLightValue}"
+                                                                           Margin="{StaticResource XXSmallLeftMargin}" />
+                                                </UniformGrid>
+                                                <UniformGrid Columns="4"
+                                                             Visibility="{Binding VisionModel.UseTDILight, Converter={StaticResource VisibilityConverter}}">
+                                                    <TextBlock Text="{extensions:Translation Max_Speed}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MaxSpeed}"
+                                                                           Margin="{StaticResource XXSmallRightMargin}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MaxSpeedTopLightValue}"
+                                                                           Margin="{StaticResource XXSmallHorizontalMargin}" />
+                                                    <mahapps:NumericUpDown Value="{Binding VisionModel.MaxSpeedBottomLightValue}"
+                                                                           Margin="{StaticResource XXSmallLeftMargin}" />
+                                                </UniformGrid>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{extensions:Translation Threshold}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid Margin="0">
+                                                <TextBlock Text="{extensions:Translation Threshold_Dark}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.ThresholdDark}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Threshold_Light}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.ThresholdLight}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Threshold_Size}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.ThresholdSize}" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding UseColorChecker, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation Threshold_Color}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.ThresholdColor}"
+                                                                       StringFormat="N2" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding UseColorChecker, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation COLOR_AVERAGE_COUNT}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.ColorAverageCount}" />
+                                            </UniformGrid>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{extensions:Translation Defect}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Max_Defect_Count}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.MaxDefectCount}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Defect_Priority}" />
+                                                <ComboBox ItemsSource="{Binding Source={StaticResource EDefectPriority}}"
+                                                          SelectedItem="{Binding VisionModel.DefectPriority}" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding IsDetailTeachingAuthorized, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation Defect_Image_Inflate}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.InflateSize}" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding IsDetailTeachingAuthorized, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation Other_Defect_Category}" />
+                                                <mahapps:ToggleSwitchButton IsChecked="{Binding VisionModel.UseOtherCategory}" />
+                                            </UniformGrid>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{extensions:Translation Calibration}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Target_Intensity}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.TargetIntensity}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Out_Target_Intensity}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.OutTargetIntensity}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Calibrate_Frame_Cnt}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.CalibrateFrameCnt}" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding IsDetailTeachingAuthorized, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation Skip_First_Image}" />
+                                                <mahapps:ToggleSwitchButton IsChecked="{Binding VisionModel.SkipFirstImage}" />
+                                            </UniformGrid>
+                                            <UniformGrid Visibility="{Binding IsDetailTeachingAuthorized, Converter={StaticResource VisibilityConverter}}">
+                                                <TextBlock Text="{extensions:Translation Gpu_Processing}" />
+                                                <mahapps:ToggleSwitchButton IsChecked="{Binding VisionModel.GpuProcessing}" />
+                                            </UniformGrid>
+                                            <!--<UniformGrid Visibility="{Binding VisionModel.GpuProcessing, Converter={StaticResource VisibilityConverter}, ConverterParameter=true}">
+                                                <TextBlock Text="{extensions:Translation CALIBRATE_THREAD_CNT}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.MaxDegreeOfParallelism}" />
+                                            </UniformGrid>-->
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{extensions:Translation Frame}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid Margin="0">
+                                                <TextBlock Text="{extensions:Translation Frame_Margin_L}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.FrameMarginL}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Frame_Margin_T}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.FrameMarginT}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Frame_Margin_R}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.FrameMarginR}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Frame_Margin_B}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.FrameMarginB}" />
+                                            </UniformGrid>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{extensions:Translation Pattern}">
+                                <Border BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1"
+                                        Margin="{StaticResource XSmallMargin}">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Auto">
+                                        <StackPanel Margin="{StaticResource XSmallMargin}">
+                                            <UniformGrid Margin="0">
+                                                <TextBlock Text="{extensions:Translation Pattern_Width}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.PatternWidth}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Pattern_Height}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.PatternHeight}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Pattern_Margin_X}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.PatternMarginX}" />
+                                            </UniformGrid>
+                                            <UniformGrid>
+                                                <TextBlock Text="{extensions:Translation Pattern_Margin_Y}" />
+                                                <mahapps:NumericUpDown Value="{Binding VisionModel.PatternMarginY}" />
+                                            </UniformGrid>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                            </TabItem>
+                        </mahapps:MetroAnimatedTabControl>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <GroupBox Padding="0"
+                      BorderBrush="{DynamicResource BlackBrush}">
+                <GroupBox.Header>
+                    <TextBlock Text="{extensions:Translation Image}"
+                               Style="{StaticResource GroupBoxText}" />
+                </GroupBox.Header>
+                <Grid Background="{DynamicResource WhiteBrush}">
+                    <baseControls:ImageCanvas ImageSource="{Binding DataContext.InspectImage, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ModelParameterView}}"
+                                              Margin="{StaticResource XSmallMargin}" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

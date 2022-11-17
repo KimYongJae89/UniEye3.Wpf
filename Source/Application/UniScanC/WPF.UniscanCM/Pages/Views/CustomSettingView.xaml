@@ -1,0 +1,557 @@
+﻿<UserControl x:Class="WPF.UniScanCM.Pages.Views.CustomSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:enums="clr-namespace:UniScanC.Enums;assembly=UniScanC"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BooleanIsNullConverter x:Key="BooleanIsNullConverter" />
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XSmallTopMargin}" />
+            <Setter Property="Padding"
+                    Value="0" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource AccentColorBrush}" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style x:Key="GroupBoxText"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Left" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <ObjectDataProvider x:Key="PlcTypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:EPlcType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Border>
+        <UniformGrid Columns="2">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="{StaticResource XXSmallRightMargin}">
+                    <GroupBox Margin="0">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation Model}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}">
+                            <Grid Margin="{StaticResource XSmallMargin}">
+                                <Button Content="{extensions:Translation MODEL_CATEGORY_SETTING}"
+                                        Command="{Binding ModelCategorySettingCommand}" />
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation PATH}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}">
+                            <Grid Margin="{StaticResource XSmallMargin}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Grid.Row="0"
+                                           Text="{extensions:Translation Result}" />
+                                <TextBox Grid.Column="1"
+                                         Grid.Row="0"
+                                         Margin="{StaticResource XSmallLeftMargin}"
+                                         Text="{Binding ResultPath}" />
+                                <Button Grid.Column="2"
+                                        Grid.Row="0"
+                                        Margin="{StaticResource XSmallLeftMargin}"
+                                        Content="..."
+                                        Command="{Binding SearchResultPathCommand}" />
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsGeneralAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation UI}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}">
+                            <UniformGrid Columns="2"
+                                         Margin="{StaticResource XXSmallMargin}">
+                                <TextBlock Text="{extensions:Translation UI_UPDATE_DELAY_MS}"
+                                           TextAlignment="Center" />
+                                <mahapps:NumericUpDown Value="{Binding UIUpdateDelay}"
+                                                       Interval="100"
+                                                       Minimum="0"
+                                                       FontSize="{StaticResource MediumLargeFontSize}"
+                                                       Margin="{StaticResource XXSmallMargin}" />
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsGeneralAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation Inspection}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}">
+                            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                                <UniformGrid Columns="2"
+                                             Margin="{StaticResource XXSmallMargin}">
+                                    <TextBlock Text="{extensions:Translation Show_Others_Defect}" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding IsShowOthersDefect}" />
+                                </UniformGrid>
+                                <UniformGrid Columns="2"
+                                             Margin="{StaticResource XXSmallMargin}">
+                                    <TextBlock Text="{extensions:Translation PATTERN_LENGTH_INSPECT}" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding IsInspectPattern}" />
+                                </UniformGrid>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsCustomerSamsung, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation AUTO_LOT_NO}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseAutoLotNo}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseAutoLotNo, Converter={StaticResource VisibilityConverter}}">
+                            <UniformGrid Columns="2"
+                                         Margin="{StaticResource XXSmallMargin}">
+                                <TextBlock Text="{extensions:Translation Device_Code}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding DeviceCode}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                                <TextBlock Text="{extensions:Translation Workplace_Code}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding WorkplaceCode}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsGeneralAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation DEFECT_ALARM}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseDefectAlarm}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseDefectAlarm, Converter={StaticResource VisibilityConverter}}">
+                            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                                <UniformGrid Columns="2">
+                                    <TextBlock Text="{extensions:Translation IM_Defect_Alarm}"
+                                               TextAlignment="Center" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding UseIMDefectAlarm}"
+                                                                Margin="{StaticResource XXSmallMargin}" />
+                                    <TextBlock Text="{extensions:Translation Custom_Defect_Alarm}"
+                                               TextAlignment="Center" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding UseCustomDefectAlarm}"
+                                                                Margin="{StaticResource XXSmallMargin}" />
+                                    <TextBlock Text="{extensions:Translation DETECT_LENGTH_RANGE_M}"
+                                               TextAlignment="Center"
+                                               Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                    <mahapps:NumericUpDown Value="{Binding AlarmDetectLengthRangeM}"
+                                                           Minimum="0"
+                                                           FontSize="{StaticResource MediumLargeFontSize}"
+                                                           Margin="{StaticResource XXSmallMargin}"
+                                                           Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                    <TextBlock Text="{extensions:Translation LINE_DEFECT_HEIGHT_MM}"
+                                               TextAlignment="Center"
+                                               Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                    <mahapps:NumericUpDown Value="{Binding AlarmLineDefectHeightMm}"
+                                                           Minimum="0"
+                                                           FontSize="{StaticResource MediumLargeFontSize}"
+                                                           Margin="{StaticResource XXSmallMargin}"
+                                                           Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                    <TextBlock Text="{extensions:Translation DEFECT_COUNT}"
+                                               TextAlignment="Center"
+                                               Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                    <mahapps:NumericUpDown Value="{Binding AlarmDefectCount}"
+                                                           Minimum="0"
+                                                           FontSize="{StaticResource MediumLargeFontSize}"
+                                                           Margin="{StaticResource XXSmallMargin}"
+                                                           Visibility="{Binding UseCustomDefectAlarm, Converter={StaticResource VisibilityConverter}}" />
+                                </UniformGrid>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDetailAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation Vision}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseInspectModule}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseInspectModule, Converter={StaticResource VisibilityConverter}}">
+                            <Grid Margin="{StaticResource XXSmallMargin}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <UniformGrid Grid.Column="0"
+                                             Grid.Row="0"
+                                             Columns="2"
+                                             Margin="{StaticResource XXSmallMargin}">
+                                    <TextBlock Text="{extensions:Translation COUNT}" />
+                                    <mahapps:NumericUpDown Value="{Binding ImCount}"
+                                                           Minimum="0" />
+                                </UniformGrid>
+                                <Button Grid.Column="1"
+                                        Grid.Row="0"
+                                        Width="300"
+                                        Visibility="{Binding IsTaskAuthorized, Converter={StaticResource VisibilityConverter}}"
+                                        Margin="{StaticResource XXSmallMargin}"
+                                        Content="{extensions:Translation INSPECT_SEQUENCE_SETTING}"
+                                        Command="{Binding SequenceSettingCommand}" />
+                                <DataGrid Grid.Column="0"
+                                          Grid.Row="1"
+                                          Grid.ColumnSpan="2"
+                                          Margin="{StaticResource XXSmallMargin}"
+                                          Name="ModuleList"
+                                          ItemsSource="{Binding InspectModuleInfoList}"
+                                          SelectionUnit="FullRow"
+                                          AutoGenerateColumns="False"
+                                          CanUserResizeColumns="False"
+                                          CanUserResizeRows="False"
+                                          CanUserAddRows="False"
+                                          BorderBrush="{DynamicResource BlackBrush}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="No."
+                                                            Binding="{Binding ModuleNo}"
+                                                            Width="0.5*"
+                                                            IsReadOnly="True" />
+                                        <DataGridTextColumn Header="{extensions:Translation NAME}"
+                                                            Binding="{Binding ModuleTopic}"
+                                                            Width="*" />
+                                        <DataGridTextColumn Header="{extensions:Translation POSITION_MM}"
+                                                            Binding="{Binding StartPos}"
+                                                            Width="*" />
+                                        <DataGridTextColumn Header="{extensions:Translation IP_ADDRESS}"
+                                                            Binding="{Binding ModuleIP}"
+                                                            Width="2*" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDetailAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation Thickness}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseThicknessModule}" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseThicknessModule, Converter={StaticResource VisibilityConverter}}">
+                            <UniformGrid Columns="2"
+                                         Margin="{StaticResource XXSmallMargin}">
+                                <TextBlock Text="{extensions:Translation NAME}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding ThicknessModuleTopic, UpdateSourceTrigger=PropertyChanged}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                                <TextBlock Text="{extensions:Translation IP_ADDRESS}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding ThicknessModuleIP, UpdateSourceTrigger=PropertyChanged}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDetailAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation Gloss}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseGlossModule}" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseGlossModule, Converter={StaticResource VisibilityConverter}}">
+                            <UniformGrid Columns="2"
+                                         Margin="{StaticResource XXSmallMargin}">
+                                <TextBlock Text="{extensions:Translation NAME}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding GlossModuleTopic, UpdateSourceTrigger=PropertyChanged}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                                <TextBlock Text="{extensions:Translation IP_ADDRESS}"
+                                           Margin="{StaticResource XXSmallMargin}" />
+                                <TextBox Text="{Binding GlossModuleIP, UpdateSourceTrigger=PropertyChanged}"
+                                         Margin="{StaticResource XXSmallMargin}" />
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="{StaticResource XXSmallLeftMargin}">
+                    <GroupBox Visibility="{Binding IsDetailAuthorized, Converter={StaticResource VisibilityConverter}}"
+                              Margin="0">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation Interface}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}">
+                            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                                <UniformGrid Columns="2"
+                                             Margin="{StaticResource XXSmallMargin}">
+                                    <TextBlock Text="{extensions:Translation Use_Auto_Start}" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding UseAutoStart}" />
+                                </UniformGrid>
+                                <UniformGrid Columns="2"
+                                             Margin="{StaticResource XXSmallMargin}">
+                                    <TextBlock Text="{extensions:Translation Use_Auto_Stop}" />
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding UseAutoStop}" />
+                                </UniformGrid>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDeviceAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation IOPORT}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseIO}" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseIO, Converter={StaticResource VisibilityConverter}}">
+                            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                                <Button Content="{extensions:Translation IOPORT_SETTING}"
+                                        Command="{Binding IOPortSettingCommand}"
+                                        Margin="{StaticResource XXSmallMargin}" />
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDeviceAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation HEARTBEAT}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseHeartBeat}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseHeartBeat, Converter={StaticResource VisibilityConverter}}">
+                            <UniformGrid Columns="2"
+                                         Margin="{StaticResource XXSmallMargin}">
+                                <TextBlock Text="{extensions:Translation SIGNAL_DURATION_TIME_MS}" />
+                                <mahapps:NumericUpDown Value="{Binding HeartBeatSignalDuration}"
+                                                       Interval="1"
+                                                       Minimum="1"
+                                                       Margin="{StaticResource XXSmallMargin}" />
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDeviceAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation Encoder}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UseEncoder}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UseEncoder, Converter={StaticResource VisibilityConverter}}">
+                            <Grid Margin="{StaticResource XSmallMargin}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Grid.Row="0"
+                                           Text="{extensions:Translation Model}" />
+                                <ComboBox Grid.Column="1"
+                                          Grid.Row="0"
+                                          Margin="0"
+                                          ItemsSource="{Binding EncoderModelList}"
+                                          SelectedItem="{Binding EncoderModel}"
+                                          FontWeight="Bold" />
+                                <TextBlock Grid.Column="2"
+                                           Grid.Row="0"
+                                           Text="{extensions:Translation Port}" />
+                                <ComboBox Grid.Column="3"
+                                          Grid.Row="0"
+                                          Margin="0"
+                                          ItemsSource="{Binding SerialPortList}"
+                                          SelectedItem="{Binding EncoderPort}"
+                                          FontWeight="Bold" />
+                                <Button Grid.Column="0"
+                                        Grid.ColumnSpan="4"
+                                        Grid.Row="1"
+                                        Margin="{StaticResource XSmallTopMargin}"
+                                        Content="{extensions:Translation Setting}"
+                                        Command="{Binding EncoderSettingCommand}" />
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Visibility="{Binding IsDeviceAuthorized, Converter={StaticResource VisibilityConverter}}">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{extensions:Translation PLC}"
+                                           Style="{StaticResource GroupBoxText}" />
+                                <mahapps:ToggleSwitchButton Grid.Column="2"
+                                                            IsChecked="{Binding UsePLC}"
+                                                            Margin="0" />
+                            </Grid>
+                        </GroupBox.Header>
+                        <Grid Background="{DynamicResource WhiteBrush}"
+                              Visibility="{Binding UsePLC, Converter={StaticResource VisibilityConverter}}">
+                            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                                <UniformGrid Grid.Row="0"
+                                             Columns="2">
+                                    <TextBlock Text="{extensions:Translation PLC_Type}" />
+                                    <ComboBox ItemsSource="{Binding Source={StaticResource PlcTypeEnum}}"
+                                              SelectedItem="{Binding PlcType, Mode=TwoWay}"
+                                              Margin="{StaticResource XXSmallMargin}" />
+                                    <Button Content="{extensions:Translation ADDRESS_SETTING}"
+                                            Command="{Binding PLCAddressSettingCommand}"
+                                            Margin="{StaticResource XXSmallMargin}" />
+                                    <Button Content="{extensions:Translation PLC_SETTING}"
+                                            Command="{Binding PLCSettingCommand}"
+                                            Margin="{StaticResource XXSmallMargin}" />
+                                </UniformGrid>
+                                <!--<ContentPresenter Grid.Row="1"
+                                                  Content="{Binding PlcSettingPage}" />-->
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </UniformGrid>
+    </Border>
+</UserControl>

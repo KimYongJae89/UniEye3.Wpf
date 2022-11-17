@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="WPF.UniScanIM.Views.ParamSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:WPF.UniScanIM.Converters"
+             xmlns:BaseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:override="clr-namespace:WPF.UniScanIM.Override"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <BaseConverters:ColorChangeConverter x:Key="ColorChangeConverter" />
+        <ObjectDataProvider x:Key="DefectSignalNonOverlayModeEnums"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:DefectSignalNonOverlayMode" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <converters:NonOverlayParamVisibilityConverter x:Key="NonOverlayParamVisibilityConverter"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="{DynamicResource BlackBrush}"
+            BorderThickness="1">
+        <ScrollViewer Margin="{StaticResource XXSmallMargin}">
+            <StackPanel Margin="{StaticResource XXSmallMargin}">
+                <UniformGrid Columns="2">
+                    <TextBlock Text="Defect Signal" />
+                    <TextBlock Text="" />
+                    <TextBlock Text="Duration[㎳]">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.SignalDuration" />
+                                <Binding Path="SignalDuration" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <controls:NumericUpDown Value="{Binding SignalDuration}"
+                                            Minimum="1"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Time Delay[㎳]">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.SignalTimeDelayMs" />
+                                <Binding Path="SignalTimeDelayMs" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <controls:NumericUpDown Value="{Binding SignalTimeDelayMs}"
+                                            Minimum="0"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Distance[m]">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.SignalDistanceM" />
+                                <Binding Path="SignalDistanceM" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <controls:NumericUpDown Value="{Binding SignalDistanceM}"
+                                            Minimum="0"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Non Overlay Mode">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.DefectSignalNonOverlayMode" />
+                                <Binding Path="DefectSignalNonOverlayMode" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource DefectSignalNonOverlayModeEnums}}"
+                              SelectedItem ="{Binding DefectSignalNonOverlayMode}"/>
+                    <TextBlock Text="Non Overlay Time[㎳]"
+                               Visibility="{Binding DefectSignalNonOverlayMode, Converter={StaticResource NonOverlayParamVisibilityConverter}, ConverterParameter=Time}">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.SignalNonOverlayTimeMs" />
+                                <Binding Path="SignalNonOverlayTimeMs" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>                        
+                    </TextBlock>
+                    <controls:NumericUpDown Value="{Binding SignalNonOverlayTimeMs}"
+                                            Visibility="{Binding DefectSignalNonOverlayMode, Converter={StaticResource NonOverlayParamVisibilityConverter}, ConverterParameter=Time}"
+                                            Minimum="0"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Non Overlay Distance[m]"
+                               Visibility="{Binding DefectSignalNonOverlayMode, Converter={StaticResource NonOverlayParamVisibilityConverter}, ConverterParameter=Distance}">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.SignalNonOverlayDistanceM" />
+                                <Binding Path="SignalNonOverlayDistanceM" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <controls:NumericUpDown Value="{Binding SignalNonOverlayDistanceM}"
+                                            Visibility="{Binding DefectSignalNonOverlayMode, Converter={StaticResource NonOverlayParamVisibilityConverter}, ConverterParameter=Distance}"
+                                            Minimum="0"
+                                            StringFormat="N3" />
+                    <TextBlock />
+                    <TextBlock />
+                    <TextBlock Text="Defect Process" />
+                    <TextBlock />
+                    <TextBlock Text="Merge Border Defect">
+                        <TextBlock.Foreground>
+                            <MultiBinding Converter="{StaticResource ColorChangeConverter}">
+                                <Binding Path="SystemConfig.MergeBorderDefects" />
+                                <Binding Path="MergeBorderDefects" />
+                            </MultiBinding>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <mahapps:ToggleSwitchButton IsChecked="{Binding MergeBorderDefects}" />
+
+                    <!--<TextBlock Text="" />
+                    <TextBlock Text="" />-->
+                    <!--<TextBlock Text="Section" />
+                    <TextBlock Text="" />
+                    <TextBlock Text="Section Test" />
+                    <mahapps:ToggleSwitchButton x:Name="ToggleSwitch"
+                                                IsChecked="{Binding SystemConfig.SectionTestMode}" />
+                    <TextBlock Text="Section Size (mm)" />
+                    <controls:NumericUpDown IsEnabled="{Binding IsChecked, ElementName=ToggleSwitch}"
+                                            Value="{Binding SystemConfig.SectionSizeMM}"
+                                            Minimum="1"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Section Position (mm)" />
+                    <controls:NumericUpDown IsEnabled="{Binding IsChecked, ElementName=ToggleSwitch}"
+                                            Value="{Binding SystemConfig.SectionPositionMM}"
+                                            Minimum="0"
+                                            StringFormat="N3" />
+                    <TextBlock Text="Section Count (ea)" />
+                    <controls:NumericUpDown IsEnabled="{Binding IsChecked, ElementName=ToggleSwitch}"
+                                            Value="{Binding SystemConfig.SectionCountEA}"
+                                            Minimum="1"
+                                            StringFormat="N0" />-->
+
+                </UniformGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

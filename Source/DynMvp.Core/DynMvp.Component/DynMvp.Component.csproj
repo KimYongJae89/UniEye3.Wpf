@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{714FFBF3-2D97-4E73-A50F-6345B2E6948A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynMvp.Component</RootNamespace>
+    <AssemblyName>DynMvp.Component</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Optimize>false</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics4.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.Misc.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinRadialMenu.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.UltraWinRadialMenu.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Matrox.MatroxImagingLibrary">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Matrox.MatroxImagingLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoFocus\AutoFocus.cs" />
+    <Compile Include="AutoFocus\LUDecomposition.cs" />
+    <Compile Include="AutoFocus\Matrix.cs" />
+    <Compile Include="AutoFocus\OptoTuneFocusDriver.cs" />
+    <Compile Include="AutoFocus\PolyFit.cs" />
+    <Compile Include="DepthSystem\CalcBuffer.cs" />
+    <Compile Include="DepthSystem\DepthScanner.cs" />
+    <Compile Include="DepthSystem\DepthViewer\CadViewPanel.cs" />
+    <Compile Include="DepthSystem\DepthViewer\CrossSection.cs" />
+    <Compile Include="DepthSystem\DepthViewer\Defines.cs" />
+    <Compile Include="DepthSystem\DepthViewer\DepthViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\DepthViewer.Designer.cs">
+      <DependentUpon>DepthViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\DepthViewer2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\DepthViewer2.designer.cs">
+      <DependentUpon>DepthViewer2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\DepthViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\DepthViewForm.Designer.cs">
+      <DependentUpon>DepthViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\LegendPanel.cs" />
+    <Compile Include="DepthSystem\DepthViewer\LightMap.cs" />
+    <Compile Include="DepthSystem\DepthViewer\ProfilePanel.cs" />
+    <Compile Include="DepthSystem\DepthViewer\SetupHeightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\SetupHeightForm.Designer.cs">
+      <DependentUpon>SetupHeightForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\DepthViewer\Shape.cs" />
+    <Compile Include="DepthSystem\DepthViewer\SubPanel.cs" />
+    <Compile Include="DepthSystem\DepthViewer\DepthViewPanel.cs" />
+    <Compile Include="DepthSystem\DepthViewer\SurfaceRender.cs" />
+    <Compile Include="DepthSystem\DepthViewer\TextShape.cs" />
+    <Compile Include="DepthSystem\DepthViewer\TextureColor.cs" />
+    <Compile Include="DepthSystem\DepthViewer\TextureImage.cs" />
+    <Compile Include="DepthSystem\DepthViewer\TrackPos.cs" />
+    <Compile Include="DepthSystem\DepthViewer\Vector3f.cs" />
+    <Compile Include="DepthSystem\ExymaController.cs" />
+    <Compile Include="DepthSystem\ExymaDualScanner.cs" />
+    <Compile Include="DepthSystem\ExymaScanner.cs" />
+    <Compile Include="DepthSystem\ExymaSingleScanner.cs" />
+    <Compile Include="DepthSystem\ExymaScannerInfo.cs" />
+    <Compile Include="DepthSystem\ImageSequence.cs" />
+    <Compile Include="DepthSystem\ImageSequenceExyma.cs" />
+    <Compile Include="DepthSystem\LensCalibration.cs" />
+    <Compile Include="DepthSystem\PmpAlgorithm.cs" />
+    <Compile Include="DepthSystem\RoiInfo.cs" />
+    <Compile Include="DepthSystem\UI\CircleListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\UI\CircleListForm.Designer.cs">
+      <DependentUpon>CircleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\UI\ExymaSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\UI\ExymaSettingForm.designer.cs">
+      <DependentUpon>ExymaSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepthSystem\UI\NewDepthScannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepthSystem\UI\NewDepthScannerForm.Designer.cs">
+      <DependentUpon>NewDepthScannerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynMvp.Cad\DynMvp.Cad.csproj">
+      <Project>{e9949ab9-efc9-451e-b5ed-68a56cb43d72}</Project>
+      <Name>DynMvp.Cad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88F6F6BE-0858-41E6-9CE2-3704AEFC12A7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DepthSystem\DepthViewer\DepthViewer.resx">
+      <DependentUpon>DepthViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\DepthViewer\DepthViewer2.resx">
+      <DependentUpon>DepthViewer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\DepthViewer\DepthViewForm.resx">
+      <DependentUpon>DepthViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\DepthViewer\SetupHeightForm.resx">
+      <DependentUpon>SetupHeightForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\UI\CircleListForm.resx">
+      <DependentUpon>CircleListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\UI\ExymaSettingForm.resx">
+      <DependentUpon>ExymaSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepthSystem\UI\NewDepthScannerForm.resx">
+      <DependentUpon>NewDepthScannerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PlaneXY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PlaneXZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PlaneYZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\CubeRotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\CubePan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\fill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Wireframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PointCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ruler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ruler_inc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ruler_dec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color-chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LineChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlaneFit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

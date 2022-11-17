@@ -1,0 +1,38 @@
+﻿<prism:PrismApplication  x:Class="Authentication.Manager.App"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:local="clr-namespace:Authentication.Manager"
+                         xmlns:properties="clr-namespace:Authentication.Manager.Properties"
+                         xmlns:prism="http://prismlibrary.com/">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ObjectDataProvider ObjectInstance="{x:Static properties:Settings.Default}" 
+                                x:Key="Settings" />
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
+                --><!-- However, however you can make it simpler by just using one of the built-in themes. This is functionally identical to what is above.-->
+                <!--<materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />-->
+
+                <!-- If you would prefer to use your own colors there is an option for that as well -->
+                <!--<materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="Aqua" SecondaryColor="DarkGreen" />--><!--
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
+                <!-- However, however you can make it simpler by just using one of the built-in themes. This is functionally identical to what is above.-->
+                <!--<materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />-->
+
+                <!-- If you would prefer to use your own colors there is an option for that as well -->
+                <!--<materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="Aqua" SecondaryColor="DarkGreen" />-->
+
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,122 @@
+﻿<Window x:Class="Unieye.WPF.Base.InspectFlow.Views.InspectionFlowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Unieye.WPF.Base.InspectFlow.Views"
+        xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:vm="clr-namespace:Unieye.WPF.Base.InspectFlow.ViewModels"
+        xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters"
+        xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls"
+        WindowStartupLocation="CenterScreen"
+        Name="parentWindow"
+        ResizeMode="NoResize"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:InspectionFlowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <baseConverters:TypeNameCovnerter x:Key="TypeNameCovnerter"/>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="{StaticResource XXSmallMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Row="0" Grid.Column="0"
+                      Name="algorihtmType"
+                      ItemsSource="{Binding DefinesAlgorithmList}"
+                      SelectedItem="{Binding SelectedAlgorithmType, Mode=TwoWay}"
+                      DisplayMemberPath="Name"/>
+                <DataGrid Grid.Row="1" Grid.Column="0"
+                      Name="algorithmList"
+                      ItemsSource="{Binding InspectionFlowModel.FlowAlgorithms, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowView}}}"
+                      SelectedItem="{Binding SelectedAlgorithm, Mode=TwoWay}"
+                      SelectionUnit="FullRow"
+                      AutoGenerateColumns="False"
+                      CanUserResizeRows="False"
+                      CanUserAddRows="False"
+                      BorderBrush="{DynamicResource GrayBrush1}"
+                      BorderThickness="1"
+                      HorizontalScrollBarVisibility="Visible"
+                      ColumnWidth="*"
+                      IsReadOnly="True"
+                      Margin="{StaticResource XXSmallMargin}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Algorithm" Binding="{Binding Converter={StaticResource TypeNameCovnerter}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Row="2" Grid.Column="0"
+                      ItemsSource="{Binding SelectedAlgorithm.ParameterList, Mode=TwoWay}"
+                      SelectionUnit="FullRow"
+                      AutoGenerateColumns="False"
+                      CanUserResizeRows="False"
+                      CanUserAddRows="False"
+                      BorderBrush="{DynamicResource GrayBrush1}"
+                      BorderThickness="1"
+                      HorizontalScrollBarVisibility="Visible"
+                      ColumnWidth="*"
+                      Margin="{StaticResource XXSmallMargin}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Item1}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="Parameter" CellTemplateSelector="{StaticResource TypeDataTemplateSelector}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <UniformGrid  Grid.Row="1" Grid.Column="1"
+                          Rows="4">
+                    <Button Content="ADD"
+                        Command="{Binding AddAlgorithmCommand}"
+                        CommandParameter="{Binding InspectionFlowModel, ElementName=parentWindow}"/>
+                    <Button Content="DELETE"
+                        Command="{Binding DeleteAlgorithmCommand}"
+                        CommandParameter="{Binding InspectionFlowModel, ElementName=parentWindow}"/>
+                    <Button Content="↑"/>
+                    <Button Content="↓"/>
+                </UniformGrid>
+
+                <Button Grid.Row="2" Grid.Column="1"
+                    Content="Processing"
+                    Command="{Binding ImageProcessingCommand}"
+                    CommandParameter="{Binding InspectionFlowModel, ElementName=parentWindow}"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="{StaticResource XXSmallMargin}">
+                <baseControls:ImageCanvas ImageSource="{Binding DataContext.ImageSource, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowView}}}"
+                                          Margin="{StaticResource XXSmallMargin}"/>
+            </Grid>
+        </Grid>
+        <Button Grid.Row="1"
+                Content="CLOSE"
+                FontSize="{StaticResource LargeFontSize}"
+                Margin="{StaticResource XXSmallHorizontalMargin}"
+                Command="{Binding OkCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowView}}}"/>
+    </Grid>
+</Window>

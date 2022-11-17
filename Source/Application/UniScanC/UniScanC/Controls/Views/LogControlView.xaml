@@ -1,0 +1,61 @@
+﻿<layoutModel:CustomizeControl x:Class="UniScanC.Controls.Views.LogControlView"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                              xmlns:baseBehaviors="clr-namespace:Unieye.WPF.Base.Behaviors;assembly=Unieye.WPF.Base"
+                              xmlns:layoutModel="clr-namespace:Unieye.WPF.Base.Layout.Models;assembly=Unieye.WPF.Base"
+                              mc:Ignorable="d"
+                              d:DesignHeight="450"
+                              d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource SmallMediumFontSize}" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid ItemsSource="{Binding LogModels}"
+                  baseBehaviors:DataGridBehavior.Autoscroll="True"
+                  BorderBrush="{DynamicResource BlackBrush}"
+                  BorderThickness="1"
+                  SelectionUnit="FullRow"
+                  Margin="0"
+                  AutoGenerateColumns="false"
+                  CanUserAddRows="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  CanUserSortColumns="True"
+                  VirtualizingStackPanel.IsVirtualizing="True"
+                  VirtualizingStackPanel.VirtualizationMode="Recycling"
+                  EnableColumnVirtualization="True"
+                  EnableRowVirtualization="True"
+                  ScrollViewer.CanContentScroll="True"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{extensions:Translation DATE}"
+                                    Binding="{Binding DateTimeString}"
+                                    Width="auto" />
+                <!--<DataGridTextColumn Header="{extensions:Translation LOG_LEVEL}"
+                                    Binding="{Binding LogLevel}"
+                                    Width="auto" />
+                <DataGridTextColumn Header="{extensions:Translation LOG_TYPE}"
+                                    Binding="{Binding LoggerType}"
+                                    Width="auto" />-->
+                <DataGridTextColumn Header="{extensions:Translation Message}"
+                                    Binding="{Binding Message}"
+                                    TextBlock.TextAlignment="Left"
+                                    Width="auto">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</layoutModel:CustomizeControl>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C80BD54A-41BF-4DE1-AFFB-162252CA8770}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WPF.UniScanIM</RootNamespace>
+    <AssemblyName>WPF.UniScanIM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>false</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>UniScanCM.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL">
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\NonOverlayParamVisibilityConverter.cs" />
+    <Compile Include="Service\IMLightCalibrationService.cs" />
+    <Compile Include="Manager\AlgoTaskManager.cs" />
+    <Compile Include="Manager\TeachingManager.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\CameraJsonConverter.cs" />
+    <Compile Include="Inspect\IMInspectResult.cs" />
+    <Compile Include="Inspect\InspectVisionParam.cs" />
+    <Compile Include="Inspect\InspectRunnerUtil.cs" />
+    <Compile Include="Inspect\Stripe.cs" />
+    <Compile Include="Manager\IMDefectSignalManager.cs" />
+    <Compile Include="Override\CommManager.cs" />
+    <Compile Include="Override\DeviceManager.cs" />
+    <Compile Include="Override\DeviceMonitor.cs" />
+    <Compile Include="Override\InspectRunner.cs" />
+    <Compile Include="Override\SystemManager.cs" />
+    <Compile Include="Override\UiManager.cs" />
+    <Compile Include="Service\FrameTriggerService.cs" />
+    <Compile Include="ViewModels\CommSettingViewModel.cs" />
+    <Compile Include="ViewModels\FlyoutViewModel.cs" />
+    <Compile Include="ViewModels\ParamSettingViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="ViewModels\SystemSettingViewModel.cs" />
+    <Compile Include="ViewModels\DeviceSettingViewModel.cs" />
+    <Compile Include="ViewModels\TopViewModel.cs" />
+    <Compile Include="ViewModels\ModuleSettingViewModel.cs" />
+    <Compile Include="ViewModels\ShellWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\CommSettingView.xaml.cs">
+      <DependentUpon>CommSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlyoutView.xaml.cs">
+      <DependentUpon>FlyoutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeviceSettingView.xaml.cs">
+      <DependentUpon>DeviceSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemSettingView.xaml.cs">
+      <DependentUpon>SystemSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParamSettingView.xaml.cs">
+      <DependentUpon>ParamSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopView.xaml.cs">
+      <DependentUpon>TopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModuleSettingView.xaml.cs">
+      <DependentUpon>ModuleSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellWindowView.xaml.cs">
+      <DependentUpon>ShellWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ViewModels\TaskMonitoringWindowViewModel.cs" />
+    <Compile Include="Windows\Views\TaskMonitoringWindowView.xaml.cs">
+      <DependentUpon>TaskMonitoringWindowView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Override\SystemConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Authentication\Authentication.Core\Authentication.Core.csproj">
+      <Project>{C1EAF217-931E-4B06-806A-97613C747572}</Project>
+      <Name>Authentication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\UniEye.Base\UniEye.Base.csproj">
+      <Project>{0bd31b0d-4675-460f-bf03-82afafdd1d1f}</Project>
+      <Name>UniEye.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.Translation\UniEye.Translation.csproj">
+      <Project>{75f4fe09-4f80-49b5-b8cb-c7e3e761aaa3}</Project>
+      <Name>UniEye.Translation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Cad\DynMvp.Cad.csproj">
+      <Project>{e9949ab9-efc9-451e-b5ed-68a56cb43d72}</Project>
+      <Name>DynMvp.Cad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Component\DynMvp.Component.csproj">
+      <Project>{714ffbf3-2d97-4e73-a50f-6345b2e6948a}</Project>
+      <Name>DynMvp.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88f6f6be-0858-41e6-9ce2-3704aefc12a7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.WPF.Base\Unieye.WPF.Base.csproj">
+      <Project>{252484f7-a94b-4d52-aa89-7bd627de5d10}</Project>
+      <Name>Unieye.WPF.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniScanC\UniScanC.csproj">
+      <Project>{60941526-f279-4c38-89aa-05d51e95b5c6}</Project>
+      <Name>UniScanC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>1.6.5</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\CommSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FlyoutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DeviceSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SystemSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ParamSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TopView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModuleSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShellWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\TaskMonitoringWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UniScanCM.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

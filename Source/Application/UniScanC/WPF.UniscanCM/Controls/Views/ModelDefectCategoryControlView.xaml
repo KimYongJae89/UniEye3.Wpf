@@ -1,0 +1,511 @@
+﻿<UserControl x:Class="WPF.UniScanCM.Controls.Views.ModelDefectCategoryControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:enums="clr-namespace:UniScanC.Enums;assembly=UniScanC"
+             xmlns:converters="clr-namespace:WPF.UniScanCM.Converters"
+             xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:UMtoMMConverter x:Key="UMtoMMConverter" />
+        <converters:DataGridAutoRowIndexConverter x:Key="DataGridAutoRowIndexConverter" />
+        <converters:CategoryTypeDetailValueConverter x:Key="CategoryTypeDetailValueConverter" />
+        <baseConverters:BrushPercentageConverter x:Key="BrushPercentageConverter" />
+        <baseConverters:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+        <baseConverters:VisibilityConverter x:Key="VisibilityConverter" />
+        <baseConverters:EnableStringConverter x:Key="EnableStringConverter" />
+        <baseConverters:BooleanIsValidConverter x:Key="BooleanIsValidConverter" />
+        <BitmapImage x:Key="SheetSettingImage"
+                     UriSource="pack://application:,,,/Resources/Sheet Setting.png" />
+        <Style TargetType="UniformGrid"></Style>
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource AccentColorBrush}" />
+        </Style>
+        <Style x:Key="GroupBoxTextBlock"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Style.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="{StaticResource GrayBrush7}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="Minimum"
+                    Value="0" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style x:Key="okButton"
+               TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ToggleButton"
+               BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Style.Triggers>
+                <Trigger Property="IsChecked"
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="{StaticResource GrayBrush7}" />
+                </Trigger>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="{StaticResource AccentColorBrush3}" />
+                    <Setter Property="Opacity"
+                            Value="0.7" />
+                </Trigger>
+                <Trigger Property="IsChecked"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="{StaticResource AccentColorBrush}" />
+                    <Setter Property="Opacity"
+                            Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <baseConverters:DrawingColorToMediaColorConverter x:Key="DrawingColorToMediaColorConverter" />
+        <baseConverters:BooleanInvertConverter x:Key="BooleanInvertConverter" />
+        <ObjectDataProvider x:Key="TypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:EDefectType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="FigureEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:EDefectMarkerType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation Module}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold"
+                       TextAlignment="Right"
+                       VerticalAlignment="Center" />
+            <ComboBox Style="{StaticResource ComboBoxBaseStyle}"
+                      Width="180"
+                      Margin="{StaticResource SmallLeftMargin}"
+                      DisplayMemberPath="ModuleTopic"
+                      ItemsSource="{Binding ModuleList}"
+                      SelectedItem="{Binding SelectedModule}" />
+            <baseControls:GlyphButton Text="{extensions:Translation BATCH_SETTING}"
+                                      Width="180"
+                                      Glyph="&#xE713;"
+                                      FontSize="{StaticResource LargeFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      IsEnabled="{Binding SelectedModule, Converter={StaticResource BooleanIsValidConverter}}"
+                                      Command="{Binding BatchSettingCommand}" />
+            <baseControls:GlyphButton Text="{extensions:Translation Save}"
+                                      Width="180"
+                                      Glyph="&#xE74E;"
+                                      FontSize="{StaticResource LargeFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Command="{Binding SaveCommand}" />
+            <baseControls:GlyphButton Text="{extensions:Translation Base_Setting}"
+                                      Width="180"
+                                      Glyph="&#xF69E;"
+                                      FontSize="{StaticResource LargeFontSize}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Command="{Binding BaseSettingCommand}" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row="0">
+                <GroupBox.Header>
+                    <TextBlock Text="{extensions:Translation Category_List}"
+                               Style="{StaticResource GroupBoxTextBlock}" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Row="0"
+                              Name="categoryList"
+                              ItemsSource="{Binding DefectCategoryList, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectedDefectCategory}"
+                              BorderBrush="{DynamicResource BlackBrush}"
+                              BorderThickness="1"
+                              FontSize="{StaticResource SmallFontSize}"
+                              SelectionUnit="FullRow"
+                              AutoGenerateColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              IsReadOnly="False"
+                              Margin="{StaticResource XXSmallMargin}">
+                        <DataGrid.Resources>
+                            <Style TargetType="TextBlock"
+                                   BasedOn="{StaticResource TextBlockBaseStyle}">
+                                <Setter Property="FontSize"
+                                        Value="{StaticResource SmallFontSize}" />
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="{extensions:Translation Skip}"
+                                                    IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Label FontFamily="Segoe MDL2 Assets"
+                                               FontSize="{StaticResource MediumFontSize}"
+                                               Content="&#xE73E;"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Visibility="{Binding IsSkip, Converter={StaticResource VisibilityConverter}}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="{extensions:Translation NAME}"
+                                                Binding="{Binding Name}"
+                                                IsReadOnly="True" />
+                            <DataGridTemplateColumn Header="{extensions:Translation COLOR}"
+                                                    IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid Background="{Binding DefectColor, Converter={StaticResource ColorToBrushConverter}}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="{extensions:Translation Type}"
+                                                Binding="{Binding DefectType}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation FIGURE}"
+                                                Binding="{Binding DefectFigure}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation WARNING_LEVEL}"
+                                                Binding="{Binding WarningLevel}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation Defect_Count}"
+                                                Binding="{Binding DefectCount}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation WIDTH_UPPER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=WidthUpper}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation WIDTH_LOWER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=WidthLower}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation HEIGHT_UPPER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=HeightUpper}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation HEIGHT_LOWER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=HeightLower}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation AVG_GV_UPPER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=AvgGvUpper}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation AVG_GV_LOWER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=AvgGvLower}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation MIN_GV_UPPER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=MinGvUpper}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation MIN_GV_LOWER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=MinGvLower}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation MAX_GV_UPPER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=MaxGvUpper}"
+                                                IsReadOnly="True" />
+                            <DataGridTextColumn Header="{extensions:Translation MAX_GV_LOWER}"
+                                                Binding="{Binding CategoryTypeList, Converter={StaticResource CategoryTypeDetailValueConverter}, ConverterParameter=MaxGvLower}"
+                                                IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal">
+                        <baseControls:GlyphButton Glyph="&#xF0AD;"
+                                                  Text="{extensions:Translation To_Up}"
+                                                  Width="120"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding CategoryListOrderUpCommand}"
+                                                  CommandParameter="{Binding SelectedIndex, ElementName=categoryList}" />
+                        <baseControls:GlyphButton Glyph="&#xF0AE;"
+                                                  Text="{extensions:Translation To_Down}"
+                                                  Width="120"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding CategoryListOrderDownCommand}"
+                                                  CommandParameter="{Binding SelectedIndex, ElementName=categoryList}" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <baseControls:GlyphButton Glyph="&#xE948;"
+                                                  Text="{extensions:Translation Add}"
+                                                  Width="120"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding AddCommand}" />
+                        <baseControls:GlyphButton Glyph="&#xE949;"
+                                                  Text="{extensions:Translation Delete}"
+                                                  Width="120"
+                                                  BorderBrush="{DynamicResource BlackBrush}"
+                                                  BorderThickness="1"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  Command="{Binding DeleteCommand}" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <Grid Grid.Row="1">
+                <GroupBox Margin="{StaticResource XXSmallMargin}">
+                    <GroupBox.Header>
+                        <TextBlock Text="{extensions:Translation Parameter}"
+                                   Style="{StaticResource GroupBoxTextBlock}" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"
+                              Margin="{StaticResource XXSmallMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <UniformGrid Grid.Column="0"
+                                         Columns="2">
+                                <TextBlock Text="{extensions:Translation Name}"
+                                           FontWeight="Bold" />
+                                <TextBox Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" />
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="1"
+                                         Columns="2">
+                                <TextBlock Text="{extensions:Translation Color}"
+                                           FontWeight="Bold" />
+                                <xceed:ColorPicker SelectedColor="{Binding DefectColor}"
+                                                   Foreground="Black"
+                                                   Height="35" />
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="2"
+                                         Columns="2">
+                                <TextBlock Text="{extensions:Translation Type}"
+                                           FontWeight="Bold" />
+                                <ComboBox ItemsSource="{Binding Source={StaticResource TypeEnum}}"
+                                          SelectedItem="{Binding DefectType}" />
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="3"
+                                         Columns="2">
+                                <TextBlock Text="{extensions:Translation Figure}"
+                                           FontWeight="Bold" />
+                                <ComboBox ItemsSource="{Binding Source={StaticResource FigureEnum}}"
+                                          SelectedItem="{Binding DefectFigure}" />
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="4"
+                                         Columns="2">
+                                <TextBlock Text="{extensions:Translation Warning_Level}"
+                                           FontWeight="Bold" />
+                                <mahapps:NumericUpDown Value="{Binding WarningLevel}"
+                                                       Minimum="1"
+                                                       Maximum="100"
+                                                       Height="35" />
+                            </UniformGrid>
+                        </Grid>
+                        <UniformGrid Grid.Row="1"
+                                     Columns="3">
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation Defect}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <TextBlock Text="{extensions:Translation Defect_Skip}"
+                                               FontWeight="Bold" />
+                                    <ToggleButton Content="{Binding IsSkip, Converter={StaticResource EnableStringConverter}}"
+                                                  IsChecked="{Binding IsSkip}" />
+                                    <TextBlock Text="{extensions:Translation Defect_Count}"
+                                               FontWeight="Bold" />
+                                    <mahapps:NumericUpDown Value="{Binding DefectCount, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding IsSkip, Converter={StaticResource BooleanInvertConverter}}" 
+                                                           Minimum="1"/>
+                                </UniformGrid>
+                                
+                            </GroupBox>
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation Width_UM}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <ToggleButton Content="{extensions:Translation Upper}"
+                                                  IsChecked="{Binding UseWidthUpper}" />
+                                    <mahapps:NumericUpDown Value="{Binding WidthUpper, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseWidthUpper}" />
+                                    <ToggleButton Content="{extensions:Translation Lower}"
+                                                  IsChecked="{Binding UseWidthLower}" />
+                                    <mahapps:NumericUpDown Value="{Binding WidthLower, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseWidthLower}" />
+                                </UniformGrid>
+                            </GroupBox>
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation Height_UM}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <ToggleButton Content="{extensions:Translation Upper}"
+                                                  IsChecked="{Binding UseHeightUpper}" />
+                                    <mahapps:NumericUpDown Value="{Binding HeightUpper, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseHeightUpper}" />
+                                    <ToggleButton Content="{extensions:Translation Lower}"
+                                                  IsChecked="{Binding UseHeightLower}" />
+                                    <mahapps:NumericUpDown Value="{Binding HeightLower, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseHeightLower}" />
+                                </UniformGrid>
+                            </GroupBox>
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation AVG_GV(0~255)}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <ToggleButton Content="{extensions:Translation Upper}"
+                                                  IsChecked="{Binding UseAvgGvUpper}" />
+                                    <mahapps:NumericUpDown Value="{Binding AvgGvUpper, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0.0}}"
+                                                           IsEnabled="{Binding UseAvgGvUpper}" />
+                                    <ToggleButton Content="{extensions:Translation Lower}"
+                                                  IsChecked="{Binding UseAvgGvLower}" />
+                                    <mahapps:NumericUpDown Value="{Binding AvgGvLower, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0.0}}"
+                                                           IsEnabled="{Binding UseAvgGvLower}" />
+                                </UniformGrid>
+                            </GroupBox>
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation Min_Gv(0~255)}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <ToggleButton Content="{extensions:Translation Upper}"
+                                                  IsChecked="{Binding UseMinGvUpper}" />
+                                    <mahapps:NumericUpDown Value="{Binding MinGvUpper, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseMinGvUpper}" />
+                                    <ToggleButton Content="{extensions:Translation Lower}"
+                                                  IsChecked="{Binding UseMinGvLower}" />
+                                    <mahapps:NumericUpDown Value="{Binding MinGvLower, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseMinGvLower}" />
+                                </UniformGrid>
+                            </GroupBox>
+                            <GroupBox Margin="{StaticResource XXSmallMargin}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="{extensions:Translation Max_Gv(0~255)}"
+                                               FontWeight="Bold" />
+                                </GroupBox.Header>
+                                <UniformGrid Columns="4">
+                                    <ToggleButton Content="{extensions:Translation Upper}"
+                                                  IsChecked="{Binding UseMaxGvUpper}" />
+                                    <mahapps:NumericUpDown Value="{Binding MaxGvUpper, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseMaxGvUpper}" />
+                                    <ToggleButton Content="{extensions:Translation Lower}"
+                                                  IsChecked="{Binding UseMaxGvLower}" />
+                                    <mahapps:NumericUpDown Value="{Binding MaxGvLower, UpdateSourceTrigger=PropertyChanged}"
+                                                           IsEnabled="{Binding UseMaxGvLower}" />
+                                </UniformGrid>
+                            </GroupBox>
+                        </UniformGrid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

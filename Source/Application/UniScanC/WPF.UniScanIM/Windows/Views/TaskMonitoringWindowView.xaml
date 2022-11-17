@@ -1,0 +1,175 @@
+﻿<simpleChildWindow:ChildWindow x:Class="WPF.UniScanIM.Windows.Views.TaskMonitoringWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               xmlns:vm="clr-namespace:WPF.UniScanIM.Windows.ViewModels"
+                               xmlns:local="clr-namespace:WPF.UniScanIM.Windows.Views"
+                               mc:Ignorable="d"
+                               ShowTitleBar="False"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               ChildWindowWidth="800"
+                               ChildWindowHeight="450"
+                               Name="parentWindow">
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource SmallTopMargin}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="Task Monitoring"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="{DynamicResource BlackBrush}"
+                    BorderThickness="1"
+                    Margin="{StaticResource XXSmallMargin}">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible"
+                                  HorizontalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding LoadFactorList, UpdateSourceTrigger=PropertyChanged}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Margin="{StaticResource XXSmallMargin}" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="{StaticResource XXSmallMargin}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Module No"
+                                                       FontSize="{StaticResource MediumLargeFontSize}"
+                                                       FontWeight="Bold"
+                                                       Margin="{StaticResource XXSmallMargin}" />
+                                            <TextBlock Text="{Binding ModuleNo}"
+                                                       FontSize="{StaticResource MediumLargeFontSize}"
+                                                       FontWeight="Bold"
+                                                       Margin="{StaticResource XXSmallMargin}" />
+                                        </StackPanel>
+                                        <ItemsControl Grid.Row="1"
+                                                      ItemsSource="{Binding AlgoTaskStates, UpdateSourceTrigger=PropertyChanged}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="250" />
+                                                            <ColumnDefinition />
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Text="{Binding AlgoName}"
+                                                                   FontSize="{StaticResource MediumLargeFontSize}"
+                                                                   FontWeight="Normal"
+                                                                   HorizontalAlignment="Left"
+                                                                   Margin="{StaticResource XXSmallMargin}" />
+                                                        <ProgressBar Grid.Column="1"
+                                                                     Minimum="0"
+                                                                     Maximum="100"
+                                                                     BorderBrush="{DynamicResource BlackBrush}"
+                                                                     Background="{DynamicResource WhiteBrush}"
+                                                                     Value="{Binding AlgoLoadFactor}"
+                                                                     Margin="{StaticResource XXSmallMargin}" />
+                                                        <Grid Grid.Column="1"
+                                                              HorizontalAlignment="Center">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="50" />
+                                                                <ColumnDefinition Width="auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Grid.Column="0"
+                                                                       Text="{Binding AlgoLoadFactorString}"
+                                                                       FontSize="{StaticResource MediumLargeFontSize}"
+                                                                       FontWeight="Normal"
+                                                                       Margin="{StaticResource XXSmallMargin}" />
+                                                            <TextBlock Grid.Column="1"
+                                                                       Text="%"
+                                                                       FontSize="{StaticResource MediumLargeFontSize}"
+                                                                       FontWeight="Normal"
+                                                                       Margin="{StaticResource XXSmallMargin}" />
+                                                        </Grid>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <baseControls:GlyphButton Grid.Row="1"
+                                      Glyph="&#xE73E;"
+                                      Text="{extensions:Translation OK}"
+                                      Command="{Binding OkCommand}"
+                                      CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:TaskMonitoringWindowView}}}"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      Margin="{StaticResource XXSmallMargin}" />
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

@@ -1,0 +1,724 @@
+﻿<UserControl x:Class="WPF.ThicknessMeasure.Pages.Views.TeachingPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:WPF.ThicknessMeasure.Pages.Views"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:override="clr-namespace:WPF.ThicknessMeasure.Override"
+             xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+             xmlns:tcontrols="clr-namespace:WPF.ThicknessMeasure.Controls.Views"
+             xmlns:vm="clr-namespace:WPF.ThicknessMeasure.Pages.ViewModels"
+             xmlns:infragistics="http://schemas.infragistics.com/xaml"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:TeachingPageViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="StrokeBrush">DimGray</SolidColorBrush>
+        <system:Double x:Key="StrokeThickness">1</system:Double>
+        <system:Double x:Key="NullStrokeThickness">0</system:Double>
+        <system:Double x:Key="SeriseThickness">2</system:Double>
+        <converters:BooleanIsValidConverter x:Key="BooleanIsValidConverter"/>
+        <ObjectDataProvider x:Key="SystemTypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:SystemType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="HeadTypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:HeadType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="MotionPositionEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:MotionPosition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Maximum" Value="100000"/>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource GrayBrush10}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="{StaticResource SmallMargin}">
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Text="Data Aquire"/>
+                </GroupBox.Header>
+                <UniformGrid Columns="4">
+                    <controls:GlyphButton Glyph="&#xE706;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          Text="{extensions:Translation REFERENCE}"
+                                          HorizontalContentAlignment="Left"
+                                          TextMargin="{StaticResource SmallLeftMargin}"
+                                          IsEnabled="{Binding OnWorking}"
+                                          Command="{Binding ReferenceCommand}"/>
+                    <controls:GlyphButton Glyph="&#xE708;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          Text="{extensions:Translation BACKGROUND}"
+                                          HorizontalContentAlignment="Left"
+                                          TextMargin="{StaticResource SmallLeftMargin}"
+                                          IsEnabled="{Binding OnWorking}"
+                                          Command="{Binding BackgroundCommand}"/>
+                    <controls:GlyphButton Glyph="&#xF785;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          Text="{extensions:Translation AQUIRE}"
+                                          HorizontalContentAlignment="Left"
+                                          TextMargin="{StaticResource SmallLeftMargin}"
+                                          IsEnabled="{Binding OnSelected}"
+                                          Command="{Binding AquireCommand}"/>
+                    <controls:GlyphButton Glyph="&#xF785;"
+                                          FontSize="{StaticResource LargeFontSize}"
+                                          Text="{extensions:Translation Save}"
+                                          HorizontalContentAlignment="Left"
+                                          TextMargin="{StaticResource SmallLeftMargin}"
+                                          IsEnabled="{Binding OnSelected}"
+                                          Command="{Binding DataSaveCommand}"/>
+                </UniformGrid>
+            </GroupBox>
+            <mahapps:MetroAnimatedTabControl Grid.Column="1" Background="Transparent">
+                <TabItem Header="Layer">
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Layer Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Layer Name"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0"
+                                      ItemsSource="{Binding LayerNameList, Mode=OneWay}"
+                                      SelectedItem="{Binding SelectedLayerName}"/>
+                            <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                                      IsEnabled="{Binding SelectedLayerName, Converter={StaticResource BooleanIsValidConverter}}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Layer Param Setting"/>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                           Content="Start Wavelength"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="0"
+                                                           StringFormat="F0"
+                                                           Value="{Binding LayerParam.StartWavelength, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="1"
+                                           Content="End Wavelength"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                           StringFormat="F0"
+                                                           Value="{Binding LayerParam.EndWavelength, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="2"
+                                           Content="Min Thickness"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="2"
+                                                           StringFormat="F0"
+                                                           Value="{Binding LayerParam.MinThickness, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="3"
+                                           Content="Max Thickness"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="3"
+                                                           StringFormat="F0"
+                                                           Value="{Binding LayerParam.MaxThickness, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="4"
+                                           Content="Calibration 0"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="4"
+                                                           StringFormat="F3"
+                                                           Minimum="-1000"
+                                                           Maximum="1000"
+                                                           Value="{Binding LayerParam.CalibParam0, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="5"
+                                           Content="Calibration 1"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="5"
+                                                           StringFormat="F3"
+                                                           Minimum="-1000"
+                                                           Maximum="1000"
+                                                           Value="{Binding LayerParam.CalibParam1, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="6"
+                                           Content="Threshold"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="6"
+                                                           StringFormat="F0"
+                                                           Value="{Binding LayerParam.Threshold, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="7"
+                                           Content="2^N"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="7"
+                                                           StringFormat="F0"
+                                                           Minimum="10"
+                                                           Maximum="18"
+                                                           Value="{Binding LayerParam.DataLengthPow, Mode=TwoWay}"/>
+                                    <Label Grid.Column="0" Grid.Row="8"
+                                           Content="Refraction"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="8"
+                                                           StringFormat="F2"
+                                                           Value="{Binding LayerParam.Refraction, Mode=TwoWay}"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Header="Spectrometer">
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Spectrometer Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Spectrometer Name"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding InfoList, Mode=OneWay}"
+                                      SelectedItem="{Binding SelectedInfo}"/>
+                            <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                                      IsEnabled="{Binding SelectedInfo, Converter={StaticResource BooleanIsValidConverter}}">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Spectrometer Property Setting"/>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                           Content="Integration Time"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="0"
+                                                           Value="{Binding IntegrationTime}"/>
+                                    <Label Grid.Column="0" Grid.Row="1"
+                                           Content="Average"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                           Value="{Binding Average}"/>
+                                    <Label Grid.Column="0" Grid.Row="2"
+                                           Content="Boxcar"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="2"
+                                                           Value="{Binding Boxcar}"/>
+                                    <Label Grid.Column="0" Grid.Row="3"
+                                           Content="Threshold"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="3"
+                                                           Value="{Binding Threshold}"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Header="Refraction">
+                    <StackPanel>
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <TextBlock Text="Setting"/>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <controls:GlyphButton Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                                                      Glyph="&#xE774;"
+                                                      FontSize="{StaticResource LargeFontSize}"
+                                                      Text="Save Base Angle Data"
+                                                      HorizontalContentAlignment="Left"
+                                                      TextMargin="{StaticResource SmallLeftMargin}"
+                                                      Margin="{StaticResource XXSmallLeftMargin}"
+                                                      IsEnabled="{Binding OnWorking}"
+                                                      Command="{Binding SaveBaseAngleDataCommand}"/>
+                                <Label Grid.Column="0" Grid.Row="1" Content="Angle Value"/>
+                                <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1" Value="{Binding AngleValue}"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <TextBlock Text="Data"/>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" Content="Refraction Data"/>
+                                <Border Grid.Column="1" Grid.Row="0"
+                                        BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="{Binding RefractionData, StringFormat=N6}"/>
+                                </Border>
+                                <controls:GlyphButton Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                                                      Glyph="&#xE792;"
+                                                      FontSize="{StaticResource LargeFontSize}"
+                                                      Text="Save Refraction Data"
+                                                      HorizontalContentAlignment="Left"
+                                                      TextMargin="{StaticResource SmallLeftMargin}"
+                                                      Margin="{StaticResource XXSmallLeftMargin}"
+                                                      IsEnabled="{Binding OnWorking}"
+                                                      Command="{Binding SaveRefractionDataCommand}"/>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="ETC">
+                    <StackPanel>
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <TextBlock Text="Data Setting"/>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0"
+                                       Content="Queue"/>
+                                <Border Grid.Column="1" Grid.Row="0"
+                                        BorderBrush="{DynamicResource BlackBrush}"
+                                        BorderThickness="1">
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="{Binding QueueCount}"/>
+                                </Border>
+                                <Label Grid.Column="0" Grid.Row="1"
+                                       Content="Average"/>
+                                <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                   Value="{Binding .}"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <TextBlock Text="Machine Control"/>
+                            </GroupBox.Header>
+                            <tcontrols:MotionControlView />
+                        </GroupBox>
+                    </StackPanel>
+                </TabItem>
+            </mahapps:MetroAnimatedTabControl>
+        </StackPanel>
+        <mahapps:MetroAnimatedTabControl Grid.Column="1"
+                                         Margin="0,12,12,12"
+                                         Background="Transparent">
+            <TabItem Header="Thickness Data">
+                <UniformGrid Rows="2">
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Divided Data"/>
+                        </GroupBox.Header>
+                        <infragistics:XamDataChart Grid.Row="2" Grid.ColumnSpan="3"
+                                                   IsHorizontalZoomEnabled="False"
+                                                   IsVerticalZoomEnabled="False"
+                                                   HorizontalZoombarVisibility="Collapsed"
+                                                   VerticalZoombarVisibility="Collapsed"
+                                                   Background="Transparent"
+                                                   Padding="0,0,15,0">
+                            <infragistics:XamDataChart.Axes>
+                                <infragistics:NumericXAxis x:Name="DivXAxis"
+                                                           MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                           MajorStroke="{DynamicResource GrayBrush2}"
+                                                           StrokeThickness="{StaticResource StrokeThickness}"
+                                                           Stroke="{DynamicResource GrayBrush2}"
+                                                           TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                           TickStroke="{DynamicResource GrayBrush2}"
+                                                           MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                           MinorStroke="{DynamicResource GrayBrush2}"
+                                                           MinimumValue="{Binding LayerParam.StartWavelength}"
+                                                           MaximumValue="{Binding LayerParam.EndWavelength}"
+                                                           Label="{}{0:F0}"
+                                                           Title="WaveLength (nm)">
+                                    <infragistics:NumericXAxis.TitleSettings>
+                                        <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                    Foreground="{DynamicResource BlackBrush}">
+                                        </infragistics:TitleSettings>
+                                    </infragistics:NumericXAxis.TitleSettings>
+                                    <infragistics:NumericXAxis.LabelSettings>
+                                        <infragistics:AxisLabelSettings Location="InsideLeft"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        Extent="40"
+                                                                        Foreground="{DynamicResource BlackBrush}"/>
+                                    </infragistics:NumericXAxis.LabelSettings>
+
+                                </infragistics:NumericXAxis>
+                                <infragistics:NumericYAxis x:Name="DivYAxis"
+                                                           MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                           MajorStroke="{DynamicResource GrayBrush2}"
+                                                           StrokeThickness="{StaticResource StrokeThickness}"
+                                                           Stroke="{DynamicResource GrayBrush2}"
+                                                           TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                           TickStroke="{DynamicResource GrayBrush2}"
+                                                           MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                           MinorStroke="{DynamicResource GrayBrush2}"
+                                                           Label="{}{0:F4}"
+                                                           Title="Intansity">
+                                    <infragistics:NumericYAxis.TitleSettings>
+                                        <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                    Foreground="{DynamicResource BlackBrush}"
+                                                                    Angle="270">
+                                        </infragistics:TitleSettings>
+                                    </infragistics:NumericYAxis.TitleSettings>
+                                    <infragistics:NumericYAxis.LabelSettings>
+                                        <infragistics:AxisLabelSettings Location="InsideBottom"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        Extent="80"
+                                                                        Foreground="{DynamicResource BlackBrush}"/>
+                                    </infragistics:NumericYAxis.LabelSettings>
+                                </infragistics:NumericYAxis>
+                            </infragistics:XamDataChart.Axes>
+                            <infragistics:XamDataChart.Series>
+                                <infragistics:ScatterLineSeries XAxis="{Binding ElementName=DivXAxis}"
+                                                                YAxis="{Binding ElementName=DivYAxis}"
+                                                                XMemberPath="X"
+                                                                YMemberPath="Y"
+                                                                Brush="{DynamicResource AccentBaseColorBrush}"
+                                                                MarkerType="None"
+                                                                Thickness="{StaticResource SeriseThickness}"
+                                                                ItemsSource="{Binding DivData}"/>
+                            </infragistics:XamDataChart.Series>
+                        </infragistics:XamDataChart>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Thickness Data"/>
+                                <UniformGrid Grid.Column="1" Columns="2">
+                                    <TextBlock Text="Thickness :"/>
+                                    <TextBlock Text="{Binding CurrentThickness, StringFormat=N3}"/>
+                                </UniformGrid>
+                            </Grid>
+                        </GroupBox.Header>
+                        <infragistics:XamDataChart Grid.Row="2" Grid.ColumnSpan="3"
+                                                   IsHorizontalZoomEnabled="False"
+                                                   IsVerticalZoomEnabled="False"
+                                                   HorizontalZoombarVisibility="Collapsed"
+                                                   VerticalZoombarVisibility="Collapsed"
+                                                   Background="Transparent"
+                                                   Padding="0,0,15,0">
+                            <infragistics:XamDataChart.Axes>
+                                <infragistics:NumericXAxis x:Name="ThickXAxis"
+                                                           MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                           MajorStroke="{DynamicResource GrayBrush2}"
+                                                           StrokeThickness="{StaticResource StrokeThickness}"
+                                                           Stroke="{DynamicResource GrayBrush2}"
+                                                           TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                           TickStroke="{DynamicResource GrayBrush2}"
+                                                           MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                           MinorStroke="{DynamicResource GrayBrush2}"
+                                                           MinimumValue="{Binding LayerParam.MinThickness}"
+                                                           MaximumValue="{Binding LayerParam.MaxThickness}"
+                                                           Label="{}{0:F0}"
+                                                           Title="Thickness (um)">
+                                    <infragistics:NumericXAxis.TitleSettings>
+                                        <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                    Foreground="{DynamicResource BlackBrush}">
+                                        </infragistics:TitleSettings>
+                                    </infragistics:NumericXAxis.TitleSettings>
+                                    <infragistics:NumericXAxis.LabelSettings>
+                                        <infragistics:AxisLabelSettings Location="InsideLeft"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        Extent="40"
+                                                                        Foreground="{DynamicResource BlackBrush}"/>
+                                    </infragistics:NumericXAxis.LabelSettings>
+
+                                </infragistics:NumericXAxis>
+                                <infragistics:NumericYAxis x:Name="ThickYAxis"
+                                                           MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                           MajorStroke="{DynamicResource GrayBrush2}"
+                                                           StrokeThickness="{StaticResource StrokeThickness}"
+                                                           Stroke="{DynamicResource GrayBrush2}"
+                                                           TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                           TickStroke="{DynamicResource GrayBrush2}"
+                                                           MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                           MinorStroke="{DynamicResource GrayBrush2}"
+                                                           Label="{}{0:F1}"
+                                                           Title="Intansity">
+                                    <infragistics:NumericYAxis.TitleSettings>
+                                        <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                    Foreground="{DynamicResource BlackBrush}"
+                                                                    Angle="270">
+                                        </infragistics:TitleSettings>
+                                    </infragistics:NumericYAxis.TitleSettings>
+                                    <infragistics:NumericYAxis.LabelSettings>
+                                        <infragistics:AxisLabelSettings Location="InsideBottom"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        Extent="80"
+                                                                        Foreground="{DynamicResource BlackBrush}"/>
+                                    </infragistics:NumericYAxis.LabelSettings>
+                                </infragistics:NumericYAxis>
+                            </infragistics:XamDataChart.Axes>
+                            <infragistics:XamDataChart.Series>
+                                <infragistics:ScatterLineSeries XAxis="{Binding ElementName=ThickXAxis}"
+                                                                YAxis="{Binding ElementName=ThickYAxis}"
+                                                                XMemberPath="X"
+                                                                YMemberPath="Y"
+                                                                Brush="{DynamicResource AccentBaseColorBrush}"
+                                                                MarkerType="None"
+                                                                Thickness="{StaticResource SeriseThickness}"
+                                                                ItemsSource="{Binding ThickData}"/>
+                            </infragistics:XamDataChart.Series>
+                        </infragistics:XamDataChart>
+                    </GroupBox>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Raw Data">
+                <GroupBox>
+                    <GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Raw Data"/>
+                            <UniformGrid Grid.Column="1" Columns="2">
+                                <TextBlock Text="Intansity :"/>
+                                <TextBlock Text="{Binding MaxIntansity, StringFormat=N0}"/>
+                            </UniformGrid>
+                        </Grid>
+                    </GroupBox.Header>
+                    <infragistics:XamDataChart Grid.Row="2" Grid.ColumnSpan="3"
+                                               IsHorizontalZoomEnabled="False"
+                                               IsVerticalZoomEnabled="False"
+                                               HorizontalZoombarVisibility="Collapsed"
+                                               VerticalZoombarVisibility="Collapsed"
+                                               Background="Transparent"
+                                               Padding="0,0,15,0">
+                        <infragistics:XamDataChart.Axes>
+                            <infragistics:NumericXAxis x:Name="RawXAxis"
+                                                       MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                       MajorStroke="{DynamicResource GrayBrush2}"
+                                                       StrokeThickness="{StaticResource StrokeThickness}"
+                                                       Stroke="{DynamicResource GrayBrush2}"
+                                                       TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                       TickStroke="{DynamicResource GrayBrush2}"
+                                                       MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                       MinorStroke="{DynamicResource GrayBrush2}"
+                                                       Label="{}{0:F0}"
+                                                       Title="WaveLength (nm)">
+                                <infragistics:NumericXAxis.TitleSettings>
+                                    <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                            Foreground="{DynamicResource BlackBrush}">
+                                    </infragistics:TitleSettings>
+                                </infragistics:NumericXAxis.TitleSettings>
+                                <infragistics:NumericXAxis.LabelSettings>
+                                    <infragistics:AxisLabelSettings Location="InsideLeft"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Extent="40"
+                                                                    Foreground="{DynamicResource BlackBrush}"/>
+                                </infragistics:NumericXAxis.LabelSettings>
+
+                            </infragistics:NumericXAxis>
+                            <infragistics:NumericYAxis x:Name="RawYAxis"
+                                                       MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                       MajorStroke="{DynamicResource GrayBrush2}"
+                                                       StrokeThickness="{StaticResource StrokeThickness}"
+                                                       Stroke="{DynamicResource GrayBrush2}"
+                                                       TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                       TickStroke="{DynamicResource GrayBrush2}"
+                                                       MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                       MinorStroke="{DynamicResource GrayBrush2}"
+                                                       Label="{}{0:F0}"
+                                                       Title="Intansity">
+                                <infragistics:NumericYAxis.TitleSettings>
+                                    <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                Foreground="{DynamicResource BlackBrush}"
+                                                                Angle="270">
+                                    </infragistics:TitleSettings>
+                                </infragistics:NumericYAxis.TitleSettings>
+                                <infragistics:NumericYAxis.LabelSettings>
+                                    <infragistics:AxisLabelSettings Location="InsideBottom"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Extent="80"
+                                                                    Foreground="{DynamicResource BlackBrush}"/>
+                                </infragistics:NumericYAxis.LabelSettings>
+                            </infragistics:NumericYAxis>
+                        </infragistics:XamDataChart.Axes>
+                        <infragistics:XamDataChart.Series>
+                            <infragistics:ScatterLineSeries XAxis="{Binding ElementName=RawXAxis}"
+                                                            YAxis="{Binding ElementName=RawYAxis}"
+                                                            XMemberPath="X"
+                                                            YMemberPath="Y"
+                                                            Brush="{DynamicResource AccentBaseColorBrush}"
+                                                            MarkerType="None"
+                                                            Thickness="{StaticResource SeriseThickness}"
+                                                            ItemsSource="{Binding RawData}"/>
+                        </infragistics:XamDataChart.Series>
+                    </infragistics:XamDataChart>
+                </GroupBox>
+            </TabItem>
+            <!--<TabItem Header="Phase Data">
+                <GroupBox>
+                    <GroupBox.Header>
+                        <TextBlock Text="Phase Data"/>
+                    </GroupBox.Header>
+                    <infragistics:XamDataChart Grid.Row="2" Grid.ColumnSpan="3"
+                                               IsHorizontalZoomEnabled="False"
+                                               IsVerticalZoomEnabled="False"
+                                               HorizontalZoombarVisibility="Collapsed"
+                                               VerticalZoombarVisibility="Collapsed"
+                                               Background="Transparent"
+                                               Padding="0,0,15,0">
+                        <infragistics:XamDataChart.Axes>
+                            <infragistics:NumericXAxis x:Name="PhaseXAxis"
+                                                       MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                       MajorStroke="{DynamicResource GrayBrush2}"
+                                                       StrokeThickness="{StaticResource StrokeThickness}"
+                                                       Stroke="{DynamicResource GrayBrush2}"
+                                                       TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                       TickStroke="{DynamicResource GrayBrush2}"
+                                                       MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                       MinorStroke="{DynamicResource GrayBrush2}"
+                                                       Label="{}{0:F0}"
+                                                       Title="WaveLength (nm)">
+                                <infragistics:NumericXAxis.TitleSettings>
+                                    <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                            Foreground="{DynamicResource BlackBrush}">
+                                    </infragistics:TitleSettings>
+                                </infragistics:NumericXAxis.TitleSettings>
+                                <infragistics:NumericXAxis.LabelSettings>
+                                    <infragistics:AxisLabelSettings Location="InsideLeft"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Extent="40"
+                                                                    Foreground="{DynamicResource BlackBrush}"/>
+                                </infragistics:NumericXAxis.LabelSettings>
+
+                            </infragistics:NumericXAxis>
+                            <infragistics:NumericYAxis x:Name="PhaseYAxis"
+                                                       MajorStrokeThickness="{StaticResource StrokeThickness}"
+                                                       MajorStroke="{DynamicResource GrayBrush2}"
+                                                       StrokeThickness="{StaticResource StrokeThickness}"
+                                                       Stroke="{DynamicResource GrayBrush2}"
+                                                       TickStrokeThickness="{StaticResource StrokeThickness}"
+                                                       TickStroke="{DynamicResource GrayBrush2}"
+                                                       MinorStrokeThickness="{StaticResource NullStrokeThickness}"
+                                                       MinorStroke="{DynamicResource GrayBrush2}"
+                                                       Label="{}{0:F0}"
+                                                       Title="Intansity">
+                                <infragistics:NumericYAxis.TitleSettings>
+                                    <infragistics:TitleSettings FontSize="{StaticResource SmallMediumFontSize}"
+                                                                Foreground="{DynamicResource BlackBrush}"
+                                                                Angle="270">
+                                    </infragistics:TitleSettings>
+                                </infragistics:NumericYAxis.TitleSettings>
+                                <infragistics:NumericYAxis.LabelSettings>
+                                    <infragistics:AxisLabelSettings Location="InsideBottom"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Extent="80"
+                                                                    Foreground="{DynamicResource BlackBrush}"/>
+                                </infragistics:NumericYAxis.LabelSettings>
+                            </infragistics:NumericYAxis>
+                        </infragistics:XamDataChart.Axes>
+                        <infragistics:XamDataChart.Series>
+                            <infragistics:ScatterLineSeries XAxis="{Binding ElementName=PhaseXAxis}"
+                                                            YAxis="{Binding ElementName=PhaseYAxis}"
+                                                            XMemberPath="X"
+                                                            YMemberPath="Y"
+                                                            Brush="{DynamicResource AccentBaseColorBrush}"
+                                                            MarkerType="None"
+                                                            Thickness="{StaticResource SeriseThickness}"
+                                                            ItemsSource="{Binding PhaseData}"/>
+                        </infragistics:XamDataChart.Series>
+                    </infragistics:XamDataChart>
+                </GroupBox>
+            </TabItem>-->
+        </mahapps:MetroAnimatedTabControl>
+    </Grid>
+</UserControl>

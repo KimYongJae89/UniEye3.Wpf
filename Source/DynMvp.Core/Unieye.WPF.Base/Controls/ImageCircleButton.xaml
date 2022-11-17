@@ -1,0 +1,38 @@
+﻿<Button x:Class="Unieye.WPF.Base.Controls.ImageCircleButton"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:Unieye.WPF.Base.Controls"
+        xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters"
+        mc:Ignorable="d" 
+        d:DesignHeight="100" d:DesignWidth="100">
+    <Button.Resources>
+        <converters:MarginOffsetConverter x:Key="MarginOffsetConverter"/>
+    </Button.Resources>
+    <Button.Template>
+        <ControlTemplate>
+            <Grid>
+                <Ellipse Name="outsideCircle" 
+                         Fill="White"/>
+                <Ellipse Name="insideCircle" 
+                         Fill="Black" 
+                         Margin="{Binding BorderThickness, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                <Image Name="buttonImage" 
+                       Source="{Binding ImageSource, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+                       Margin="{Binding ImageMargin, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="outsideCircle" Property="Fill" Value="Yellow"/>
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="true">
+                    <Setter TargetName="buttonImage" Property="Margin" Value="{Binding ImageMargin, Converter={StaticResource MarginOffsetConverter}, ConverterParameter=2, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter TargetName="insideCircle" Property="Fill" Value="DimGray"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Button.Template>
+</Button>

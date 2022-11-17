@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BCC6601-4E70-4066-889C-CDA17497878A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DynMvp.Devices</RootNamespace>
+    <AssemblyName>DynMvp.Devices</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.ActUtlTypeLib">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\AxInterop.ActUtlTypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Basler.Pylon, Version=1.1.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Basler.Pylon.dll</HintPath>
+    </Reference>
+    <Reference Include="Coaxlink_NetApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=827dda2b95af263a, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Coaxlink_NetApi.dll</HintPath>
+    </Reference>
+    <Reference Include="DALSA.SaperaLT.SapClassBasic">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\DALSA.SaperaLT.SapClassBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Gardasoft.Controller.API">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Gardasoft.Controller.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Gardasoft.Device.CommunicationLayer">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Gardasoft.Device.CommunicationLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Gardasoft.Device.Discovery">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Gardasoft.Device.Discovery.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.Shared.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.Shared.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.DataVisualization.UltraDataChart.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.DataVisualization.UltraDataChart.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Win.Misc.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Portable.Core.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Infragistics4.Win.Portable.Core.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Infragistics4.Win.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Matrox.MatroxImagingLibrary, Version=10.20.424.1, Culture=neutral, PublicKeyToken=5a83d419d44a9d98, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\Matrox.MatroxImagingLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="MEDAQLib.NET">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\MEDAQLib.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="NationalInstruments.DAQmx">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\NationalInstruments.DAQmx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NETOmniDriver-NET40">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\NETOmniDriver-NET40.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PylonC.NET, Version=4.2.0.0, Culture=neutral, PublicKeyToken=a77e8471c5919d5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\PylonC.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="PylonC.NETSupportLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\PylonC.NETSupportLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\..\..\..\Shared\ReferenceDll\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="SusiCommon">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\SusiCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="uEyeDotNet">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\uEyeDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XComProW_C40_01_64">
+      <HintPath>$(SolutionDir)..\..\Shared\ReferenceDll\XComProW_C40_01_64.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Devices\Etc\ActionDoneChecker.cs" />
+    <Compile Include="Devices\Etc\AsyncCylinder.cs" />
+    <Compile Include="Devices\BarcodeReader\BarcodeReader.cs" />
+    <Compile Include="Devices\BarcodeReader\SerialBarcodeReader.cs" />
+    <Compile Include="Devices\Comm\SerialDevice.cs" />
+    <Compile Include="Devices\Comm\SerialDeviceInfoFactory.cs" />
+    <Compile Include="Devices\Comm\SerialEncoder.cs" />
+    <Compile Include="Devices\Comm\StxEtxProtocol.cs" />
+    <Compile Include="Devices\Comm\XComIf.cs" />
+    <Compile Include="Devices\Etc\ConveyorSystem.cs" />
+    <Compile Include="Devices\Device.cs" />
+    <Compile Include="Devices\DeviceConfig.cs" />
+    <Compile Include="Devices\DeviceException.cs" />
+    <Compile Include="Devices\DeviceManager.cs" />
+    <Compile Include="Devices\DeviceMonitor.cs" />
+    <Compile Include="Devices\Dio\DigitalIoNIUsb.cs" />
+    <Compile Include="Devices\Dio\DigitalIoAlphaMotionBx.cs" />
+    <Compile Include="Devices\Dio\DigitalIoAlphaMotionBBx.cs" />
+    <Compile Include="Devices\Dio\DigitalIoSerial.cs" />
+    <Compile Include="Devices\Dio\UI\PortSettingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\PortSettingPanel.designer.cs">
+      <DependentUpon>PortSettingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\SerialDigitalIoInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\SerialDigitalIoInfoForm.designer.cs">
+      <DependentUpon>SerialDigitalIoInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\CameraBufferTag.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraMilCXP.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraPylon2.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraPylonLine.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraSapera.cs" />
+    <Compile Include="Devices\FrameGrabber\CustomBuffer.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraGenTL.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraHandler.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberGenTL.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberMilCXP.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberPylon2.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberPylonLine.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberSapera.cs" />
+    <Compile Include="Devices\FrameGrabber\ImageProvider.cs" />
+    <Compile Include="Devices\FrameGrabber\ImageSequence.cs" />
+    <Compile Include="Devices\FrameGrabber\UI\SaperaCameraListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\SaperaCameraListForm.designer.cs">
+      <DependentUpon>SaperaCameraListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\GenTLCameraListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\GenTLCameraListForm.designer.cs">
+      <DependentUpon>GenTLCameraListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\PylonLineCameraListForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\PylonLineCameraListForm3.Designer.cs">
+      <DependentUpon>PylonLineCameraListForm3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\InterOp\MultiCam.cs" />
+    <Compile Include="Devices\FrameGrabber\UI\PylonCameraListForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\PylonCameraListForm2.Designer.cs">
+      <DependentUpon>PylonCameraListForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Etc\LabcoParticleCounter.cs" />
+    <Compile Include="Devices\Light\LightConfig.cs" />
+    <Compile Include="Devices\Light\SerialLight\ICore\iCoreConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Light\SerialLight\ICore\iCoreConfigForm.designer.cs">
+      <DependentUpon>iCoreConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Light\SerialLight\ICore\SerialLightiPulse.cs" />
+    <Compile Include="Devices\Light\SerialLight\ICore\struct.cs" />
+    <Compile Include="Devices\MotionController\MotionAlphaMotionBBx.cs" />
+    <Compile Include="Devices\MotionController\MotionAlphaMotionBx.cs" />
+    <Compile Include="Devices\MotionController\MotionHandler.cs" />
+    <Compile Include="Devices\MotionController\nmiMNApi.cs" />
+    <Compile Include="Devices\MotionController\nmiMNApiDefs.cs" />
+    <Compile Include="Devices\MotionController\pmiMApi.cs" />
+    <Compile Include="Devices\MotionController\pmiMApiDefs.cs" />
+    <Compile Include="Devices\Etc\MxCompWrapper.cs" />
+    <Compile Include="Devices\Comm\ClientHandlerSocket.cs" />
+    <Compile Include="Devices\Comm\FinsMonitor.cs" />
+    <Compile Include="Devices\Comm\MelsecQProtocol.cs" />
+    <Compile Include="Devices\Comm\Protocol.cs" />
+    <Compile Include="Devices\Comm\Modbus.cs" />
+    <Compile Include="Devices\Comm\Socket.cs" />
+    <Compile Include="Devices\Comm\FinsPacketHandler.cs" />
+    <Compile Include="Devices\Comm\TcpIpInfo.cs" />
+    <Compile Include="Devices\Comm\PacketHandler.cs" />
+    <Compile Include="Devices\Comm\TensionPacketHandler.cs" />
+    <Compile Include="Devices\Comm\VisorInfo.cs" />
+    <Compile Include="Devices\Daq\DaqChannelMedaq.cs" />
+    <Compile Include="Devices\Daq\DaqChannelProperty.cs" />
+    <Compile Include="Devices\Daq\DaqChannelManager.cs" />
+    <Compile Include="Devices\Daq\DaqChannelVirtual.cs" />
+    <Compile Include="Devices\Daq\UI\NewDaqChannelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Daq\UI\NewDaqChannelForm.Designer.cs">
+      <DependentUpon>NewDaqChannelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\InterOp\Cmmsdk.cs" />
+    <Compile Include="Devices\InterOp\CmmsdkDef.cs" />
+    <Compile Include="Devices\Dio\DigitalIoAjin.cs" />
+    <Compile Include="Devices\Dio\DigitalIOKM6050.cs" />
+    <Compile Include="Devices\Dio\DigitalIoNIMax.cs" />
+    <Compile Include="Devices\Dio\DigitalIoTmcAexxx.cs" />
+    <Compile Include="Devices\Dio\DigitalIoComizoa.cs" />
+    <Compile Include="Devices\Dio\DigitalIoHandler.cs" />
+    <Compile Include="Devices\Dio\DigitalIoModubus.cs" />
+    <Compile Include="Devices\Dio\DigitalIoSusiGpio.cs" />
+    <Compile Include="Devices\Dio\IoMonitor.cs" />
+    <Compile Include="Devices\InterOp\ModbusLib.cs" />
+    <Compile Include="Devices\InterOp\tmcDApiAed.cs" />
+    <Compile Include="Devices\InterOp\tmcDApiDef.cs" />
+    <Compile Include="Devices\Dio\UI\NewDigitalIoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\NewDigitalIoForm.Designer.cs">
+      <DependentUpon>NewDigitalIoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\SlaveDigitalIoInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\SlaveDigitalIoInfoForm.Designer.cs">
+      <DependentUpon>SlaveDigitalIoInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\PciDigitalIoInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\Dio\UI\PciDigitalIoInfoForm.Designer.cs">
+      <DependentUpon>PciDigitalIoInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\Camera.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraMil.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraUEye.cs" />
+    <Compile Include="Devices\FrameGrabber\Grabber.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraConfiguration.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberMil.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberMultiCam.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraMultiCam.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberUEye.cs" />
+    <Compile Include="Devices\FrameGrabber\ImageAcquisition.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberFactory.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraPylon.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberPylon.cs" />
+    <Compile Include="Devices\FrameGrabber\CameraVirtual.cs" />
+    <Compile Include="Devices\FrameGrabber\GrabberVirtual.cs" />
+    <Compile Include="Devices\Comm\CasLoadCellPacketHandler.cs" />
+    <Compile Include="Devices\Comm\SerialPortEx.cs" />
+    <Compile Include="Devices\Comm\SerialPortInfo.cs" />
+    <Compile Include="Devices\Comm\SerialPortManager.cs" />
+    <Compile Include="Devices\Daq\DaqChannel.cs" />
+    <Compile Include="Devices\Daq\DaqChannelNiDaqmx.cs" />
+    <Compile Include="Devices\InterOp\Dask64.cs" />
+    <Compile Include="Devices\Dio\DigitalIo.cs" />
+    <Compile Include="Devices\Dio\DigitalIoDASK.cs" />
+    <Compile Include="Devices\Dio\DigitalIoFactory.cs" />
+    <Compile Include="Devices\Dio\DigitalIoVirtual.cs" />
+    <Compile Include="Devices\Dio\PortMap.cs" />
+    <Compile Include="Devices\FrameGrabber\UI\EuresysBoardListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\EuresysBoardListForm.Designer.cs">
+      <DependentUpon>EuresysBoardListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\NewGrabberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\NewGrabberForm.Designer.cs">
+      <DependentUpon>NewGrabberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\MatroxBoardListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\MatroxBoardListForm.Designer.cs">
+      <DependentUpon>MatroxBoardListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\UeyeCameraListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\UeyeCameraListForm.Designer.cs">
+      <DependentUpon>UeyeCameraListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\PylonCameraListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\PylonCameraListForm.Designer.cs">
+      <DependentUpon>PylonCameraListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\VirtualCameraListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\FrameGrabber\UI\VirtualCameraListForm.Designer.cs">
+      <DependentUpon>VirtualCameraListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Dio\IoPort.cs" />
+    <Compile Include="Devices\FrameGrabber\ImageDevice.cs" />
+    <Compile Include="Devices\Dio\IoButton.cs" />
+    <Compile Include="Devices\Light\LightParam.cs" />
+    <Compile Include="Devices\Light\IoLightCtrl.cs" />
+    <Compile Include="Devices\Light\LightCtrl.cs" />
+    <Compile Include="Devices\Light\LightCtrlHandler.cs" />
+    <Compile Include="Devices\Light\LightCtrlVirtual.cs" />
+    <Compile Include="Devices\Light\LightValue.cs" />
+    <Compile Include="Devices\Comm\VisorPacketHandler.cs" />
+    <Compile Include="Devices\Light\SerialLightCtrl.cs" />
+    <Compile Include="Devices\InterOp\AXD.cs" />
+    <Compile Include="Devices\InterOp\AXHS.cs" />
+    <Compile Include="Devices\MotionController\Axis.cs" />
+    <Compile Include="Devices\MotionController\AxisHandler.cs" />
+    <Compile Include="Devices\MotionController\AxisPosition.cs" />
+    <Compile Include="Devices\InterOp\AXL.cs" />
+    <Compile Include="Devices\InterOp\AXM.cs" />
+    <Compile Include="Devices\MotionController\MotionEziMotionPlusR.cs" />
+    <Compile Include="Devices\InterOp\FAS_EziMOTIONPlusR.cs" />
+    <Compile Include="Devices\MotionController\Motion.cs" />
+    <Compile Include="Devices\MotionController\MotionFactory.cs" />
+    <Compile Include="Devices\MotionController\MotionMonitor.cs" />
+    <Compile Include="Devices\MotionController\MotionPowerPmac.cs" />
+    <Compile Include="Devices\MotionController\MotionSpeed.cs" />
+    <Compile Include="Devices\MotionController\MotionVirtual.cs" />
+    <Compile Include="Devices\InterOp\PowerPmac.cs" />
+    <Compile Include="Devices\MotionController\MotionAjin.cs" />
+    <Compile Include="Devices\MotionController\UI\SerialMotionInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\SerialMotionInfoForm.Designer.cs">
+      <DependentUpon>SerialMotionInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\InterOp\tmcMApiAap.cs" />
+    <Compile Include="Devices\InterOp\tmcMApiAcp.cs" />
+    <Compile Include="Devices\InterOp\tmcMApiAdp.cs" />
+    <Compile Include="Devices\InterOp\tmcMApiDef.cs" />
+    <Compile Include="Devices\MotionController\MotionAlphaMotion302.cs" />
+    <Compile Include="Devices\MotionController\MotionAlphaMotion314.cs" />
+    <Compile Include="Devices\MotionController\MotionAlphaMotion304.cs" />
+    <Compile Include="Devices\Etc\Cylinder.cs" />
+    <Compile Include="Devices\MotionController\UI\AxisConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\AxisConfigurationForm.Designer.cs">
+      <DependentUpon>AxisConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\NetworkMotionInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\NetworkMotionInfoForm.Designer.cs">
+      <DependentUpon>NetworkMotionInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\NewMotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\NewMotionForm.Designer.cs">
+      <DependentUpon>NewMotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\VirtualMotionInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\VirtualMotionInfoForm.Designer.cs">
+      <DependentUpon>VirtualMotionInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\PciMotionInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\MotionController\UI\PciMotionInfoForm.Designer.cs">
+      <DependentUpon>PciMotionInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Etc\OptoTune.cs" />
+    <Compile Include="Devices\Etc\RobotMapper.cs" />
+    <Compile Include="Devices\Etc\Sensor.cs" />
+    <Compile Include="Devices\Spectrometer\Algorithm\Interop.cs" />
+    <Compile Include="Devices\Spectrometer\Algorithm\ippcore.cs" />
+    <Compile Include="Devices\Spectrometer\Algorithm\ippdefs.cs" />
+    <Compile Include="Devices\Spectrometer\Algorithm\ipps.cs" />
+    <Compile Include="Devices\Spectrometer\Algorithm\ThicknessAlgo.cs" />
+    <Compile Include="Devices\Spectrometer\Data\FFTInputData.cs" />
+    <Compile Include="Devices\Spectrometer\Data\Layer.cs" />
+    <Compile Include="Devices\Spectrometer\Data\LayerParam.cs" />
+    <Compile Include="Devices\Spectrometer\Data\SpecData.cs" />
+    <Compile Include="Devices\Spectrometer\Spectrometer.cs" />
+    <Compile Include="Devices\Spectrometer\SpectrometerInfo.cs" />
+    <Compile Include="Devices\Spectrometer\SpectrometerProperty.cs" />
+    <Compile Include="Devices\Etc\TowerLamp.cs" />
+    <Compile Include="Devices\UI\CameraGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\CameraGridView.Designer.cs">
+      <DependentUpon>CameraGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\CameraView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\CameraView.Designer.cs">
+      <DependentUpon>CameraView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\ConveyorSystemControlFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\ConveyorSystemControlFrom.Designer.cs">
+      <DependentUpon>ConveyorSystemControlFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\DIONIMaxSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\DIONIMaxSettingForm.Designer.cs">
+      <DependentUpon>DIONIMaxSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\FovNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\FovNavigator.Designer.cs">
+      <DependentUpon>FovNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\IoLightConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\IoLightConfigPanel.Designer.cs">
+      <DependentUpon>IoLightConfigPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\Joystick3AxisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\Joystick3AxisControl.Designer.cs">
+      <DependentUpon>Joystick3AxisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\JoystickAxisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\JoystickAxisForm.Designer.cs">
+      <DependentUpon>JoystickAxisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\JoystickControl.cs" />
+    <Compile Include="Devices\UI\MotionSpeedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\MotionSpeedForm.Designer.cs">
+      <DependentUpon>MotionSpeedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\PortMapBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\PortMapBuilderForm.Designer.cs">
+      <DependentUpon>PortMapBuilderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\IoPortViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\IoPortViewer.Designer.cs">
+      <DependentUpon>IoPortViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\Joystick2AxisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\Joystick2AxisControl.Designer.cs">
+      <DependentUpon>Joystick2AxisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\LightConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\LightConfigForm.Designer.cs">
+      <DependentUpon>LightConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\MotionControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\MotionControlForm.Designer.cs">
+      <DependentUpon>MotionControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\RobotPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\RobotPositionForm.Designer.cs">
+      <DependentUpon>RobotPositionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\SerialEncoderPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\SerialEncoderPanel.Designer.cs">
+      <DependentUpon>SerialEncoderPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\SerialLightConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\SerialLightConfigPanel.Designer.cs">
+      <DependentUpon>SerialLightConfigPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\SerialPortSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\SerialPortSettingForm.Designer.cs">
+      <DependentUpon>SerialPortSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\FinsSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\FinsSettingForm.Designer.cs">
+      <DependentUpon>FinsSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\MelsecSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\MelsecSettingForm.Designer.cs">
+      <DependentUpon>MelsecSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\HomeProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\HomeProgressForm.Designer.cs">
+      <DependentUpon>HomeProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\TcpIpSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\TcpIpSettingForm.Designer.cs">
+      <DependentUpon>TcpIpSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\TowerLampOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\TowerLampOptionForm.Designer.cs">
+      <DependentUpon>TowerLampOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\UI\TowerLampSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Devices\UI\TowerLampSettingForm.Designer.cs">
+      <DependentUpon>TowerLampSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Devices\Etc\Unit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Devices\Daq\UI\NewDaqChannelForm.resx">
+      <DependentUpon>NewDaqChannelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Dio\UI\NewDigitalIoForm.resx">
+      <DependentUpon>NewDigitalIoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Dio\UI\PortSettingPanel.resx">
+      <DependentUpon>PortSettingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Dio\UI\SerialDigitalIoInfoForm.resx">
+      <DependentUpon>SerialDigitalIoInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Dio\UI\SlaveDigitalIoInfoForm.resx">
+      <DependentUpon>SlaveDigitalIoInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Dio\UI\PciDigitalIoInfoForm.resx">
+      <DependentUpon>PciDigitalIoInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\EuresysBoardListForm.resx">
+      <DependentUpon>EuresysBoardListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\SaperaCameraListForm.resx">
+      <DependentUpon>SaperaCameraListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\GenTLCameraListForm.resx">
+      <DependentUpon>GenTLCameraListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\NewGrabberForm.resx">
+      <DependentUpon>NewGrabberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\MatroxBoardListForm.resx">
+      <DependentUpon>MatroxBoardListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\PylonCameraListForm2.resx">
+      <DependentUpon>PylonCameraListForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\PylonLineCameraListForm3.resx">
+      <DependentUpon>PylonLineCameraListForm3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\UeyeCameraListForm.resx">
+      <DependentUpon>UeyeCameraListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\PylonCameraListForm.resx">
+      <DependentUpon>PylonCameraListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\FrameGrabber\UI\VirtualCameraListForm.resx">
+      <DependentUpon>VirtualCameraListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\Light\SerialLight\ICore\iCoreConfigForm.resx">
+      <DependentUpon>iCoreConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\SerialMotionInfoForm.resx">
+      <DependentUpon>SerialMotionInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\AxisConfigurationForm.resx">
+      <DependentUpon>AxisConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\NetworkMotionInfoForm.resx">
+      <DependentUpon>NetworkMotionInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\NewMotionForm.resx">
+      <DependentUpon>NewMotionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\VirtualMotionInfoForm.resx">
+      <DependentUpon>VirtualMotionInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\MotionController\UI\PciMotionInfoForm.resx">
+      <DependentUpon>PciMotionInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\CameraGridView.resx">
+      <DependentUpon>CameraGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\ConveyorSystemControlFrom.resx">
+      <DependentUpon>ConveyorSystemControlFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\DIONIMaxSettingForm.resx">
+      <DependentUpon>DIONIMaxSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\IoLightConfigPanel.resx">
+      <DependentUpon>IoLightConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\Joystick3AxisControl.resx">
+      <DependentUpon>Joystick3AxisControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\JoystickAxisForm.resx">
+      <DependentUpon>JoystickAxisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\MotionSpeedForm.resx">
+      <DependentUpon>MotionSpeedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\PortMapBuilderForm.resx">
+      <DependentUpon>PortMapBuilderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\IoPortViewer.resx">
+      <DependentUpon>IoPortViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\Joystick2AxisControl.resx">
+      <DependentUpon>Joystick2AxisControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\LightConfigForm.resx">
+      <DependentUpon>LightConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\MotionControlForm.resx">
+      <DependentUpon>MotionControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\RobotPositionForm.resx">
+      <DependentUpon>RobotPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\SerialEncoderPanel.resx">
+      <DependentUpon>SerialEncoderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\SerialLightConfigPanel.resx">
+      <DependentUpon>SerialLightConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\SerialPortSettingForm.resx">
+      <DependentUpon>SerialPortSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\FinsSettingForm.resx">
+      <DependentUpon>FinsSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\MelsecSettingForm.resx">
+      <DependentUpon>MelsecSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\HomeProgressForm.resx">
+      <DependentUpon>HomeProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\TcpIpSettingForm.resx">
+      <DependentUpon>TcpIpSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\TowerLampOptionForm.resx">
+      <DependentUpon>TowerLampOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Devices\UI\TowerLampSettingForm.resx">
+      <DependentUpon>TowerLampSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\led_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\led_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Output_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Output_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nonDownArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nonUpArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotDownArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotLeftArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotRightArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotUpArrows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lamp Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lamp On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Lamp Blink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forbidden32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forbidden48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Next %28Arrow%29 Black2432.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move Previous %28Arrow%29 Black32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

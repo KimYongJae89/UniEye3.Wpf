@@ -1,0 +1,96 @@
+﻿<simpleChildWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.CategoryParamWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                               xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+                               mc:Ignorable="d"
+                               ShowTitleBar="False"
+                               ChildWindowWidth="1200"
+                               ChildWindowHeight="675"
+                               CloseByEscape="True"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1">
+    <simpleChildWindow:ChildWindow.DataContext>
+        <vm:CategoryParamWindowViewModel />
+    </simpleChildWindow:ChildWindow.DataContext>
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Color="{DynamicResource WhiteColor}"
+                         Opacity="0.8" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <baseConverters:ToStringConverter x:Key="ToStringConverter" />
+        <Style TargetType="Label"
+               BasedOn="{StaticResource {x:Type Label}}"></Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation MODEL_INFO}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="{StaticResource XXSmallMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Column="0"
+                      Name="categoryList"
+                      Width="200"
+                      BorderBrush="{DynamicResource BlackBrush}"
+                      BorderThickness="1"
+                      ItemsSource="{Binding DefectCategories}"
+                      ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True"
+                                        Header="{extensions:Translation Defect_Type}"
+                                        Binding="{Binding CategoryName}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Grid.Column="1"
+                      ItemsSource="{Binding SelectedItem.CategoryTypeList, ElementName=categoryList}"
+                      BorderBrush="{DynamicResource BlackBrush}"
+                      BorderThickness="1"
+                      ColumnWidth="*"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{extensions:Translation CATEGORY_LIST}"
+                                        Binding="{extensions:Translation {Binding Item1.Type, Converter={StaticResource ToStringConverter}}}" />
+                    <DataGridTextColumn Header="{extensions:Translation VALUE}"
+                                        Binding="{Binding Item1.Data}" />
+                    <DataGridTextColumn Header="{extensions:Translation UNIT}"
+                                        Binding="{Binding Item2}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <UniformGrid Grid.Row="1"
+                         Grid.ColumnSpan="2"
+                         Columns="1"
+                         Margin="{StaticResource XXSmallMargin}">
+                <baseControls:GlyphButton Glyph="&#xE711;"
+                                          Text="{extensions:Translation Close}"
+                                          Command="{Binding CloseCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=simpleChildWindow:ChildWindow}}"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="0" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

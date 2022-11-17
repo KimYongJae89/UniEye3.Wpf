@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WPF.UniScanCM.Controls.Views.ChartDataControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:Converter="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             mc:Ignorable="d" 
+             d:DesignHeight="33" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="FontColor">White</SolidColorBrush>
+        <Converter:DecimalPointConverter x:Key="Converter"/>
+        <sys:Int32 x:Key="DecimalPoint">3</sys:Int32>
+        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="Foreground" Value="{StaticResource FontColor}"/>
+            <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0">
+            <Label Content="(um)"
+                   HorizontalContentAlignment="Left"/>
+        </Border>
+        <Border Grid.Column="1">
+            <Label Content="Min"
+                   HorizontalContentAlignment="Right"/>
+        </Border>
+        <Border Grid.Column="2">
+            <Label Content="{Binding SheetMin, Converter={StaticResource Converter}, ConverterParameter={StaticResource DecimalPoint}}"
+                   Foreground="{DynamicResource AccentBaseColorBrush}"
+                   HorizontalContentAlignment="Left"/>
+        </Border>
+        <Border Grid.Column="3">
+            <Label Content="Max"
+                   HorizontalContentAlignment="Right"/>
+        </Border>
+        <Border Grid.Column="4">
+            <Label Content="{Binding SheetMax, Converter={StaticResource Converter}, ConverterParameter={StaticResource DecimalPoint}}"
+                   Foreground="{DynamicResource AccentBaseColorBrush}"
+                   HorizontalContentAlignment="Left"/>
+        </Border>
+        <Border Grid.Column="5">
+            <Label Content="Avg"
+                   HorizontalContentAlignment="Right"/>
+        </Border>
+        <Border Grid.Column="6">
+            <Label Content="{Binding SheetAverage, Converter={StaticResource Converter}, ConverterParameter={StaticResource DecimalPoint}}"
+                   Foreground="{DynamicResource AccentBaseColorBrush}"
+                   HorizontalContentAlignment="Left"/>
+        </Border>
+    </Grid>
+</UserControl>

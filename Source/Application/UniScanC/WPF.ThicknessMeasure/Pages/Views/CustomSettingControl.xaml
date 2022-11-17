@@ -1,0 +1,512 @@
+﻿<UserControl x:Class="WPF.ThicknessMeasure.Pages.Views.CustomSettingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:WPF.ThicknessMeasure.Pages.Views"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:override="clr-namespace:WPF.ThicknessMeasure.Override"
+             xmlns:controls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+             xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BooleanIsNullConverter x:Key="BooleanIsNullConverter"/>
+        <converters:VisibilityConverter x:Key="VisibilityConverter"/>
+
+        <ObjectDataProvider x:Key="SystemTypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:SystemType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="HeadTypeEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:HeadType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="MotionPositionEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="override:MotionPosition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush1}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize" Value="{StaticResource MediumLargeFontSize}"/>
+            <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Resources>
+
+    <mahapps:MetroAnimatedTabControl Margin="{StaticResource XXSmallMargin}"
+                                     Background="Transparent">
+        <TabItem Header="Model Param" Visibility="{Binding HighLevelUser, Converter={StaticResource VisibilityConverter}}">
+            <StackPanel>
+                <GroupBox MinHeight="400">
+                    <GroupBox.Header>
+                        <TextBlock Text="Layer Param Setting"/>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0"
+                               Content="Layer Name"/>
+                        <ComboBox Grid.Column="1" Grid.Row="0"
+                                  DisplayMemberPath="Value"
+                                  ItemsSource="{Binding LayerNameList, Mode=OneWay}"
+                                  SelectedItem="{Binding SelectedLayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"
+                                  ItemsSource="{Binding SelectedLayerParamList}"
+                                  SelectedItem="{Binding SelectedLayerParam}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding ParamName, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Cal 0" Width="Auto" Binding="{Binding CalibParam0, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Cal 1" Width="Auto" Binding="{Binding CalibParam1, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Start Length" Width="Auto" Binding="{Binding StartWavelength, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="End Length" Width="Auto" Binding="{Binding EndWavelength, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Min Thick" Width="Auto" Binding="{Binding MinThickness, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Max Thick" Width="Auto" Binding="{Binding MaxThickness, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Refraction" Width="Auto" Binding="{Binding Refraction, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Threshold" Width="Auto" Binding="{Binding Threshold, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="DataLengthPow" Width="Auto" Binding="{Binding DataLengthPow, Mode=TwoWay}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Grid.Column="4" Grid.Row="1"
+                                    Margin="{StaticResource XXSmallMargin}">
+                            <controls:GlyphButton Glyph="&#xECCD;"
+                                                  FontSize="{StaticResource BigFontSize}"
+                                                  TextMargin="0"
+                                                  Command="{Binding AddLayerParamCommand}"/>
+                            <controls:GlyphButton Glyph="&#xF165;"
+                                                  FontSize="{StaticResource BigFontSize}"
+                                                  TextMargin="0"
+                                                  Command="{Binding DeleteLayerParamCommand}"/>
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Model Width">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <GroupBox MinHeight="400">
+                        <GroupBox.Header>
+                            <TextBlock Text="Width Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid Grid.Column="0"
+                                      ItemsSource="{Binding ScanWidthList}"
+                                      SelectedItem="{Binding SelectedScanWidth}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
+                                    <DataGridTextColumn Header="Start" Width="Auto" Binding="{Binding Start}"/>
+                                    <DataGridTextColumn Header="End" Width="Auto" Binding="{Binding End}"/>
+                                    <DataGridTextColumn Header="Valid Start" Width="Auto" Binding="{Binding ValidStart}"/>
+                                    <DataGridTextColumn Header="Valid End" Width="Auto" Binding="{Binding ValidEnd}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Column="1"
+                                        Margin="{StaticResource XXSmallMargin}">
+                                <controls:GlyphButton Glyph="&#xECCD;"
+                                                      FontSize="{StaticResource BigFontSize}"
+                                                      TextMargin="0"
+                                                      Command="{Binding AddModelWidthCommand}"/>
+                                <controls:GlyphButton Glyph="&#xF165;"
+                                                      FontSize="{StaticResource BigFontSize}"
+                                                      TextMargin="0"
+                                                      Command="{Binding DeleteModelWidthCommand}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Spectrometer" Visibility="{Binding HighLevelUser, Converter={StaticResource VisibilityConverter}}">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Spectrometer Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Spectrometer Name"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding InfoList, Mode=OneWay}"
+                                      SelectedItem="{Binding SelectedInfo}"/>
+                            <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                                <GroupBox.Header>
+                                    <TextBlock Text="Spectrometer Property Setting"/>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                           Content="Integration Time"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="0"
+                                                           Value="{Binding IntegrationTime}"/>
+                                    <Label Grid.Column="0" Grid.Row="1"
+                                           Content="Average"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                           Value="{Binding Average}"/>
+                                    <Label Grid.Column="0" Grid.Row="2"
+                                           Content="Boxcar"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="2"
+                                                           Value="{Binding Boxcar}"/>
+                                    <Label Grid.Column="0" Grid.Row="3"
+                                           Content="Threshold"/>
+                                    <mahapps:NumericUpDown Grid.Column="1" Grid.Row="3"
+                                                           Value="{Binding Threshold}"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Refraction Setting"/>
+                                <Border Grid.Column="1" Background="{DynamicResource WhiteBrush}" Margin="0" BorderThickness="0">
+                                    <mahapps:ToggleSwitchButton IsChecked="{Binding UseRefraction}" Margin="0"/>
+                                </Border>
+                            </Grid> 
+                        </GroupBox.Header>
+                        <Grid IsEnabled="{Binding UseRefraction}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Angle Sepctrometer"/>
+                            <ComboBox Grid.Column="1" Grid.Row="0"
+                                      DisplayMemberPath="Name"
+                                      ItemsSource="{Binding InfoList, Mode=OneWay}"
+                                      SelectedItem="{Binding AngleDevice}"/>
+                            <Label Grid.Column="0" Grid.Row="1"
+                                   Content="Angle Value"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                   Value="{Binding AngleValue}"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Machine" Visibility="{Binding HighLevelUser, Converter={StaticResource VisibilityConverter}}">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Position Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Background"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="0"
+                                                   StringFormat="N3"
+                                                   Value="{Binding BackGroundPos}"/>
+                            <Label Grid.Column="0" Grid.Row="1"
+                                   Content="Reference"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                   StringFormat="N3"
+                                                   Value="{Binding ReferencePos}"/>
+                            <Label Grid.Column="0" Grid.Row="2"
+                                   Content="Sample"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="2"
+                                                   StringFormat="N3"
+                                                   Value="{Binding MasterSamplePos}"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Speed Setting"/>
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0"
+                                   Content="Home Start Speed"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="0"
+                                                   Value="{Binding HomeStartSpeed}"/>
+                            <Label Grid.Column="0" Grid.Row="1"
+                                   Content="Home End Speed"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="1"
+                                                   Value="{Binding HomeEndSpeed}"/>
+                            <Label Grid.Column="0" Grid.Row="3"
+                                   Content="Jog Speed"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="3"
+                                                   Value="{Binding JogSpeed}"/>
+                            <Label Grid.Column="0" Grid.Row="2"
+                                   Content="Moving Speed"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="2"
+                                                   Value="{Binding MovingSpeed}"/>
+                            <Label Grid.Column="0" Grid.Row="4"
+                                   Content="Measure Second"/>
+                            <mahapps:NumericUpDown Grid.Column="1" Grid.Row="4"
+                                                   Value="{Binding MeasureSecond}"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Machine Setting" />
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                                   Content=""
+                                   ContentStringFormat="N3"
+                                   BorderBrush="{DynamicResource GrayBrush1}"
+                                   BorderThickness="1"/>
+                            <ComboBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                                      ItemsSource="{Binding Source={StaticResource MotionPositionEnum}}"
+                                      SelectedItem="{Binding MotionPosition}"/>
+                            <mahapps:NumericUpDown Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"
+                                                   StringFormat="N3"/>
+                            <Label Grid.Column="2" Grid.Row="0"
+                                   Background="Red"
+                                   BorderBrush="{DynamicResource GrayBrush1}"
+                                   BorderThickness="1"/>
+                            <Label Grid.Column="2" Grid.Row="1"
+                                   Background="Lime"
+                                   BorderBrush="{DynamicResource GrayBrush1}"
+                                   BorderThickness="1"/>
+
+                            <Button Grid.Column="3" Grid.Row="0"
+                                    Content="Reset"/>
+                            <Button Grid.Column="3" Grid.Row="1"
+                                    Content="Servo"/>
+                            <Button Grid.Column="4" Grid.Row="1" 
+                                    Content="Home"/>
+                            <Button Grid.Column="2" Grid.Row="2" 
+                                    Content="Move"/>
+                            <Button Grid.Column="3" Grid.Row="2" 
+                                    Content="Jog +"/>
+                            <Button Grid.Column="4" Grid.Row="2" 
+                                    Content="Jog -"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Offset Setting" />
+                        </GroupBox.Header>
+                        <UniformGrid Columns="2" Rows="2">
+                            <Label Content="Position Offset"/>
+                            <mahapps:NumericUpDown StringFormat="N3"
+                                                   Value="{Binding PositionOffset}"/>
+                            <Label Content="Sensor Offset"/>
+                            <mahapps:NumericUpDown StringFormat="N3"
+                                                   Value="{Binding SensorOffset}"/>
+                        </UniformGrid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="IO Port Setting" />
+                        </GroupBox.Header>
+                        <Button Content="IO Port"/>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Sample">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Sample Setting" />
+                        </GroupBox.Header>
+                        <UniformGrid Columns="2" Rows="2">
+                            <Label Content="Sample"/>
+                            <mahapps:NumericUpDown StringFormat="N2"
+                                                   Value="{Binding Sample}"/>
+                            <Label Content="OK Range"/>
+                            <mahapps:NumericUpDown StringFormat="N2"
+                                                   Value="{Binding SampleRange}"/>
+                        </UniformGrid>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="System" Visibility="{Binding HighLevelUser, Converter={StaticResource VisibilityConverter}}">
+            <UniformGrid Columns="2">
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Type Setting" />
+                        </GroupBox.Header>
+                        <UniformGrid Columns="2" Rows="2">
+                            <Label Content="System Type"/>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource SystemTypeEnum}}"
+                                      SelectedItem="{Binding SystemType}"/>
+                            <Label Content="Header Type"/>
+                            <ComboBox ItemsSource="{Binding Source={StaticResource HeadTypeEnum}}"
+                                      SelectedItem="{Binding HeadType}"/>
+                        </UniformGrid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Spectrometer Setting" />
+                        </GroupBox.Header>
+                        <UniformGrid Columns="2">
+                            <Label Content="Number of Spectrometer"/>
+                            <mahapps:NumericUpDown Value="{Binding SpectrometerProperty.SpecNum}"/>
+                        </UniformGrid>
+                    </GroupBox>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Layer Setting" />
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid Grid.Column="0"
+                                      ItemsSource="{Binding LayerNameList}"
+                                      SelectedItem="{Binding LayerName}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"
+                                                        Width="*"
+                                                        Binding="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Column="1"
+                                        Margin="{StaticResource XXSmallMargin}">
+                                <controls:GlyphButton Glyph="&#xECCD;"
+                                                      FontSize="{StaticResource BigFontSize}"
+                                                      TextMargin="0"
+                                                      Command="{Binding AddLayerCommand}"/>
+                                <controls:GlyphButton Glyph="&#xF165;"
+                                                      FontSize="{StaticResource BigFontSize}"
+                                                      TextMargin="0"
+                                                      Command="{Binding DeleteLayerCommand}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel>
+                    <GroupBox>
+                        <GroupBox.Header>
+                            <TextBlock Text="Path Setting" />
+                        </GroupBox.Header>
+                        <UniformGrid Rows="2">
+                            <Label Content="Result Path"/>
+                            <TextBox Text="{Binding ResultPath}"/>
+                        </UniformGrid>
+                    </GroupBox>
+                </StackPanel>
+            </UniformGrid>
+        </TabItem>
+    </mahapps:MetroAnimatedTabControl>
+</UserControl>

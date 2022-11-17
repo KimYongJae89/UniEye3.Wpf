@@ -1,0 +1,327 @@
+﻿<childWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.ExportOptionWindowView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:childWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                         xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+                         xmlns:System="clr-namespace:System;assembly=mscorlib"
+                         xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                         xmlns:translationHelpers="clr-namespace:UniEye.Translation.Helpers;assembly=UniEye.Translation"
+                         xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                         xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                         xmlns:enums="clr-namespace:WPF.UniScanCM.Enums"
+                         xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+                         mc:Ignorable="d"
+                         ShowTitleBar="False"
+                         Width="Auto"
+                         Height="Auto"
+                         BorderBrush="{DynamicResource BlackBrush}"
+                         BorderThickness="1"
+                         Name="parentControl"
+                         ChildWindowWidth="1200"
+                         ChildWindowHeight="675">
+    <childWindow:ChildWindow.DataContext>
+        <vm:ExportOptionWindowViewModel />
+    </childWindow:ChildWindow.DataContext>
+    <childWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </childWindow:ChildWindow.OverlayBrush>
+    <childWindow:ChildWindow.Resources>
+        <baseConverters:ToStringConverter x:Key="ToStringConverter" />
+        <baseConverters:VisibilityConverter x:Key="VisibilityConverter" />
+        <baseConverters:MultiBindingConverter x:Key="MultiBindingConverter" />
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XSmallTopMargin}" />
+            <Setter Property="Padding"
+                    Value="0" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource AccentColorBrush}" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <Style x:Key="GroupBoxText"
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Stretch" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+        </Style>
+        <Style TargetType="mahapps:NumericUpDown">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="0" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+        </Style>
+        <ObjectDataProvider x:Key="SortDirectionsEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:ESortDirections" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="LanguageSettingsEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="translationHelpers:LanguageSettings" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="CustomerEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:ECustomer" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </childWindow:ChildWindow.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}">
+                <i:InvokeCommandAction.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                        <Binding ElementName="parentControl" />
+                        <Binding Path="ReportModel"
+                                 ElementName="parentControl" />
+                        <Binding Path="ExportOptionModel"
+                                 ElementName="parentControl" />
+                    </MultiBinding>
+                </i:InvokeCommandAction.CommandParameter>
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation EXPORT}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <DockPanel Grid.Row="1">
+            <UniformGrid DockPanel.Dock="Bottom"
+                         Columns="2"
+                         Height="auto"
+                         Margin="8,0,8,8">
+                <baseControls:GlyphButton Text="{extensions:Translation Export}"
+                                          Glyph="&#xE72D;"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          Margin="{StaticResource XXSmallRightMargin}"
+                                          Command="{Binding ExportCommand}" />
+                <baseControls:GlyphButton Text="{extensions:Translation Cancel}"
+                                          Glyph="&#xE711;"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          Margin="{StaticResource XXSmallLeftMargin}"
+                                          Command="{Binding CancelCommand}" />
+            </UniformGrid>
+            <Grid Margin="{StaticResource XSmallMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <!--<GroupBox BorderBrush="{DynamicResource AccentColorBrush}">
+                <GroupBox.Header>
+                    <TextBlock Text="{extensions:Translation CUSTOMER}"/>
+                </GroupBox.Header>
+                <ComboBox ItemsSource="{Binding Source={StaticResource CustomerEnum}}"
+                      SelectedItem="{Binding Model.CustomerSetting, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{extensions:Translation {Binding Converter={StaticResource ToStringConverter}}}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </GroupBox>-->
+                <GroupBox Grid.Row="0"
+                          Margin="0">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <mahapps:ToggleSwitchButton IsChecked="{Binding IsAllDefectInfos, Mode=Twoway}" />
+                            <TextBlock Text="{extensions:Translation DEFECT_INFORMATION}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </StackPanel>
+                    </GroupBox.Header>
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding Model.DefectInfoPairs}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <ToggleButton Content="{extensions:Translation {Binding Item1, Converter={StaticResource ToStringConverter}}}"
+                                                  FontSize="{StaticResource MediumFontSize}"
+                                                  FontWeight="Bold"
+                                                  HorizontalAlignment="Center"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  IsChecked="{Binding Item2, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </GroupBox>
+                <GroupBox Grid.Row="1">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <mahapps:ToggleSwitchButton IsChecked="{Binding IsAllDefectTypes, Mode=Twoway}" />
+                            <TextBlock Text="{extensions:Translation DEFECT_TYPE}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </StackPanel>
+                    </GroupBox.Header>
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding Model.DefectCategoryPairs}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <ToggleButton Content="{Binding Item1}"
+                                                  FontSize="{StaticResource MediumFontSize}"
+                                                  FontWeight="Bold"
+                                                  HorizontalAlignment="Center"
+                                                  Margin="{StaticResource XXSmallMargin}"
+                                                  IsChecked="{Binding Item2, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </GroupBox>
+                <GroupBox Grid.Row="2">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <mahapps:ToggleSwitchButton IsChecked="{Binding IsAllChartTypes, Mode=Twoway}" />
+                            <TextBlock Text="{extensions:Translation CHART}"
+                                       Style="{StaticResource GroupBoxText}" />
+                        </StackPanel>
+                    </GroupBox.Header>
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding Model.ChartPairs}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="{StaticResource XXSmallMargin}"
+                                            BorderBrush="{DynamicResource BlackBrush}"
+                                            BorderThickness="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ToggleButton Content="{extensions:Translation {Binding Item1, Converter={StaticResource ToStringConverter}}}"
+                                                          FontSize="{StaticResource MediumFontSize}"
+                                                          FontWeight="Bold"
+                                                          HorizontalAlignment="Center"
+                                                          IsChecked="{Binding Item2, Mode=TwoWay}" />
+                                            <baseControls:GlyphButton Glyph="&#xE713;"
+                                                                      Command="{Binding DataContext.ChartSettingCommand, ElementName=parentControl}"
+                                                                      CommandParameter="{Binding Item1, Converter={StaticResource ToStringConverter}}"
+                                                                      IsEnabled="{Binding Item2}"
+                                                                      HorizontalAlignment="Center"
+                                                                      Margin="0" />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </GroupBox>
+                <UniformGrid Grid.Row="3"
+                             Columns="2"
+                             Margin="{StaticResource XSmallTopMargin}">
+                    <GroupBox Margin="{StaticResource XXSmallRightMargin}">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation SORT}"
+                                       Style="{StaticResource GroupBoxText}"
+                                       HorizontalAlignment="Left" />
+                        </GroupBox.Header>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource SortDirectionsEnum}}"
+                                  SelectedItem="{Binding Model.SortDirection, Mode=TwoWay}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{extensions:Translation {Binding Converter={StaticResource ToStringConverter}}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </GroupBox>
+                    <GroupBox Margin="{StaticResource XXSmallLeftMargin}">
+                        <GroupBox.Header>
+                            <TextBlock Text="{extensions:Translation LANGUAGE}"
+                                       Style="{StaticResource GroupBoxText}"
+                                       HorizontalAlignment="Left" />
+                        </GroupBox.Header>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource LanguageSettingsEnum}}"
+                                  SelectedItem="{Binding Model.Language, Mode=TwoWay}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{extensions:Translation {Binding Converter={StaticResource ToStringConverter}}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </GroupBox>
+                </UniformGrid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</childWindow:ChildWindow>

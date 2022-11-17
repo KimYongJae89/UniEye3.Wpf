@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{252484F7-A94B-4D52-AA89-7BD627DE5D10}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Unieye.WPF.Base</RootNamespace>
+    <AssemblyName>Unieye.WPF.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.DataVisualization.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Documents.Excel.v17.1, Version=17.1.20171.2153, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.Documents.Excel.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\DataGridBehavior.cs" />
+    <Compile Include="Behaviors\ListBoxBehavior.cs" />
+    <Compile Include="Behaviors\TreeViewBehavior.cs" />
+    <Compile Include="Controls\GlyphButton.xaml.cs">
+      <DependentUpon>GlyphButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlyphToggleButton.xaml.cs">
+      <DependentUpon>GlyphToggleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GridSettingWindow.xaml.cs">
+      <DependentUpon>GridSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageCanvas.xaml.cs">
+      <DependentUpon>ImageCanvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageCircleButton.xaml.cs">
+      <DependentUpon>ImageCircleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlyphComboBox.xaml.cs">
+      <DependentUpon>GlyphComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlyphPasswordBox.xaml.cs">
+      <DependentUpon>GlyphPasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageRectButton.xaml.cs">
+      <DependentUpon>ImageRectButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageComboBox.xaml.cs">
+      <DependentUpon>ImageComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlyphTextBox.xaml.cs">
+      <DependentUpon>GlyphTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageToggleButton.xaml.cs">
+      <DependentUpon>ImageToggleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImagePasswordBox.xaml.cs">
+      <DependentUpon>ImagePasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageTextBox.xaml.cs">
+      <DependentUpon>ImageTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IpAddressControl.xaml.cs">
+      <DependentUpon>IpAddressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MahappsChildWindow.xaml.cs">
+      <DependentUpon>MahappsChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModelWindow.xaml.cs">
+      <DependentUpon>ModelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavigationMenuItem.xaml.cs">
+      <DependentUpon>NavigationMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TitleTextBlock.xaml.cs">
+      <DependentUpon>TitleTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UnieyeProgressControl.xaml.cs">
+      <DependentUpon>UnieyeProgressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VirtualizingTilePanel.cs" />
+    <Compile Include="Controls\ZoomableImageCanvas.xaml.cs">
+      <DependentUpon>ZoomableImageCanvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BindingCheckConverter.cs" />
+    <Compile Include="Converters\BitmapConverter.cs" />
+    <Compile Include="Converters\BooleanConverter.cs" />
+    <Compile Include="Converters\ColorChangeConverter.cs" />
+    <Compile Include="Converters\ColorConverters.cs" />
+    <Compile Include="Converters\DataGridConverter.cs" />
+    <Compile Include="Converters\DecimalPointConverter.cs" />
+    <Compile Include="Converters\JsonConverters.cs" />
+    <Compile Include="Converters\LampValueConverter.cs" />
+    <Compile Include="Converters\MarginConverter.cs" />
+    <Compile Include="Converters\MultiBindingConverter.cs" />
+    <Compile Include="Converters\NullValueConverter.cs" />
+    <Compile Include="Converters\SizeConverter.cs" />
+    <Compile Include="Converters\StringConverter.cs" />
+    <Compile Include="Converters\TranslationConverter..cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="Events\ModelBehavior.cs" />
+    <Compile Include="Events\InspectBehavior.cs" />
+    <Compile Include="Extensions\ImageSourceExtensions.cs" />
+    <Compile Include="Extensions\BitmapExtention.cs" />
+    <Compile Include="Extensions\PointExtensions.cs" />
+    <Compile Include="Helpers\AdornerManager.cs" />
+    <Compile Include="Helpers\AsyncObservableCollection.cs" />
+    <Compile Include="Helpers\ITupleHelper.cs" />
+    <Compile Include="Helpers\MessageWindowHelper.cs" />
+    <Compile Include="Helpers\IEnumerableHelper.cs" />
+    <Compile Include="Helpers\InitializablePage.cs" />
+    <Compile Include="Helpers\Json.cs" />
+    <Compile Include="Helpers\MinidumpWriter.cs" />
+    <Compile Include="Helpers\Observable.cs" />
+    <Compile Include="Helpers\PasswordBoxAssistant.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Extensions\ResourceExtensions.cs" />
+    <Compile Include="Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="Helpers\RemoveChildHelper.cs" />
+    <Compile Include="Helpers\ResXWebRequestFactory.cs" />
+    <Compile Include="Helpers\UIElementDropAdorner.cs" />
+    <Compile Include="Helpers\XCommand\XCommandBehaviour.cs" />
+    <Compile Include="Helpers\XCommand\XCommandBehaviourFactory.cs" />
+    <Compile Include="Helpers\XCommand\XCommands.cs" />
+    <Compile Include="InspectFlow\Models\FlowAlgorithmModel.cs" />
+    <Compile Include="InspectFlow\Models\FlowAlgorithmParameterAttribute.cs" />
+    <Compile Include="InspectFlow\Models\InspectionFlowDiagramModel.cs" />
+    <Compile Include="InspectFlow\Models\InspectionFlowModel.cs" />
+    <Compile Include="InspectFlow\Models\InspectionFlowModelHandler.cs" />
+    <Compile Include="InspectFlow\Models\MeanFilterAlgorithm.cs" />
+    <Compile Include="InspectFlow\Models\ProfileBinarizeAlgorithm.cs" />
+    <Compile Include="InspectFlow\ViewModels\InspectionFlowDiagramViewModel.cs" />
+    <Compile Include="InspectFlow\ViewModels\InspectionFlowViewModel.cs" />
+    <Compile Include="InspectFlow\Views\InspectionFlowDiagramView.xaml.cs">
+      <DependentUpon>InspectionFlowDiagramView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectFlow\Views\InspectionFlowView.xaml.cs">
+      <DependentUpon>InspectionFlowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Models\CustomizeControlViewModel.cs" />
+    <Compile Include="Layout\ViewModels\LayoutOptionViewModel.cs" />
+    <Compile Include="Models\EllipseModel.cs" />
+    <Compile Include="Models\FigureModel.cs" />
+    <Compile Include="Models\LineModel.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\Ransac.cs" />
+    <Compile Include="Override\ICustomSettingControl.cs" />
+    <Compile Include="Override\SystemManager.cs" />
+    <Compile Include="Override\UiManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InspectResult.cs" />
+    <Compile Include="Resources\SharedResourceDictionary.cs" />
+    <Compile Include="Selectors\TypeDataTemplateSelector.cs" />
+    <Compile Include="Services\ExcelExportService.cs" />
+    <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="Services\ZoomService.cs" />
+    <Compile Include="Services\ShellNavigationService.cs" />
+    <Compile Include="Layout\Models\CustomizeControl.cs" />
+    <Compile Include="Layout\Models\LayoutAttribute.cs" />
+    <Compile Include="Layout\Models\LayoutModel.cs" />
+    <Compile Include="Layout\Models\LayoutHandler.cs" />
+    <Compile Include="Layout\Models\LayoutPageHandler.cs" />
+    <Compile Include="Layout\ViewModels\LayoutSettingViewModel.cs" />
+    <Compile Include="Layout\ViewModels\LayoutViewModel.cs" />
+    <Compile Include="Layout\Views\LayoutOptionView.xaml.cs">
+      <DependentUpon>LayoutOptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Views\LayoutSettingView.xaml.cs">
+      <DependentUpon>LayoutSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Views\LayoutView.xaml.cs">
+      <DependentUpon>LayoutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EncoderSettingViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ModelViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="ViewModels\TowerLampSettingViewModel.cs" />
+    <Compile Include="ViewModels\ConfigWindowModel.cs" />
+    <Compile Include="ViewModels\UserManagerWindowViewModel.cs" />
+    <Compile Include="Views\ConfigWindow.xaml.cs">
+      <DependentUpon>ConfigWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EncoderSettingWindow.xaml.cs">
+      <DependentUpon>EncoderSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellWindow\IShellWindow.cs" />
+    <Compile Include="Views\ShellWindow\SamsungShellWindow.xaml.cs">
+      <DependentUpon>SamsungShellWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserInfoWindowView.xaml.cs">
+      <DependentUpon>UserInfoWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelPage.xaml.cs">
+      <DependentUpon>ModelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingPage.xaml.cs">
+      <DependentUpon>SettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellWindow\ShellWindow.xaml.cs">
+      <DependentUpon>ShellWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashScreenWindow.xaml.cs">
+      <DependentUpon>SplashScreenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TowerLampOptionWindow.xaml.cs">
+      <DependentUpon>TowerLampOptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TowerLampSettingWindow.xaml.cs">
+      <DependentUpon>TowerLampSettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infragistics\InfragisticsBindHelper.cs" />
+    <Compile Include="Views\UserManagerWindowView.xaml.cs">
+      <DependentUpon>UserManagerWindowView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Authentication\Authentication.Core\Authentication.Core.csproj">
+      <Project>{C1EAF217-931E-4B06-806A-97613C747572}</Project>
+      <Name>Authentication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88f6f6be-0858-41e6-9ce2-3704aefc12a7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniEye.Base\UniEye.Base.csproj">
+      <Project>{0bd31b0d-4675-460f-bf03-82afafdd1d1f}</Project>
+      <Name>UniEye.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unieye.Translation\UniEye.Translation.csproj">
+      <Project>{75f4fe09-4f80-49b5-b8cb-c7e3e761aaa3}</Project>
+      <Name>UniEye.Translation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\GlyphButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GlyphToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GridSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ImageCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ImageCircleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GlyphComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GlyphPasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageRectButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GlyphTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ImagePasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IpAddressControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MahappsChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ModelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NavigationMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PopupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TitleTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UnieyeProgressControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ZoomableImageCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InspectFlow\Views\InspectionFlowDiagramView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InspectFlow\Views\InspectionFlowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\UnieyeBaseResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MahappsResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CommandBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MahappsControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Themes\BaseLightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Themes\BaseDarkBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\FontSizes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Thickness.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Layout\ResourceDictionary\LayoutResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Layout\Views\LayoutOptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Layout\Views\LayoutSettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Layout\Views\LayoutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfigWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EncoderSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellWindow\SamsungShellWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserInfoWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellWindow\ShellWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SplashScreenWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TowerLampOptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TowerLampSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserManagerWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Account.png" />
+    <Resource Include="Resources\Logo.png" />
+    <Resource Include="Resources\BlankLogo.png" />
+    <Resource Include="Resources\Password.png" />
+    <Resource Include="Resources\Check.png" />
+    <Resource Include="Resources\Uncheck.png" />
+    <None Include="Resources\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>1.6.5</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.SimpleChildWindow">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Excel">
+      <Version>15.0.4795.1000</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

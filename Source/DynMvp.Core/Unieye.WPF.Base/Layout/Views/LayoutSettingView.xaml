@@ -1,0 +1,200 @@
+﻿<simpleChildWindow:ChildWindow x:Class="Unieye.WPF.Base.Layout.Views.LayoutSettingView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:trans="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls"
+                               xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters"
+                               xmlns:vm="clr-namespace:Unieye.WPF.Base.Layout.ViewModels"
+                               xmlns:local="clr-namespace:Unieye.WPF.Base.Layout.Views"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               mc:Ignorable="d"
+                               ChildWindowWidth="1600"
+                               ChildWindowHeight="900"
+                               CloseByEscape="True"
+                               ShowTitleBar="False">
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}" />
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}" />
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}" />
+        <baseConverters:BindingCheckConverter x:Key="BindingCheckConverter" />
+        <local:LayoutControlNameConverter x:Key="LayoutControlNameConverter" />
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{trans:Translation LAYOUT_SETTING}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <UniformGrid Columns="7"
+                         Margin="{StaticResource XXSmallMargin}">
+                <TextBlock Text="{trans:Translation Name}"
+                           Margin="{StaticResource XXSmallRightMargin}"
+                           TextAlignment="Center" />
+                <TextBox Text="{Binding SelectedLayoutSettingModel.LayoutPageHandler.PageName, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="{StaticResource XXSmallHorizontalMargin}" />
+                <Button Content="{trans:Translation ADD}"
+                        FontWeight="Bold"
+                        FontSize="{StaticResource MediumFontSize}"
+                        Margin="{StaticResource XXSmallHorizontalMargin}"
+                        Command="{Binding AddPageCommand}" />
+                <Button Content="{trans:Translation REMOVE}"
+                        FontWeight="Bold"
+                        FontSize="{StaticResource MediumFontSize}"
+                        Margin="{StaticResource XXSmallHorizontalMargin}"
+                        Command="{Binding RemovePageCommand}" />
+                <Button Content="{trans:Translation COPY}"
+                        FontWeight="Bold"
+                        FontSize="{StaticResource MediumFontSize}"
+                        Margin="{StaticResource XXSmallLeftMargin}"
+                        Command="{Binding CopyPageCommand}" />
+                <Button Content="{trans:Translation Left}"
+                        FontWeight="Bold"
+                        FontSize="{StaticResource MediumFontSize}"
+                        Margin="{StaticResource XXSmallLeftMargin}"
+                        Command="{Binding MoveLeftCommand}" />
+                <Button Content="{trans:Translation Right}"
+                        FontWeight="Bold"
+                        FontSize="{StaticResource MediumFontSize}"
+                        Margin="{StaticResource XXSmallLeftMargin}"
+                        Command="{Binding MoveRightCommand}" />
+            </UniformGrid>
+            <Border Grid.Row="1"
+                    BorderBrush="{DynamicResource BlackBrush}"
+                    BorderThickness="1"
+                    Margin="{StaticResource XXSmallMargin}">
+                <Grid Margin="{StaticResource XXSmallMargin}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="{DynamicResource BlackBrush}"
+                            BorderThickness="1"
+                            Margin="{StaticResource XXSmallMargin}">
+                        <mahapps:MetroAnimatedTabControl Grid.Column="0"
+                                                         ItemsSource="{Binding LayoutSettingModels}"
+                                                         SelectedItem="{Binding SelectedLayoutSettingModel}">
+                            <mahapps:MetroAnimatedTabControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding LayoutPageHandler.PageName, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </mahapps:MetroAnimatedTabControl.ItemTemplate>
+                            <mahapps:MetroAnimatedTabControl.ContentTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="4,1,4,4">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="45" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <UniformGrid Columns="4"
+                                                     Margin="{StaticResource XXSmallMargin}">
+                                            <TextBlock Text="{trans:Translation Columns}"
+                                                       TextAlignment="Center"
+                                                       FontSize="{StaticResource MediumLargeFontSize}" />
+                                            <mahapps:NumericUpDown Value="{Binding LayoutPageHandler.Columns, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                                   Minimum="1"
+                                                                   FontSize="{StaticResource MediumLargeFontSize}" />
+                                            <TextBlock Text="{trans:Translation Rows}"
+                                                       TextAlignment="Center"
+                                                       FontSize="{StaticResource MediumLargeFontSize}" />
+                                            <mahapps:NumericUpDown Value="{Binding LayoutPageHandler.Rows, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                                   Minimum="1"
+                                                                   FontSize="{StaticResource MediumLargeFontSize}" />
+                                        </UniformGrid>
+                                        <Border Grid.Row="1"
+                                                BorderBrush="{DynamicResource BlackBrush}"
+                                                BorderThickness="1"
+                                                Margin="{StaticResource XXSmallMargin}">
+                                            <ContentPresenter Content="{Binding LayoutGrid}" />
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </mahapps:MetroAnimatedTabControl.ContentTemplate>
+                        </mahapps:MetroAnimatedTabControl>
+                    </Border>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <UniformGrid Columns="2"
+                                     Margin="{StaticResource XXSmallMargin}">
+                            <Button Content="{trans:Translation ADD}"
+                                    FontWeight="Bold"
+                                    FontSize="{StaticResource MediumFontSize}"
+                                    Margin="{StaticResource XXSmallRightMargin}"
+                                    Command="{Binding AddControlCommand}"
+                                    CommandParameter="{Binding SelectedItem, ElementName=controlList}" />
+                            <ToggleButton Content="{trans:Translation REMOVE}"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          IsChecked="{Binding IsRemoveMode}"
+                                          Margin="{StaticResource XXSmallLeftMargin}"></ToggleButton>
+                        </UniformGrid>
+                        <DataGrid x:Name="controlList"
+                                  Grid.Row="2"
+                                  BorderBrush="{DynamicResource BlackBrush}"
+                                  BorderThickness="1"
+                                  SelectionUnit="FullRow"
+                                  AutoGenerateColumns="false"
+                                  CanUserAddRows="False"
+                                  CanUserResizeColumns="False"
+                                  CanUserResizeRows="False"
+                                  IsReadOnly="True"
+                                  ItemsSource="{Binding UserControlList}"
+                                  ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{trans:Translation Control}"
+                                                    Binding="{trans:Translation {Binding Name, Converter={StaticResource LayoutControlNameConverter}}}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+            </Border>
+            <UniformGrid Grid.Row="2"
+                         Columns="2">
+                <baseControls:GlyphButton Text="{trans:Translation OK}"
+                                          Glyph="&#xE73E;"
+                                          Command="{Binding OkCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:LayoutSettingView}}}"
+                                          Margin="{StaticResource XXSmallMargin}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}" />
+                <baseControls:GlyphButton Text="{trans:Translation Cancel}"
+                                          Glyph="&#xE711;"
+                                          Command="{Binding CancelCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:LayoutSettingView}}}"
+                                          Margin="{StaticResource XXSmallMargin}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          FontSize="{StaticResource MediumFontSize}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

@@ -1,0 +1,59 @@
+﻿<simpleChildWindow:ChildWindow x:Class="Unieye.WPF.Base.Controls.ModelWindow"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                               xmlns:local="clr-namespace:Unieye.WPF.Base.Controls"
+                               mc:Ignorable="d" 
+                               xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                               Title="{extensions:Translation Add}"
+                               ChildWindowWidth="300"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+
+    <simpleChildWindow:ChildWindow.Icon>
+        <TextBlock Style="{StaticResource GlyphStyle}"
+                   FontSize="{StaticResource MediumLargeFontSize}"
+                   Foreground="{StaticResource IdealForegroundColorBrush}"
+                   Text="&#xE82E;"/>
+    </simpleChildWindow:ChildWindow.Icon>
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8" Color="{StaticResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <StackPanel>
+        <Grid Margin="{StaticResource SmallMargin}"
+              Background="{DynamicResource GrayBrush10}">
+            <StackPanel Margin="{StaticResource XSmallMargin}">
+                <local:TitleTextBlock Text="{extensions:Translation Name}"/>
+                <TextBox Text="{Binding Result.Name}"
+                         Margin="{StaticResource XXSmallTopMargin}"
+                         Padding="{StaticResource XSmallMargin}"
+                         Style="{StaticResource BodyTextBoxStyle}"/>
+                <local:TitleTextBlock Text="{extensions:Translation Registration_Date}" Margin="{StaticResource SmallTopMargin}"/>
+                <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat=dd MMM yyyy}"
+                           Style="{StaticResource BodyTextStyle}"
+                           Margin="{StaticResource XXSmallTopMargin}"
+                           Padding="{StaticResource XSmallLeftMargin}"
+                           HorizontalAlignment="Left"/>
+                <local:TitleTextBlock Text="{extensions:Translation Description}" Margin="{StaticResource SmallTopMargin}"/>
+                <TextBox Margin="{StaticResource XXSmallTopMargin}"
+                         Padding="{StaticResource XSmallMargin}"
+                         Style="{StaticResource CaptionTextBoxStyle}"
+                         Text="{Binding Result.Description}"
+                         Height="155"/>
+            </StackPanel>
+        </Grid>
+        <UniformGrid Margin="{StaticResource XSmallMargin}" Columns="2">
+            <local:GlyphButton Glyph="&#xE73E;" 
+                               Text="{extensions:Translation Accept}"
+                               Command="{Binding AcceptCommand}"/>
+            <local:GlyphButton Glyph="&#xE711;"
+                               Text="{extensions:Translation Cancel}"
+                               Command="{Binding CancelCommand}"/>
+        </UniformGrid>
+    </StackPanel>
+</simpleChildWindow:ChildWindow>

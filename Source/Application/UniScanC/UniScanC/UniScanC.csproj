@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60941526-F279-4C38-89AA-05D51E95B5C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniScanC</RootNamespace>
+    <AssemblyName>UniScanC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV.World, Version=3.4.1.2976, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Documents.Excel.v17.1, Version=17.1.20171.2074, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Infragistics4.Documents.Excel.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.DataVisualization.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v17.1, Version=17.1.20171.2200, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithm\Base\InputOutputs.cs" />
+    <Compile Include="Algorithm\Base\Algorithm.cs" />
+    <Compile Include="Algorithm\Base\Node.cs" />
+    <Compile Include="Algorithm\Base\SetNode.cs" />
+    <Compile Include="Algorithm\Base\TupleElement.cs" />
+    <Compile Include="Algorithm\PatternDefectChecker.cs" />
+    <Compile Include="Algorithm\Simple\HorizentalEdgeFinder.cs" />
+    <Compile Include="Algorithm\ColorChecker.cs" />
+    <Compile Include="Algorithm\LineCalibrator.cs" />
+    <Compile Include="Algorithm\PatternSizeChecker.cs" />
+    <Compile Include="Algorithm\PlainFilmChecker.cs" />
+    <Compile Include="Algorithm\RoiFinder.cs" />
+    <Compile Include="Algorithm\Simple\VerticalEdgeFinder.cs" />
+    <Compile Include="Algorithm\Statistic.cs" />
+    <Compile Include="AlgoTask\AlgoLink.cs" />
+    <Compile Include="AlgoTask\AlgoLinkFunc.cs" />
+    <Compile Include="AlgoTask\AlgoModel.cs" />
+    <Compile Include="AlgoTask\AlgoTaskSettingDefault.cs" />
+    <Compile Include="Comm\CommandInfo.cs" />
+    <Compile Include="Comm\CommManager.cs" />
+    <Compile Include="Controls\Models\DefectCountModel.cs" />
+    <Compile Include="Controls\Models\LogModel.cs" />
+    <Compile Include="Controls\Models\IOPortStatusModel.cs" />
+    <Compile Include="Controls\Models\StatisticsLotDefectModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectCountControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectDetailVerticalControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectThumbnailListControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectMapControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectMapFrameControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectSummaryControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\FrameImageControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\LabelerControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\IOPortStatusControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\DefectDetailHorizentalControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\LogControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\PatternSizeControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\SizeChartControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\StatisticsLotDefectControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\GlossProfileChartControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\GlossTrendChartControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ThumbnailListControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ThicknessProfileChartControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ThicknessTrendChartControlViewModel.cs" />
+    <Compile Include="Controls\Views\GlossChartDataControlView.xaml.cs">
+      <DependentUpon>GlossChartDataControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\LabelerControlView.xaml.cs">
+      <DependentUpon>LabelerControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ThicknessChartDataControlView.xaml.cs">
+      <DependentUpon>ThicknessChartDataControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectCountControlView.xaml.cs">
+      <DependentUpon>DefectCountControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectMapFrameControlView.xaml.cs">
+      <DependentUpon>DefectMapFrameControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\LogControlView.xaml.cs">
+      <DependentUpon>LogControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\IOPortStatusControlView.xaml.cs">
+      <DependentUpon>IOPortStatusControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\PatternSizeControlView.xaml.cs">
+      <DependentUpon>PatternSizeControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\GlossProfileChartControlView.xaml.cs">
+      <DependentUpon>GlossProfileChartControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ThicknessProfileChartControlView.xaml.cs">
+      <DependentUpon>ThicknessProfileChartControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\StatisticsLotDefectControlView.xaml.cs">
+      <DependentUpon>StatisticsLotDefectControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\GlossTrendChartControlView.xaml.cs">
+      <DependentUpon>GlossTrendChartControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ThicknessTrendChartControlView.xaml.cs">
+      <DependentUpon>ThicknessTrendChartControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ChildHeightBindingConverter.cs" />
+    <Compile Include="Converters\DefectDataConverter.cs" />
+    <Compile Include="Converters\DisplayDataConverter.cs" />
+    <Compile Include="Converters\DisplayValueConverter.cs" />
+    <Compile Include="Converters\OutPutAlgoListConverter.cs" />
+    <Compile Include="Data\BoundaryLine.cs" />
+    <Compile Include="Data\CategoryType.cs" />
+    <Compile Include="Data\DebugContextC.cs" />
+    <Compile Include="Data\DefectGroup.cs" />
+    <Compile Include="Data\GlossDataImporter.cs" />
+    <Compile Include="Data\GlossData.cs" />
+    <Compile Include="Data\GlossChartSetting.cs" />
+    <Compile Include="Data\ThicknessDataImporter.cs" />
+    <Compile Include="Data\GlossResult.cs" />
+    <Compile Include="Data\ThicknessResult.cs" />
+    <Compile Include="Data\ModuleInfo.cs" />
+    <Compile Include="Data\ThicknessData.cs" />
+    <Compile Include="Data\GlossScanData.cs" />
+    <Compile Include="Enums\ECamPosition.cs" />
+    <Compile Include="Enums\ECategoryTypeName.cs" />
+    <Compile Include="Enums\EDefectMarkerType.cs" />
+    <Compile Include="Enums\EDefectPriority.cs" />
+    <Compile Include="Enums\EDefectSortType.cs" />
+    <Compile Include="Enums\EDefectType.cs" />
+    <Compile Include="Enums\EDisplayDataType.cs" />
+    <Compile Include="Enums\ELightFittingType.cs" />
+    <Compile Include="Enums\EModuleStateType.cs" />
+    <Compile Include="Enums\ELayerParamType.cs" />
+    <Compile Include="Enums\EPlcType.cs" />
+    <Compile Include="Enums\EUniScanCCommand.cs" />
+    <Compile Include="Helpers\UnitConvertor.cs" />
+    <Compile Include="Data\ThicknessChartSetting.cs" />
+    <Compile Include="Models\CategorySet.cs" />
+    <Compile Include="Module\GlossModuleState.cs" />
+    <Compile Include="Module\ThicknessModuleState.cs" />
+    <Compile Include="Module\ModuleState.cs" />
+    <Compile Include="Module\InspectModuleInfo.cs" />
+    <Compile Include="Module\InspectModuleState.cs" />
+    <Compile Include="AlgoTask\AlgoTask.cs" />
+    <Compile Include="AlgoTask\AlgoTaskSetting.cs" />
+    <Compile Include="AlgoTask\InspectBufferPool.cs" />
+    <Compile Include="Inspect\BmpImaging.cs" />
+    <Compile Include="MachineIf\DataAdapter\ABMachineIfDataAdapterC.cs" />
+    <Compile Include="MachineIf\DataAdapter\MelsecMachineIfDataAdapterC.cs" />
+    <Compile Include="MachineIf\MachineIfDataC.cs" />
+    <Compile Include="MachineIf\DataAdapter\MachineIfDataAdapterC.cs" />
+    <Compile Include="MachineIf\MachineIfMonitorC.cs" />
+    <Compile Include="MachineIf\MachineIfItemInfoListC.cs" />
+    <Compile Include="Models\OpStateModel.cs" />
+    <Compile Include="Models\StatusModel.cs" />
+    <Compile Include="Struct\ModuleImageData.cs" />
+    <Compile Include="Struct\InspectBufferSet.cs" />
+    <Compile Include="Struct\RoiMask.cs" />
+    <Compile Include="Windows\ViewModels\AlarmMessageWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\GlossChartSettingWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\ThicknessChartSettingWindowViewModel.cs" />
+    <Compile Include="Windows\Views\AlarmMessageWindowView.xaml.cs">
+      <DependentUpon>AlarmMessageWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\CategoryTypeEditWindow.xaml.cs">
+      <DependentUpon>CategoryTypeEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectDetailControlHorizentalView.xaml.cs">
+      <DependentUpon>DefectDetailControlHorizentalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectDetailControlVerticalView.xaml.cs">
+      <DependentUpon>DefectDetailControlVerticalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectThumbnailListControlView.xaml.cs">
+      <DependentUpon>DefectThumbnailListControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\FrameImageControlView.xaml.cs">
+      <DependentUpon>FrameImageControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectMapControlView.xaml.cs">
+      <DependentUpon>DefectMapControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\DefectSummaryControlView.xaml.cs">
+      <DependentUpon>DefectSummaryControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ThicknessChartSettingWindowView.xaml.cs">
+      <DependentUpon>ThicknessChartSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\GlossChartSettingWindowView.xaml.cs">
+      <DependentUpon>GlossChartSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\DefectTypeDetailWindow.xaml.cs">
+      <DependentUpon>DefectTypeDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\GeometryTextBlockControlView.xaml.cs">
+      <DependentUpon>GeometryTextBlockControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\SizeChartControlView.xaml.cs">
+      <DependentUpon>SizeChartControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ThumbnailListControlView.xaml.cs">
+      <DependentUpon>ThumbnailListControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CategoryTypeValueConverter.cs" />
+    <Compile Include="Converters\CategoryTypeValueUnitConverter.cs" />
+    <Compile Include="Converters\DisplayValueColorConverter.cs" />
+    <Compile Include="Data\InspectDataExporter.cs" />
+    <Compile Include="Data\InspectDataImporter.cs" />
+    <Compile Include="Data\Defect.cs" />
+    <Compile Include="Data\ThicknessScanData.cs" />
+    <Compile Include="Data\SystemTimeWrapper.cs" />
+    <Compile Include="Data\DefectCategory.cs" />
+    <Compile Include="Module\ModuleManager.cs" />
+    <Compile Include="Data\InspectResult.cs" />
+    <Compile Include="Controls\Models\DefectDetailModel.cs" />
+    <Compile Include="Controls\Models\DefectInfoThumbnailListModel.cs" />
+    <Compile Include="Controls\Models\DefectMapModel.cs" />
+    <Compile Include="Controls\Models\DefectSummaryModel.cs" />
+    <Compile Include="Models\ModelBuilder.cs" />
+    <Compile Include="Models\ModelDescription.cs" />
+    <Compile Include="Models\ModelManager.cs" />
+    <Compile Include="Models\ScanWidth.cs" />
+    <Compile Include="Models\SensorModel.cs" />
+    <Compile Include="Controls\Models\SizeChartModel.cs" />
+    <Compile Include="Models\ThicknessLayerParam.cs" />
+    <Compile Include="Controls\Models\ThumbnailModel.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\VisionModel.cs" />
+    <Compile Include="Inspect\InspectRunnerExtender.cs" />
+    <Compile Include="Comm\UniScanCCommandParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\InputValueWindowView.xaml.cs">
+      <DependentUpon>InputValueWindowView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88F6F6BE-0858-41E6-9CE2-3704AEFC12A7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6BCC6601-4E70-4066-889C-CDA17497878A}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\UniEye.Base\UniEye.Base.csproj">
+      <Project>{0bd31b0d-4675-460f-bf03-82afafdd1d1f}</Project>
+      <Name>UniEye.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.Translation\UniEye.Translation.csproj">
+      <Project>{75f4fe09-4f80-49b5-b8cb-c7e3e761aaa3}</Project>
+      <Name>UniEye.Translation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.WPF.Base\Unieye.WPF.Base.csproj">
+      <Project>{252484F7-A94B-4D52-AA89-7BD627DE5D10}</Project>
+      <Name>Unieye.WPF.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithm\Base\AlgorithmParam.cs" />
+    <None Include="app.config" />
+    <Resource Include="Resources\Check_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Uncheck_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DefectMapChart.png" />
+    <Resource Include="Resources\DefectSummaryControl.png" />
+    <Resource Include="Resources\DistanceChartControl.png" />
+    <Resource Include="Resources\HoulyChartControl.png" />
+    <Resource Include="Resources\PieYieldChartControl.png" />
+    <Resource Include="Resources\ProductTrendChartControl.png" />
+    <Resource Include="Resources\SizeChartControl.png" />
+    <Resource Include="Resources\OptionArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Views\GlossChartDataControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\LabelerControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ThicknessChartDataControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\DefectCountControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\DefectMapFrameControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\LogControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\IOPortStatusControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\PatternSizeControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\GlossProfileChartControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ThicknessProfileChartControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\StatisticsLotDefectControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\GlossTrendChartControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ThicknessTrendChartControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\AlarmMessageWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\CategoryTypeEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\DefectDetailControlHorizentalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\DefectDetailControlVerticalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\DefectThumbnailListControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\FrameImageControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\DefectMapControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\DefectSummaryControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\ThicknessChartSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\GlossChartSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\DefectTypeDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\GeometryTextBlockControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\SizeChartControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Views\ThumbnailListControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\InputValueWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>1.6.5</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.SimpleChildWindow">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

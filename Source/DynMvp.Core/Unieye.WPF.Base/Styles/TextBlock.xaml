@@ -1,0 +1,55 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Base Style-->
+    <Style x:Key="TextBlockBaseStyle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="BaseTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="PageTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="{StaticResource LargeFontSize}" />
+        <Setter Property="TextWrapping" Value="NoWrap" />
+    </Style>
+
+    <Style x:Key="BodyTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="SubTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource LargeFontSize}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="TextWrapping" Value="NoWrap" />
+    </Style>
+
+    <Style x:Key="ManuItemStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="{StaticResource SmallMediumFontSize}" />
+        <Setter Property="TextWrapping" Value="NoWrap" />
+    </Style>
+
+    <Style x:Key="GlyphStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="NoWrap" />
+        <Setter Property="FontSize" Value="{StaticResource VeryLargeFontSize}" />
+    </Style>
+
+</ResourceDictionary>

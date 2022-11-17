@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Authentication.Manager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DbSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="DbPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3050</Value>
+    </Setting>
+    <Setting Name="DbPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Auth.fdb</Value>
+    </Setting>
+    <Setting Name="DbUserID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sysdba</Value>
+    </Setting>
+    <Setting Name="DbPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">masterkey</Value>
+    </Setting>
+    <Setting Name="DbType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FireBird</Value>
+    </Setting>
+    <Setting Name="FileUserPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\Config\User.xml</Value>
+    </Setting>
+    <Setting Name="FileRolePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\Config\Role.xml</Value>
+    </Setting>
+    <Setting Name="Culture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ko-kr</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

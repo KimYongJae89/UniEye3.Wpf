@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7149BD06-2873-4F5C-9C16-E5D954972F10}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WPF.UniScanCM</RootNamespace>
+    <AssemblyName>WPF.UniScanCM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>false</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>UniScanCM.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1, Version=17.1.20171.2153, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.Controls.Charts.XamDataChart.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v17.1, Version=17.1.20171.2153, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.DataVisualization.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v17.1, Version=17.1.20171.2153, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\InfragisticsWPF4.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Shared\ReferenceDll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\ViewModels\ModelDefectCategoryControlViewModel.cs" />
+    <Compile Include="Controls\ViewModels\ModelParameterViewModel.cs" />
+    <Compile Include="Controls\Views\ModelDefectCategoryControlView.xaml.cs">
+      <DependentUpon>ModelDefectCategoryControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Views\ModelParameterView.xaml.cs">
+      <DependentUpon>ModelParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CategoryTypeDetailValueConverter.cs" />
+    <Compile Include="Converters\DataGridAutoRowIndexConverter.cs" />
+    <Compile Include="Converters\HoldButtonConverter.cs" />
+    <Compile Include="Converters\ImCommandResultColorConverter.cs" />
+    <Compile Include="Converters\ImCommandResultConverter.cs" />
+    <Compile Include="Converters\UMtoMMConverter.cs" />
+    <Compile Include="Enums\EChartType.cs" />
+    <Compile Include="Enums\ECustomer.cs" />
+    <Compile Include="Enums\EDefectInfos.cs" />
+    <Compile Include="Enums\EProcessingState.cs" />
+    <Compile Include="Enums\ESortDirections.cs" />
+    <Compile Include="MachineIf\DataAdapter\ABMachineIfDataAdapterCM.cs" />
+    <Compile Include="MachineIf\DataAdapter\MelsecMachineIfDataAdapterCM.cs" />
+    <Compile Include="MachineIf\MachineIfDataCM.cs" />
+    <Compile Include="MachineIf\MachineIfMonitorCM.cs" />
+    <Compile Include="MachineIf\MachineIfItemInfoListCM.cs" />
+    <Compile Include="Override\ModelBuilder.cs" />
+    <Compile Include="Pages\ViewModels\LogPageViewModel.cs" />
+    <Compile Include="Pages\ViewModels\StatisticsPageViewModel.cs" />
+    <Compile Include="Pages\ViewModels\TeachingPageViewModel.cs" />
+    <Compile Include="Pages\Views\LogPageView.xaml.cs">
+      <DependentUpon>LogPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\StatisticsPageView.xaml.cs">
+      <DependentUpon>StatisticsPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\TeachingPageView.xaml.cs">
+      <DependentUpon>TeachingPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\AllenBreadley\AllenBreadleyPLC.cs" />
+    <Compile Include="PLC\AllenBreadley\AllenBreadleyPLCSettingWindowView.xaml.cs">
+      <DependentUpon>AllenBreadleyPLCSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\AllenBreadley\AllenBreadleyAddressSettingWindowView.xaml.cs">
+      <DependentUpon>AllenBreadleyAddressSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\Melsec\MelsecAddressSettingWindowView.xaml.cs">
+      <DependentUpon>MelsecAddressSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\Melsec\MelsecPLCSettingWindowView.xaml.cs">
+      <DependentUpon>MelsecPLCSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PLC\PlcSettingWindowViewModel.cs" />
+    <Compile Include="Selector\ProcessingTemplateSelector.cs" />
+    <Compile Include="Service\CheckLotNoService.cs" />
+    <Compile Include="Service\DefectCountService.cs" />
+    <Compile Include="Service\TeachingService.cs" />
+    <Compile Include="Windows\Models\LengthChartSetting.cs" />
+    <Compile Include="Windows\Models\SizeChartSetting.cs" />
+    <Compile Include="Windows\Models\WidthChartSetting.cs" />
+    <Compile Include="Windows\ViewModels\CollectLogWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\AlgoTaskSettingWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\AddressSettingWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\ModelCategorySettingWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\ModelInfoWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\SetNodeSettingWindowViewModel.cs" />
+    <Compile Include="Windows\Views\CollectLogWindowView.xaml.cs">
+      <DependentUpon>CollectLogWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\AlgoTaskSettingWindowView.xaml.cs">
+      <DependentUpon>AlgoTaskSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\AddressSettingWindowView.xaml.cs">
+      <DependentUpon>AddressSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ModelCategorySettingWindowView.xaml.cs">
+      <DependentUpon>ModelCategorySettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ModelInfoWindowView.xaml.cs">
+      <DependentUpon>ModelInfoWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\SetNodeSettingWindowView.xaml.cs">
+      <DependentUpon>SetNodeSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\UmxCommandReceivedWindowView.xaml.cs">
+      <DependentUpon>UmxCommandReceivedWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Events\InspectEventListener.cs" />
+    <Compile Include="Service\DefectAlarmService.cs" />
+    <Compile Include="Service\ReportService.cs" />
+    <Compile Include="Events\ModelEventListener.cs" />
+    <Compile Include="Windows\Models\DefectTypeParameterModel.cs" />
+    <Compile Include="Models\ExportOptionModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Override\CommManager.cs" />
+    <Compile Include="Override\DeviceMonitor.cs" />
+    <Compile Include="Service\AliveService.cs" />
+    <Compile Include="Service\CMLightCalibrationService.cs" />
+    <Compile Include="PLC\Melsec\MelsecPLC.cs" />
+    <Compile Include="PLC\PlcBase.cs" />
+    <Compile Include="Override\SystemManager.cs" />
+    <Compile Include="Pages\ViewModels\CustomSettingViewModel.cs" />
+    <Compile Include="Windows\ViewModels\CategoryParamWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\ExportOptionWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\IOPortStatusWindowViewModel.cs" />
+    <Compile Include="Windows\ViewModels\LightCalibrationWindowViewModel.cs" />
+    <Compile Include="Pages\ViewModels\ModelPageViewModel.cs" />
+    <Compile Include="Pages\ViewModels\MonitoringPageViewModel.cs" />
+    <Compile Include="Pages\ViewModels\ReportPageViewModel.cs" />
+    <Compile Include="Windows\ViewModels\IOPortSettingWindowViewModel.cs" />
+    <Compile Include="Controls\Views\ChartDataControlView.xaml.cs">
+      <DependentUpon>ChartDataControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\CustomSettingView.xaml.cs">
+      <DependentUpon>CustomSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\CategoryParamWindowView.xaml.cs">
+      <DependentUpon>CategoryParamWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\ExportOptionWindowView.xaml.cs">
+      <DependentUpon>ExportOptionWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\IOPortStatusWindowView.xaml.cs">
+      <DependentUpon>IOPortStatusWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\LightCalibrationWindowView.xaml.cs">
+      <DependentUpon>LightCalibrationWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\ModelPageView.xaml.cs">
+      <DependentUpon>ModelPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\MonitoringPageView.xaml.cs">
+      <DependentUpon>MonitoringPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\ReportPageView.xaml.cs">
+      <DependentUpon>ReportPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Views\IOPortSettingWindowView.xaml.cs">
+      <DependentUpon>IOPortSettingWindowView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\Views\ModelDefectCategoryControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\ModelParameterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Views\LogPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\StatisticsPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Views\TeachingPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PLC\AllenBreadley\AllenBreadleyPLCSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PLC\AllenBreadley\AllenBreadleyAddressSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PLC\Melsec\MelsecAddressSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PLC\Melsec\MelsecPLCSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\CollectLogWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\AlgoTaskSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\AddressSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\ModelCategorySettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\ModelInfoWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\SetNodeSettingWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\UmxCommandReceivedWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Views\ChartDataControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\CustomSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\CategoryParamWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\ExportOptionWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Views\IOPortStatusWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Views\LightCalibrationWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\ModelPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Views\MonitoringPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\ReportPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Override\DeviceManager.cs" />
+    <Compile Include="Override\SystemConfig.cs" />
+    <Compile Include="Override\UiManager.cs" />
+    <Page Include="Windows\Views\IOPortSettingWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Authentication\Authentication.Core\Authentication.Core.csproj">
+      <Project>{C1EAF217-931E-4B06-806A-97613C747572}</Project>
+      <Name>Authentication.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Cad\DynMvp.Cad.csproj">
+      <Project>{e9949ab9-efc9-451e-b5ed-68a56cb43d72}</Project>
+      <Name>DynMvp.Cad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Component\DynMvp.Component.csproj">
+      <Project>{714ffbf3-2d97-4e73-a50f-6345b2e6948a}</Project>
+      <Name>DynMvp.Component</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Data\DynMvp.Data.csproj">
+      <Project>{88f6f6be-0858-41e6-9ce2-3704aefc12a7}</Project>
+      <Name>DynMvp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Device\DynMvp.Devices.csproj">
+      <Project>{6bcc6601-4e70-4066-889c-cda17497878a}</Project>
+      <Name>DynMvp.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp.Vision\DynMvp.Vision.csproj">
+      <Project>{146f582a-9d90-4ebb-8d2a-52c34d1a6faa}</Project>
+      <Name>DynMvp.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\DynMvp\DynMvp.csproj">
+      <Project>{532b9dd5-c3dc-4f76-8cf4-233c867fc2d3}</Project>
+      <Name>DynMvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\UniEye.Base\UniEye.Base.csproj">
+      <Project>{0bd31b0d-4675-460f-bf03-82afafdd1d1f}</Project>
+      <Name>UniEye.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.Translation\UniEye.Translation.csproj">
+      <Project>{75F4FE09-4F80-49B5-B8CB-C7E3E761AAA3}</Project>
+      <Name>UniEye.Translation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynMvp.Core\Unieye.WPF.Base\Unieye.WPF.Base.csproj">
+      <Project>{252484F7-A94B-4D52-AA89-7BD627DE5D10}</Project>
+      <Name>Unieye.WPF.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniScanC\UniScanC.csproj">
+      <Project>{60941526-f279-4c38-89aa-05d51e95b5c6}</Project>
+      <Name>UniScanC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\unieye - Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UniScanCM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Sheet Setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit">
+      <Version>4.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro">
+      <Version>1.6.5</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.SimpleChildWindow">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

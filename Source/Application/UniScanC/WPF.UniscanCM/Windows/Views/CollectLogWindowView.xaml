@@ -1,0 +1,142 @@
+﻿<simpleChildWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.CollectLogWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               xmlns:vm="clr-namespace:WPF.UniScanCM.Windows.ViewModels"
+                               xmlns:local="clr-namespace:WPF.UniScanCM.Windows.Views"
+                               mc:Ignorable="d"
+                               ShowTitleBar="False"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               ChildWindowWidth="800"
+                               ChildWindowHeight="450">
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="GroupBox"
+               BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin"
+                    Value="{StaticResource SmallTopMargin}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource ComboBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation SAVE_DATA}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Margin="{StaticResource XXSmallMargin}">
+                    <UniformGrid Columns="2">
+                        <TextBlock Text="{extensions:Translation DURATION}" />
+                        <mahapps:NumericUpDown Value="{Binding DurationDate}" />
+                    </UniformGrid>
+                    <UniformGrid Columns="2">
+                        <TextBlock Text="{extensions:Translation COMPRESS}" />
+                        <mahapps:ToggleSwitchButton x:Name="compressSwitch"
+                                                    IsChecked="{Binding IsCompress}" />
+                    </UniformGrid>
+                    <UniformGrid Columns="2">
+                        <TextBlock Text="{extensions:Translation DELETE_FOLDER}"
+                                   IsEnabled="{Binding IsChecked, ElementName=compressSwitch}" />
+                        <mahapps:ToggleSwitchButton IsChecked="{Binding IsDeleteFolder}"
+                                                    IsEnabled="{Binding IsChecked, ElementName=compressSwitch}" />
+                    </UniformGrid>
+                </StackPanel>
+                <DataGrid Grid.Row="1"
+                          ItemsSource="{Binding InspectModuleInfoList}"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          CanUserSortColumns="False"
+                          SelectionUnit="FullRow"
+                          BorderBrush="{DynamicResource BlackBrush}"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{extensions:Translation NAME}"
+                                            Binding="{Binding ModuleTopic}"
+                                            Width="*"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn Header="{extensions:Translation IP_ADDRESS}"
+                                            Binding="{Binding ModuleIP}"
+                                            Width="*"
+                                            IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <UniformGrid Grid.Row="1"
+                         Columns="2">
+                <baseControls:GlyphButton Glyph="&#xE73E;"
+                                          Text="{extensions:Translation OK}"
+                                          Command="{Binding OkCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CollectLogWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+                <baseControls:GlyphButton Glyph="&#xE711;"
+                                          Text="{extensions:Translation Cancel}"
+                                          Command="{Binding CancelCommand}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:CollectLogWindowView}}}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallMargin}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

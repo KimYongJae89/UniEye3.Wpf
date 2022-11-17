@@ -1,0 +1,168 @@
+﻿<controls:MetroWindow x:Class="Unieye.WPF.Base.Views.ShellWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:transExtensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                      xmlns:extensions="clr-namespace:Unieye.WPF.Base.Extensions"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:baseEvents="clr-namespace:Unieye.WPF.Base.Events;assembly=Unieye.WPF.Base"
+	                  xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters"
+                      xmlns:properties="clr-namespace:Unieye.WPF.Base.Properties"
+                      xmlns:helpers="clr-namespace:Unieye.WPF.Base.Helpers"
+                      xmlns:views="clr-namespace:Unieye.WPF.Base.Views"
+                      xmlns:usercontrols="clr-namespace:Unieye.WPF.Base.Controls"
+                      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                      xmlns:vm="clr-namespace:Unieye.WPF.Base.ViewModels"
+                      xmlns:prism="http://www.codeplex.com/prism"
+                      WindowState="Maximized"
+                      mc:Ignorable="d"
+                      WindowStyle="None"
+                      ShowIconOnTitleBar="False"
+                      Icon="{extensions:BitmapExtention {x:Static properties:Resources.Logo}}"
+                      Name="parentWindow"
+                      BorderBrush="{DynamicResource BlackBrush}"
+                      BorderThickness="1"
+                      Foreground="{DynamicResource BlackBrush}"
+                      TitleForeground="{DynamicResource BlackBrush}"
+                      WindowTitleBrush="{DynamicResource AccentColorBrush4}"
+                      ShowTitleBar="False"
+                      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                      Dialog:DialogParticipation.Register="{Binding RelativeSource={RelativeSource Mode=Self}}">
+    <controls:MetroWindow.Resources>
+        <BitmapImage x:Key="UnieyeBlankLogo" UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/BlankLogo.png"/>
+        <views:ManuItemConverter x:Key="ManuItemConverter"/>
+        <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type usercontrols:NavigationMenuItem}">
+            <StackPanel Margin="{StaticResource SmallVerticalMargin}" IsEnabled="{Binding IsEnabled}"
+                        x:Name="templatePanel">
+                <TextBlock Style="{StaticResource GlyphStyle}"
+                           Text="{Binding Glyph}" 
+                           Margin="{StaticResource XXSmallVerticalMargin}"/>
+                <TextBlock Grid.Column="1"
+                           Style="{StaticResource ManuItemStyle}"
+                           HorizontalAlignment="Center"
+                           Text="{transExtensions:Translation {Binding Text}}"
+                           Margin="{StaticResource XXSmallVerticalMargin}"/>
+            </StackPanel>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter TargetName="templatePanel" Property="StackPanel.Opacity" Value="0.3"/>
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+    </controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding TitleBarHeight, Mode=OneWay, ElementName=parentWindow}"/>
+            <RowDefinition Height="{Binding BlankHeight, Mode=OneWay, ElementName=parentWindow}"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="{Binding TitleBar, Mode=OneWay, ElementName=parentWindow}" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"
+                   Margin="{StaticResource SmallMargin}"
+                   Source="{Binding CompanyLogo, Mode=OneWay, ElementName=parentWindow}"
+                   HorizontalAlignment="Left"
+                   Stretch="Uniform"/>
+            <UniformGrid Grid.Column="1" Rows="2">
+                <TextBlock Text="{Binding Date, Mode=OneWay, ElementName=parentWindow}"
+                           Style="{StaticResource PageTitleStyle}"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                <TextBlock Text="{Binding Time, Mode=OneWay, ElementName=parentWindow}"
+                           Style="{StaticResource PageTitleStyle}"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"/>
+            </UniformGrid>
+            <TextBlock Grid.Column="2"
+                       Text="{Binding ProgramTitle, Mode=OneWay, ElementName=parentWindow}"
+                       Style="{StaticResource PageTitleStyle}"
+                       Margin="{StaticResource SmallMargin}" 
+                       FontSize="50"
+                       HorizontalAlignment="Center"/>
+            <UniformGrid Grid.Column="3" Rows="2">
+                <TextBlock Text="{transExtensions:Translation USER}"
+                           Style="{StaticResource PageTitleStyle}"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                <Button Command="{Binding LogInCommand}"
+                        Style="{StaticResource ButtonBaseStyle}"
+                        FontSize="20"
+                        Margin="{StaticResource XXSmallMargin}"
+                        Padding="0"
+                        Width="150" >
+                    <TextBlock Text="{Binding CurrentUser, Mode=OneWay, ElementName=parentWindow}"
+                               Margin="0" Padding="0"/>
+                </Button>
+            </UniformGrid>
+            <UniformGrid Grid.Column="4" Rows="2">
+                <TextBlock Text="{transExtensions:Translation MODEL}"
+                           Style="{StaticResource PageTitleStyle}"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"/>
+                <Border BorderBrush="{DynamicResource BlackBrush}"
+                        BorderThickness="0.9"
+                        Background="{DynamicResource WhiteBrush}"
+                        Margin="{StaticResource XXSmallMargin}">
+                    <TextBlock Text="{Binding CurrentModel, Mode=OneWay, ElementName=parentWindow}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource PageTitleStyle}"
+                               FontSize="20"/>
+                </Border>
+            </UniformGrid>
+            <Image Grid.Column="5"
+                   Margin="{StaticResource SmallMargin}"
+                   Source="{Binding ProductLogo, Mode=OneWay, ElementName=parentWindow}"
+                   HorizontalAlignment="Right"
+                   Stretch="Uniform"/>
+        </Grid>
+        <Grid Grid.Row="2" Background="{DynamicResource WhiteBrush}" Margin="{StaticResource XSmallLeftMargin}">
+            <controls:HamburgerMenu x:Name="Menu"
+                                    PaneForeground="{DynamicResource BlackBrush}"
+                                    PaneBackground="{DynamicResource WhiteBrush}"
+                                    ContentTransition="Normal"
+                                    HamburgerVisibility="Collapsed"
+                                    HamburgerHeight="0"
+                                    IsPaneOpen="True"
+                                    OpenPaneLength="115"
+                                    DisplayMode="CompactInline"
+                                    ItemTemplate="{StaticResource MenuItemTemplate}"
+                                    OptionsItemTemplate="{StaticResource MenuItemTemplate}"
+                                    SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, ElementName=parentWindow}"
+                                    ItemsSource="{Binding MenuItems, Mode=OneWay, ElementName=parentWindow, UpdateSourceTrigger=PropertyChanged}"
+                                    OptionsItemsSource="{Binding OptionMenuItems, ElementName=parentWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                <controls:HamburgerMenu.ContentTemplate>
+                    <DataTemplate DataType="{x:Type usercontrols:NavigationMenuItem}">
+                        <Grid Margin="{StaticResource XSmallMargin}">
+                            <ContentControl Content="{Binding Tag}" IsEnabled="{Binding IsEnabled}"/>
+                        </Grid>
+                    </DataTemplate>
+                </controls:HamburgerMenu.ContentTemplate>
+                <controls:HamburgerMenu.Content>
+                    <MultiBinding Converter="{StaticResource ManuItemConverter}">
+                        <Binding Path="SelectedItem" RelativeSource="{RelativeSource Mode=Self}" ConverterParameter="SelectedItem"/>
+                        <Binding Path="SelectedOptionsItem" RelativeSource="{RelativeSource Mode=Self}" ConverterParameter="SelectedOptionsItem"/>
+                        <Binding RelativeSource="{RelativeSource Mode=Self}"/>
+                    </MultiBinding>
+                </controls:HamburgerMenu.Content>
+            </controls:HamburgerMenu>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

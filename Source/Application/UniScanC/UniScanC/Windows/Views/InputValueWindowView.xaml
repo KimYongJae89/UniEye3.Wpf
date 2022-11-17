@@ -1,0 +1,97 @@
+﻿<simpleChildWindow:ChildWindow x:Class="UniScanC.Windows.Views.InputValueWindowView"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:simpleChildWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                               xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                               xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                               mc:Ignorable="d"
+                               CloseByEscape="True"
+                               ShowTitleBar="False"
+                               BorderBrush="{DynamicResource BlackBrush}"
+                               BorderThickness="1"
+                               ChildWindowWidth="1200"
+                               Name="parentWindow">
+    <simpleChildWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Color="{DynamicResource WhiteColor}"
+                         Opacity="0.8" />
+    </simpleChildWindow:ChildWindow.OverlayBrush>
+    <simpleChildWindow:ChildWindow.Resources>
+        <Style TargetType="Label"
+               BasedOn="{StaticResource LabelBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+        </Style>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}">
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource MediumLargeFontSize}" />
+        </Style>
+    </simpleChildWindow:ChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation VALUE}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="{StaticResource XXSmallMargin}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0"
+                   Margin="{StaticResource XXSmallMargin}"
+                   Content="{extensions:Translation VALUE}" />
+            <TextBox Grid.Column="1"
+                     Margin="{StaticResource XXSmallMargin}"
+                     Text="{Binding Text, ElementName=parentWindow, UpdateSourceTrigger=PropertyChanged}" />
+            <UniformGrid Grid.Row="1"
+                         Grid.ColumnSpan="2"
+                         Columns="2"
+                         Margin="{StaticResource XXSmallMargin}">
+                <baseControls:GlyphButton Glyph="&#xE73E;"
+                                          Text="{extensions:Translation Apply}"
+                                          Command="{Binding ApplyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=simpleChildWindow:ChildWindow}}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=simpleChildWindow:ChildWindow}}"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallRightMargin}" />
+                <baseControls:GlyphButton Glyph="&#xE711;"
+                                          Text="{extensions:Translation Cancel}"
+                                          Command="{Binding CancelCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=simpleChildWindow:ChildWindow}}"
+                                          CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=simpleChildWindow:ChildWindow}}"
+                                          FontSize="{StaticResource MediumFontSize}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          BorderThickness="1"
+                                          Margin="{StaticResource XXSmallLeftMargin}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</simpleChildWindow:ChildWindow>

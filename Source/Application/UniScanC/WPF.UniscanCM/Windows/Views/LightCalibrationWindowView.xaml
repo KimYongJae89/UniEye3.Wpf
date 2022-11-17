@@ -1,0 +1,109 @@
+﻿<childWindow:ChildWindow x:Class="WPF.UniScanCM.Windows.Views.LightCalibrationWindowView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:local="clr-namespace:WPF.UniScanCM.Windows.Views"
+                         xmlns:selector="clr-namespace:WPF.UniScanCM.Selector"
+                         xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:childWindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                         xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters;assembly=Unieye.WPF.Base"
+                         xmlns:extensions="clr-namespace:UniEye.Translation.Extensions;assembly=UniEye.Translation"
+                         xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls;assembly=Unieye.WPF.Base"
+                         xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+                         mc:Ignorable="d"
+                         BorderBrush="{DynamicResource BlackBrush}"
+                         BorderThickness="1"
+                         ShowTitleBar="False"
+                         Width="Auto"
+                         Height="Auto"
+                         ChildWindowWidth="640"
+                         ChildWindowHeight="360">
+    <childWindow:ChildWindow.OverlayBrush>
+        <SolidColorBrush Opacity="0.8"
+                         Color="{DynamicResource WhiteColor}" />
+    </childWindow:ChildWindow.OverlayBrush>
+    <childWindow:ChildWindow.Resources>
+        <BitmapImage x:Key="SuccessImage"
+                     UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/Check.png" />
+        <BitmapImage x:Key="FailImage"
+                     UriSource="pack://application:,,,/Unieye.WPF.Base;component/Resources/Uncheck.png" />
+        <DataTemplate x:Key="progressTemplate">
+            <mahapps:ProgressRing IsActive="True" />
+        </DataTemplate>
+        <DataTemplate x:Key="successTemplate">
+            <Image Source="{StaticResource SuccessImage}"
+                   Width="70" />
+        </DataTemplate>
+        <DataTemplate x:Key="failTemplate">
+            <Image Source="{StaticResource FailImage}"
+                   Width="70" />
+        </DataTemplate>
+        <selector:ProcessingTemplateSelector x:Key="ProcessingTemplateSelector"
+                                             successTemplate="{StaticResource successTemplate}"
+                                             failTemplate="{StaticResource failTemplate}"
+                                             progressTemplate="{StaticResource progressTemplate}" />
+    </childWindow:ChildWindow.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"
+                                   CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:LightCalibrationWindowView}}}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="{StaticResource XXSmallMargin}">
+            <TextBlock Text="{extensions:Translation CALIBRATION_LIGHT}"
+                       Margin="{StaticResource XXSmallMargin}"
+                       HorizontalAlignment="Left"
+                       FontSize="{StaticResource LargeFontSize}"
+                       FontWeight="Bold" />
+            <Separator Background="{DynamicResource AccentColorBrush}"
+                       Margin="{StaticResource XXSmallMargin}" />
+        </StackPanel>
+        <DockPanel Grid.Row="1">
+            <baseControls:GlyphButton DockPanel.Dock="Bottom"
+                                      Text="{extensions:Translation Cancel}"
+                                      Glyph="&#xE711;"
+                                      BorderBrush="{DynamicResource BlackBrush}"
+                                      BorderThickness="1"
+                                      FontSize="{StaticResource MediumFontSize}"
+                                      Margin="8,0,8,8"
+                                      Command="{Binding CloseCommand}"
+                                      CommandParameter="{Binding ElementName=parentControl}" />
+            <Grid Margin="{StaticResource XXSmallMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="TextBlock"
+                           BasedOn="{StaticResource TextBlockBaseStyle}">
+                        <Setter Property="FontSize"
+                                Value="{StaticResource MediumFontSize}" />
+                        <Setter Property="TextAlignment"
+                                Value="Center" />
+                    </Style>
+                    <Style TargetType="Image">
+                        <Setter Property="Stretch"
+                                Value="Uniform" />
+                        <Setter Property="Margin"
+                                Value="{StaticResource LargeMargin}" />
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Grid.Row="0"
+                           Margin="{StaticResource XXSmallMargin}"
+                           Text="{Binding LightGrabText}" />
+                <ContentPresenter Grid.Row="1"
+                                  Margin="{StaticResource XXSmallMargin}"
+                                  Content="{Binding LightGrabDoneInfo, UpdateSourceTrigger=PropertyChanged}"
+                                  ContentTemplateSelector="{StaticResource ProcessingTemplateSelector}" />
+            </Grid>
+        </DockPanel>
+    </Grid>
+</childWindow:ChildWindow>

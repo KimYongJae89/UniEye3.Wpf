@@ -1,0 +1,447 @@
+﻿<mahapps:MetroWindow x:Class="Unieye.WPF.Base.Views.ConfigWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mvpData="clr-namespace:DynMvp.Data;assembly=DynMvp.Data"
+                     xmlns:mvpVision="clr-namespace:DynMvp.Vision;assembly=DynMvp.Vision"
+                     xmlns:System="clr-namespace:System;assembly=mscorlib"
+                     xmlns:helpers="clr-namespace:UniEye.Translation.Helpers;assembly=UniEye.Translation"
+                     xmlns:vm="clr-namespace:Unieye.WPF.Base.ViewModels"
+                     mc:Ignorable="d"
+                     Title="ConfigWindow"
+                     ShowTitleBar="False"
+                     ShowCloseButton="False"
+                     ShowMaxRestoreButton="False"
+                     Background="{DynamicResource WhiteBrush}"
+                     BorderBrush="{DynamicResource BlackBrush}"
+                     BorderThickness="1"
+                     WindowStartupLocation="CenterScreen"
+                     Width="1000"
+                     Height="800">
+    <Window.Resources>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="{StaticResource WhiteBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BlackBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="{DynamicResource AccentColorBrush3}" />
+                </Trigger>
+                <Trigger Property="IsPressed"
+                         Value="True">
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource BlackBrush}" />
+                    <Setter Property="Background"
+                            Value="{DynamicResource AccentColorBrush2}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="comboText"
+               BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Margin"
+                    Value="1" />
+        </Style>
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="ComboBox"
+               BasedOn="{StaticResource {x:Type ComboBox}}">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <Style TargetType="RadioButton"
+               BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="Margin"
+                    Value="{StaticResource XXSmallMargin}" />
+        </Style>
+        <ObjectDataProvider x:Key="LanguageEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="helpers:LanguageSettings" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="SystemType"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="vm:SystemType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="ImagingLibrary"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="mvpVision:ImagingLibrary" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="DataPathType"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="mvpData:DataPathType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="DeviceListType"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="vm:DeviceListType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="{StaticResource XXSmallMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="{StaticResource XXSmallMargin}">
+            <mahapps:MetroAnimatedTabControl>
+                <TabItem Header="GENERAL"
+                         Padding="0,4,8,4">
+                    <Border BorderBrush="{StaticResource BlackBrush}"
+                            BorderThickness="1">
+                        <Grid Margin="{StaticResource XXSmallMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="0"
+                                       Text="Title" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="1"
+                                       Text="Show Program Title " />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="2"
+                                       Text="ProgramTitle" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="3"
+                                       Text="Program Title Bar" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="4"
+                                       Text="Company Logo" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="5"
+                                       Text="Product Logo" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="6"
+                                       Text="Language" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="7"
+                                       Text="Imaging Library" />
+                            <TextBlock Grid.Column="0"
+                                       Grid.Row="8"
+                                       Text="Virtual Mode" />
+                            <TextBox Grid.Column="1"
+                                     Grid.Row="0"
+                                     Text="{Binding Title}" />
+                            <mahapps:ToggleSwitchButton Grid.Column="1"
+                                                        Grid.Row="1"
+                                                        HorizontalAlignment="Left"
+                                                        OffSwitchBrush="Gray"
+                                                        IsChecked="{Binding ShowProgramTitle}" />
+                            <TextBox Grid.Column="1"
+                                     Grid.Row="2"
+                                     IsEnabled="{Binding ShowProgramTitle}"
+                                     Text="{Binding ProgramTitle}" />
+                            <Grid Grid.Column="1"
+                                  Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0"
+                                         Text="{Binding TitleBar}"
+                                         IsEnabled="{Binding ShowProgramTitle}" />
+                                <Button Grid.Column="1"
+                                        FontSize="{DynamicResource SmallMediumFontSize}"
+                                        Content="..."
+                                        Width="30"
+                                        Command="{Binding SearchTitleBarPathCommand}" />
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0"
+                                         Text="{Binding CompanyLogo}"
+                                         IsEnabled="{Binding ShowProgramTitle}" />
+                                <Button Grid.Column="1"
+                                        FontSize="{DynamicResource SmallMediumFontSize}"
+                                        Content="..."
+                                        Width="30"
+                                        Command="{Binding SearchCompanyLogoPathCommand}" />
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0"
+                                         Text="{Binding ProductLogo}"
+                                         IsEnabled="{Binding ShowProgramTitle}" />
+                                <Button Grid.Column="1"
+                                        FontSize="{DynamicResource SmallMediumFontSize}"
+                                        Content="..."
+                                        Width="30"
+                                        Command="{Binding SearchProductLogoPathCommand}" />
+                            </Grid>
+                            <ComboBox Grid.Column="1"
+                                      Grid.Row="6"
+                                      ItemsSource="{Binding Source={StaticResource LanguageEnum}}"
+                                      SelectedItem="{Binding LanguageSettings}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <ComboBox Grid.Column="1"
+                                      Grid.Row="7"
+                                      ItemsSource="{Binding Source={StaticResource ImagingLibrary}}"
+                                      SelectedItem="{Binding ImagingLibrary}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <mahapps:ToggleSwitchButton Grid.Column="1"
+                                                        Grid.Row="8"
+                                                        HorizontalAlignment="Left"
+                                                        OffSwitchBrush="Gray"
+                                                        IsChecked="{Binding IsVirtualMode}" />
+                        </Grid>
+                    </Border>
+                </TabItem>
+                <TabItem Header="DEVICE"
+                         Padding="0,4,8,4">
+                    <Border BorderBrush="{StaticResource BlackBrush}"
+                            BorderThickness="1">
+                        <Grid Margin="{StaticResource XXSmallMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel>
+                                    <RadioButton Content="GRABBER"
+                                                 GroupName="DeviceType"
+                                                 IsChecked="True"
+                                                 Command="{Binding SelectDeviceCommand}"
+                                                 CommandParameter="Grabber" />
+                                    <RadioButton Content="MOTION"
+                                                 GroupName="DeviceType"
+                                                 Command="{Binding SelectDeviceCommand}"
+                                                 CommandParameter="Motion" />
+                                    <RadioButton Content="DIO"
+                                                 GroupName="DeviceType"
+                                                 Command="{Binding SelectDeviceCommand}"
+                                                 CommandParameter="DigitalIo" />
+                                    <RadioButton Content="LIGHT"
+                                                 GroupName="DeviceType"
+                                                 Command="{Binding SelectDeviceCommand}"
+                                                 CommandParameter="LightController" />
+                                    <RadioButton Content="DAQ"
+                                                 GroupName="DeviceType"
+                                                 Command="{Binding SelectDeviceCommand}"
+                                                 CommandParameter="Daq" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1">
+                                    <Button Content="Camera Calibration"
+                                            Command="{Binding CameraCalibrationButtonClick}" />
+                                    <Button Content="Motion Config"
+                                            Command="{Binding MotionConfigButtonClick}" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel Orientation="Horizontal"
+                                                Margin="4,0,0,0">
+                                        <Button Content="Add"
+                                                Width="100"
+                                                Margin="0,4,4,4"
+                                                Command="{Binding AddDevice}" />
+                                        <Button Content="Edit"
+                                                IsEnabled="{Binding IsEnableDeviceEditButton}"
+                                                Command="{Binding EditDevice}"
+                                                Width="100" />
+                                        <Button Content="Delete"
+                                                IsEnabled="{Binding IsEnableDeviceEditButton}"
+                                                Command="{Binding DeleteDevice}"
+                                                Width="100" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"
+                                                Margin="0,0,4,0">
+                                        <Button Content="Up"
+                                                Width="100" />
+                                        <Button Content="Down"
+                                                Width="100"
+                                                Margin="4,4,0,4" />
+                                    </StackPanel>
+                                </Grid>
+                                <DataGrid Grid.Row="1"
+                                          Name="deviceList"
+                                          CanUserAddRows="False"
+                                          CanUserDeleteRows="False"
+                                          CanUserSortColumns="False"
+                                          IsReadOnly="True"
+                                          ItemsSource="{Binding DataGridItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          SelectedItem="{Binding SelectedDevice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          BorderBrush="{DynamicResource BlackBrush}"
+                                          AutoGenerateColumns="True">
+                                    <DataGrid.InputBindings>
+                                        <MouseBinding Gesture="LeftDoubleClick"
+                                                      Command="{Binding EditDevice}" />
+                                    </DataGrid.InputBindings>
+                                </DataGrid>
+                                <UniformGrid Grid.Row="2"
+                                             Columns="3">
+                                    <mahapps:ToggleSwitch Content="Use Door Sensor"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseDoorSensor}" />
+                                    <mahapps:ToggleSwitch Content="Use Model Barcode"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseModelBarcode}" />
+                                    <mahapps:ToggleSwitch Content="Use Fov Navigator"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray" />
+                                    <mahapps:ToggleSwitch Content="Use Robot Stage"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseRobotStage}" />
+                                    <mahapps:ToggleSwitch Content="Use Conveyor Motor"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseConveyorMotor}" />
+                                    <mahapps:ToggleSwitch Content="Use Conveyor System"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseConveyorSystem}" />
+                                    <mahapps:ToggleSwitch Content="Use Tower Lamp"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseTowerLamp}" />
+                                    <mahapps:ToggleSwitch Content="Use Sound Buzzer"
+                                                          ContentDirection="RightToLeft"
+                                                          HorizontalAlignment="Left"
+                                                          OffSwitchBrush="Gray"
+                                                          IsChecked="{Binding UseSoundBuzzer}" />
+                                </UniformGrid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </TabItem>
+            </mahapps:MetroAnimatedTabControl>
+        </Grid>
+        <Grid Grid.Row="1">
+            <UniformGrid Columns="2">
+                <Button Content="OK"
+                        Margin="{StaticResource XXSmallMargin}"
+                        Command="{Binding OKButtonClick}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                <Button Content="CANCEL"
+                        Margin="{StaticResource XXSmallMargin}"
+                        Command="{Binding CancelButtonClick}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</mahapps:MetroWindow>

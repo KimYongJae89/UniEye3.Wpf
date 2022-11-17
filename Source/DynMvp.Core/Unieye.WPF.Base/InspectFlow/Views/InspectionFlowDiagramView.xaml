@@ -1,0 +1,265 @@
+﻿<childwindow:ChildWindow x:Class="Unieye.WPF.Base.InspectFlow.Views.InspectionFlowDiagramView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                         xmlns:local="clr-namespace:Unieye.WPF.Base.InspectFlow.Views"
+                         xmlns:vm="clr-namespace:Unieye.WPF.Base.InspectFlow.ViewModels"
+                         xmlns:model="clr-namespace:Unieye.WPF.Base.InspectFlow.Models"
+                         xmlns:childwindow="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
+                         xmlns:baseControls="clr-namespace:Unieye.WPF.Base.Controls"
+                         xmlns:baseConverters="clr-namespace:Unieye.WPF.Base.Converters"
+                         xmlns:baseBehaviors="clr-namespace:Unieye.WPF.Base.Behaviors"
+                         xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:XCmd="clr-namespace:Unieye.WPF.Base.Helpers.WPFXCommand"
+                         x:Name="parentWindow"
+                         mc:Ignorable="d" 
+                         ShowTitleBar="False"
+                         d:DesignHeight="450" d:DesignWidth="800">
+    <childwindow:ChildWindow.DataContext>
+        <vm:InspectionFlowDiagramViewModel/>
+    </childwindow:ChildWindow.DataContext>
+    <childwindow:ChildWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Unieye.WPF.Base;component/Layout/ResourceDictionary/LayoutResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <baseConverters:MultiBindingConverter x:Key="MultiBindingConverter"/>
+            <baseConverters:NullValueConverter x:Key="NullValueConverter"/>
+            <vm:SelectedBrushConverter x:Key="SelectedBrushConverter"/>
+            <vm:InspectionFlowModelButtonConverter x:Key="InspectionFlowModelButtonConverter"/>
+            <vm:InspectionFlowDiagramModelLineConverter x:Key="InspectionFlowDiagramModelLineConverter"/>
+            <baseConverters:TypeNameCovnerter x:Key="TypeNameCovnerter"/>
+            <baseConverters:ToStringConverter x:Key="ToStringConverter"/>
+            <HierarchicalDataTemplate x:Key="lv2">
+                <TextBlock Text="{Binding Name}"
+                           XCmd:MouseMove.Command="{Binding DataContext.TreeItemMouseMoveCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                           XCmd:MouseMove.CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                           XCmd:MouseLeftButtonDown.Command="{Binding DataContext.TreeItemMouseDownCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                           XCmd:MouseLeftButtonDown.CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                           AllowDrop="False">
+                    <TextBlock.InputBindings>
+                        <MouseBinding MouseAction="LeftClick"
+                                  Command="{Binding DataContext.TreeItemSelectedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                                  CommandParameter="{Binding}">
+                        </MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+            </HierarchicalDataTemplate>
+            <HierarchicalDataTemplate x:Key="lv1" 
+                                  ItemsSource="{Binding SubTypeList}"
+                                  ItemTemplate="{StaticResource lv2}">
+                <TextBlock Text="{Binding MainType.Name}"
+                           XCmd:MouseMove.Command="{Binding DataContext.TreeItemMouseMoveCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                           XCmd:MouseMove.CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                           XCmd:MouseLeftButtonDown.Command="{Binding DataContext.TreeItemMouseDownCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                           XCmd:MouseLeftButtonDown.CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}">
+                    <TextBlock.InputBindings>
+                        <MouseBinding MouseAction="LeftClick"
+                                  Command="{Binding DataContext.TreeItemSelectedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                                  CommandParameter="{Binding}">
+                        </MouseBinding>
+                    </TextBlock.InputBindings>
+                </TextBlock>
+            </HierarchicalDataTemplate>
+            <DataTemplate x:Key="InspectorTemaplate">
+                <Grid XCmd:PreviewDrop.Command="{Binding DataContext.TemplateItemDropCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                      XCmd:PreviewDrop.CommandParameter="{Binding}"
+                      XCmd:PreviewMouseLeftButtonDown.Command="{Binding DataContext.InspectionFlowModelItemClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}">
+                    <XCmd:PreviewMouseLeftButtonDown.CommandParameter>
+                        <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                            <Binding/>
+                            <Binding RelativeSource="{RelativeSource Mode=Self}"/>
+                        </MultiBinding>
+                    </XCmd:PreviewMouseLeftButtonDown.CommandParameter>
+                    <Grid.InputBindings>
+                        <MouseBinding MouseAction="LeftDoubleClick"
+                                      Command="{Binding DataContext.InspectorDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                                      CommandParameter="{Binding}"/>
+                    </Grid.InputBindings>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="1" Grid.RowSpan="3"
+                            Grid.Column="1" Grid.ColumnSpan="3"
+                            BorderBrush="{DynamicResource GrayBrush1}"
+                            BorderThickness="2"
+                            MinWidth="{Binding Width}"
+                            CornerRadius="5"
+                            AllowDrop="True"
+                            Background="{Binding IsSelected, Converter={StaticResource SelectedBrushConverter}}">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="TextAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="{StaticResource XXSmallMargin}"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{Binding InspectionFlowModel.Name}"/>
+                            <ListBox Grid.Row="1"
+                                 ItemsSource="{Binding InspectionFlowModel.FlowAlgorithms, UpdateSourceTrigger=PropertyChanged}">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListBoxItem">
+                                                    <ContentPresenter/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource TypeNameCovnerter}}"
+                                               TextAlignment="Center"
+                                               FontSize="{StaticResource MediumFontSize}"
+                                               Background="{DynamicResource AccentColorBrush2}"
+                                               Margin="{StaticResource XXSmallMargin}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="0" Grid.RowSpan="3"
+                            Grid.Column="0" Grid.ColumnSpan="3"
+                            Background="{DynamicResource AccentBaseColorBrush}"
+                            BorderBrush="{DynamicResource GrayBrush10}"
+                            BorderThickness="2"
+                            CornerRadius="0,15,15,15">
+                        <Button Content="{Binding Order}"
+                                FontSize="{StaticResource MediumFontSize}"
+                                FontWeight="Bold"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                ContentStringFormat="{}{0:0}"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ModelLinkTemplate">
+                <Line X1="{Binding PreviousModel.X}" X2="{Binding X}"
+                      Y1="{Binding PreviousModel.Y}" Y2="{Binding Y}"
+                      Stroke="{DynamicResource AccentBaseColorBrush}"
+                      StrokeThickness="2"
+                      Visibility="{Binding Converter={StaticResource InspectionFlowDiagramModelLineConverter}}"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </childwindow:ChildWindow.Resources>
+    <Grid Width="1600" Height="900">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TreeView Grid.Row="1"
+                      ItemsSource="{Binding InspectionFlowDiagramTreeItemList}"
+                      baseBehaviors:TreeViewBehavior.SelectedItem="{Binding SelectedTreeItem, Mode=TwoWay}"
+                      ItemTemplate="{StaticResource lv1}">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="True"/>
+                        <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <!--<ContentPresenter Content="{Binding ParameterView}"/>-->
+            <Border BorderThickness="1" BorderBrush="White" Padding="1"
+                    Name="canvasBorder"
+                    ClipToBounds="True">
+                <Canvas Background="Black"
+                        Name="diagramCanvas"
+                        Width="{Binding Width, ElementName=canvasBorder}"
+                        Height="{Binding Height, ElementName=canvasBorder}"
+                        XCmd:PreviewDrop.Command="{Binding DataContext.TreeItemDropCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                        XCmd:PreviewDrop.CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                        XCmd:PreviewMouseMove.Command="{Binding DataContext.InspectionFlowModelItemMoveCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                        XCmd:PreviewMouseMove.CommandParameter="{Binding ElementName=diagramCanvas}"
+                        XCmd:PreviewMouseLeftButtonDown.Command="{Binding DataContext.CanvasMouseDownCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                        XCmd:PreviewMouseUp.Command="{Binding DataContext.CanvasMouseUpCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                        AllowDrop="True">
+                    <ItemsControl ItemsSource="{Binding DataContext.InspectionFlowDiagramModelList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                                  ItemTemplate="{StaticResource ModelLinkTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl ItemsSource="{Binding DataContext.InspectionFlowDiagramModelList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:InspectionFlowDiagramView}}}"
+                                  ItemTemplate="{StaticResource InspectorTemaplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                    </ItemsControl>
+                </Canvas>
+            </Border>
+            <Popup Name="popup"
+                       IsOpen="{Binding IsOpenContextMenu}"
+                       StaysOpen="False"
+                       Visibility="Visible"
+                       AllowsTransparency="True"
+                       Placement="MousePoint"
+                       PopupAnimation="Scroll">
+                <Border BorderBrush="{DynamicResource GrayBrush1}"
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        Background="{DynamicResource WhiteBrush}"
+                        Margin="{StaticResource XSmallMargin}">
+                    <StackPanel Margin="{StaticResource XSmallMargin}">
+                        <TextBlock Text="Operation"
+                                   TextAlignment="Center"
+                                   FontSize="{StaticResource MediumLargeFontSize}"
+                                   Margin="{StaticResource XXSmallMargin}"/>
+                        <Button Content="Insert Before"
+                                FontSize="{StaticResource MediumFontSize}"
+                                Command="{Binding InsertBeforeCommand}"/>
+                        <Button Content="Insert After"
+                                FontSize="{StaticResource MediumFontSize}"
+                                Command="{Binding InsertAfterCommand}"/>
+                        <Button Content="(+) Calculate"
+                                FontSize="{StaticResource MediumFontSize}"
+                                Command="{Binding PlusCalculateCommand}"/>
+                        <Button Content="(-) Calculate"
+                                FontSize="{StaticResource MediumFontSize}"
+                                Command="{Binding MinusCalculateCommand}"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
+    </Grid>
+</childwindow:ChildWindow>

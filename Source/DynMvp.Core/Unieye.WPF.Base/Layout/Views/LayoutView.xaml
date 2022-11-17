@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Unieye.WPF.Base.Layout.Views.LayoutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Unieye.WPF.Base.Layout.ViewModels"
+             xmlns:converters="clr-namespace:Unieye.WPF.Base.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockBaseStyle}" />
+        <Style TargetType="TextBox"
+               BasedOn="{StaticResource TextBoxBaseStyle}" />
+        <Style TargetType="Button"
+               BasedOn="{StaticResource ButtonBaseStyle}" />
+        <converters:ToStringConverter x:Key="ToStringConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <mahapps:MetroAnimatedTabControl ItemsSource="{Binding LayoutPageList}"
+                                         Background="{DynamicResource GrayBrush10}"
+                                         SelectedItem="{Binding SelectedPage}">
+            <mahapps:MetroAnimatedTabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding PageName}" />
+                </DataTemplate>
+            </mahapps:MetroAnimatedTabControl.ItemTemplate>
+            <mahapps:MetroAnimatedTabControl.ContentTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{DynamicResource BlackBrush}"
+                            BorderThickness="1"
+                            Margin="{StaticResource XXSmallMargin}">
+                        <ContentPresenter Content="{Binding LayoutGrid}"
+                                          Margin="{StaticResource XXSmallMargin}" />
+                    </Border>
+                </DataTemplate>
+            </mahapps:MetroAnimatedTabControl.ContentTemplate>
+        </mahapps:MetroAnimatedTabControl>
+    </Grid>
+</UserControl>
